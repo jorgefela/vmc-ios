@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vmc2-plus.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4kr-Xl-PyD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="reF-NV-3sO">
+                                <rect key="frame" x="238" y="84" width="125" height="143"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzj-QA-gQb">
+                                <rect key="frame" x="219" y="230" width="162" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Share your emotions!">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="TrebuchetMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6cs-j4-wmO">
+                                <rect key="frame" x="53" y="321" width="494" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhO-ZX-P5a">
+                                <rect key="frame" x="53" y="366" width="494" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-bp-oJx">
+                                <rect key="frame" x="273" y="426" width="54" height="30"/>
+                                <state key="normal" title="SIGN IN"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5k-Hd-0YP">
+                                <rect key="frame" x="205" y="524" width="191" height="30"/>
+                                <state key="normal" title="SIGN UP FOR A FREE TRIAL"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDA-h1-mpI">
+                                <rect key="frame" x="177" y="56" width="247" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="WELCOME TO VMC TECHNOLOGY">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="17" name="TrebuchetMS"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RMM-bp-oJx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2Rh-gu-13h"/>
+                            <constraint firstItem="4kr-Xl-PyD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6VZ-Cn-R06"/>
+                            <constraint firstItem="YhO-ZX-P5a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="33" id="97b-HO-K5v"/>
+                            <constraint firstItem="Nzj-QA-gQb" firstAttribute="top" secondItem="reF-NV-3sO" secondAttribute="bottom" constant="3" id="9t5-wP-4ja"/>
+                            <constraint firstItem="reF-NV-3sO" firstAttribute="top" secondItem="gDA-h1-mpI" secondAttribute="bottom" constant="8" id="AqG-2w-Z2c"/>
+                            <constraint firstItem="gDA-h1-mpI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="C0C-9H-LHz"/>
+                            <constraint firstItem="reF-NV-3sO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Esw-ra-wmJ"/>
+                            <constraint firstItem="4kr-Xl-PyD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fbh-EL-J5Y"/>
+                            <constraint firstItem="k5k-Hd-0YP" firstAttribute="top" secondItem="RMM-bp-oJx" secondAttribute="bottom" constant="68" id="Huh-0h-Bh2"/>
+                            <constraint firstItem="6cs-j4-wmO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="33" id="I52-A7-C9l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YhO-ZX-P5a" secondAttribute="trailing" constant="33" id="JhF-HI-gEV"/>
+                            <constraint firstItem="YhO-ZX-P5a" firstAttribute="top" secondItem="6cs-j4-wmO" secondAttribute="bottom" constant="15" id="bZm-KV-iGx"/>
+                            <constraint firstItem="6cs-j4-wmO" firstAttribute="top" secondItem="Nzj-QA-gQb" secondAttribute="bottom" constant="71" id="fdf-Xe-GQR"/>
+                            <constraint firstItem="RMM-bp-oJx" firstAttribute="top" secondItem="YhO-ZX-P5a" secondAttribute="bottom" constant="30" id="nG8-mm-hjT"/>
+                            <constraint firstItem="k5k-Hd-0YP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oK8-ti-R7U"/>
+                            <constraint firstAttribute="trailing" secondItem="4kr-Xl-PyD" secondAttribute="trailing" id="oqS-ES-NEF"/>
+                            <constraint firstItem="4kr-Xl-PyD" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="pnU-tT-Pc9"/>
+                            <constraint firstItem="Nzj-QA-gQb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pzS-1T-Y9h"/>
+                            <constraint firstItem="4kr-Xl-PyD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s27-4z-hgT"/>
+                            <constraint firstItem="gDA-h1-mpI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="se5-Zv-fSK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6cs-j4-wmO" secondAttribute="trailing" constant="33" id="zhj-n7-gjy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="640" y="366"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo.png" width="125" height="143"/>
+        <image name="vmc2-plus.jpg" width="1242" height="2208"/>
+    </resources>
+</document>
