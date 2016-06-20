@@ -9,8 +9,12 @@ Config::write('db.basename', 'vmctechn_vmc_2014');
 Config::write('db.user', 'root');
 Config::write('db.password', 'root');
 
-//
-Config::write('timeCookie', '10 minutes');
+// cookie autenticate
+Config::write('timeCookie', '30 minutes');
+
+//get the dynamic route
+$url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$url=explode('public/', $url);
 
 // Project Config
-Config::write('path', 'http://localhost:8888/SlimMVC');
+Config::write('path', $url[0]);

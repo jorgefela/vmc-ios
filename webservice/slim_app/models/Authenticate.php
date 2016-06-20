@@ -3,6 +3,7 @@
 namespace models;
 use lib\Core;
 use PDO;
+use lib\Config;
 class Authenticate {
 
 	public $secret = null;
@@ -25,10 +26,11 @@ class Authenticate {
 		$ipVist   = $this->get_real_ip();
 		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email);
 		$emailecr = $this->encryptVal($email);
+		$timeSesion = Config::read('timeCookie');
 
-		$app->setEncryptedCookie('uid', $prefix, '10 minutes');
-		$app->setEncryptedCookie('uemail', $emailecr, '10 minutes');
-		$app->setEncryptedCookie('key', $keyToken, '10 minutes');
+		$app->setEncryptedCookie('uid', $prefix, $timeSesion);
+		$app->setEncryptedCookie('uemail', $emailecr, $timeSesion);
+		$app->setEncryptedCookie('key', $keyToken, $timeSesion);
 
 		$this->keyRemote = $keyToken;
 		
