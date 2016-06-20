@@ -21,6 +21,7 @@ class Core {
         $password = Config::read('db.password');
 
         $this->dbh = new PDO($dsn, $user, $password);
+        $this->dbh->exec("set names utf8");
     }
 
     public static function getInstance() {

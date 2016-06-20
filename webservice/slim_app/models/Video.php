@@ -13,8 +13,8 @@ class Video {
 	public function getVideoLibrary($id) {
 		$r=array();	 
 		
-		//$sql = "SELECT * FROM `yr14_video` WHERE userid=:userid";
-		$sql = "SELECT * FROM yr14_email_track WHERE mail_id=:userid LIMIT 20000";
+		$sql = "SELECT * FROM `yr14_video` WHERE userid=:userid";
+		//$sql = "SELECT * FROM yr14_email_track WHERE mail_id=:userid LIMIT 20000";
 		$stmt=$this->core->dbh->prepare($sql);
 		$stmt->bindParam(':userid', $id, PDO::PARAM_INT);	
 
