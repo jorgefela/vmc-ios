@@ -60,6 +60,7 @@ class Authenticate {
 		if ($this->validateUserKey($uid, $key, $uem) === false) {
 			$app->halt(401);
 		}
+		//echo $app->request()->headers()->get('key');
 
 	}
 
