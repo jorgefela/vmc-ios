@@ -57,10 +57,9 @@ class Authenticate {
 		$uem = $app->getEncryptedCookie('uemail');
 		$key = $app->getEncryptedCookie('key');
 
-		if ($this->validateUserKey($uid, $key, $uem) === false) {
+		if ($this->validateUserKey($uid, $key, $uem) === false ) {
 			$app->halt(401);
 		}
-		//echo $app->request()->headers()->get('key');
 
 	}
 
@@ -72,14 +71,18 @@ class Authenticate {
 
 	public function validateUserKey($uid, $key, $uem) {
 
+		$app = \Slim\Slim::getInstance();
+
 		$prefix    = $this->prefix;
 		$dkey      = $this->key;
 		$ipVist    = $this->get_real_ip();
 		$dkeyToken = $this->decryptVal($key);
 		$email     = $this->decryptVal($uem);
+		$remoteKey = $app->request()->headers()->get('key');
+		$dRemotKey = $this->decryptVal($remoteKey);
 
 
-		if ($uid == $prefix && $dkeyToken == $prefix.$dkey.$ipVist.$email) {
+		if ($uid === $prefix && $dkeyToken === $prefix.$dkey.$ipVist.$email && $dRemotKey === $prefix.$dkey.$ipVist.$email) {
 
 			return true;
 
