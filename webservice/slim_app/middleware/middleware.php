@@ -17,6 +17,9 @@ function cleanValues($value){
 
 function cleanString($valor)
 {
+	$valor = trim($valor);
+    $valor = stripslashes($valor);
+    $valor = htmlspecialchars($valor);
 	$valor = str_ireplace("SELECT","",$valor);
 	$valor = str_ireplace("select","",$valor);
 	$valor = str_ireplace("COPY","",$valor);
@@ -27,23 +30,31 @@ function cleanString($valor)
 	$valor = str_ireplace("drop","",$valor);
 	$valor = str_ireplace("DUMP","",$valor);
 	$valor = str_ireplace("dump","",$valor);
+	$valor = str_ireplace("TRUNCATE","",$valor);
+	$valor = str_ireplace("truncate","",$valor);
+	$valor = str_ireplace("INTO","",$valor);
+	$valor = str_ireplace("into","",$valor);
+	$valor = str_ireplace("UPDATE","",$valor);
+	$valor = str_ireplace("update","",$valor);
 	$valor = str_ireplace(" OR ","",$valor);
 	$valor = str_ireplace(" or ","",$valor);
 	$valor = str_ireplace(" UNION ","",$valor);
 	$valor = str_ireplace(" union ","",$valor);
 	//$valor = str_ireplace("%","",$valor);
-	$valor = str_ireplace("LIKE","",$valor);
-	$valor = str_ireplace("like","",$valor);
+	//$valor = str_ireplace("LIKE","",$valor);
+	//$valor = str_ireplace("like","",$valor);
 	$valor = str_ireplace("--","",$valor);
 	$valor = str_ireplace("^","",$valor);
-	$valor = str_ireplace("[","",$valor);
-	$valor = str_ireplace("]","",$valor);
+	//$valor = str_ireplace("[","",$valor);
+	//$valor = str_ireplace("]","",$valor);
 	//$valor = str_ireplace("\","",$valor);
 	//$valor = str_ireplace("!","",$valor);
 	//$valor = str_ireplace("¡","",$valor);
 	//$valor = str_ireplace("?","",$valor);
 	//$valor = str_ireplace("=","",$valor);
 	//$valor = str_ireplace("&","",$valor);
+	$valor = str_replace( '\\\'', '\'',$valor);
+    $valor = str_replace( '\\\'', '\'',$valor);
 	return $valor;
 }
 

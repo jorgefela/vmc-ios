@@ -3,11 +3,20 @@
 use lib\Config;
 
 // DB Config
-Config::write('db.host', 'localhost');
-Config::write('db.port', '');
-Config::write('db.basename', 'vmctechn_vmc_2014');
-Config::write('db.user', 'root');
-Config::write('db.password', 'root');
+if($_SERVER['HTTP_HOST']=="localhost:8888" || $_SERVER['HTTP_HOST']=="localhost") {
+	Config::write('db.host', 'localhost');
+	Config::write('db.port', '');
+	Config::write('db.basename', 'vmctechn_vmc_2014');
+	Config::write('db.user', 'root');
+	Config::write('db.password', 'root');
+} else {
+	Config::write('db.host', 'localhost');
+	Config::write('db.port', '');
+	Config::write('db.basename', 'vmctechn_vmc_2014');
+	Config::write('db.user', 'vmctechn_vmc2014');
+	Config::write('db.password', 'Rh4#n;SiyZZ$');
+
+}
 
 // cookie autenticate
 Config::write('timeCookie', '30 minutes');
