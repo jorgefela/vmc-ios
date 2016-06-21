@@ -3,7 +3,6 @@ require '../vendor/autoload.php';
 require '../config.php';
 require '../middleware/middleware.php';
 
-
 $app = new \Slim\Slim(array(
     'debug' => true,
 ));

@@ -10,21 +10,31 @@ $app->post('/login', function () use ($app) {
 
     }else if(empty($data['email']) || empty($data['password'])){
 
-       error_log("Username/Password empty.");
+        error_log("Username/Password empty.");
         $app->halt(401);
 
     }else{
+        
+        $key = "";
+        $dataRsl=false;
 
-        $ob   = new models\Login($app);
-        $app->contentType('application/json');
-        $data = $ob->getUserByLogin($data['email'], $data['password']);
-        $key  = $ob->getKey();
-        if($data==false){
+        if(!empty($data['email']) && validEmail($data['email'])){
+
+            $data['email'] = cleanValues($data['email']);
+            $data['password'] = cleanValues($data['password']);
+            $ob   = new models\Login($app);
+            $dataRsl = $ob->getUserByLogin($data['email'], $data['password']);
+            $key  = $ob->getKey();
+
+        }
+         
+        if($dataRsl==false){
             $response = 0;
-            $data = array();
+            $dataRsl = array();
         }else{
             $response = 1;
         }
-        echo '{"success": '.$response.', "key": "'. $key .'", "result": ' . json_encode($data) . '}';
+        $app->contentType('application/json');
+        echo '{"success": '.$response.', "key": "'. $key .'", "result": ' . json_encode($dataRsl) . '}';
    }
 });
