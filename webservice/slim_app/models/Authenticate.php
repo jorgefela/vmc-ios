@@ -82,7 +82,7 @@ class Authenticate {
 		$dRemotKey = $this->decryptVal($remoteKey);
 
 
-		if ($uid === $prefix && $dkeyToken === $prefix.$dkey.$ipVist.$email && $dRemotKey === $prefix.$dkey.$ipVist.$email) {
+		if ( ($uid === $prefix) && ($dkeyToken === $prefix.$dkey.$ipVist.$email) && ($dRemotKey === $prefix.$dkey.$ipVist.$email) ) {
 
 			return true;
 
