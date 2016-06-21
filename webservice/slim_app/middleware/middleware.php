@@ -6,13 +6,13 @@ function authenticate(\Slim\Route $route) {
 
 // validations
 function isInteger($input){
+	$input=cleanValues($input);
     return(ctype_digit(strval($input)));
 }
 
 function cleanValues($value){
 
-	$value = addslashes(cleanString($value)); 
-	return $value;
+	return (addslashes(cleanString($value)));
 }
 
 function cleanString($valor)
@@ -53,8 +53,7 @@ function cleanString($valor)
 	//$valor = str_ireplace("?","",$valor);
 	//$valor = str_ireplace("=","",$valor);
 	//$valor = str_ireplace("&","",$valor);
-	$valor = str_replace( '\\\'', '\'',$valor);
-    $valor = str_replace( '\\\'', '\'',$valor);
+	$valor = str_replace('\\\'', '\'',$valor);
 	return $valor;
 }
 
