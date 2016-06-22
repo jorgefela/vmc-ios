@@ -52,11 +52,10 @@ class Email {
 		$r=array();	 
 		
 		$sql = "SELECT * FROM yr14_email WHERE userid =:id LIMIT :pagFrom , :pagTo";
-		//echo $sql2 = "SELECT * FROM yr14_email WHERE userid =$id_user LIMIT $from , $to";
 		$stmt=$this->core->dbh->prepare($sql);
 		$stmt->bindParam(':id', $id_user, PDO::PARAM_INT);	
-		$stmt->bindParam(':pagFrom', $from, PDO::PARAM_INT);	
-		$stmt->bindParam(':pagTo', $to, PDO::PARAM_INT);	
+		$stmt->bindValue(':pagFrom', (int) trim($from), PDO::PARAM_INT);	
+		$stmt->bindValue(':pagTo', (int) trim($to), PDO::PARAM_INT);
 
 		if ($stmt->execute()) {
 			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -31,7 +31,7 @@ $app->get('/user/:id_user/email/from/:from/to/:to','authenticate', function ($id
 
   $app->contentType('application/json');
 
-  if(!empty($id_user) && isInteger($id_user) && !empty($from) && isInteger($from) && !empty($to) && isInteger($to) ){
+  if(!empty($id_user) && isInteger($id_user) && (!empty($from) && isInteger($from) || $from==0) && !empty($to) && isInteger($to) ){
 
       $ob = new models\Email();
       $data = $ob->getEmailFromTo($id_user, $from, $to);
