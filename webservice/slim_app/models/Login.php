@@ -19,7 +19,7 @@ class Login extends Authenticate {
 
 		if( !empty($email) and !empty($pass) ){
 			$pass = md5($pass);
-			$sql = "SELECT * FROM yr14_user WHERE email=:email AND password=:pass LIMIT 1";
+			$sql = "SELECT * FROM yr14_user WHERE email=:email AND password=:pass AND role='user' LIMIT 1";
 			$stmt = $this->core->dbh->prepare($sql);
 			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
 			$stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
