@@ -20,9 +20,7 @@ class Video {
 		if ($stmt->execute()) {
 			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
 			$stmt->closeCursor();
-			$stmt=null;
 		} else {
-			$stmt=null;
 			$r = 0;
 		}		
 		return $r;
@@ -40,11 +38,10 @@ class Video {
 		if ($stmt->execute()) {
 			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
 			$stmt->closeCursor();
-			$stmt=null;
 		} else {
-			$stmt=null;
 			$r = 0;
-		}		
+		}
+		$stmt=null;		
 		return $r;
 	}
 }

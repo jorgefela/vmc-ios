@@ -14,7 +14,7 @@ class User {
 		//$this->core->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	}
 	
-	// Get all users
+
 	public function getUsers() {
 		$r = array();		
 
@@ -23,10 +23,12 @@ class User {
 		//$stmt->bindParam(':id', $this->id, PDO::PARAM_INT);
 
 		if ($stmt->execute()) {
-			$r = $stmt->fetchAll(PDO::FETCH_ASSOC);		   	
+			$r = $stmt->fetchAll(PDO::FETCH_ASSOC);	
+			$stmt->closeCursor();
 		} else {
 			$r = 0;
-		}		
+		}	
+		$stmt=null;	
 		return $r;
 	}
 

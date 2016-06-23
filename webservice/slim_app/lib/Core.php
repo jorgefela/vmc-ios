@@ -7,6 +7,10 @@ use PDO;
 
 class Core {
     public $dbh; // handle of the db connexion
+    public $secret;
+    public $prefix;
+    public $key;
+    public $time_cookie;
     private static $instance;
 
     private function __construct() {
@@ -22,6 +26,12 @@ class Core {
 
         $this->dbh = new PDO($dsn, $user, $password);
         $this->dbh->exec("set names utf8");
+
+        // getting DB keys cookies from config 
+        $this->secret = Config::read('secret');
+        $this->prefix = Config::read('prefix');
+        $this->key    = Config::read('key');
+        $this->time_cookie=Config::read('timeCookie');
     }
 
     public static function getInstance() {

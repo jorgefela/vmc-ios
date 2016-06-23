@@ -27,7 +27,6 @@ class Login extends Authenticate {
 			if ($stmt->execute()) {
 				$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
 				$stmt->closeCursor();
-				$stmt=null;
 				if( count($r) > 0 ) {
 					parent::createKey($email);
 
@@ -37,13 +36,14 @@ class Login extends Authenticate {
 				}
 
 			} else {
-				$stmt=null;
+				
 				parent::cleanKey();
 				$r = false;
 			}
 
 		}	
 
+		$stmt=null;
 		return $r;
 	}
 }

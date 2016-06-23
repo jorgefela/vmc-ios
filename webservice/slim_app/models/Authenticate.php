@@ -4,29 +4,26 @@ namespace models;
 use lib\Core;
 use PDO;
 use lib\Config;
-class Authenticate {
 
-	public $secret = null;
-	public $prefix = null;
-	public $key    = null;
+class Authenticate  {
+	
 	public $keyRemote = null;
+	protected $security;
 
 	function __construct() {
 
-		$this->secret = "5WLf8JgbbaoglFnVSjKh";
-		$this->prefix = "vmc";
-		$this->key    = "7DFTm9BIrnUMkgDQuACX";
+		$this->security = \lib\Core::getInstance();
+
 	}
 
 	public function createKey($email){
-
 		$app      = \Slim\Slim::getInstance();
-		$prefix   = $this->prefix;
-		$key      = $this->key;
+		$prefix   = $this->security->prefix;
+		$key      = $this->security->key;
 		$ipVist   = $this->get_real_ip();
 		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email);
 		$emailecr = $this->encryptVal($email);
-		$timeSesion = Config::read('timeCookie');
+		$timeSesion = $this->security->time_cookie;
 
 		$app->setEncryptedCookie('uid', $prefix, $timeSesion);
 		$app->setEncryptedCookie('uemail', $emailecr, $timeSesion);
@@ -39,8 +36,7 @@ class Authenticate {
 	public function cleanKey(){
 
 		$app = \Slim\Slim::getInstance();
-		$this->prefix = null;
-		$this->key = null;
+
 		$this->keyRemote = null;
 		
 		$app->setEncryptedCookie('uid', '', '0.01 minutes');
@@ -73,8 +69,8 @@ class Authenticate {
 
 		$app = \Slim\Slim::getInstance();
 
-		$prefix    = $this->prefix;
-		$dkey      = $this->key;
+		$prefix    = $this->security->prefix;
+		$dkey      = $this->security->key;
 		$ipVist    = $this->get_real_ip();
 		$dkeyToken = $this->decryptVal($key);
 		$email     = $this->decryptVal($uem);
@@ -95,7 +91,7 @@ class Authenticate {
 
 	public function encryptVal($val) {
 
-		$key = $this->secret;
+		$key = $this->security->secret;
 
 		$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $val, MCRYPT_MODE_CBC, md5(md5($key))));
 
@@ -104,7 +100,8 @@ class Authenticate {
 	}
 
 	public function decryptVal($val) {
-        $key = $this->secret;
+
+        $key = $this->security->secret;
 		$decrypted = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($key), base64_decode($val), MCRYPT_MODE_CBC, md5(md5($key))), "\0");
 
 		return $decrypted;
