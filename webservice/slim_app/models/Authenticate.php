@@ -6,13 +6,15 @@ use PDO;
 use lib\Config;
 
 class Authenticate  {
-	
+
 	public $keyRemote = null;
+	public $keyDate = null;
 	protected $security;
 
 	function __construct() {
 
 		$this->security = \lib\Core::getInstance();
+		$this->keyDate = date("m.d.y");
 
 	}
 
@@ -20,15 +22,15 @@ class Authenticate  {
 		$app      = \Slim\Slim::getInstance();
 		$prefix   = $this->security->prefix;
 		$key      = $this->security->key;
+		$date     = $this->keyDate;
 		$ipVist   = $this->get_real_ip();
-		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email);
+		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email.$date);
 		$emailecr = $this->encryptVal($email);
 		$timeSesion = $this->security->time_cookie;
 
 		$app->setEncryptedCookie('uid', $prefix, $timeSesion);
 		$app->setEncryptedCookie('uemail', $emailecr, $timeSesion);
 		$app->setEncryptedCookie('key', $keyToken, $timeSesion);
-
 		$this->keyRemote = $keyToken;
 		
 	}
@@ -45,6 +47,18 @@ class Authenticate  {
 		
 	}
 
+	public function updateKeyLocal($uid, $uem, $key){
+
+		$app = \Slim\Slim::getInstance();
+
+		$timeSesion = $this->security->time_cookie;
+
+		$app->setEncryptedCookie('uid', $uid, $timeSesion);
+		$app->setEncryptedCookie('uemail', $uem, $timeSesion);
+		$app->setEncryptedCookie('key', $key, $timeSesion);
+
+	}
+
 
 	public function authenticate(\Slim\Route $route) {
 
@@ -55,6 +69,8 @@ class Authenticate  {
 
 		if ($this->validateUserKey($uid, $key, $uem) === false ) {
 			$app->halt(401);
+		}else{
+			$this->updateKeyLocal($uid, $uem, $key);
 		}
 
 	}
@@ -71,6 +87,7 @@ class Authenticate  {
 
 		$prefix    = $this->security->prefix;
 		$dkey      = $this->security->key;
+		$date      = $this->keyDate;
 		$ipVist    = $this->get_real_ip();
 		$dkeyToken = $this->decryptVal($key);
 		$email     = $this->decryptVal($uem);
@@ -78,7 +95,7 @@ class Authenticate  {
 		$dRemotKey = $this->decryptVal($remoteKey);
 
 
-		if ( ($uid === $prefix) && ($dkeyToken === $prefix.$dkey.$ipVist.$email) && ($dRemotKey === $prefix.$dkey.$ipVist.$email) ) {
+		if ( ($uid === $prefix) && ($dkeyToken === $prefix.$dkey.$ipVist.$email.$date) && ($dRemotKey === $prefix.$dkey.$ipVist.$email.$date) ) {
 
 			return true;
 
