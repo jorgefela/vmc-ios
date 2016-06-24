@@ -6,10 +6,10 @@ class Users {
 
 	protected $core;
 	public $message;
+	public $pass_sn_code;
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
-	  $this->core->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 	}
 
 	public function insertUsersNew($data) {
@@ -18,6 +18,7 @@ class Users {
 
 			$sql = "INSERT INTO 
 			     yr14_user (
+			                password,
 			                name,
 			                lname,
 			                email,
@@ -26,6 +27,7 @@ class Users {
 			                price
 			                ) 
 					VALUES (
+					        :txt_password,
 					        :txt_name_first,
 					        :txt_name_last,
 					        :txt_email,
@@ -33,22 +35,26 @@ class Users {
 					        'Trial',
 					        '0'
 					        )";
-					        
+
 			$stmt = $this->core->dbh->prepare($sql);
 
 			if ( $stmt->execute($data) ) {
 
 				$this->message = "record inserted correctly";
-				$stmt = null;
+				$stmt->closeCursor();
+
 				return $this->core->dbh->lastInsertId();
 
 			} else {
 
 				$this->message = "Error inserting the record.";
-				$stmt = null;
+				$stmt->closeCursor();
+				
 				return false;
 
 			}
+
+			$stmt = null;
 
 		} catch(PDOException $e) {
 
@@ -57,6 +63,11 @@ class Users {
 
     	}
 		
+	}
+
+	public function setPasswordSnCode($password){
+		$this->pass_sn_code = $password;
+
 	}
 }
 ?>

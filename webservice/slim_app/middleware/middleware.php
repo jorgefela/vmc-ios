@@ -5,6 +5,22 @@ function authenticate(\Slim\Route $route) {
 }
 
 // validations
+function RandomString() {
+
+	$randstring = "";
+
+    $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for ($i = 0; $i < 6; $i++) {
+
+        $randstring .= $characters[rand(0, strlen($characters))];
+
+    }
+
+    return $randstring;
+
+}
+
 function isInteger($input){
 	$input=cleanValues($input);
     return(ctype_digit(strval($input)));
@@ -104,4 +120,4 @@ function replace_specials_characters($s) {
 		$s = preg_replace('/[^a-zA-Z0-9_.-]/', '', $s);
 		return $s;
 	}
-
+?>
