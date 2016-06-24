@@ -6,7 +6,6 @@ class Users {
 
 	protected $core;
 	public $message;
-	public $pass_sn_code;
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
@@ -17,31 +16,28 @@ class Users {
 		try {
 
 			$sql = "INSERT INTO 
-			     yr14_user (
-			                password,
-			                name,
-			                lname,
-			                email,
-			                contact,
-			                plan,
-			                price
+			     yr14_user ( 
+			                password, name, lname, email, contact, plan, price 
 			                ) 
 					VALUES (
-					        :txt_password,
-					        :txt_name_first,
-					        :txt_name_last,
-					        :txt_email,
-					        :txt_phone,
-					        'Trial',
-					        '0'
+					        :password, :name, :lname, :email, :phone, :plan, :price 
 					        )";
+		    $password = $this->generatePassword();
+		    $insertData = array(
+                            "password" => md5($password),
+                            "name"     => $data['txt_name_first'],
+                            "lname"    => $data['txt_name_last'],
+                            "email"    => $data['txt_email'],
+                            "phone"    => $data['txt_phone'],
+                            "plan"     => "Trial",
+                            "price"    => 0
+);
 
 			$stmt = $this->core->dbh->prepare($sql);
 
-			if ( $stmt->execute($data) ) {
+			if ( $stmt->execute($insertData) ) {
 
 				$this->message = "record inserted correctly";
-				$stmt->closeCursor();
 
 				return $this->core->dbh->lastInsertId();
 
@@ -49,25 +45,33 @@ class Users {
 
 				$this->message = "Error inserting the record.";
 				$stmt->closeCursor();
+				$stmt = null;
 				
 				return false;
 
 			}
 
-			$stmt = null;
+			
 
 		} catch(PDOException $e) {
 
 			$stmt = null;
-        	$this->message = $e->getMessage();
+        	$this->message = "Error inserting the record.";
 
     	}
 		
 	}
 
-	public function setPasswordSnCode($password){
-		$this->pass_sn_code = $password;
+	public function generatePassword(){
+		$randstring = "";
+		$characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		for ($i = 0; $i < 6; $i++) {
+			$randstring .= $characters[rand(0, strlen($characters))];
+		}
+		return $randstring;
 
 	}
+
+
 }
 ?>
