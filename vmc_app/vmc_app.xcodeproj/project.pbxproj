@@ -58,10 +58,10 @@
 		12477AD61D110316005B6391 /* vmc_app */ = {
 			isa = PBXGroup;
 			children = (
+				12F26A401D1D33B000D3F9F6 /* controllers */,
+				12F26A3F1D1D335400D3F9F6 /* views */,
 				12477AE91D11032F005B6391 /* resources */,
 				12477AD71D110316005B6391 /* AppDelegate.swift */,
-				12477AD91D110316005B6391 /* ViewController.swift */,
-				12477ADB1D110316005B6391 /* Main.storyboard */,
 				12477ADE1D110316005B6391 /* Assets.xcassets */,
 				12477AE01D110316005B6391 /* LaunchScreen.storyboard */,
 				12477AE31D110316005B6391 /* Info.plist */,
@@ -76,6 +76,22 @@
 				12477AEB1D110347005B6391 /* logo.png */,
 			);
 			name = resources;
+			sourceTree = "<group>";
+		};
+		12F26A3F1D1D335400D3F9F6 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				12477ADB1D110316005B6391 /* Main.storyboard */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		12F26A401D1D33B000D3F9F6 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				12477AD91D110316005B6391 /* ViewController.swift */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +320,7 @@
 				12477AE81D110316005B6391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
