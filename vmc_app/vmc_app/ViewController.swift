@@ -49,6 +49,7 @@ class ViewController: UIViewController{
             //agregar mensaje
         }else{
             //start proceso de logueo
+            /*
             do {
                 let post:NSString = "email=\(lUsuario)&password=\(lContrasenia)"
                 NSLog("Datos enviados: %@",post);
@@ -147,6 +148,47 @@ class ViewController: UIViewController{
                 //alertView.addButtonWithTitle("OK")
                 //alertView.show()
             }
+ 
+ */
+            
+            let myUrl = NSURL(string: "http://localhost:8888/vmc-ios/webservice/slim_app/public/login")
+            let request = NSMutableURLRequest(URL:myUrl!)
+            request.HTTPMethod = "POST";
+            
+            // Compose a query string
+            let postString = "email=\(lUsuario)&password=\(lContrasenia)"
+            
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                if error != nil
+                {
+                    print("error \(error)")
+                    return
+                }
+                
+                if let data = data,
+                    jsonString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    where error == nil {
+                    
+                    print("\(jsonString)")
+                } else {
+                    print("error=\(error!.localizedDescription)")
+                }
+                
+                
+                
+            }
+            
+            task.resume()
+            
+            
+            
+            
+            
+            
             //end proceso de logueo
         }
     } //end btnSingIn
