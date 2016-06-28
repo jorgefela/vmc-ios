@@ -13,6 +13,21 @@ class ViewController: UIViewController{
 
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    var window: UIWindow?
+    
+    //let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! ViewController
+    
+    //let lastMinVc  = mainStoryBoard.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! UINavigationController
+
+    
+   // self.presentViewController(viewController,animated: true, completion:nil)
+    //let menuViewController = stroryboard?.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! ViewController
+   // menuViewController.view.frame = view.frame
+    //switchViewController(from: nil, to:menuViewController)
+    
+    //let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+    //let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("menuPrincipal") as nextViewController
+    //self.presentViewController(nextViewController, animated:true, completion:nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +135,18 @@ class ViewController: UIViewController{
         return true
         
     }
+    /*
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        let navigationController = window?.rootViewController as! UINavigationController
+        let firstVC = navigationController.viewControllers[0] as! NameOfFirstViewController
+        // set whatever properties you might want to set
+        // such as an NSmanagedObjectContext reference
+        
+        return true
+    }
+ */
 
 
 }
