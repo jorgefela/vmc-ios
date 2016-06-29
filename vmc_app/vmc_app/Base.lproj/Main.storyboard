@@ -111,7 +111,7 @@
         <!--Video Library-->
         <scene sceneID="HZz-G0-maX">
             <objects>
-                <viewController storyboardIdentifier="menuPrincipal" id="u6f-sD-zkL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuPrincipal" id="u6f-sD-zkL" customClass="ViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yI5-0Y-J7E"/>
                         <viewControllerLayoutGuide type="bottom" id="u88-0u-KwD"/>

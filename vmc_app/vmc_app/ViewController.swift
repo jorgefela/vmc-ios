@@ -7,146 +7,46 @@
 //
 
 import UIKit
+extension UIColor {
+    convenience init(hexString: String) {
+        let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
+        var int = UInt32()
+        NSScanner(string: hex).scanHexInt(&int)
+        let a, r, g, b: UInt32
+        switch hex.characters.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (1, 1, 1, 0)
+        }
+        self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+    }
+}
 
 class ViewController: UIViewController{
+    
 
-
-    @IBOutlet weak var txtEmail: UITextField!
-    @IBOutlet weak var txtPassword: UITextField!
-    var window: UIWindow?
-    
-    //let viewController = self.storyboard!.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! ViewController
-    
-    //let lastMinVc  = mainStoryBoard.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! UINavigationController
-
-    
-   // self.presentViewController(viewController,animated: true, completion:nil)
-    //let menuViewController = stroryboard?.instantiateViewControllerWithIdentifier("navMenuPrincipal") as! ViewController
-   // menuViewController.view.frame = view.frame
-    //switchViewController(from: nil, to:menuViewController)
-    
-    //let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-    //let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("menuPrincipal") as nextViewController
-    //self.presentViewController(nextViewController, animated:true, completion:nil)
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-
         
-
+        super.viewDidLoad()
+        let darkGrey = UIColor(hexString: "#757575")
+        self.navigationController!.navigationBar.barTintColor = darkGrey
+        //UINavigationBar.appearance().barTintColor = UIColor.redColor()
+        print("cargue vista")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // start bloqueo autorotacion
-    override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
-    }
-    // end bloqueo autorotacion
+        
+        
 
-    @IBAction func btnSingIn(sender: UIButton) {
-        let lUsuario:NSString = txtEmail.text!
-        let lContrasenia:NSString = txtPassword.text!
-        let tituloMsg:String = "Ups"
-        var mesnsajeMsg:String = "Username / Password empty"
-        let btnMsg:String = "OK"
-        
-        if ( lUsuario.isEqualToString("") || lContrasenia.isEqualToString("") ) {
-            
-            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-            
-        }else if(!isValidEmail(lUsuario as String)){
-            
-            mesnsajeMsg = "Invalid email"
-            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-            
-        }else{
-            
-            //start proceso de logueo
-            
-            enum JSONError: String, ErrorType {
-                case NoData = "ERROR: no data"
-                case ConversionFailed = "ERROR: conversion from JSON failed"
-            }
-            let myUrl = NSURL(string: "http://localhost:8888/vmc-ios/webservice/slim_app/public/login")
-            let request = NSMutableURLRequest(URL:myUrl!)
-            request.HTTPMethod = "POST";
-            
-            // Compose a query string
-            let postString = "email=\(lUsuario)&password=\(lContrasenia)"
-            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-                data, response, error in
-                
-                do {
-                    guard let data = data else {
-                        throw JSONError.NoData
-                    }
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary else {
-                        throw JSONError.ConversionFailed
-                    }
-                    let iduser = json["result"]![0]!.valueForKey("id")!
-                    let lname = json["result"]![0]!.valueForKey("lname")!
-                    let name = json["result"]![0]!.valueForKey("name")!
-                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                    prefs.setObject(json["key"]!, forKey: "USERNAME")
-                    prefs.setObject(iduser, forKey: "IDUSER")
-                    prefs.setObject(name, forKey: "NAME")
-                    prefs.setObject(lname, forKey: "LNAME")
-                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
-                    prefs.synchronize()
-                } catch let error as JSONError {
-                    print(error.rawValue)
-                } catch let error as NSError {
-                    print(error.debugDescription)
-                }
-                
-            }
-            task.resume()
-            //end proceso de logueo
-        }
-    } //end btnSingIn
-    
-    func isValidEmail(testStr:String) -> Bool {
-        //print("email: \(testStr)")
-        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluateWithObject(testStr)
-        return result
     }
-    
-    func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
-        
-        let msge = UIAlertController(title: titulo, message: mensaje, preferredStyle: .Alert)
-        presentViewController(msge, animated: true, completion: nil)
-        
-        //aqui agrego los botones del alerta
-        msge.addAction(UIAlertAction(title: txtBtn, style: .Default, handler: { (action: UIAlertAction!) in
-            print("ok")
-        }))
-        return true
-        
-    }
-    /*
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        let navigationController = window?.rootViewController as! UINavigationController
-        let firstVC = navigationController.viewControllers[0] as! NameOfFirstViewController
-        // set whatever properties you might want to set
-        // such as an NSmanagedObjectContext reference
-        
-        return true
-    }
- */
+
 
 
 }
