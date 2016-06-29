@@ -32,12 +32,15 @@ class ViewController: UIViewController{
 
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        let darkGrey = UIColor(hexString: "#757575")
-        self.navigationController!.navigationBar.barTintColor = darkGrey
-        //UINavigationBar.appearance().barTintColor = UIColor.redColor()
+        let bg_Nav = UIColor(hexString: "#041830")
+        self.navigationController!.navigationBar.barTintColor = bg_Nav
+        let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         print("cargue vista")
+        
     }
     
     override func didReceiveMemoryWarning() {

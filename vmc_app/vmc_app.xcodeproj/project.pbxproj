@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233208F1D230F4900BE0A95 /* LoginViewController.swift */; };
+		123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */ = {isa = PBXBuildFile; fileRef = 123320911D23E34400BE0A95 /* bg_navcontroller.png */; };
 		12477AD81D110316005B6391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12477AD71D110316005B6391 /* AppDelegate.swift */; };
 		12477ADA1D110316005B6391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12477AD91D110316005B6391 /* ViewController.swift */; };
 		12477ADD1D110316005B6391 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12477ADB1D110316005B6391 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		1233208F1D230F4900BE0A95 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		123320911D23E34400BE0A95 /* bg_navcontroller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_navcontroller.png; sourceTree = "<group>"; };
 		12477AD41D110316005B6391 /* vmc_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vmc_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12477AD71D110316005B6391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12477AD91D110316005B6391 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		12477AE91D11032F005B6391 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				123320911D23E34400BE0A95 /* bg_navcontroller.png */,
 				12477AEA1D110347005B6391 /* vmc2-plus.jpg */,
 				12477AEB1D110347005B6391 /* logo.png */,
 			);
@@ -157,6 +160,7 @@
 			files = (
 				12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */,
 				12477AED1D110347005B6391 /* logo.png in Resources */,
+				123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */,
 				12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */,
 				12477ADF1D110316005B6391 /* Assets.xcassets in Resources */,
 				12477ADD1D110316005B6391 /* Main.storyboard in Resources */,
