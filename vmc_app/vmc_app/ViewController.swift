@@ -33,10 +33,24 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //cambia fondo navigation controller
         let bg_Nav = UIColor(hexString: "#041830")
         self.navigationController!.navigationBar.barTintColor = bg_Nav
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = bg_Nav
+        
+        //self.tableView.backgroundColor = bg_Nav
+        //self.tableView.backgroundView.backgroundColor = bg_Nav
+        //self.view.backgroundColor = bg_Nav
+        /*
+         let image:UIImage = UIImage(named: "bg_navcontroller.png")!
+         UINavigationBar.appearance().setBackgroundImage(image, forBarMetrics: .Default)
+         */
+        //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        //cambia color de texto barra de estatus
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
         print("cargue vista")
@@ -49,6 +63,7 @@ class ViewController: UIViewController{
         
 
     }
+    
 
 
 
