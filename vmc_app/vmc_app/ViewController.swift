@@ -29,7 +29,7 @@ extension UIColor {
 
 class ViewController: UIViewController{
     
-
+var cell2height:CGFloat=131
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +37,9 @@ class ViewController: UIViewController{
         let bg_Nav = UIColor(hexString: "#041830")
         self.navigationController!.navigationBar.barTintColor = bg_Nav
         
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = bg_Nav
-        
-        //self.tableView.backgroundColor = bg_Nav
-        //self.tableView.backgroundView.backgroundColor = bg_Nav
-        //self.view.backgroundColor = bg_Nav
-        /*
-         let image:UIImage = UIImage(named: "bg_navcontroller.png")!
-         UINavigationBar.appearance().setBackgroundImage(image, forBarMetrics: .Default)
-         */
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        //tableView.estimatedRowHeight = 240
+
         //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
@@ -59,13 +52,12 @@ class ViewController: UIViewController{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        
 
     }
     
-
-
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 
 }
 
