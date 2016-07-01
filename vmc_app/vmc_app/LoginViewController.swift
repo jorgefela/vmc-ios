@@ -15,7 +15,9 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var txtPassword: UITextField!
     
     override func viewDidLoad() {
-        super.viewDidLoad()    
+        super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //self.navigationController?.navigationBarHidden = false
     }
     
     
@@ -23,7 +25,7 @@ class LoginViewController: UIViewController{
     @IBAction func btnSignin(sender: UIButton) {
         let lUsuario:NSString = txtEmail.text!
         let lContrasenia:NSString = txtPassword.text!
-        let tituloMsg:String = "Ups"
+        let tituloMsg:String = "oops"
         var mesnsajeMsg:String = "Username / Password empty"
         let btnMsg:String = "OK"
         
@@ -50,6 +52,7 @@ class LoginViewController: UIViewController{
             
             // Compose a query string
             let postString = "email=\(lUsuario)&password=\(lContrasenia)"
+            print(postString)
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
                 data, response, error in
@@ -71,6 +74,7 @@ class LoginViewController: UIViewController{
                     prefs.setObject(lname, forKey: "LNAME")
                     prefs.setInteger(1, forKey: "ISLOGGEDIN")
                     prefs.synchronize()
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 } catch let error as JSONError {
                     print(error.rawValue)
                 } catch let error as NSError {
@@ -118,4 +122,9 @@ class LoginViewController: UIViewController{
         return true
         
     }
+    
+    
+
+    
+    
 }

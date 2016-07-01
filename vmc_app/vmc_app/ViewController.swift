@@ -28,36 +28,79 @@ extension UIColor {
 }
 
 class ViewController: UIViewController{
-    
-var cell2height:CGFloat=131
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //cambia fondo navigation controller
-        let bg_Nav = UIColor(hexString: "#041830")
-        self.navigationController!.navigationBar.barTintColor = bg_Nav
-        
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        //tableView.estimatedRowHeight = 240
-
-        //cambia color de texto navigation controller
-        let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
-        //cambia color de texto barra de estatus
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
         print("cargue vista")
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let estaRegistrado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        if (estaRegistrado != 1) {
+            print("auto carga login")
+            //cuando cargo la interfaz Inicio envio al modal iniciar sesion
+            //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
+            dispatch_async(dispatch_get_main_queue()){
+                
+                self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
+                
+            }
+            print("cargue login")
+        } else {
+            
+            ////
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            //self.navigationController?.navigationBarHidden = false
+            //cambia fondo navigation controller
+            let bg_Nav = UIColor(hexString: "#041830")
+            self.navigationController!.navigationBar.barTintColor = bg_Nav
+            //tableView.rowHeight = UITableViewAutomaticDimension
+            //tableView.estimatedRowHeight = 240
+            
+            //cambia color de texto navigation controller
+            let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+            //cambia color de texto barra de estatus
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+            ////
+            //self.labelNombreUsuario.text = prefs.valueForKey("USERNAME") as? String
+            print("cargue entrada")
+        }
+        
+        
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
     }
     
-     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    @IBAction func CerrarTemporal(sender: UIBarButtonItem) {
+        
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        
+        //al presionar boton salir, envio al modal iniciar sesion
+        dispatch_async(dispatch_get_main_queue()){
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
+            
+        }
     }
+    
+    
+
+    
+    
+    
+   
+    
+    
 
 }
 
