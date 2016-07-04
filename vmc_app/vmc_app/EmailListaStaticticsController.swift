@@ -13,6 +13,9 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         "Cargando...",
         
         ]
+    let tituloMsg:String = "Error"
+    let mesnsajeMsg:String = "Fallo la peticion!"
+    let btnMsg:String = "OK"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,8 +90,9 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                         
                         
                     } else {
-                        
-                        
+                        //error desconocido
+                        menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
+                        /*
                         if jsonData["message"] as? NSString != nil {
                             error_msg = jsonData["message"] as! NSString
                         } else {
@@ -100,21 +104,22 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                         alertView.delegate = self
                         alertView.addButtonWithTitle("OK")
                         alertView.show()
+                         */
+                        
                         
                     }
                     
                     
                 } else {
-                    let alertView:UIAlertView = UIAlertView()
-                    alertView.title = "Error!"
-                    alertView.message = "Fallo la peticion!"
-                    alertView.delegate = self
-                    alertView.addButtonWithTitle("OK")
-                    alertView.show()
+                    //fallo la peticion
+                    menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
+                    
                 }
                 // end val respuesta del servidor
                 
             } else {
+                menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
+                /*
                 
                 let alertView:UIAlertView = UIAlertView()
                 alertView.title = "Error!"
@@ -124,18 +129,17 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                 }
                 alertView.delegate = self
                 alertView.addButtonWithTitle("OKi")
-                alertView.show()
+                alertView.show()*/
+                
+                
             }
             //end val urlData
             
             
         } catch {
-            let alertView:UIAlertView = UIAlertView()
-            alertView.title = "Error!!"
-            alertView.message = "Error del Servidor"
-            alertView.delegate = self
-            alertView.addButtonWithTitle("OK")
-            alertView.show()
+            
+            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
+            //erro de servidor
         }
         //end consulta api
         
@@ -164,6 +168,19 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         ListEmail.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
+        
+        let msge = UIAlertController(title: titulo, message: mensaje, preferredStyle: .Alert)
+        presentViewController(msge, animated: true, completion: nil)
+        
+        //aqui agrego los botones del alerta
+        msge.addAction(UIAlertAction(title: txtBtn, style: .Default, handler: { (action: UIAlertAction!) in
+            print("ok")
+        }))
+        return true
+        
     }
     
     
