@@ -17,7 +17,6 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        //self.navigationController?.navigationBarHidden = false
     }
     
     
@@ -68,7 +67,7 @@ class LoginViewController: UIViewController{
                     let lname = json["result"]![0]!.valueForKey("lname")!
                     let name = json["result"]![0]!.valueForKey("name")!
                     let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                    prefs.setObject(json["key"]!, forKey: "USERNAME")
+                    prefs.setObject(json["key"]!, forKey: "KEY")
                     prefs.setObject(iduser, forKey: "IDUSER")
                     prefs.setObject(name, forKey: "NAME")
                     prefs.setObject(lname, forKey: "LNAME")
@@ -121,10 +120,6 @@ class LoginViewController: UIViewController{
         }))
         return true
         
-    }
-    
-    
-
-    
+    }  
     
 }

@@ -42,7 +42,6 @@ class ViewController: UIViewController{
         if (estaRegistrado != 1) {
             print("auto carga login")
             //cuando cargo la interfaz Inicio envio al modal iniciar sesion
-            //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
             dispatch_async(dispatch_get_main_queue()){
                 
                 self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
@@ -53,24 +52,17 @@ class ViewController: UIViewController{
             
             ////
             self.navigationController?.setNavigationBarHidden(false, animated: true)
-            //self.navigationController?.navigationBarHidden = false
             //cambia fondo navigation controller
             let bg_Nav = UIColor(hexString: "#041830")
             self.navigationController!.navigationBar.barTintColor = bg_Nav
-            //tableView.rowHeight = UITableViewAutomaticDimension
-            //tableView.estimatedRowHeight = 240
-            
             //cambia color de texto navigation controller
             let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
             self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
             //cambia color de texto barra de estatus
             UIApplication.sharedApplication().statusBarStyle = .LightContent
             ////
-            //self.labelNombreUsuario.text = prefs.valueForKey("USERNAME") as? String
             print("cargue entrada")
-        }
-        
-        
+        }   
         
     }
     
@@ -92,15 +84,6 @@ class ViewController: UIViewController{
             
         }
     }
-    
-    
-
-    
-    
-    
-   
-    
-    
 
 }
 

@@ -413,6 +413,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="nMY-ki-uGI" id="kv8-Gb-gKl"/>
+                                    <outlet property="delegate" destination="nMY-ki-uGI" id="R2f-Vu-gS2"/>
+                                </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sobre-de-carta.png" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-Hj-b5c">
                                 <rect key="frame" x="20" y="92" width="42" height="48"/>
@@ -433,6 +437,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Email List" id="HuZ-ZR-bZ7"/>
+                    <connections>
+                        <outlet property="TableViewEmailList" destination="VSZ-1s-EVd" id="l6C-FI-FEs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkJ-Fw-cIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

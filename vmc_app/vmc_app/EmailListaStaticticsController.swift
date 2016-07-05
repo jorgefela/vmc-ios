@@ -9,6 +9,7 @@
 import UIKit
 class EmailListStaticticsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var TableViewEmailList: UITableView!
     var ListEmail = [
         "Cargando...",
         
@@ -19,22 +20,67 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        if (estaLogueado != 1) {
+            let idUser:Int = prefs.integerForKey("IDUSER") as Int
+            let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+            print("\(idUser) \(keyServer)")
+            
+        }
+        
+        
+        
+        //start consulta api
+        
+        enum JSONError: String, ErrorType {
+            case NoData = "ERROR: no data"
+            case ConversionFailed = "ERROR: conversion from JSON failed"
+        }
+        let myUrl = NSURL(string: "http://localhost:8888/vmc-ios/webservice/slim_app/public/user/395/email")
+        let request = NSMutableURLRequest(URL:myUrl!)
+        request.HTTPMethod = "GET";
+
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
+            do {
+                guard let data = data else {
+                    throw JSONError.NoData
+                }
+                guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary else {
+                    throw JSONError.ConversionFailed
+                }
+                let response = json["response"]!
+                if(response as! NSObject==1){
+                }
+                self.ListEmail.removeAll()
+                let idEmail = json["result"]![0]!.valueForKey("id")!
+                let titleEmail = json["result"]![0]!.valueForKey("title")!
+                let subjectEmail = json["result"]![0]!.valueForKey("subject")!
+                print("\(idEmail) \(titleEmail) \(subjectEmail)")
+                
+            } catch let error as JSONError {
+                print(error.rawValue)
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+        }
+        
+        task.resume()
+        
+        //end consulta api
+        
+        
+        
+        /*
         
         //start consulta api
         do {
-            let urlApi:NSURL = NSURL(string:"http://localhost:8888/slim_app/public/user/getAll")!
-            //let getApiDatos:NSData = datosGet.dataUsingEncoding(NSASCIIStringEncoding)!
-            // let getLength:NSString = String( getApiDatos.length )
+            let urlApi:NSURL = NSURL(string:"http://localhost:8888/vmc-ios/webservice/slim_app/public/user/395/email")!
             
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: urlApi)
             
             request.HTTPMethod = "GET"
-            /*
-             request.HTTPBody = getApiDatos
-             request.setValue(getLength as String, forHTTPHeaderField: "Content-Length")
-             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-             request.setValue("application/json", forHTTPHeaderField: "Accept")
-             */
             
             request.HTTPBody = nil
             request.addValue("0", forHTTPHeaderField: "Content-Length")
@@ -84,29 +130,11 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                                 }
                             }
                         }
-                        self.ListEmail.reloadData()
-                        
-                        
-                        
+                        self.TableViewEmailList.reloadData()
                         
                     } else {
                         //error desconocido
                         menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-                        /*
-                        if jsonData["message"] as? NSString != nil {
-                            error_msg = jsonData["message"] as! NSString
-                        } else {
-                            error_msg = "Error desconocido"
-                        }
-                        let alertView:UIAlertView = UIAlertView()
-                        alertView.title = "Erroor!"
-                        alertView.message = error_msg as String
-                        alertView.delegate = self
-                        alertView.addButtonWithTitle("OK")
-                        alertView.show()
-                         */
-                        
-                        
                     }
                     
                     
@@ -119,17 +147,6 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                 
             } else {
                 menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-                /*
-                
-                let alertView:UIAlertView = UIAlertView()
-                alertView.title = "Error!"
-                alertView.message = "Error de conexión"
-                if let error = reponseError {
-                    alertView.message = (error.localizedDescription)
-                }
-                alertView.delegate = self
-                alertView.addButtonWithTitle("OKi")
-                alertView.show()*/
                 
                 
             }
@@ -142,6 +159,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
             //erro de servidor
         }
         //end consulta api
+        */
         
         
     }
@@ -155,9 +173,9 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        
         print("entre aqui \(indexPath)")
-        let cell:UITableViewCell = self.ListEmail.dequeueReusableCellWithIdentifier("viewListEmail")! as UITableViewCell
+        let cell:UITableViewCell = self.TableViewEmailList.dequeueReusableCellWithIdentifier("viewListEmail")! as UITableViewCell
         
         cell.textLabel!.text = ListEmail[indexPath.row]
         
@@ -167,7 +185,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     // implementacion de metodo delegado
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        ListEmail.deselectRowAtIndexPath(indexPath, animated: true)
+        TableViewEmailList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
