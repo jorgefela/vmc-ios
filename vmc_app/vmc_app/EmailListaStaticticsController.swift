@@ -20,27 +20,25 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.TableViewEmailList.registerClass(UITableViewCell.self, forCellReuseIdentifier: "viewListEmail")
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (estaLogueado != 1) {
+        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        //if (estaLogueado != 1) {
             let idUser:Int = prefs.integerForKey("IDUSER") as Int
             let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-            print("\(idUser) \(keyServer)")
+            print("datos de sesion \(idUser) \(keyServer)")
             
-        }
-        
-        
+        //}
         
         //start consulta api
-        
         enum JSONError: String, ErrorType {
             case NoData = "ERROR: no data"
             case ConversionFailed = "ERROR: conversion from JSON failed"
         }
         let myUrl = NSURL(string: "http://localhost:8888/vmc-ios/webservice/slim_app/public/user/395/email")
         let request = NSMutableURLRequest(URL:myUrl!)
-        request.HTTPMethod = "GET";
-
+        request.HTTPMethod = "GET"
+        request.setValue(keyServer, forHTTPHeaderField: "key")
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, response, error in
             do {
@@ -68,102 +66,10 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         
         task.resume()
         
-        //end consulta api
-        
-        
-        
-        /*
-        
-        //start consulta api
-        do {
-            let urlApi:NSURL = NSURL(string:"http://localhost:8888/vmc-ios/webservice/slim_app/public/user/395/email")!
-            
-            let request:NSMutableURLRequest = NSMutableURLRequest(URL: urlApi)
-            
-            request.HTTPMethod = "GET"
-            
-            request.HTTPBody = nil
-            request.addValue("0", forHTTPHeaderField: "Content-Length")
-            
-            var reponseError: NSError?
-            var response: NSURLResponse?
-            
-            var urlData: NSData?
-            do {
-                urlData = try NSURLConnection.sendSynchronousRequest(request, returningResponse:&response)
-            } catch let error as NSError {
-                print(error)
-                reponseError = error
-                urlData = nil
-            }
-            
-            //start val urlData
-            if ( urlData != nil ) {
-                
-                let res = response as! NSHTTPURLResponse!;
-                NSLog("Response code: %ld", res.statusCode);
-                
-                //inicializo lista empleado
-                ListEmail = Array()
-                
-                // start val respuesta del servidor
-                if (res.statusCode >= 200 && res.statusCode < 300) {
-                    
-                    let responseData:NSString  = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!
-                    NSLog("Response ==> %@", responseData);
-                    
-                    let jsonData:NSDictionary = try NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers ) as! NSDictionary
-                    let success:NSInteger = jsonData.valueForKey("response") as! NSInteger
-                    NSLog("Success: %ld", success);
-                    
-                    
-                    var error_msg:NSString
-                    if(success == 1) {
-                        
-                        NSLog("Traje los datos");
-                        //let dataArray = jsonData["result"] as! NSArray;
-                        ListEmail.removeAll()
-                        if let json = jsonData["result"] as? NSArray  {
-                            for item in json {
-                                if let name = item.valueForKey("nombre") {
-                                    ListEmail.append(name as! String)
-                                }
-                            }
-                        }
-                        self.TableViewEmailList.reloadData()
-                        
-                    } else {
-                        //error desconocido
-                        menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-                    }
-                    
-                    
-                } else {
-                    //fallo la peticion
-                    menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-                    
-                }
-                // end val respuesta del servidor
-                
-            } else {
-                menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-                
-                
-            }
-            //end val urlData
-            
-            
-        } catch {
-            
-            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-            //erro de servidor
-        }
-        //end consulta api
-        */
+
         
         
     }
-    
     
     //implementacion de metodo de protoloco datasource
     

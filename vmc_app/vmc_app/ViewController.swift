@@ -30,7 +30,7 @@ extension UIColor {
 class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("cargue vista")
+        print("cargue vista ViewController")
         
     }
     
