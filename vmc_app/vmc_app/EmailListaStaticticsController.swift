@@ -11,7 +11,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     @IBOutlet weak var TableViewEmailList: UITableView!
     var ListEmail = [
-        "Cargando...",
+        ".",
         
         ]
     let tituloMsg:String = "Error"
@@ -54,12 +54,22 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
             do{
                 // se intenta convertir el objecto JSON a un objecto NSDICTIONARY
                 if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    print(dictionary_result)
+                    print(dictionary_result["result"]![0]!.valueForKey("id")!)
+                    
                 }
             }catch{
                 // si sucede algun problema se imprime el problema en consola
                 print("ocurrio un error")
                 print(error)
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                
+                //al presionar boton salir, envio al modal iniciar sesion
+                dispatch_async(dispatch_get_main_queue()){
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.performSegueWithIdentifier("panel", sender: self)
+                    
+                }
             }
             
         })
