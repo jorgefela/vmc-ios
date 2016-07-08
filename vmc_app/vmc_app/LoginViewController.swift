@@ -44,13 +44,12 @@ class LoginViewController: UIViewController{
                 case NoData = "ERROR: no data"
                 case ConversionFailed = "ERROR: conversion from JSON failed"
             }
-            let myUrl = NSURL(string: "http://localhost:8888/vmc-ios/webservice/slim_app/public/login")
+            let myUrl = NSURL(string: mainInstance.urlBase + "public/login")
             let request = NSMutableURLRequest(URL:myUrl!)
             request.HTTPMethod = "POST";
             
             // Compose a query string
             let postString = "email=\(lUsuario)&password=\(lContrasenia)"
-            print(postString)
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
                 data, response, error in

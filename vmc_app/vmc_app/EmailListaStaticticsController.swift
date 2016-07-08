@@ -44,7 +44,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         
         //start consulta api
 
-        let url_path: String = "http://localhost:8888/vmc-ios/webservice/slim_app/public/user/\(idUser)/email"
+        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/email"
         // se transforma el string url_path a tipo url
         let url = NSURL(string: url_path)
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)

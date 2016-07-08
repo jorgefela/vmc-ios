@@ -38,7 +38,6 @@ class ViewController: UIViewController{
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let estaRegistrado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (estaRegistrado != 1) {
-            print("auto carga login")
             //cuando cargo la interfaz Inicio envio al modal iniciar sesion
             dispatch_async(dispatch_get_main_queue()){
                 
