@@ -401,14 +401,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VSZ-1s-EVd">
-                                <rect key="frame" x="0.0" y="64" width="600" height="472"/>
+                                <rect key="frame" x="0.0" y="8" width="595" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellEmailStatictics" rowHeight="74" id="JcN-er-lI3" customClass="CustomTableVewCellEmail" customModule="vmc_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="74"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellEmailStatictics" rowHeight="74" id="JcN-er-lI3" customClass="CustomTableVewCellEmail" customModule="vmc_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="595" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JcN-er-lI3" id="8OF-l9-jRS">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="73"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="562" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sobre-de-carta.png" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-Hj-b5c">
@@ -429,14 +429,16 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-90-kIN">
                                                     <rect key="frame" x="56" y="44" width="337" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="0.25853987068965517" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descripcionEmail" destination="brD-Pg-lUS" id="Fdg-4w-fJN"/>
                                             <outlet property="fechaEmail" destination="gfS-90-kIN" id="9Fs-GZ-N3Z"/>
+                                            <outlet property="imagenEmail" destination="GxR-Hj-b5c" id="Z3t-wA-Sg2"/>
                                             <outlet property="nombreEmail" destination="Vqz-So-z1b" id="lAY-y2-Lgd"/>
                                         </connections>
                                     </tableViewCell>

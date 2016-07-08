@@ -10,6 +10,8 @@ import UIKit
 
 class CustomTableVewCellEmail: UITableViewCell {
     
+    @IBOutlet weak var imagenEmail: UIImageView!
+    
     @IBOutlet weak var nombreEmail: UILabel!
     
     @IBOutlet weak var descripcionEmail: UILabel!

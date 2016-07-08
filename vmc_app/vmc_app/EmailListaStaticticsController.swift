@@ -10,19 +10,10 @@ import UIKit
 class EmailListStaticticsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var TableViewEmailList: UITableView!
-    var ListEmailNombre = [
-        "Nombre..",
-        
-        ]
-    
-    var ListEmailDescripcion = [
-        "Descripcion..",
-        
-        ]
-    var ListEmailFecha = [
-        "Fecha..",
-        
-        ]
+    var ListEmailNombre = ["Cargando..."]
+    var ListEmailDescripcion = [" "]
+    var ListEmailFecha = [" "]
+    var statusCeld:String = "Init"
     let tituloMsg:String = "Error"
     let mesnsajeMsg:String = "Fallo la peticion!"
     let btnMsg:String = "OK"
@@ -126,6 +117,17 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomTableVewCellEmail = self.TableViewEmailList.dequeueReusableCellWithIdentifier("cellEmailStatictics")! as! CustomTableVewCellEmail
+        cell.imagenEmail.hidden = false
+        cell.nombreEmail.hidden = false
+        cell.descripcionEmail.hidden = false
+        cell.fechaEmail.hidden = false
+        if statusCeld == "Init" {
+            statusCeld = ""
+            cell.imagenEmail.hidden = true
+            cell.nombreEmail.hidden = true
+            cell.descripcionEmail.hidden = true
+            cell.fechaEmail.hidden = true
+        }
         
         cell.nombreEmail!.text = ListEmailNombre[indexPath.row]
         cell.descripcionEmail!.text = ListEmailDescripcion[indexPath.row]
