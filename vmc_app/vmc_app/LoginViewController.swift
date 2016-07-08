@@ -29,13 +29,12 @@ class LoginViewController: UIViewController{
         let btnMsg:String = "OK"
         
         if ( lUsuario.isEqualToString("") || lContrasenia.isEqualToString("") ) {
+            FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
             
-            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
-            
-        }else if(!isValidEmail(lUsuario as String)){
+        }else if(!FuncGlobal().isValidEmail(lUsuario as String)){
             
             mesnsajeMsg = "Invalid email"
-            menssages(tituloMsg, mensaje: mesnsajeMsg, txtBtn: btnMsg)
+            FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
             
         }else{
             
@@ -100,26 +99,5 @@ class LoginViewController: UIViewController{
     }
     
     // end bloqueo auto rotacion
-    
-    func isValidEmail(testStr:String) -> Bool {
-        //print("email: \(testStr)")
-        let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluateWithObject(testStr)
-        return result
-    }
-    
-    func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
-        
-        let msge = UIAlertController(title: titulo, message: mensaje, preferredStyle: .Alert)
-        presentViewController(msge, animated: true, completion: nil)
-        
-        //aqui agrego los botones del alerta
-        msge.addAction(UIAlertAction(title: txtBtn, style: .Default, handler: { (action: UIAlertAction!) in
-            print("ok")
-        }))
-        return true
-        
-    }  
     
 }

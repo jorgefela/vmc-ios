@@ -30,8 +30,6 @@ extension UIColor {
 class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("cargue vista ViewController")
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -47,7 +45,6 @@ class ViewController: UIViewController{
                 self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
                 
             }
-            print("cargue login")
         } else {
             
             ////
@@ -61,7 +58,6 @@ class ViewController: UIViewController{
             //cambia color de texto barra de estatus
             UIApplication.sharedApplication().statusBarStyle = .LightContent
             ////
-            print("cargue entrada")
         }   
         
     }

@@ -29,7 +29,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "Bact", style:.Plain, target: self, action: #selector(EmailListStaticticsController.goBack))
+        let backButton = UIBarButtonItem(title: "Back", style:.Plain, target: self, action: #selector(EmailListStaticticsController.goBack))
         self.navigationItem.leftBarButtonItem = backButton
         PreLoading().showLoading()
         self.TableViewEmailList.registerClass(UITableViewCell.self, forCellReuseIdentifier: "viewListEmail")

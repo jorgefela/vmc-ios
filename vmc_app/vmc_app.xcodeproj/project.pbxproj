@@ -29,6 +29,7 @@
 		12477AED1D110347005B6391 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEB1D110347005B6391 /* logo.png */; };
 		12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */; };
 		12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */; };
+		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		12477AEB1D110347005B6391 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableVewCellEmail.swift; sourceTree = "<group>"; };
 		12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreLoading.swift; sourceTree = "<group>"; };
+		12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGlobal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */,
+				12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
+				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				120DC5A41D2DF21E00BADDCA /* StaticticsViewController.swift in Sources */,
 				12477ADA1D110316005B6391 /* ViewController.swift in Sources */,
