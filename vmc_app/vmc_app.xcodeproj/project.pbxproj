@@ -27,6 +27,7 @@
 		12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12477AE01D110316005B6391 /* LaunchScreen.storyboard */; };
 		12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEA1D110347005B6391 /* vmc2-plus.jpg */; };
 		12477AED1D110347005B6391 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEB1D110347005B6391 /* logo.png */; };
+		12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		12477AE31D110316005B6391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12477AEA1D110347005B6391 /* vmc2-plus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vmc2-plus.jpg"; sourceTree = "<group>"; };
 		12477AEB1D110347005B6391 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableVewCellEmail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		12F26A401D1D33B000D3F9F6 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */,
 				12477AD91D110316005B6391 /* ViewController.swift */,
 				1233208F1D230F4900BE0A95 /* LoginViewController.swift */,
 				123320AF1D27198600BE0A95 /* EmailListaStaticticsController.swift */,
@@ -221,6 +224,7 @@
 				12477AD81D110316005B6391 /* AppDelegate.swift in Sources */,
 				120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */,
 				123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */,
+				12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,17 @@ import UIKit
 class EmailListStaticticsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var TableViewEmailList: UITableView!
-    var ListEmail = [
-        ".",
+    var ListEmailNombre = [
+        "Nombre..",
+        
+        ]
+    
+    var ListEmailDescripcion = [
+        "Descripcion..",
+        
+        ]
+    var ListEmailFecha = [
+        "Fecha..",
         
         ]
     let tituloMsg:String = "Error"
@@ -54,7 +63,34 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
             do{
                 // se intenta convertir el objecto JSON a un objecto NSDICTIONARY
                 if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    print(dictionary_result["result"]![0]!.valueForKey("id")!)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.ListEmailNombre.removeAll()
+                        self.ListEmailDescripcion.removeAll()
+                        self.ListEmailFecha.removeAll()
+                        
+                        if let json = dictionary_result["result"] as? NSArray  {
+                            for item in json {
+                                if let titulo = item.valueForKey("title") {
+                                    self.ListEmailNombre.append(titulo as! String)
+                                    
+                                    if let descripcion = item.valueForKey("subject") {
+                                        self.ListEmailDescripcion.append(descripcion as! String)
+                                    }else{
+                                        self.ListEmailDescripcion.append(" ")
+                                    }
+                                    
+                                    if let fecha = item.valueForKey("created_date") {
+                                        self.ListEmailFecha.append(fecha as! String)
+                                    }else{
+                                        self.ListEmailFecha.append(" ")
+                                    }
+                                }
+                            }//fin for
+                            self.TableViewEmailList.reloadData()
+                        }
+                        
+                    })
+                    
                     
                 }
             }catch{
@@ -80,14 +116,16 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     //implementacion de metodo de protoloco datasource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.ListEmail.count
+        return self.ListEmailNombre.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.TableViewEmailList.dequeueReusableCellWithIdentifier("viewListEmail")! as UITableViewCell
+        let cell:CustomTableVewCellEmail = self.TableViewEmailList.dequeueReusableCellWithIdentifier("cellEmailStatictics")! as! CustomTableVewCellEmail
         
-        cell.textLabel!.text = ListEmail[indexPath.row]
+        cell.nombreEmail!.text = ListEmailNombre[indexPath.row]
+        cell.descripcionEmail!.text = ListEmailDescripcion[indexPath.row]
+        cell.fechaEmail!.text = ListEmailFecha[indexPath.row]
         
         return cell
     }
