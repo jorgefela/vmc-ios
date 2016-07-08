@@ -29,6 +29,8 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backButton = UIBarButtonItem(title: "Bact", style:.Plain, target: self, action: #selector(EmailListStaticticsController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
         PreLoading().showLoading()
         self.TableViewEmailList.registerClass(UITableViewCell.self, forCellReuseIdentifier: "viewListEmail")
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -149,6 +151,11 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         }))
         return true
         
+    }
+    
+    func goBack()
+    {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
