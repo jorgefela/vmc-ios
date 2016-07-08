@@ -29,6 +29,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PreLoading().showLoading()
         self.TableViewEmailList.registerClass(UITableViewCell.self, forCellReuseIdentifier: "viewListEmail")
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
@@ -87,6 +88,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                                 }
                             }//fin for
                             self.TableViewEmailList.reloadData()
+                            PreLoading().hideLoading()
                         }
                         
                     })
