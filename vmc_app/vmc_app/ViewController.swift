@@ -7,6 +7,7 @@
 //
 
 import UIKit
+/*
 extension UIColor {
     convenience init(hexString: String) {
         let hex = hexString.stringByTrimmingCharactersInSet(NSCharacterSet.alphanumericCharacterSet().invertedSet)
@@ -25,7 +26,7 @@ extension UIColor {
         }
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
     }
-}
+}*/
 
 class ViewController: UIViewController{
     override func viewDidLoad() {
@@ -49,13 +50,17 @@ class ViewController: UIViewController{
             ////
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             //cambia fondo navigation controller
-            let bg_Nav = UIColor(hexString: "#041830")
-            self.navigationController!.navigationBar.barTintColor = bg_Nav
+            //UITabBar.appearance().barTintColor = UIColor.clearColor()
+            //UITabBar.appearance().backgroundImage = UIImage()
+            //UITabBar.appearance().shadowImage = UIImage()
+            //let bg_Nav = UIColor(hexString: "#0A1429")
+            self.navigationController!.navigationBar.barTintColor = UIColorFromRGB(0x0A1429)
+            self.navigationController!.navigationBar.translucent = false
             //cambia color de texto navigation controller
             let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
             self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
             //cambia color de texto barra de estatus
-            UIApplication.sharedApplication().statusBarStyle = .LightContent
+            //UIApplication.sharedApplication().statusBarStyle = .LightContent
             ////
         }   
         
@@ -78,6 +83,15 @@ class ViewController: UIViewController{
             self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
             
         }
+    }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
 }
