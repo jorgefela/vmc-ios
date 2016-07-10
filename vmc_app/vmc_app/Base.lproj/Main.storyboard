@@ -411,29 +411,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="527" height="73"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sobre-de-carta.png" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-Hj-b5c">
-                                                    <rect key="frame" x="13" y="8" width="35" height="41"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sobre-de-carta.png" translatesAutoresizingMaskIntoConstraints="NO" id="GxR-Hj-b5c">
+                                                    <rect key="frame" x="8" y="8" width="37" height="41"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombe Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqz-So-z1b">
-                                                    <rect key="frame" x="56" y="8" width="448" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombe Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqz-So-z1b">
+                                                    <rect key="frame" x="53" y="8" width="466" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.058823529411764705" green="0.27058823529411763" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descripcion Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brD-Pg-lUS">
-                                                    <rect key="frame" x="56" y="26" width="448" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-90-kIN">
+                                                    <rect key="frame" x="53" y="44" width="466" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fecha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfS-90-kIN">
-                                                    <rect key="frame" x="56" y="44" width="448" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripcion Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brD-Pg-lUS">
+                                                    <rect key="frame" x="53" y="26" width="466" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="0.25853987068965517" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="brD-Pg-lUS" secondAttribute="trailing" id="0Sb-I3-Uec"/>
+                                                <constraint firstItem="brD-Pg-lUS" firstAttribute="leading" secondItem="GxR-Hj-b5c" secondAttribute="trailing" constant="8" id="2bU-f9-nuw"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GxR-Hj-b5c" secondAttribute="bottom" constant="16" id="2fy-bt-zgc"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="GxR-Hj-b5c" secondAttribute="leading" id="8V2-Fc-Zee"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gfS-90-kIN" secondAttribute="bottom" constant="-3" id="FIk-hM-FYf"/>
+                                                <constraint firstItem="Vqz-So-z1b" firstAttribute="leading" secondItem="8OF-l9-jRS" secondAttribute="leadingMargin" constant="45" id="OGs-uY-qAh"/>
+                                                <constraint firstItem="brD-Pg-lUS" firstAttribute="leading" secondItem="8OF-l9-jRS" secondAttribute="leadingMargin" constant="45" id="TZA-qz-gzz"/>
+                                                <constraint firstItem="gfS-90-kIN" firstAttribute="top" secondItem="brD-Pg-lUS" secondAttribute="bottom" id="VgZ-xU-TAU"/>
+                                                <constraint firstAttribute="topMargin" secondItem="Vqz-So-z1b" secondAttribute="top" id="Vnw-rU-FUm"/>
+                                                <constraint firstItem="gfS-90-kIN" firstAttribute="leading" secondItem="8OF-l9-jRS" secondAttribute="leadingMargin" constant="45" id="ZNh-jd-YEf"/>
+                                                <constraint firstAttribute="topMargin" secondItem="GxR-Hj-b5c" secondAttribute="top" id="ZxO-4R-mG2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vqz-So-z1b" secondAttribute="trailing" id="n2U-nY-psV"/>
+                                                <constraint firstItem="brD-Pg-lUS" firstAttribute="top" secondItem="Vqz-So-z1b" secondAttribute="bottom" constant="-3" id="nK9-tY-f2u"/>
+                                                <constraint firstItem="Vqz-So-z1b" firstAttribute="leading" secondItem="GxR-Hj-b5c" secondAttribute="trailing" constant="8" id="xuy-10-6yw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gfS-90-kIN" secondAttribute="trailing" id="xxm-mC-ljM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descripcionEmail" destination="brD-Pg-lUS" id="Fdg-4w-fJN"/>
