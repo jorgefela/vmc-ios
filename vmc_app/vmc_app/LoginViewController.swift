@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtEmail: UITextField!
     
@@ -98,5 +98,14 @@ class LoginViewController: UIViewController{
     }
     
     // end bloqueo auto rotacion
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
     
 }
