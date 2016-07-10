@@ -181,8 +181,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flecha-derecha.png" translatesAutoresizingMaskIntoConstraints="NO" id="tA8-y5-V0g">
                                                     <rect key="frame" x="52" y="47" width="21" height="21"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-PP-2jj">
-                                                    <rect key="frame" x="113" y="47" width="113" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot2-PP-2jj">
+                                                    <rect key="frame" x="249" y="43" width="102" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Video library">
                                                             <attributes>
@@ -196,6 +196,10 @@
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.14509803921568629" green="0.63529411764705879" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Ot2-PP-2jj" firstAttribute="centerX" secondItem="K3a-kq-ns4" secondAttribute="centerX" id="AJD-UU-di9"/>
+                                                <constraint firstItem="Ot2-PP-2jj" firstAttribute="centerY" secondItem="K3a-kq-ns4" secondAttribute="centerY" id="fU6-QM-gdG"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.14509803921568629" green="0.63529411764705879" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -212,8 +216,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boton-anadir.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fpn-jW-cdx">
                                                     <rect key="frame" x="52" y="47" width="21" height="21"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-h8-Ghc">
-                                                    <rect key="frame" x="103" y="47" width="146" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-h8-Ghc">
+                                                    <rect key="frame" x="227" y="43" width="146" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Record new video">
                                                             <attributes>
@@ -227,6 +231,10 @@
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.086274509803921567" green="0.396078431372549" blue="0.76470588235294112" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="gvk-h8-Ghc" firstAttribute="centerX" secondItem="ZGW-Ic-G8D" secondAttribute="centerX" id="CQa-Fg-5UC"/>
+                                                <constraint firstItem="gvk-h8-Ghc" firstAttribute="centerY" secondItem="ZGW-Ic-G8D" secondAttribute="centerY" id="V7C-7y-rhk"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.086274509803921567" green="0.38039215686274508" blue="0.76078431372549016" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -243,8 +251,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lista.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-fG-aFF">
                                                     <rect key="frame" x="52" y="43" width="21" height="21"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqK-Q2-w2L">
-                                                    <rect key="frame" x="127" y="43" width="89" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HqK-Q2-w2L">
+                                                    <rect key="frame" x="262" y="43" width="76" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Statistics">
                                                             <attributes>
@@ -258,6 +266,10 @@
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.047058823529411764" green="0.1803921568627451" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="HqK-Q2-w2L" firstAttribute="centerY" secondItem="lk6-te-qk5" secondAttribute="centerY" id="LnN-fM-yVj"/>
+                                                <constraint firstItem="HqK-Q2-w2L" firstAttribute="centerX" secondItem="lk6-te-qk5" secondAttribute="centerX" id="eDG-w6-4Pa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.047058823529411764" green="0.1803921568627451" blue="0.36470588235294116" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -274,8 +286,8 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sobre.png" translatesAutoresizingMaskIntoConstraints="NO" id="7nZ-dB-EJQ">
                                                     <rect key="frame" x="52" y="43" width="21" height="21"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-q2-Jxk">
-                                                    <rect key="frame" x="142" y="43" width="59" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k5-q2-Jxk">
+                                                    <rect key="frame" x="273" y="43" width="55" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Emails">
                                                             <attributes>
@@ -288,6 +300,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1k5-q2-Jxk" firstAttribute="centerX" secondItem="gIf-O7-e0H" secondAttribute="centerX" id="86X-vV-Fmb"/>
+                                                <constraint firstItem="1k5-q2-Jxk" firstAttribute="centerY" secondItem="gIf-O7-e0H" secondAttribute="centerY" id="Y35-su-OPw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.027450980392156862" green="0.070588235294117646" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
@@ -302,7 +318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLW-Yg-lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873" y="706"/>
+            <point key="canvasLocation" x="840" y="715.5"/>
         </scene>
         <!--Video Library-->
         <scene sceneID="9Fb-NG-UYG">
@@ -313,7 +329,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uTM-Nt-bI3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3u9-Sz-FCh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cargar lista de videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6L1-TA-BsB">
@@ -520,6 +536,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zUs-AK-gml"/>
-        <segue reference="rjH-aa-ygq"/>
+        <segue reference="bWk-Zv-rk8"/>
     </inferredMetricsTieBreakers>
 </document>
