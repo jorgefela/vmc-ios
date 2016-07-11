@@ -144,7 +144,7 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print("entre aqui \(indexPath)")
+        
         let cell:UITableViewCell = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCell")! as UITableViewCell
         
         cell.textLabel!.text = ListCampaigns[indexPath.row]
