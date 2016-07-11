@@ -28,6 +28,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         self.TableViewCampaings.registerClass(UITableViewCell.self, forCellReuseIdentifier: "miCell")
         
+         PreLoading().showLoading()
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
@@ -58,7 +60,36 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                         
                         if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                
                                 print(dictionary_result)
+                                self.ListCampaigns.removeAll()
+                                self.ListIdCategoriaCampaigns.removeAll()
+                                self.ListIdCampaigns.removeAll()
+                                
+                                // start barrido datos
+                                
+                                if let json = dictionary_result["result"] as? NSArray  {
+                                    for item in json {
+                                        if let Id = item.valueForKey("id_camp") {
+                                            self.ListIdCampaigns.append(Id as! String)
+                                            
+                                            if let nombre = item.valueForKey("name_campaign") {
+                                                self.ListCampaigns.append(nombre as! String)
+                                                
+                                                if let id_categoria = item.valueForKey("category") {
+                                                    self.ListIdCategoriaCampaigns.append(id_categoria as! String)
+                                                }else{
+                                                    self.ListIdCategoriaCampaigns.append(" ")
+                                                }
+                                            }
+                                        }
+                                    }//fin for
+                                    self.TableViewCampaings.reloadData()
+                                    PreLoading().hideLoading()
+                                }
+                                
+                                // end barrido datos
+                                
                                 
                                 
                                 
@@ -113,11 +144,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
         print("entre aqui \(indexPath)")
         let cell:UITableViewCell = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCell")! as UITableViewCell
         
-        cell.textLabel!.text = ListIdCampaigns[indexPath.row]
+        cell.textLabel!.text = ListCampaigns[indexPath.row]
         
         return cell
     }
