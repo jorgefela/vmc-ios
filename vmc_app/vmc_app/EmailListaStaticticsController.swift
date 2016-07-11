@@ -21,6 +21,8 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     let mesnsajeMsg:String = "Fallo la peticion!"
     let btnMsg:String = "OK"
     var id = String()
+    var nombreE = String()
+    var subjectE = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,6 +170,8 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         //segue_a_campanias
         dispatch_async(dispatch_get_main_queue()){
             self.id = self.listId[indexPath.row]
+            self.nombreE = self.ListEmailNombre[indexPath.row]
+            self.subjectE = self.ListEmailDescripcion[indexPath.row]
             self.performSegueWithIdentifier("segue_a_campanias", sender: self)
             
         }
@@ -201,6 +205,8 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         {
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.idEmail = self.id
+            destination.nombreEmail = self.nombreE
+            destination.subjectEmail = self.subjectE
         }
     }
     
