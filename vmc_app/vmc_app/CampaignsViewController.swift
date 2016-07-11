@@ -8,17 +8,25 @@
 
 import UIKit
 
-class CampaignsViewController: UIViewController {
+class CampaignsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     var idEmail = String()
     var nombreEmail = String()
     var subjectEmail = String()
+    
+    @IBOutlet weak var TableViewCampaings: UITableView!
     
     @IBOutlet weak var labelNameEmail: UILabel!
     
     @IBOutlet weak var LabelSubject: UILabel!
     
+    var ListCampaigns = ["Loading..."]
+    var ListIdCategoriaCampaigns = ["Loading..."]
+    var ListIdCampaigns = ["Loading..."]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.TableViewCampaings.registerClass(UITableViewCell.self, forCellReuseIdentifier: "miCell")
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
@@ -95,6 +103,29 @@ class CampaignsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    //implementacion de metodo de protoloco datasource
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.ListIdCampaigns.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //var cell = tableView.dequeueReusableCellWithIdentifier("Cell")
+        print("entre aqui \(indexPath)")
+        let cell:UITableViewCell = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCell")! as UITableViewCell
+        
+        cell.textLabel!.text = ListIdCampaigns[indexPath.row]
+        
+        return cell
+    }
+    
+    // implementacion de metodo delegado
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        TableViewCampaings.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
 }

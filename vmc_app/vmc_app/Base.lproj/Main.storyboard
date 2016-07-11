@@ -521,6 +521,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
                                 <rect key="frame" x="20" y="96" width="560" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H11-WU-MfU" id="AAz-Jl-nR6"/>
+                                    <outlet property="delegate" destination="H11-WU-MfU" id="U7r-0c-3Lt"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-wH-33b">
                                 <rect key="frame" x="79" y="14" width="50" height="21"/>
@@ -558,6 +562,7 @@
                     <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU"/>
                     <connections>
                         <outlet property="LabelSubject" destination="6rm-7u-anK" id="VNe-65-yFR"/>
+                        <outlet property="TableViewCampaings" destination="fkB-UG-OcD" id="qGP-Cb-AxM"/>
                         <outlet property="labelNameEmail" destination="Pk1-hx-vhL" id="o9f-uy-Ega"/>
                     </connections>
                 </viewController>
