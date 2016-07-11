@@ -517,13 +517,19 @@
                     <view key="view" contentMode="scaleToFill" id="ufd-Jb-5mZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
+                                <rect key="frame" x="0.0" y="96" width="594" height="427"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OED-dR-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2409" y="716"/>
+            <point key="canvasLocation" x="2409" y="715.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihv-NL-074">

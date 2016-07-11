@@ -56,6 +56,10 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         // la session realizara un trabajo con la request! que es objecto con los datos organizados en la cabecera
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             // se revisa si dentro del trabajo ocurrio algun problema si ocurrio algo se imprime en consola que sucedio
+            let res = response as! NSHTTPURLResponse!;
+           
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+            
             if error != nil{print(error?.localizedDescription)}
             // se realiza un try para la CONVERSION DEL OBJECTO JSON A OBJECTO NSDICTIONARY
             do{
@@ -111,6 +115,18 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                     
                 }
             }
+            }else{
+             NSLog("Response code: %ld", res.statusCode);
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                
+                //al presionar boton salir, envio al modal iniciar sesion
+                dispatch_async(dispatch_get_main_queue()){
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.performSegueWithIdentifier("panel", sender: self)
+                    
+                }
+            }//fin validar response.status
             
         })
         // es la linea encargada de llamar la session de crear el trabajo y realizar lo interno dentro del trabajo
