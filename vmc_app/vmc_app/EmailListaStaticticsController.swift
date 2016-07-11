@@ -13,6 +13,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     var ListEmailNombre = ["Cargando..."]
     var ListEmailDescripcion = [" "]
     var ListEmailFecha = [" "]
+    var listId = [" "]
     var statusCeld:String = "Init"
     let tituloMsg:String = "Error"
     let mesnsajeMsg:String = "Fallo la peticion!"
@@ -61,22 +62,27 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                         self.ListEmailNombre.removeAll()
                         self.ListEmailDescripcion.removeAll()
                         self.ListEmailFecha.removeAll()
+                        self.listId.removeAll()
                         
                         if let json = dictionary_result["result"] as? NSArray  {
                             for item in json {
-                                if let titulo = item.valueForKey("title") {
-                                    self.ListEmailNombre.append(titulo as! String)
+                                if let Id = item.valueForKey("id") {
+                                    self.listId.append(Id as! String)
                                     
-                                    if let descripcion = item.valueForKey("subject") {
-                                        self.ListEmailDescripcion.append(descripcion as! String)
-                                    }else{
-                                        self.ListEmailDescripcion.append(" ")
-                                    }
-                                    
-                                    if let fecha = item.valueForKey("created_date") {
-                                        self.ListEmailFecha.append(fecha as! String)
-                                    }else{
-                                        self.ListEmailFecha.append(" ")
+                                    if let titulo = item.valueForKey("title") {
+                                        self.ListEmailNombre.append(titulo as! String)
+                                        
+                                        if let descripcion = item.valueForKey("subject") {
+                                            self.ListEmailDescripcion.append(descripcion as! String)
+                                        }else{
+                                            self.ListEmailDescripcion.append(" ")
+                                        }
+                                        
+                                        if let fecha = item.valueForKey("created_date") {
+                                            self.ListEmailFecha.append(fecha as! String)
+                                        }else{
+                                            self.ListEmailFecha.append(" ")
+                                        }
                                     }
                                 }
                             }//fin for
@@ -139,6 +145,8 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     // implementacion de metodo delegado
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(listId[indexPath.row])
+        
         TableViewEmailList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
