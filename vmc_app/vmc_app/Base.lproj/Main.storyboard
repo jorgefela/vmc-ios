@@ -499,11 +499,31 @@
                     <navigationItem key="navigationItem" title="Email List" id="HuZ-ZR-bZ7"/>
                     <connections>
                         <outlet property="TableViewEmailList" destination="VSZ-1s-EVd" id="l6C-FI-FEs"/>
+                        <segue destination="H11-WU-MfU" kind="show" identifier="segue_a_campanias" id="jDn-de-0N9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkJ-Fw-cIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1673" y="706"/>
+        </scene>
+        <!--Campaign List-->
+        <scene sceneID="DSh-Qm-gbA">
+            <objects>
+                <viewController id="H11-WU-MfU" customClass="CampaignsViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5HJ-W5-Iui"/>
+                        <viewControllerLayoutGuide type="bottom" id="OwK-Zj-8MJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ufd-Jb-5mZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OED-dR-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2409" y="716"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihv-NL-074">
@@ -523,6 +543,24 @@
             </objects>
             <point key="canvasLocation" x="801" y="1549"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="32F-aB-dPF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pbu-zq-R2h" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Khq-et-SY9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H11-WU-MfU" kind="relationship" relationship="rootViewController" id="IS5-Ez-L8g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0W-Wz-49z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2195" y="-47"/>
+        </scene>
     </scenes>
     <resources>
         <image name="boton-anadir.png" width="64" height="64"/>
@@ -537,5 +575,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="zUs-AK-gml"/>
         <segue reference="bWk-Zv-rk8"/>
+        <segue reference="jDn-de-0N9"/>
     </inferredMetricsTieBreakers>
 </document>

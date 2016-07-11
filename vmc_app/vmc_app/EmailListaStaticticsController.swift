@@ -7,8 +7,10 @@
 //
 
 import UIKit
+
 class EmailListStaticticsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+
     @IBOutlet weak var TableViewEmailList: UITableView!
     var ListEmailNombre = ["Cargando..."]
     var ListEmailDescripcion = [" "]
@@ -18,6 +20,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     let tituloMsg:String = "Error"
     let mesnsajeMsg:String = "Fallo la peticion!"
     let btnMsg:String = "OK"
+    var id = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,8 +148,13 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     // implementacion de metodo delegado
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        print(listId[indexPath.row])
         
+        //segue_a_campanias
+        dispatch_async(dispatch_get_main_queue()){
+            self.id = self.listId[indexPath.row]
+            self.performSegueWithIdentifier("segue_a_campanias", sender: self)
+            
+        }
         TableViewEmailList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -166,6 +174,18 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
     func goBack()
     {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let miSegue = segue.identifier!
+        if  miSegue == "segue_a_campanias",
+            let destination = segue.destinationViewController as? CampaignsViewController
+        {
+            //paso el id del email a la viariable que esta en el siguiente controller
+            destination.idEmail = self.id
+        }
     }
     
     

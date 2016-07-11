@@ -8,9 +8,11 @@
 
 import UIKit
 
-class CampaignsViewController: UIViewController{
+class CampaignsViewController: UIViewController {
+    var idEmail = String()
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("aqui el id " + idEmail)
         print("cargue vista Campaigns")
         
     }
@@ -18,4 +20,5 @@ class CampaignsViewController: UIViewController{
         super.didReceiveMemoryWarning()
         
     }
+
 }
