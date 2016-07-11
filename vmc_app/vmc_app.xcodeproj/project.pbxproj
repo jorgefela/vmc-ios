@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120DC5A11D2DF18200BADDCA /* CampaignsViewController.swift */; };
 		120DC5A41D2DF21E00BADDCA /* StaticticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */; };
+		12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */; };
 		123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233208F1D230F4900BE0A95 /* LoginViewController.swift */; };
 		123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */ = {isa = PBXBuildFile; fileRef = 123320911D23E34400BE0A95 /* bg_navcontroller.png */; };
 		123320961D2422FF00BE0A95 /* muestra_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 123320951D2422FF00BE0A95 /* muestra_bar.png */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		120DC5A11D2DF18200BADDCA /* CampaignsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignsViewController.swift; sourceTree = "<group>"; };
 		120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticticsViewController.swift; sourceTree = "<group>"; };
+		12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellCampaigns.swift; sourceTree = "<group>"; };
 		1233208F1D230F4900BE0A95 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		123320911D23E34400BE0A95 /* bg_navcontroller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_navcontroller.png; sourceTree = "<group>"; };
 		123320951D2422FF00BE0A95 /* muestra_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muestra_bar.png; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */,
 				129C12C01D30619300B32662 /* VideoViewController.swift */,
 				129C12C21D30632E00B32662 /* showVideoViewController.swift */,
+				12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				12477ADA1D110316005B6391 /* ViewController.swift in Sources */,
 				129C12C11D30619300B32662 /* VideoViewController.swift in Sources */,
 				129C12C31D30632E00B32662 /* showVideoViewController.swift in Sources */,
+				12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */,
 				12477AD81D110316005B6391 /* AppDelegate.swift in Sources */,
 				120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */,
 				123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */,

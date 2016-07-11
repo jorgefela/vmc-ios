@@ -556,10 +556,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU"/>
+                    <connections>
+                        <outlet property="LabelSubject" destination="6rm-7u-anK" id="VNe-65-yFR"/>
+                        <outlet property="labelNameEmail" destination="Pk1-hx-vhL" id="o9f-uy-Ega"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OED-dR-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2409" y="715.5"/>
+            <point key="canvasLocation" x="2461" y="715.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihv-NL-074">
