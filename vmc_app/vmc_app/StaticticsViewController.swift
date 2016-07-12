@@ -12,10 +12,11 @@ class StaticticsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print("cargue vista Statictics")
+        /*
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        print("\(idUser)  \(keyServer)")
+        print("\(idUser)  \(keyServer)")*/
         
     }
     override func didReceiveMemoryWarning() {
