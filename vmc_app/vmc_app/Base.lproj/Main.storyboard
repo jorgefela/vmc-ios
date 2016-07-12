@@ -518,14 +518,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
-                                <rect key="frame" x="20" y="96" width="560" height="419"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="H11-WU-MfU" id="AAz-Jl-nR6"/>
-                                    <outlet property="delegate" destination="H11-WU-MfU" id="U7r-0c-3Lt"/>
-                                </connections>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-wH-33b">
                                 <rect key="frame" x="79" y="14" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -556,10 +548,42 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
+                                <rect key="frame" x="20" y="121" width="560" height="402"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="57" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="560" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMi-OS-kUu" id="IcQ-sg-aev">
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avion_negroenviar.png" translatesAutoresizingMaskIntoConstraints="NO" id="5HJ-a3-RiV">
+                                                    <rect key="frame" x="8" y="17" width="21" height="21"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campaing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-Mh-Coh">
+                                                    <rect key="frame" x="47" y="17" width="472" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="LabelNombreCampaing" destination="UFG-Mh-Coh" id="VPO-P2-K7k"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="H11-WU-MfU" id="AAz-Jl-nR6"/>
+                                    <outlet property="delegate" destination="H11-WU-MfU" id="U7r-0c-3Lt"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU"/>
+                    <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU" userLabel="Back"/>
                     <connections>
                         <outlet property="LabelSubject" destination="6rm-7u-anK" id="VNe-65-yFR"/>
                         <outlet property="TableViewCampaings" destination="fkB-UG-OcD" id="qGP-Cb-AxM"/>
@@ -568,7 +592,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OED-dR-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2461" y="715.5"/>
+            <point key="canvasLocation" x="2393" y="710.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihv-NL-074">
@@ -608,6 +632,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="avion_negroenviar.png" width="64" height="64"/>
         <image name="boton-anadir.png" width="64" height="64"/>
         <image name="flecha-derecha.png" width="64" height="64"/>
         <image name="lista.png" width="64" height="64"/>

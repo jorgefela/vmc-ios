@@ -10,5 +10,6 @@ import UIKit
 
 class CustomTableViewCellCampaigns: UITableViewCell {
     
+    @IBOutlet weak var LabelNombreCampaing: UILabel!
 
 }

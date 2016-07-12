@@ -26,7 +26,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.TableViewCampaings.registerClass(UITableViewCell.self, forCellReuseIdentifier: "miCell")
         
          PreLoading().showLoading()
         
@@ -144,11 +143,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell:UITableViewCell = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCell")! as UITableViewCell
-        
-        cell.textLabel!.text = ListCampaigns[indexPath.row]
-        
+        let cell:CustomTableViewCellCampaigns = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCellCampaing2")! as! CustomTableViewCellCampaigns
+        cell.LabelNombreCampaing!.text = ListCampaigns[indexPath.row]
         return cell
     }
     

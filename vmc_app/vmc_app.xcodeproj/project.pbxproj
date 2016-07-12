@@ -10,6 +10,8 @@
 		120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120DC5A11D2DF18200BADDCA /* CampaignsViewController.swift */; };
 		120DC5A41D2DF21E00BADDCA /* StaticticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */; };
 		12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */; };
+		12169FA31D345FFA0014C12D /* avion_enviar.png in Resources */ = {isa = PBXBuildFile; fileRef = 12169FA21D345FFA0014C12D /* avion_enviar.png */; };
+		12169FA51D3461A70014C12D /* avion_negroenviar.png in Resources */ = {isa = PBXBuildFile; fileRef = 12169FA41D3461A70014C12D /* avion_negroenviar.png */; };
 		123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1233208F1D230F4900BE0A95 /* LoginViewController.swift */; };
 		123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */ = {isa = PBXBuildFile; fileRef = 123320911D23E34400BE0A95 /* bg_navcontroller.png */; };
 		123320961D2422FF00BE0A95 /* muestra_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 123320951D2422FF00BE0A95 /* muestra_bar.png */; };
@@ -40,6 +42,8 @@
 		120DC5A11D2DF18200BADDCA /* CampaignsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignsViewController.swift; sourceTree = "<group>"; };
 		120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticticsViewController.swift; sourceTree = "<group>"; };
 		12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCellCampaigns.swift; sourceTree = "<group>"; };
+		12169FA21D345FFA0014C12D /* avion_enviar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avion_enviar.png; sourceTree = "<group>"; };
+		12169FA41D3461A70014C12D /* avion_negroenviar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avion_negroenviar.png; sourceTree = "<group>"; };
 		1233208F1D230F4900BE0A95 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		123320911D23E34400BE0A95 /* bg_navcontroller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_navcontroller.png; sourceTree = "<group>"; };
 		123320951D2422FF00BE0A95 /* muestra_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muestra_bar.png; sourceTree = "<group>"; };
@@ -113,7 +117,9 @@
 		12477AE91D11032F005B6391 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				12169FA41D3461A70014C12D /* avion_negroenviar.png */,
 				123320911D23E34400BE0A95 /* bg_navcontroller.png */,
+				12169FA21D345FFA0014C12D /* avion_enviar.png */,
 				123320AD1D2717BD00BE0A95 /* sobre-de-carta.png */,
 				123320951D2422FF00BE0A95 /* muestra_bar.png */,
 				123320A11D24922300BE0A95 /* boton-anadir.png */,
@@ -224,6 +230,7 @@
 				12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */,
 				12477AED1D110347005B6391 /* logo.png in Resources */,
 				123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */,
+				12169FA51D3461A70014C12D /* avion_negroenviar.png in Resources */,
 				123320A81D24922300BE0A95 /* sobre.png in Resources */,
 				123320AC1D257BA000BE0A95 /* menu-de-lineas (1).png in Resources */,
 				123320A71D24922300BE0A95 /* lista.png in Resources */,
@@ -231,6 +238,7 @@
 				123320961D2422FF00BE0A95 /* muestra_bar.png in Resources */,
 				12477ADF1D110316005B6391 /* Assets.xcassets in Resources */,
 				123320AA1D257B4800BE0A95 /* menu-de-lineas.png in Resources */,
+				12169FA31D345FFA0014C12D /* avion_enviar.png in Resources */,
 				12477ADD1D110316005B6391 /* Main.storyboard in Resources */,
 				123320AE1D2717BE00BE0A95 /* sobre-de-carta.png in Resources */,
 				123320A61D24922300BE0A95 /* flecha-derecha.png in Resources */,
