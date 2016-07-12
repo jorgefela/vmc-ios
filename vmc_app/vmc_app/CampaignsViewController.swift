@@ -60,7 +60,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                         if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 
-                                print(dictionary_result)
                                 self.ListCampaigns.removeAll()
                                 self.ListIdCategoriaCampaigns.removeAll()
                                 self.ListIdCampaigns.removeAll()
@@ -88,8 +87,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                 }
                                 
                                 // end barrido datos
-                                
-                                
                                 
                                 
                             })
