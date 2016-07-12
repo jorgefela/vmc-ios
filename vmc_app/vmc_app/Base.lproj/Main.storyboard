@@ -518,38 +518,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRS-wH-33b">
-                                <rect key="frame" x="79" y="14" width="50" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
+                                <rect key="frame" x="20" y="14" width="560" height="25"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="name">
+                                        <attributes>
+                                            <color key="NSColor" red="0.066666666666666666" green="0.1803921568627451" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject Line:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOy-xa-CMf">
-                                <rect key="frame" x="79" y="38" width="100" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
+                                <rect key="frame" x="20" y="42" width="560" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="subject">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sent Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0n-NW-4pI">
-                                <rect key="frame" x="79" y="67" width="81" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
-                                <rect key="frame" x="186" y="14" width="43" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
-                                <rect key="frame" x="186" y="38" width="394" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0n-NW-4pI">
+                                <rect key="frame" x="20" y="67" width="62" height="16"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Sent Date:">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
-                                <rect key="frame" x="20" y="96" width="560" height="427"/>
+                                <rect key="frame" x="20" y="91" width="560" height="432"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="57" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
@@ -595,17 +602,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fkB-UG-OcD" firstAttribute="trailing" secondItem="ufd-Jb-5mZ" secondAttribute="trailingMargin" id="6Qm-fB-Xxh"/>
+                            <constraint firstItem="6rm-7u-anK" firstAttribute="trailing" secondItem="ufd-Jb-5mZ" secondAttribute="trailingMargin" id="BYq-XE-0dz"/>
+                            <constraint firstItem="Pk1-hx-vhL" firstAttribute="trailing" secondItem="ufd-Jb-5mZ" secondAttribute="trailingMargin" id="M7s-w3-ZFS"/>
                             <constraint firstItem="fkB-UG-OcD" firstAttribute="top" secondItem="l0n-NW-4pI" secondAttribute="bottom" constant="8" id="NL4-hA-VVQ"/>
-                            <constraint firstItem="WRS-wH-33b" firstAttribute="baseline" secondItem="Pk1-hx-vhL" secondAttribute="baseline" id="T27-Wd-fQ9"/>
-                            <constraint firstItem="l0n-NW-4pI" firstAttribute="leading" secondItem="WOy-xa-CMf" secondAttribute="leading" id="TLF-vd-b7c"/>
-                            <constraint firstItem="Pk1-hx-vhL" firstAttribute="leading" secondItem="WRS-wH-33b" secondAttribute="trailing" constant="57" id="Tvg-du-PF9"/>
-                            <constraint firstItem="WOy-xa-CMf" firstAttribute="top" secondItem="WRS-wH-33b" secondAttribute="bottom" constant="3" id="UZi-HA-9Rn"/>
+                            <constraint firstItem="Pk1-hx-vhL" firstAttribute="top" secondItem="5HJ-W5-Iui" secondAttribute="bottom" constant="14" id="Nxl-9G-gZr"/>
                             <constraint firstItem="fkB-UG-OcD" firstAttribute="leading" secondItem="ufd-Jb-5mZ" secondAttribute="leadingMargin" id="Uzi-Gh-A3g"/>
+                            <constraint firstItem="6rm-7u-anK" firstAttribute="top" secondItem="Pk1-hx-vhL" secondAttribute="bottom" constant="3" id="XyB-ug-FWa"/>
                             <constraint firstItem="OwK-Zj-8MJ" firstAttribute="top" secondItem="fkB-UG-OcD" secondAttribute="bottom" id="blp-eH-mow"/>
-                            <constraint firstItem="l0n-NW-4pI" firstAttribute="leading" secondItem="WRS-wH-33b" secondAttribute="leading" id="nOG-zV-b5o"/>
-                            <constraint firstItem="l0n-NW-4pI" firstAttribute="leading" secondItem="ufd-Jb-5mZ" secondAttribute="leadingMargin" constant="59" id="qxh-Ib-xWA"/>
+                            <constraint firstItem="6rm-7u-anK" firstAttribute="leading" secondItem="ufd-Jb-5mZ" secondAttribute="leadingMargin" id="bxd-KG-uV0"/>
+                            <constraint firstItem="Pk1-hx-vhL" firstAttribute="leading" secondItem="ufd-Jb-5mZ" secondAttribute="leadingMargin" id="jeb-UN-BHk"/>
+                            <constraint firstItem="l0n-NW-4pI" firstAttribute="leading" secondItem="ufd-Jb-5mZ" secondAttribute="leadingMargin" id="qxh-Ib-xWA"/>
                             <constraint firstItem="l0n-NW-4pI" firstAttribute="top" secondItem="ufd-Jb-5mZ" secondAttribute="top" constant="67" id="sbJ-59-Gv3"/>
-                            <constraint firstItem="l0n-NW-4pI" firstAttribute="top" secondItem="WOy-xa-CMf" secondAttribute="bottom" constant="8" symbolic="YES" id="yvs-Fl-fWG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign List" id="Zqk-hw-WlU" userLabel="Back"/>
@@ -617,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OED-dR-Oss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2393" y="710.5"/>
+            <point key="canvasLocation" x="2614" y="715.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ihv-NL-074">
