@@ -29,6 +29,9 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         
          PreLoading().showLoading()
         
+        let backButton = UIBarButtonItem(title: "Back", style:.Plain, target: self, action: #selector(EmailListStaticticsController.goBack))
+        self.navigationItem.leftBarButtonItem = backButton
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
@@ -149,6 +152,11 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         TableViewCampaings.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    func goBack()
+    {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
 }

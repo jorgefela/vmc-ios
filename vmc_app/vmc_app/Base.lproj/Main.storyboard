@@ -519,24 +519,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
-                                <rect key="frame" x="20" y="14" width="560" height="25"/>
+                                <rect key="frame" x="20" y="14" width="560" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="name">
                                         <attributes>
                                             <color key="NSColor" red="0.066666666666666666" green="0.1803921568627451" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
-                                <rect key="frame" x="20" y="42" width="560" height="20"/>
+                                <rect key="frame" x="20" y="37" width="560" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="subject">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>

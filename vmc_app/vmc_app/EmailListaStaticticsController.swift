@@ -112,8 +112,9 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                 
                 //al presionar boton salir, envio al modal iniciar sesion
                 dispatch_async(dispatch_get_main_queue()){
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    self.performSegueWithIdentifier("panel", sender: self)
+                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    //self.dismissViewControllerAnimated(true, completion: nil)
+                    //self.performSegueWithIdentifier("panel", sender: self)
                     
                 }
             }
@@ -124,8 +125,9 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
                 
                 //al presionar boton salir, envio al modal iniciar sesion
                 dispatch_async(dispatch_get_main_queue()){
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    self.performSegueWithIdentifier("panel", sender: self)
+                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    //self.dismissViewControllerAnimated(true, completion: nil)
+                    //self.performSegueWithIdentifier("panel", sender: self)
                     
                 }
             }//fin validar response.status
