@@ -104,8 +104,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                         
                         dispatch_async(dispatch_get_main_queue()){
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                            self.performSegueWithIdentifier("panel", sender: self)
+                            PreLoading().hideLoading()
+                            self.navigationController!.popToRootViewControllerAnimated(true)
+                            //self.dismissViewControllerAnimated(true, completion: nil)
+                            //self.performSegueWithIdentifier("panel", sender: self)
                             
                         }
                     }
@@ -115,8 +117,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                     NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                     
                     dispatch_async(dispatch_get_main_queue()){
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                        self.performSegueWithIdentifier("panel", sender: self)
+                        PreLoading().hideLoading()
+                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        //self.dismissViewControllerAnimated(true, completion: nil)
+                        //self.performSegueWithIdentifier("panel", sender: self)
                         
                     }
                 }//fin validar response.status
