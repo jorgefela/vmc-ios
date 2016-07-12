@@ -22,6 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnSignin(sender: UIButton) {
+        PreLoading().showLoading()
         let lUsuario:NSString = txtEmail.text!
         let lContrasenia:NSString = txtPassword.text!
         let tituloMsg:String = "oops"
@@ -29,9 +30,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let btnMsg:String = "OK"
         
         if ( lUsuario.isEqualToString("") || lContrasenia.isEqualToString("") ) {
+            PreLoading().hideLoading()
             FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
             
         }else if(!FuncGlobal().isValidEmail(lUsuario as String)){
+            PreLoading().hideLoading()
             
             mesnsajeMsg = "Invalid email"
             FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
@@ -71,10 +74,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     prefs.setObject(lname, forKey: "LNAME")
                     prefs.setInteger(1, forKey: "ISLOGGEDIN")
                     prefs.synchronize()
-                    self.dismissViewControllerAnimated(true, completion: nil)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        PreLoading().hideLoading()
+                        self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
+                    }
                 } catch let error as JSONError {
+                    PreLoading().hideLoading()
                     print(error.rawValue)
                 } catch let error as NSError {
+                    PreLoading().hideLoading()
                     print(error.debugDescription)
                 }
                 

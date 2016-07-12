@@ -41,8 +41,8 @@ class ViewController: UIViewController{
         if (estaRegistrado != 1) {
             //cuando cargo la interfaz Inicio envio al modal iniciar sesion
             dispatch_async(dispatch_get_main_queue()){
-                
-                self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
+                self.navigationController!.popToRootViewControllerAnimated(true)
+                //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
                 
             }
         } else {
@@ -79,8 +79,9 @@ class ViewController: UIViewController{
         
         //al presionar boton salir, envio al modal iniciar sesion
         dispatch_async(dispatch_get_main_queue()){
-            self.dismissViewControllerAnimated(true, completion: nil)
-            self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
+            self.navigationController!.popToRootViewControllerAnimated(true)
+            //self.dismissViewControllerAnimated(true, completion: nil)
+            //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
             
         }
     }
