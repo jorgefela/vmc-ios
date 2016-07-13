@@ -29,11 +29,13 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     }
     
     func aplicarCambioFram(){
+        print("registre frame")
         addObserver(self, forKeyPath: "frame", options: .New, context: nil)
         checkAltura()
     }
     
     func ignorarCambioFram(){
+        print("elimine frame")
         removeObserver(self, forKeyPath: "frame")
     }
     

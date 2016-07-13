@@ -184,17 +184,19 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         (cell as! CustomTableViewCellCampaigns).ignorarCambioFram()
     }
-    /*
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
+        var tamanio = CGFloat()
         if indexPath == filaSeleccionada {
-            print(200)
-            return 200 //CustomTableViewCellCampaigns.expandirAltura
+            tamanio = CustomTableViewCellCampaigns.expandirAltura
+            print(tamanio)
         }else{
-            print(45)
-            return 45//CustomTableViewCellCampaigns.defaultAltura
+            
+            tamanio = CustomTableViewCellCampaigns.defaultAltura
+            print(tamanio)
         }
-    }*/
+        return tamanio
+    }
  
     /*
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
