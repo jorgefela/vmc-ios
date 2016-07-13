@@ -12,4 +12,34 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     
     @IBOutlet weak var LabelNombreCampaing: UILabel!
 
+    @IBOutlet weak var dataDelivery: UILabel!
+    @IBOutlet weak var dataOpens: UILabel!
+    @IBOutlet weak var dataPlays: UILabel!
+    @IBOutlet weak var dataClick: UILabel!
+    @IBOutlet weak var dataBounces: UILabel!
+    @IBOutlet weak var dataSpam: UILabel!
+    
+    @IBOutlet weak var viewSubCell: UIView!
+    
+    class var expandirAltura: CGFloat{ get { return 200 }}
+    class var defaultAltura:  CGFloat{ get { return 44  }}
+    
+    func checkAltura(){
+        viewSubCell.hidden = (frame.size.height < CustomTableViewCellCampaigns.expandirAltura)
+    }
+    
+    func aplicarCambioFram(){
+        addObserver(self, forKeyPath: "frame", options: .New, context: nil)
+        checkAltura()
+    }
+    
+    func ignorarCambioFram(){
+        removeObserver(self, forKeyPath: "frame")
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "frame" {
+            checkAltura()
+        }
+    }
 }

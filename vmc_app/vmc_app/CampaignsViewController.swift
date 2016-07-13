@@ -10,6 +10,8 @@ import UIKit
 
 class CampaignsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var filaSeleccionada:NSIndexPath?
+    
     var idEmail = String()
     var nombreEmail = String()
     var subjectEmail = String()
@@ -145,7 +147,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         return self.ListIdCampaigns.count
     }
     
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomTableViewCellCampaigns = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCellCampaing2")! as! CustomTableViewCellCampaigns
         cell.LabelNombreCampaing!.text = ListCampaigns[indexPath.row]
@@ -155,12 +156,52 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     // implementacion de metodo delegado
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        TableViewCampaings.deselectRowAtIndexPath(indexPath, animated: true)
+        let previaSeleccion = filaSeleccionada
+        if indexPath == filaSeleccionada {
+            filaSeleccionada = nil
+        }else{
+            filaSeleccionada = indexPath
+        }
+        
+        var filas: Array<NSIndexPath> = []
+        if let anterior = previaSeleccion {
+            filas += [anterior]
+        }
+        if let filaPresente = filaSeleccionada {
+            filas += [filaPresente]
+        }
+        
+        if filas.count > 0 {
+            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        //TableViewCampaings.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
-    func goBack()
-    {
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! CustomTableViewCellCampaigns).aplicarCambioFram()
+    }
+    
+    func tableView(tableView: UITableView, didEndDisplayingCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! CustomTableViewCellCampaigns).ignorarCambioFram()
+    }
+    /*
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if indexPath == filaSeleccionada {
+            print(200)
+            return 200 //CustomTableViewCellCampaigns.expandirAltura
+        }else{
+            print(45)
+            return 45//CustomTableViewCellCampaigns.defaultAltura
+        }
+    }*/
+ 
+    /*
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }*/
+    
+    func goBack() {
         self.navigationController?.popViewControllerAnimated(true)
     }
-
 }
