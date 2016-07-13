@@ -24,24 +24,39 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     class var expandirAltura: CGFloat{ get { return 200 }}
     class var defaultAltura:  CGFloat{ get { return 44  }}
     
+    var frameAdded = false
+    
     func checkAltura(){
         viewSubCell.hidden = (frame.size.height < CustomTableViewCellCampaigns.expandirAltura)
     }
     
     func aplicarCambioFram(){
-        print("registre frame")
-        addObserver(self, forKeyPath: "frame", options: .New, context: nil)
-        checkAltura()
+        
+        if(!frameAdded){
+            print("registre frame")
+            addObserver(self, forKeyPath: "frame", options: .New, context: nil)
+            frameAdded = true
+            //checkAltura()
+        }
     }
     
     func ignorarCambioFram(){
-        print("elimine frame")
-        removeObserver(self, forKeyPath: "frame")
+        if(frameAdded){
+            print("elimine frame")
+            removeObserver(self, forKeyPath: "frame")
+            frameAdded = false
+        }
+        
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "frame" {
             checkAltura()
         }
+    }
+    
+    deinit {
+        print("deinit called");
+        ignorarCambioFram()
     }
 }
