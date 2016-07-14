@@ -14,6 +14,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var txtPassword: UITextField!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -22,7 +24,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func btnSignin(sender: UIButton) {
+        var statusMsg:String = ""
         PreLoading().showLoading()
+        
         let lUsuario:NSString = txtEmail.text!
         let lContrasenia:NSString = txtPassword.text!
         let tituloMsg:String = "oops"
@@ -64,26 +68,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary else {
                         throw JSONError.ConversionFailed
                     }
-                    let iduser = json["result"]![0]!.valueForKey("id")!
-                    let lname = json["result"]![0]!.valueForKey("lname")!
-                    let name = json["result"]![0]!.valueForKey("name")!
-                    let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                    prefs.setObject(json["key"]!, forKey: "KEY")
-                    prefs.setObject(iduser, forKey: "IDUSER")
-                    prefs.setObject(name, forKey: "NAME")
-                    prefs.setObject(lname, forKey: "LNAME")
-                    prefs.setInteger(1, forKey: "ISLOGGEDIN")
-                    prefs.synchronize()
-                    dispatch_async(dispatch_get_main_queue()) {
-                        PreLoading().hideLoading()
-                        self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
-                    }
-                } catch let error as JSONError {
                     PreLoading().hideLoading()
+                    let rows: Int = json["rows"]! as! Int
+                    
+                    if rows > 0 {
+                        let iduser = json["result"]![0]!.valueForKey("id")!
+                        let lname = json["result"]![0]!.valueForKey("lname")!
+                        let name = json["result"]![0]!.valueForKey("name")!
+                        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                        prefs.setObject(json["key"]!, forKey: "KEY")
+                        prefs.setObject(iduser, forKey: "IDUSER")
+                        prefs.setObject(name, forKey: "NAME")
+                        prefs.setObject(lname, forKey: "LNAME")
+                        prefs.setInteger(1, forKey: "ISLOGGEDIN")
+                        prefs.synchronize()
+                        dispatch_async(dispatch_get_main_queue()) {
+                            
+                            self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
+                        }
+                    }else{
+                        
+                        statusMsg = "error_pass"
+                    }
+                    
+                    
+                } catch let error as JSONError {
+                    statusMsg = "error_json"
                     print(error.rawValue)
                 } catch let error as NSError {
-                    PreLoading().hideLoading()
+                    statusMsg = "error_json"
                     print(error.debugDescription)
+                }
+                PreLoading().hideLoading()
+                if statusMsg == "error_pass" {
+                    mesnsajeMsg = "Username / Password invalid"
+                    print(mesnsajeMsg)
+                    //FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
                 }
                 
             }

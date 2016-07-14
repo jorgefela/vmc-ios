@@ -189,11 +189,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         var tamanio = CGFloat()
         if indexPath == filaSeleccionada {
             tamanio = CustomTableViewCellCampaigns.expandirAltura
-            print(tamanio)
         }else{
-            
             tamanio = CustomTableViewCellCampaigns.defaultAltura
-            print(tamanio)
         }
         return tamanio
     }

@@ -33,7 +33,7 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     func aplicarCambioFram(){
         
         if(!frameAdded){
-            print("registre frame")
+            //print("registre frame")
             addObserver(self, forKeyPath: "frame", options: .New, context: nil)
             frameAdded = true
             //checkAltura()
@@ -42,7 +42,7 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     
     func ignorarCambioFram(){
         if(frameAdded){
-            print("elimine frame")
+            //print("elimine frame")
             removeObserver(self, forKeyPath: "frame")
             frameAdded = false
         }

@@ -15,7 +15,6 @@ class PreLoading {
     var activityIndicator = UIActivityIndicatorView()
     
     func showLoading() {
-        
         let win:UIWindow = UIApplication.sharedApplication().delegate!.window!!
         self.loadingView = UIView(frame: win.frame)
         self.loadingView.tag = 1
