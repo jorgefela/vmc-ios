@@ -157,14 +157,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomTableViewCellCampaigns = self.TableViewCampaings.dequeueReusableCellWithIdentifier("miCellCampaing2")! as! CustomTableViewCellCampaigns
         cell.LabelNombreCampaing!.text = ListCampaigns[indexPath.row]
-        /*
-        cell.dataDelivery.text = "0"
-        cell.dataOpens.text = "0"
-        cell.dataPlays.text = "0"
-        cell.dataClick.text = "0"
-        cell.dataBounces.text = "0"
-        cell.dataSpam.text = "0"
- */
         return cell
     }
     
@@ -193,8 +185,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         
         //start consulta estadistica
         if statusCelda == "show"{
-            PreLoading().showLoading()
+            
             let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+            PreLoading().showLoading()
+            
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let idUser:Int = prefs.integerForKey("IDUSER") as Int
             let keyServer:String = (prefs.valueForKey("KEY") as? String)!
@@ -271,11 +265,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                         
                                         
                                     }//fin for
-                                    if filas.count > 0 {
-                                        tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
-                                    }
-                                    //self.TableViewCampaings.reloadData()
                                     PreLoading().hideLoading()
+                                    tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+
+                                    
                                 }
                                 
                                 // end barrido datos
