@@ -25,6 +25,7 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     var ListCampaigns = ["Loading..."]
     var ListIdCategoriaCampaigns = ["Loading..."]
     var ListIdCampaigns = ["Loading..."]
+    var ListFechaCampaigns = ["2016-02-18"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,12 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                                     self.ListIdCategoriaCampaigns.append(id_categoria as! String)
                                                 }else{
                                                     self.ListIdCategoriaCampaigns.append(" ")
+                                                }
+                                                
+                                                if let fecha_envio = item.valueForKey("send_date") {
+                                                    self.ListFechaCampaigns.append(fecha_envio as! String)
+                                                }else{
+                                                    self.ListFechaCampaigns.append(" ")
                                                 }
                                             }
                                         }
@@ -171,9 +178,138 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             filas += [filaPresente]
         }
         
-        if filas.count > 0 {
-            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
+        
+        
+        //start consulta estadistica
+        PreLoading().showLoading()
+        let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        let fecha_envio = self.ListFechaCampaigns[indexPath.row]
+        let id_cat = self.ListIdCategoriaCampaigns[indexPath.row]
+        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/statictics/start_date/\(fecha_envio)/cat/\(id_cat)"
+        let url = NSURL(string: url_path)
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+        
+        //start task
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let res = response as! NSHTTPURLResponse!;
+            
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                
+                if error != nil{print(error?.localizedDescription)}
+                
+                do{
+                    
+                    if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            
+                            // start barrido datos
+                            
+                            if let json = dictionary_result["result"] as? NSArray  {
+                                for item in json {
+                                    if let getdelivery = item.valueForKey("delivery") {
+                                        myCell.dataDelivery.text = "\(getdelivery)"
+                                    }else{
+                                        myCell.dataDelivery.text = "0"
+                                    }
+                                    
+                                    if let getdataOpens = item.valueForKey("opens") {
+                                        myCell.dataOpens.text = "\(getdataOpens)"
+                                    }else{
+                                        myCell.dataOpens.text = "0"
+                                    }
+                                    
+                                    if let getdataPlays = item.valueForKey("plays") {
+                                        myCell.dataPlays.text = "\(getdataPlays)"
+                                    }else{
+                                        myCell.dataPlays.text = "0"
+                                    }
+                                    
+                                    if let getdataClick = item.valueForKey("click") {
+                                        myCell.dataClick.text = "\(getdataClick)"
+                                    }else{
+                                        myCell.dataClick.text = "0"
+                                    }
+                                    
+                                    if let getdataBounces = item.valueForKey("bounces") {
+                                        myCell.dataBounces.text = "\(getdataBounces)"
+                                    }else{
+                                        myCell.dataBounces.text = "0"
+                                    }
+                                    
+                                    if let getdataSpam = item.valueForKey("spam") {
+                                        myCell.dataSpam.text = "\(getdataSpam)"
+                                    }else{
+                                        myCell.dataSpam.text = "0"
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                }//fin for
+                                if filas.count > 0 {
+                                    print("aqui entre")
+                                    tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+                                }
+                                //self.TableViewCampaings.reloadData()
+                                PreLoading().hideLoading()
+                            }
+                            
+                            // end barrido datos
+                            
+                            
+                        })
+                        
+                        
+                    }
+                }catch{
+                    // si sucede algun problema se imprime el problema en consola
+                    print("ocurrio un error")
+                    print(error)
+                    let appDomain = NSBundle.mainBundle().bundleIdentifier
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        PreLoading().hideLoading()
+                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        
+                    }
+                }
+            }else{
+                NSLog("Response code: %ld", res.statusCode);
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                
+                dispatch_async(dispatch_get_main_queue()){
+                    PreLoading().hideLoading()
+                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    //self.dismissViewControllerAnimated(true, completion: nil)
+                    //self.performSegueWithIdentifier("panel", sender: self)
+                    
+                }
+            }//fin validar response.status
+            
+        })
+        
+        task.resume()
+        //end task
+       
+        //end consulta estadistica
+        
+        
+        
+        
         //TableViewCampaings.deselectRowAtIndexPath(indexPath, animated: true)
     }
     

@@ -181,7 +181,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         }
         TableViewEmailList.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
+    /*
     func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
         
         let msge = UIAlertController(title: titulo, message: mensaje, preferredStyle: .Alert)
@@ -193,7 +193,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         }))
         return true
         
-    }
+    }*/
     
     func goBack()
     {
