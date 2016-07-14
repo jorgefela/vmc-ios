@@ -65,10 +65,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     guard let data = data else {
                         throw JSONError.NoData
                     }
-                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary else {
+                    guard let json = try NSJSONSerialization.JSONObjectWithData(data, options:[]) as? NSDictionary else {
                         throw JSONError.ConversionFailed
                     }
                     PreLoading().hideLoading()
+                    
                     let rows: Int = json["rows"]! as! Int
                     
                     if rows > 0 {

@@ -104,7 +104,10 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                             })
                             
                             
+                        }else{
+                            print(res.statusCode)
                         }
+                        
                     }catch{
                         // si sucede algun problema se imprime el problema en consola
                         print("ocurrio un error")
@@ -277,6 +280,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                             })
                             
                             
+                        }else{
+                            print(res.statusCode)
                         }
                     }catch{
                         // si sucede algun problema se imprime el problema en consola
