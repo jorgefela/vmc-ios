@@ -12,6 +12,8 @@ class CustomTableViewCellCampaigns: UITableViewCell {
     
     @IBOutlet weak var LabelNombreCampaing: UILabel!
 
+    @IBOutlet weak var ImgenExpandir: UIImageView!
+    
     @IBOutlet weak var dataDelivery: UILabel!
     @IBOutlet weak var dataOpens: UILabel!
     @IBOutlet weak var dataPlays: UILabel!

@@ -720,6 +720,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ImgenExpandir" destination="5HJ-a3-RiV" id="4Jy-Tf-zvh"/>
                                             <outlet property="LabelNombreCampaing" destination="UFG-Mh-Coh" id="VPO-P2-K7k"/>
                                             <outlet property="dataBounces" destination="S3c-rP-g3m" id="dO9-iN-8Ax"/>
                                             <outlet property="dataClick" destination="uGA-mN-06d" id="Dab-WH-D9Y"/>

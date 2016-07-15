@@ -167,6 +167,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+        
         let previaSeleccion = filaSeleccionada
         if indexPath == filaSeleccionada {
             filaSeleccionada = nil
@@ -175,13 +177,21 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         var filas: Array<NSIndexPath> = []
+        var statusCelda:String = ""
         if let anterior = previaSeleccion {
             filas += [anterior]
+            let myCellHidden = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+            statusCelda = "hidden"
+            myCellHidden.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
         }
-        var statusCelda:String = ""
+        
         if let filaPresente = filaSeleccionada {
             filas += [filaPresente]
+            let myCellShow = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
             statusCelda = "show"
+            myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+        }else{
+            
         }
         
         
@@ -190,6 +200,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         if statusCelda == "show"{
             
             let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+            
+            //tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
             PreLoading().showLoading()
             
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -309,6 +321,11 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             //end task
         }
         if filas.count > 0 {
+            if statusCelda == "show"{
+                //myCell.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+            }else{
+                //myCell.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+            }
             tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
         }
         
