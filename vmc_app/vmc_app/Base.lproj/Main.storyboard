@@ -321,7 +321,7 @@
         <!--Video Library-->
         <scene sceneID="9Fb-NG-UYG">
             <objects>
-                <viewController id="ULP-XD-XXE" customClass="VideoViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoCell" id="ULP-XD-XXE" customClass="VideoViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w1Z-V3-WwZ"/>
                         <viewControllerLayoutGuide type="bottom" id="uTM-Nt-bI3"/>

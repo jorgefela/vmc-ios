@@ -8,8 +8,9 @@
 
 import UIKit
 
-class VideoViewController: UIViewController{
+class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var TableViewVideo: UITableView!
+    var ListVideos = ["Cargando..."]
     override func viewDidLoad() {
         super.viewDidLoad()
         print("cargue controlador de video")
@@ -18,5 +19,21 @@ class VideoViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.ListVideos.count
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.TableViewVideo.dequeueReusableCellWithIdentifier("VideoCell")!
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        TableViewVideo.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
