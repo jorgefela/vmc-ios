@@ -9,6 +9,7 @@
 import UIKit
 
 class VideoViewController: UIViewController{
+    @IBOutlet weak var TableViewVideo: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("cargue controlador de video")

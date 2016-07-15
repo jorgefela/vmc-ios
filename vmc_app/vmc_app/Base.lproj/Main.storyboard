@@ -321,7 +321,7 @@
         <!--Video Library-->
         <scene sceneID="9Fb-NG-UYG">
             <objects>
-                <viewController id="ULP-XD-XXE" sceneMemberID="viewController">
+                <viewController id="ULP-XD-XXE" customClass="VideoViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w1Z-V3-WwZ"/>
                         <viewControllerLayoutGuide type="bottom" id="uTM-Nt-bI3"/>
@@ -330,14 +330,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-wM-zoM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-wM-zoM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ULP-XD-XXE" id="O1e-lD-MWo"/>
+                                    <outlet property="delegate" destination="ULP-XD-XXE" id="rd7-ux-U80"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lIv-wM-zoM" firstAttribute="top" secondItem="w1Z-V3-WwZ" secondAttribute="bottom" id="OcO-e2-0nf"/>
+                            <constraint firstAttribute="trailing" secondItem="lIv-wM-zoM" secondAttribute="trailing" id="RJM-2D-Gsh"/>
+                            <constraint firstItem="lIv-wM-zoM" firstAttribute="leading" secondItem="3u9-Sz-FCh" secondAttribute="leading" id="WTt-Fo-nEk"/>
+                            <constraint firstItem="uTM-Nt-bI3" firstAttribute="top" secondItem="lIv-wM-zoM" secondAttribute="bottom" id="y8j-dN-qPZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video Library" id="W08-8e-sfF"/>
+                    <connections>
+                        <outlet property="TableViewVideo" destination="lIv-wM-zoM" id="N8p-p5-US1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Id5-mx-Bso" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
