@@ -11,6 +11,10 @@ import UIKit
 class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var TableViewVideo: UITableView!
     var ListVideos = ["Cargando..."]
+    var ListIdVideos = ["Cargando..."]
+    var ListUrlVideos = ["Cargando..."]
+    var ListTipoUrlVideos = ["Cargando..."]
+    var ListThumbVideos = ["Cargando..."]
     override func viewDidLoad() {
         super.viewDidLoad()
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -34,45 +38,56 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
         // start peticion
         
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            // se revisa si dentro del trabajo ocurrio algun problema si ocurrio algo se imprime en consola que sucedio
+            
             let res = response as! NSHTTPURLResponse!;
             
             if (res.statusCode >= 200 && res.statusCode < 300) {
                 
                 if error != nil{print(error?.localizedDescription)}
-                // se realiza un try para la CONVERSION DEL OBJECTO JSON A OBJECTO NSDICTIONARY
+                
                 do{
-                    // se intenta convertir el objecto JSON a un objecto NSDICTIONARY
+                    
                     if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.ListEmailNombre.removeAll()
-                            self.ListEmailDescripcion.removeAll()
-                            self.ListEmailFecha.removeAll()
-                            self.listId.removeAll()
+                            self.ListVideos.removeAll()
+                            self.ListIdVideos.removeAll()
+                            self.ListUrlVideos.removeAll()
+                            self.ListTipoUrlVideos.removeAll()
+                            self.ListThumbVideos.removeAll()
+                            let espacio =  " ";
                             
                             if let json = dictionary_result["result"] as? NSArray  {
                                 for item in json {
                                     if let Id = item.valueForKey("id") {
-                                        self.listId.append(Id as! String)
+                                        self.ListIdVideos.append(Id as! String)
                                         
-                                        if let titulo = item.valueForKey("title") {
-                                            self.ListEmailNombre.append(titulo as! String)
-                                            
-                                            if let descripcion = item.valueForKey("subject") {
-                                                self.ListEmailDescripcion.append(descripcion as! String)
-                                            }else{
-                                                self.ListEmailDescripcion.append(" ")
-                                            }
-                                            
-                                            if let fecha = item.valueForKey("created_date") {
-                                                self.ListEmailFecha.append(fecha as! String)
-                                            }else{
-                                                self.ListEmailFecha.append(" ")
-                                            }
+                                        if let nombre = item.valueForKey("name") {
+                                            self.ListVideos.append(nombre as! String)
+                                        }else{
+                                            self.ListVideos.append(espacio)
                                         }
+                                        
+                                        if let urlFile = item.valueForKey("file") {
+                                            self.ListUrlVideos.append(urlFile as! String)
+                                        }else{
+                                            self.ListUrlVideos.append(espacio)
+                                        }
+                                        
+                                        if let tipoUrl = item.valueForKey("v_type") {
+                                            self.ListTipoUrlVideos.append(tipoUrl as! String)
+                                        }else{
+                                            self.ListTipoUrlVideos.append(espacio)
+                                        }
+                                        
+                                        if let thumbUrl = item.valueForKey("thumb") {
+                                            self.ListThumbVideos.append(thumbUrl as! String)
+                                        }else{
+                                            self.ListThumbVideos.append(espacio)
+                                        }
+                                        
                                     }
                                 }//fin for
-                                self.TableViewEmailList.reloadData()
+                                self.TableViewVideo.reloadData()
                                 PreLoading().hideLoading()
                             }
                             
@@ -81,18 +96,13 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                         
                     }
                 }catch{
-                    // si sucede algun problema se imprime el problema en consola
                     print("ocurrio un error")
                     print(error)
                     let appDomain = NSBundle.mainBundle().bundleIdentifier
                     NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
-                    
-                    //al presionar boton salir, envio al modal iniciar sesion
                     dispatch_async(dispatch_get_main_queue()){
                         PreLoading().hideLoading()
                         self.navigationController!.popToRootViewControllerAnimated(true)
-                        //self.dismissViewControllerAnimated(true, completion: nil)
-                        //self.performSegueWithIdentifier("panel", sender: self)
                         
                     }
                 }
@@ -101,18 +111,15 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 let appDomain = NSBundle.mainBundle().bundleIdentifier
                 NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                 
-                //al presionar boton salir, envio al modal iniciar sesion
                 dispatch_async(dispatch_get_main_queue()){
                     PreLoading().hideLoading()
                     self.navigationController!.popToRootViewControllerAnimated(true)
-                    //self.dismissViewControllerAnimated(true, completion: nil)
-                    //self.performSegueWithIdentifier("panel", sender: self)
                     
                 }
             }//fin validar response.status
             
         })
-        // es la linea encargada de llamar la session de crear el trabajo y realizar lo interno dentro del trabajo
+        
         task.resume()
         // end peticion
         
