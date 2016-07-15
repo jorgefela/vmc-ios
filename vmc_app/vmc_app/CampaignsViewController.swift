@@ -262,11 +262,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                             myCell.dataSpam.text = "0"
                                         }
                                         
-                                        
-                                        
-                                        
-                                        
-                                        
                                     }//fin for
                                     PreLoading().hideLoading()
                                     tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)

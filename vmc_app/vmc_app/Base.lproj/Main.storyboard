@@ -572,22 +572,21 @@
                                 <rect key="frame" x="20" y="91" width="560" height="501"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="200" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="200" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HMi-OS-kUu" id="IcQ-sg-aev">
-                                            <rect key="frame" x="0.0" y="0.0" width="527" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="avion_negroenviar.png" translatesAutoresizingMaskIntoConstraints="NO" id="5HJ-a3-RiV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mas_negro_cuadro.png" translatesAutoresizingMaskIntoConstraints="NO" id="5HJ-a3-RiV">
                                                     <rect key="frame" x="8" y="17" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="21" id="VLE-0a-ao9"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="21" id="jbs-uU-Njc"/>
-                                                        <constraint firstAttribute="height" constant="21" id="u6o-kM-SmE"/>
+                                                        <constraint firstAttribute="height" constant="21" id="KwV-Xd-yRW"/>
+                                                        <constraint firstAttribute="width" constant="21" id="LLO-kq-PuN"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Campaing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-Mh-Coh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFG-Mh-Coh">
                                                     <rect key="frame" x="37" y="17" width="482" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -712,6 +711,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="UFG-Mh-Coh" firstAttribute="trailing" secondItem="IcQ-sg-aev" secondAttribute="trailingMargin" constant="-33" id="BEZ-GP-5ff"/>
+                                                <constraint firstItem="5HJ-a3-RiV" firstAttribute="top" secondItem="IcQ-sg-aev" secondAttribute="topMargin" constant="9" id="NBV-Sr-43H"/>
+                                                <constraint firstItem="5HJ-a3-RiV" firstAttribute="leading" secondItem="IcQ-sg-aev" secondAttribute="leadingMargin" id="R7l-yc-Tfn"/>
+                                                <constraint firstItem="UFG-Mh-Coh" firstAttribute="leading" secondItem="5HJ-a3-RiV" secondAttribute="trailing" constant="8" id="mIO-iP-0kX"/>
+                                                <constraint firstItem="UFG-Mh-Coh" firstAttribute="top" secondItem="IcQ-sg-aev" secondAttribute="topMargin" constant="9" id="z3s-ke-o0S"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="LabelNombreCampaing" destination="UFG-Mh-Coh" id="VPO-P2-K7k"/>
@@ -796,11 +802,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="avion_negroenviar.png" width="64" height="64"/>
         <image name="boton-anadir.png" width="64" height="64"/>
         <image name="flecha-derecha.png" width="64" height="64"/>
         <image name="lista.png" width="64" height="64"/>
         <image name="logo.png" width="125" height="143"/>
+        <image name="mas_negro_cuadro.png" width="64" height="64"/>
         <image name="menu-de-lineas (1).png" width="24" height="24"/>
         <image name="sobre-de-carta.png" width="64" height="64"/>
         <image name="sobre.png" width="64" height="64"/>
