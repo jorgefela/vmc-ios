@@ -97,12 +97,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                     self.TableViewCampaings.reloadData()
                                     PreLoading().hideLoading()
                                 }
-                                
                                 // end barrido datos
-                                
-                                
                             })
-                            
                             
                         }else{
                             print(res.statusCode)
@@ -164,10 +160,17 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // implementacion de metodo delegado
-    
+    var filaActual:NSIndexPath?
+    var filaAnterior:NSIndexPath?
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if filaActual != nil{
+            filaAnterior = filaActual
+        }else{
+            filaAnterior = nil
+        }
         
+        filaActual = indexPath
         
         let previaSeleccion = filaSeleccionada
         if indexPath == filaSeleccionada {
@@ -180,28 +183,46 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         var statusCelda:String = ""
         if let anterior = previaSeleccion {
             filas += [anterior]
-            let myCellHidden = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+            
             statusCelda = "hidden"
-            myCellHidden.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+            
         }
         
         if let filaPresente = filaSeleccionada {
             filas += [filaPresente]
-            let myCellShow = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
             statusCelda = "show"
-            myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-        }else{
-            
         }
+
+        let myCellShow = tableView.cellForRowAtIndexPath(filaActual!) as! CustomTableViewCellCampaigns
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if self.filaAnterior != nil {
+                if statusCelda == "show" {
+                    if self.filaAnterior == self.filaActual {
+                        myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                    }else{
+                        let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
+                        myCellHidden.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                        myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+                    }
+                }
+                
+            }else{
+                
+                myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                
+            }
+            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+        
+        })
+        
+
         
         
         
         //start consulta estadistica
+        let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
         if statusCelda == "show"{
-            
-            let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
-            
-            //tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
             PreLoading().showLoading()
             
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -210,7 +231,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             let fecha_envio = self.ListFechaCampaigns[indexPath.row]
             let id_cat = self.ListIdCategoriaCampaigns[indexPath.row]
             let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/statictics/start_date/\(fecha_envio)/cat/\(id_cat)"
-            print(url_path)
             let url = NSURL(string: url_path)
             let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "GET"
@@ -321,12 +341,32 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             //end task
         }
         if filas.count > 0 {
-            if statusCelda == "show"{
-                //myCell.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-            }else{
-                //myCell.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
-            }
-            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                if self.filaAnterior != nil {
+                    if statusCelda == "show" {
+                        if self.filaAnterior == self.filaActual {
+                            myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                        }else{
+                            let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
+                            myCellHidden.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                            myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+                        }
+                    }
+                    
+                }else{
+                    
+                    myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                    
+                }
+                tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+            
+            })
+ 
+            
+            
+            
+            
         }
         
        
