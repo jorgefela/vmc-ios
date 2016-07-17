@@ -192,37 +192,20 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             filas += [filaPresente]
             statusCelda = "show"
         }
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+        })
+        
+        
 
         let myCellShow = tableView.cellForRowAtIndexPath(filaActual!) as! CustomTableViewCellCampaigns
         
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            if self.filaAnterior != nil {
-                if statusCelda == "show" {
-                    if self.filaAnterior == self.filaActual {
-                        myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-                    }else{
-                        let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
-                        myCellHidden.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-                        myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
-                    }
-                }
-                
-            }else{
-                
-                myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-                
-            }
-            tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
-        
-        })
-        
-
-        
-        
-        
         //start consulta estadistica
-        let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+        
         if statusCelda == "show"{
+            let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
+            print("act \(filaActual!)")
+            print("ind \(indexPath)")
             PreLoading().showLoading()
             
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -245,6 +228,7 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                 let res = response as! NSHTTPURLResponse!;
                 
                 if (res.statusCode >= 200 && res.statusCode < 300) {
+                    PreLoading().hideLoading()
                     
                     if error != nil{print(error?.localizedDescription)}
                     
@@ -252,7 +236,6 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                         
                         if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                
                                 
                                 // start barrido datos
                                 
@@ -294,14 +277,17 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                             myCell.dataSpam.text = "0"
                                         }
                                         
+                                        
                                     }//fin for
-                                    PreLoading().hideLoading()
-                                    tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
-
+                                    
+                                    
+                                    
                                     
                                 }
                                 
                                 // end barrido datos
+                                
+                                tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
                                 
                                 
                             })
@@ -343,22 +329,45 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
         if filas.count > 0 {
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
                 if self.filaAnterior != nil {
+                    let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
+                    let tamanioHidden = myCellHidden.frame.height
+                    
                     if statusCelda == "show" {
+                        
                         if self.filaAnterior == self.filaActual {
+                            
                             myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                            
+                            //self.filaAnterior  = nil
+                            
                         }else{
-                            let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
-                            myCellHidden.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
-                            myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+                            
+                            if myCellShow.frame.height < 200 && tamanioHidden < 200{
+                                
+                                myCellHidden.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+                                myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                            }else{
+                                
+                                myCellHidden.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
+                                myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
+                            }
+                            
                         }
+                        
+                    }else{
+                        
+                         myCellShow.ImgenExpandir.image = UIImage(named: "mas_negro_cuadro.png")
                     }
+                    
                     
                 }else{
                     
                     myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
                     
                 }
+                
                 tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
             
             })
@@ -404,4 +413,5 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     func goBack() {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    
 }
