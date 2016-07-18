@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var TableViewVideo: UITableView!
@@ -140,15 +141,30 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomImagenVideo = self.TableViewVideo.dequeueReusableCellWithIdentifier("imgenVideoThm")! as! CustomImagenVideo
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            if let url = NSURL(string: self.ListThumbVideos[indexPath.row]) {
-                print("entre 1 \(indexPath.row)")
-                if let data = NSData(contentsOfURL: url) {
-                    print("entre 2 \(indexPath.row)")
-                    print(url.pathExtension!.lowercaseString)
-                    print("\(self.ListThumbVideos[indexPath.row])")
-                    cell.ImageVideoThumb.image = UIImage(data: data)
-                }
+            var urlBase = "https://www.vmctechnology.com/app/Uploads/images/"
+            if "youtube" == self.ListTipoUrlVideos[indexPath.row] {
+                urlBase = "\(self.ListThumbVideos[indexPath.row])"
+            }else{
+                urlBase = "https://www.vmctechnology.com/app/Uploads/images/\(self.ListThumbVideos[indexPath.row])"
             }
+            //let URL = NSURL(string: self.ListThumbVideos[indexPath.row])!
+            //let resource = Resource(downloadURL: URL, cacheKey: "vmcappios2864")
+            //cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: self.ListThumbVideos[indexPath.row])!, placeholderImage: nil, optionsInfo: [.ForceRefresh])
+            //cell.ImageVideoThumb.kf_setImageWithResource(resource)
+            if urlBase.isEmpty {
+                urlBase = "https://www.vmctechnology.com/app/Uploads/images/"
+            }
+            cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: urlBase)!,
+                placeholderImage: nil,
+                optionsInfo: nil,
+                progressBlock: { (receivedSize, totalSize) -> () in
+                    print("Download Progress: \(receivedSize)/\(totalSize)")
+                },
+                completionHandler: { (image, error, cacheType, imageURL) -> () in
+                    print("Downloaded and set!")
+                }
+            )
+           
         })
        // cell.ImageVideoThumb.image = bgImage
         
