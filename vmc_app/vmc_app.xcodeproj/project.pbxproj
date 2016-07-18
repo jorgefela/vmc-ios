@@ -108,6 +108,7 @@
 		12477AD61D110316005B6391 /* vmc_app */ = {
 			isa = PBXGroup;
 			children = (
+				12766E471D3C91CD00AECB41 /* framework */,
 				12A02F3E1D2F35CA000FC1E0 /* class */,
 				12F26A401D1D33B000D3F9F6 /* controllers */,
 				12F26A3F1D1D335400D3F9F6 /* views */,
@@ -140,6 +141,13 @@
 				12477AEB1D110347005B6391 /* logo.png */,
 			);
 			name = resources;
+			sourceTree = "<group>";
+		};
+		12766E471D3C91CD00AECB41 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = framework;
 			sourceTree = "<group>";
 		};
 		12A02F3E1D2F35CA000FC1E0 /* class */ = {
