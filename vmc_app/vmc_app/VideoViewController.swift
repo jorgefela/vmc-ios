@@ -26,7 +26,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
         //}
         print("cargue controlador de video")
         
-        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/email"
+        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/videos"
         let url = NSURL(string: url_path)
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
@@ -48,6 +48,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 do{
                     
                     if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             self.ListVideos.removeAll()
                             self.ListIdVideos.removeAll()
@@ -87,10 +88,12 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                                         
                                     }
                                 }//fin for
-                                self.TableViewVideo.reloadData()
+                                
                                 PreLoading().hideLoading()
+                                self.TableViewVideo.reloadData()
                             }
                             
+                        })
                         })
                         
                         
@@ -135,7 +138,19 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.TableViewVideo.dequeueReusableCellWithIdentifier("VideoCell")!
+        let cell:CustomImagenVideo = self.TableViewVideo.dequeueReusableCellWithIdentifier("imgenVideoThm")! as! CustomImagenVideo
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            if let url = NSURL(string: self.ListThumbVideos[indexPath.row]) {
+                print("entre 1 \(indexPath.row)")
+                if let data = NSData(contentsOfURL: url) {
+                    print("entre 2 \(indexPath.row)")
+                    print(url.pathExtension!.lowercaseString)
+                    print("\(self.ListThumbVideos[indexPath.row])")
+                    cell.ImageVideoThumb.image = UIImage(data: data)
+                }
+            }
+        })
+       // cell.ImageVideoThumb.image = bgImage
         
         return cell
     }

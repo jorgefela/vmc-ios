@@ -330,9 +330,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-wM-zoM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="169" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lIv-wM-zoM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imgenVideoThm" rowHeight="169" id="bdy-Cu-leX" customClass="CustomImagenVideo" customModule="vmc_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="169"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bdy-Cu-leX" id="Hzk-kV-GIT">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="168"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ajF-GX-h5V">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ajF-GX-h5V" firstAttribute="top" secondItem="Hzk-kV-GIT" secondAttribute="topMargin" constant="-8" id="H65-Gz-HWy"/>
+                                                <constraint firstItem="ajF-GX-h5V" firstAttribute="leading" secondItem="Hzk-kV-GIT" secondAttribute="leadingMargin" constant="-8" id="QcG-nf-C9J"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ajF-GX-h5V" secondAttribute="trailing" constant="-8" id="W2c-7J-AaV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ajF-GX-h5V" secondAttribute="bottom" constant="-13" id="ZQI-2s-hcY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ImageVideoThumb" destination="ajF-GX-h5V" id="tTN-xh-vz6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ULP-XD-XXE" id="O1e-lD-MWo"/>
                                     <outlet property="delegate" destination="ULP-XD-XXE" id="rd7-ux-U80"/>
