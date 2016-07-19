@@ -1,0 +1,13 @@
+# Uncomment this line to define a global platform for your project
+  #platform :ios, '9.0'
+
+target 'vmc_app' do
+
+  # Pods for vmc_app
+  source 'https://github.com/CocoaPods/Specs.git'
+   platform :ios, '8.0'
+  use_frameworks!
+
+  pod 'Kingfisher', '~> 2.4'
+
+end
