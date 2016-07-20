@@ -41,7 +41,6 @@
 		12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */; };
 		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
-		12EF13661D3F432C009877AA /* SlideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EF13651D3F432C009877AA /* SlideMenuController.swift */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +83,6 @@
 		12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreLoading.swift; sourceTree = "<group>"; };
 		12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGlobal.swift; sourceTree = "<group>"; };
 		12A02F431D2F5272000FC1E0 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
-		12EF13651D3F432C009877AA /* SlideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SlideMenuController.swift; path = "../../../../../../Users/macbook3/Desktop/sidebar/SlideMenuControllerSwift-swift2.1/Source/SlideMenuController.swift"; sourceTree = "<group>"; };
 		68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vmc_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE696CA92C54372DFDDB874 /* Pods-vmc_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.debug.xcconfig"; sourceTree = "<group>"; };
 		F96026F360FB780DC0EABBE1 /* Pods-vmc_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				12F26A3F1D1D335400D3F9F6 /* views */,
 				12477AE91D11032F005B6391 /* resources */,
 				12477AD71D110316005B6391 /* AppDelegate.swift */,
-				12EF13651D3F432C009877AA /* SlideMenuController.swift */,
 				12477ADE1D110316005B6391 /* Assets.xcassets */,
 				12477AE01D110316005B6391 /* LaunchScreen.storyboard */,
 				12477AE31D110316005B6391 /* Info.plist */,
@@ -354,7 +351,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
-				12EF13661D3F432C009877AA /* SlideMenuController.swift in Sources */,
 				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,

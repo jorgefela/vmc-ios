@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SlideMenuControllerSwift
 class StaticticsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
