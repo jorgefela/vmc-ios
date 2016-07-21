@@ -29,8 +29,19 @@ extension UIColor {
 }*/
 
 class ViewController: UIViewController{
+    @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil{
+            print("aqi")
+            OpenSliderMenu.target = self.revealViewController()
+            OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -72,6 +83,9 @@ class ViewController: UIViewController{
 
     }
     
+    
+    
+    /*
     @IBAction func CerrarTemporal(sender: UIBarButtonItem) {
         
         let appDomain = NSBundle.mainBundle().bundleIdentifier
@@ -84,7 +98,7 @@ class ViewController: UIViewController{
             //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
             
         }
-    }
+    }*/
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {
         return UIColor(
