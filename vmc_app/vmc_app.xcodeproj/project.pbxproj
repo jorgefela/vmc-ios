@@ -42,7 +42,6 @@
 		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
-		12EF136D1D4148A5009877AA /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136C1D4148A5009877AA /* SliderMenuViewController.swift */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +86,6 @@
 		12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vmc_app-Bridging-Header.h"; sourceTree = "<group>"; };
 		12EF13691D400D5D009877AA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		12EF136C1D4148A5009877AA /* SliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuViewController.swift; sourceTree = "<group>"; };
 		68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vmc_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE696CA92C54372DFDDB874 /* Pods-vmc_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.debug.xcconfig"; sourceTree = "<group>"; };
 		F96026F360FB780DC0EABBE1 /* Pods-vmc_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +135,7 @@
 		12477AD61D110316005B6391 /* vmc_app */ = {
 			isa = PBXGroup;
 			children = (
+				12EF136E1D42703B009877AA /* SlideMenuControllerSwift */,
 				12EF13671D400C8A009877AA /* importController */,
 				12A02F3E1D2F35CA000FC1E0 /* class */,
 				12F26A401D1D33B000D3F9F6 /* controllers */,
@@ -185,11 +184,18 @@
 		12EF13671D400C8A009877AA /* importController */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			name = importController;
+			sourceTree = "<group>";
+		};
+		12EF136E1D42703B009877AA /* SlideMenuControllerSwift */ = {
+			isa = PBXGroup;
+			children = (
 				12EF13691D400D5D009877AA /* SWRevealViewController.h */,
 				12EF136A1D400D5D009877AA /* SWRevealViewController.m */,
 				12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */,
 			);
-			name = importController;
+			name = SlideMenuControllerSwift;
 			sourceTree = "<group>";
 		};
 		12F26A3F1D1D335400D3F9F6 /* views */ = {
@@ -213,7 +219,6 @@
 				129C12C21D30632E00B32662 /* showVideoViewController.swift */,
 				12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */,
 				12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */,
-				12EF136C1D4148A5009877AA /* SliderMenuViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -366,7 +371,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12EF136D1D4148A5009877AA /* SliderMenuViewController.swift in Sources */,
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
 				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
@@ -498,10 +502,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/SlideMenuControllerSwift",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = vmc_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hispano.soluciones.vmc-app";
@@ -517,10 +518,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/SlideMenuControllerSwift",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = vmc_app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hispano.soluciones.vmc-app";

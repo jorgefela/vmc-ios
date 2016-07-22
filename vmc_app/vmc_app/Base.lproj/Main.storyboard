@@ -633,11 +633,11 @@
                         <viewControllerLayoutGuide type="bottom" id="OwK-Zj-8MJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ufd-Jb-5mZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
-                                <rect key="frame" x="20" y="78" width="560" height="20"/>
+                                <rect key="frame" x="20" y="14" width="560" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="name">
                                         <attributes>
@@ -649,7 +649,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
-                                <rect key="frame" x="20" y="101" width="560" height="18"/>
+                                <rect key="frame" x="20" y="37" width="560" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="subject">
                                         <attributes>
@@ -674,7 +674,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
-                                <rect key="frame" x="20" y="91" width="560" height="501"/>
+                                <rect key="frame" x="20" y="91" width="560" height="424"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="200" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
@@ -920,8 +920,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9ZV-z0-H6o"/>
-        <segue reference="zUs-AK-gml"/>
         <segue reference="bWk-Zv-rk8"/>
-        <segue reference="IS5-Ez-L8g"/>
+        <segue reference="zUs-AK-gml"/>
+        <segue reference="jDn-de-0N9"/>
     </inferredMetricsTieBreakers>
 </document>
