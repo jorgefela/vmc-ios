@@ -34,7 +34,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.revealViewController() != nil{
+        if self.revealViewController() != nil {
             print("aqi")
             OpenSliderMenu.target = self.revealViewController()
             OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
