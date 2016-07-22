@@ -41,6 +41,8 @@
 		12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */; };
 		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
+		12D511811D42DF0700395021 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511801D42DF0700395021 /* SliderMenuViewController.swift */; };
+		12D511831D42E36800395021 /* photo_perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D511821D42E36800395021 /* photo_perfil.png */; };
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +85,8 @@
 		12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreLoading.swift; sourceTree = "<group>"; };
 		12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGlobal.swift; sourceTree = "<group>"; };
 		12A02F431D2F5272000FC1E0 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		12D511801D42DF0700395021 /* SliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuViewController.swift; sourceTree = "<group>"; };
+		12D511821D42E36800395021 /* photo_perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_perfil.png; sourceTree = "<group>"; };
 		12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vmc_app-Bridging-Header.h"; sourceTree = "<group>"; };
 		12EF13691D400D5D009877AA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				12169FA41D3461A70014C12D /* avion_negroenviar.png */,
 				12766E391D394F8800AECB41 /* menos_negro_cuadro.png */,
+				12D511821D42E36800395021 /* photo_perfil.png */,
 				12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */,
 				123320911D23E34400BE0A95 /* bg_navcontroller.png */,
 				12169FA21D345FFA0014C12D /* avion_enviar.png */,
@@ -211,6 +216,7 @@
 				129C12C21D30632E00B32662 /* showVideoViewController.swift */,
 				12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */,
 				12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */,
+				12D511801D42DF0700395021 /* SliderMenuViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -295,6 +301,7 @@
 				123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */,
 				12169FA51D3461A70014C12D /* avion_negroenviar.png in Resources */,
 				123320A81D24922300BE0A95 /* sobre.png in Resources */,
+				12D511831D42E36800395021 /* photo_perfil.png in Resources */,
 				123320AC1D257BA000BE0A95 /* menu-de-lineas (1).png in Resources */,
 				123320A71D24922300BE0A95 /* lista.png in Resources */,
 				12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */,
@@ -363,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D511811D42DF0700395021 /* SliderMenuViewController.swift in Sources */,
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
 				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
