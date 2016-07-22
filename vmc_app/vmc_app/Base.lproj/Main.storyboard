@@ -119,7 +119,7 @@
         <!--Video Library-->
         <scene sceneID="HZz-G0-maX">
             <objects>
-                <viewController storyboardIdentifier="menuPrincipal" id="u6f-sD-zkL" customClass="ViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="u6f-sD-zkL" customClass="ViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yI5-0Y-J7E"/>
                         <viewControllerLayoutGuide type="bottom" id="u88-0u-KwD"/>
@@ -156,12 +156,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSC-XC-RME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="95" y="664"/>
+            <point key="canvasLocation" x="137" y="461"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cz4-6S-0qS">
             <objects>
-                <tableViewController storyboardIdentifier="tableViewCell" id="45m-EQ-Bde" sceneMemberID="viewController">
+                <tableViewController id="45m-EQ-Bde" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="58" sectionHeaderHeight="23" sectionFooterHeight="28" id="hqX-dX-reA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,7 +383,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xDy-wl-Rzq">
             <objects>
-                <navigationController storyboardIdentifier="navMenuPrincipal" automaticallyAdjustsScrollViewInsets="NO" id="Acu-Ks-7sk" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Acu-Ks-7sk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ie-Yh-jMt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
