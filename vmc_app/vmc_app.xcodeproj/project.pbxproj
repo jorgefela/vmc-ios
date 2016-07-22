@@ -135,7 +135,6 @@
 		12477AD61D110316005B6391 /* vmc_app */ = {
 			isa = PBXGroup;
 			children = (
-				12EF136E1D42703B009877AA /* SlideMenuControllerSwift */,
 				12EF13671D400C8A009877AA /* importController */,
 				12A02F3E1D2F35CA000FC1E0 /* class */,
 				12F26A401D1D33B000D3F9F6 /* controllers */,
@@ -184,18 +183,11 @@
 		12EF13671D400C8A009877AA /* importController */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			name = importController;
-			sourceTree = "<group>";
-		};
-		12EF136E1D42703B009877AA /* SlideMenuControllerSwift */ = {
-			isa = PBXGroup;
-			children = (
 				12EF13691D400D5D009877AA /* SWRevealViewController.h */,
 				12EF136A1D400D5D009877AA /* SWRevealViewController.m */,
 				12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */,
 			);
-			name = SlideMenuControllerSwift;
+			name = importController;
 			sourceTree = "<group>";
 		};
 		12F26A3F1D1D335400D3F9F6 /* views */ = {

@@ -10,6 +10,8 @@ import UIKit
 
 class CampaignsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
+    
     var filaSeleccionada:NSIndexPath?
     
     var idEmail = String()
@@ -29,6 +31,14 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            print("aqi")
+            OpenSliderMenu.target = self.revealViewController()
+            OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
         
          PreLoading().showLoading()
         
