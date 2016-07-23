@@ -30,12 +30,19 @@ extension UIColor {
 
 class ViewController: UIViewController{
     @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
+    //obtener medidas de pantalla
+    var width = UIScreen.mainScreen().bounds.size.width
+    var menuRest:CGFloat = 60.0
+    
+    
+    //var height = UIScreen.mainScreen().bounds.size.height
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if self.revealViewController() != nil {
-            print("aqi")
+            let anchoMenu = self.width - menuRest
+            revealViewController().rearViewRevealWidth = anchoMenu
             OpenSliderMenu.target = self.revealViewController()
             OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
