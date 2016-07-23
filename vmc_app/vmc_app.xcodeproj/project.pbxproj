@@ -43,6 +43,7 @@
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
 		12D511811D42DF0700395021 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511801D42DF0700395021 /* SliderMenuViewController.swift */; };
 		12D511831D42E36800395021 /* photo_perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D511821D42E36800395021 /* photo_perfil.png */; };
+		12D511871D42F8D900395021 /* CustomSliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */; };
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		12A02F431D2F5272000FC1E0 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		12D511801D42DF0700395021 /* SliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuViewController.swift; sourceTree = "<group>"; };
 		12D511821D42E36800395021 /* photo_perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_perfil.png; sourceTree = "<group>"; };
+		12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderMenuViewController.swift; sourceTree = "<group>"; };
 		12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vmc_app-Bridging-Header.h"; sourceTree = "<group>"; };
 		12EF13691D400D5D009877AA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		12477AD61D110316005B6391 /* vmc_app */ = {
 			isa = PBXGroup;
 			children = (
+				12D511851D42F83500395021 /* customControllers */,
 				12EF13671D400C8A009877AA /* importController */,
 				12A02F3E1D2F35CA000FC1E0 /* class */,
 				12F26A401D1D33B000D3F9F6 /* controllers */,
@@ -185,6 +188,17 @@
 			name = class;
 			sourceTree = "<group>";
 		};
+		12D511851D42F83500395021 /* customControllers */ = {
+			isa = PBXGroup;
+			children = (
+				12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */,
+				12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */,
+				12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */,
+				12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */,
+			);
+			name = customControllers;
+			sourceTree = "<group>";
+		};
 		12EF13671D400C8A009877AA /* importController */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +220,6 @@
 		12F26A401D1D33B000D3F9F6 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */,
 				12477AD91D110316005B6391 /* ViewController.swift */,
 				1233208F1D230F4900BE0A95 /* LoginViewController.swift */,
 				123320AF1D27198600BE0A95 /* EmailListaStaticticsController.swift */,
@@ -214,8 +227,6 @@
 				120DC5A31D2DF21E00BADDCA /* StaticticsViewController.swift */,
 				129C12C01D30619300B32662 /* VideoViewController.swift */,
 				129C12C21D30632E00B32662 /* showVideoViewController.swift */,
-				12169FA01D33FC1E0014C12D /* CustomTableViewCellCampaigns.swift */,
-				12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */,
 				12D511801D42DF0700395021 /* SliderMenuViewController.swift */,
 			);
 			name = controllers;
@@ -385,6 +396,7 @@
 				120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */,
 				123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */,
 				12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */,
+				12D511871D42F8D900395021 /* CustomSliderMenuViewController.swift in Sources */,
 				12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

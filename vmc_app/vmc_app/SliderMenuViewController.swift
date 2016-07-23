@@ -12,8 +12,13 @@ class SliderMenuViewController: UIViewController{
     
     @IBOutlet weak var ImagenPerfil: UIImageView!
     
-    
-    //let screenWidth = screenSize.width * 0.75
+    var ElementosMenu = [
+                          "List",
+                          "Profile",
+                          "How this work",
+                          "Contact us",
+                          "Logout"
+                         ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
