@@ -46,6 +46,7 @@ class ViewController: UIViewController{
             OpenSliderMenu.target = self.revealViewController()
             OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
         

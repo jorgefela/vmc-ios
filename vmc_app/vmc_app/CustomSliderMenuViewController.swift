@@ -10,4 +10,6 @@ import UIKit
 
 class CustomSliderMenuViewController: UITableViewCell {
 
+    @IBOutlet weak var iconoListaMenu: UIImageView!
+    @IBOutlet weak var TextElementoMenu: UILabel!
 }

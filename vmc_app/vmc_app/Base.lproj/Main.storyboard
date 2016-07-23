@@ -577,14 +577,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_perfil.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-Qr-pve">
-                                <rect key="frame" x="230" y="20" width="140" height="140"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wmi-ru-fOv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wmi-ru-fOv">
                                 <rect key="frame" x="0.0" y="225" width="600" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="lzf-UA-Oq2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellElementoMenu" id="lzf-UA-Oq2" customClass="CustomSliderMenuViewController" customModule="vmc_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lzf-UA-Oq2" id="cBh-CR-abm">
@@ -595,22 +592,40 @@
                                                     <rect key="frame" x="8" y="7" width="30" height="30"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-7M-ivX">
-                                                    <rect key="frame" x="46" y="11" width="22" height="21"/>
+                                                    <rect key="frame" x="46" y="11" width="287" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="TextElementoMenu" destination="xnB-7M-ivX" id="Ebe-Ge-E96"/>
+                                            <outlet property="iconoListaMenu" destination="6r1-gF-ei3" id="dY1-1R-hy1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lIf-hd-b6T" id="WLi-ig-fam"/>
+                                    <outlet property="delegate" destination="lIf-hd-b6T" id="Gwd-KN-x2J"/>
+                                </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_perfil.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-Qr-pve">
+                                <rect key="frame" x="114" y="42" width="140" height="140"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q8Z-XR-y2o" firstAttribute="top" secondItem="wmi-ru-fOv" secondAttribute="bottom" id="5BB-4C-jry"/>
+                            <constraint firstItem="wmi-ru-fOv" firstAttribute="top" secondItem="Vza-yz-5QH" secondAttribute="bottom" constant="205" id="gbi-4q-dTM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wmi-ru-fOv" secondAttribute="trailing" constant="-20" id="sJv-en-zAG"/>
+                            <constraint firstItem="wmi-ru-fOv" firstAttribute="leading" secondItem="bzb-42-9Uc" secondAttribute="leadingMargin" constant="-20" id="ynt-rG-1I7"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="ImagenPerfil" destination="Kq1-Qr-pve" id="Q33-eW-H0r"/>
+                        <outlet property="TablaElementoMenu" destination="wmi-ru-fOv" id="OEJ-Re-YR5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jD-wG-Xz0" userLabel="First Responder" sceneMemberID="firstResponder"/>

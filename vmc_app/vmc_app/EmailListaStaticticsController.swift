@@ -181,19 +181,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
         }
         TableViewEmailList.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    /*
-    func menssages(titulo:String, mensaje:String, txtBtn:String) -> Bool {
-        
-        let msge = UIAlertController(title: titulo, message: mensaje, preferredStyle: .Alert)
-        presentViewController(msge, animated: true, completion: nil)
-        
-        //aqui agrego los botones del alerta
-        msge.addAction(UIAlertAction(title: txtBtn, style: .Default, handler: { (action: UIAlertAction!) in
-            print("ok")
-        }))
-        return true
-        
-    }*/
+ 
     
     func goBack()
     {
