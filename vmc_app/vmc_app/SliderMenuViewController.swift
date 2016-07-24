@@ -14,16 +14,25 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var TablaElementoMenu: UITableView!
     
+    
+    
     //obtener medidas de pantalla
     var width = UIScreen.mainScreen().bounds.size.width
     
     var ElementosMenu = [
-                          "List",
-                          "Profile",
-                          "How this work",
-                          "Contact us",
-                          "Logout"
-                         ]
+        "List",
+        "Profile",
+        "How this work",
+        "Contact us",
+        "Logout"
+    ]
+    var IconosMenu = [
+        "List",
+        "Profile",
+        "How this work",
+        "Contact us",
+        "Logout"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,16 +48,23 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomSliderMenuViewController = self.TablaElementoMenu.dequeueReusableCellWithIdentifier("CellElementoMenu")! as! CustomSliderMenuViewController
-        print(indexPath.row)
         cell.TextElementoMenu.text = self.ElementosMenu[indexPath.row]
-       
-        
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        //segue_a_campanias
+       // let myCellShow:CustomSliderMenuViewController = tableView.cellForRowAtIndexPath(indexPath) as! CustomSliderMenuViewController
+
         dispatch_async(dispatch_get_main_queue()){
+            
+            if self.ElementosMenu[indexPath.row] == "Logout" || self.ElementosMenu[indexPath.row] == "logout" {
+                print("cerre sesion LoginView")
+                let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                print(loginViewController)
+                self.performSegueWithIdentifier("LoginView", sender: self)
+                //UIView.transitionWithView(self, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = loginViewController}, completion: nil)
+                //self.rootViewController = loginViewController
+                //self.navigationController?.popToRootViewControllerAnimated(true)
+            }
             //self.performSegueWithIdentifier("segue_a_campanias", sender: self)
             
         }
