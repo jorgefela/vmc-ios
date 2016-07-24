@@ -19,6 +19,8 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     //obtener medidas de pantalla
     var width = UIScreen.mainScreen().bounds.size.width
     
+    var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    
     var ElementosMenu = [
         "List",
         "Profile",
@@ -57,17 +59,29 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
         dispatch_async(dispatch_get_main_queue()){
             
             if self.ElementosMenu[indexPath.row] == "Logout" || self.ElementosMenu[indexPath.row] == "logout" {
-                print("cerre sesion LoginView")
                 let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
-                print(loginViewController)
-                self.performSegueWithIdentifier("LoginView", sender: self)
-                //UIView.transitionWithView(self, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = loginViewController}, completion: nil)
-                //self.rootViewController = loginViewController
-                //self.navigationController?.popToRootViewControllerAnimated(true)
+                //cierro sesion
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                //redirigo a la vista login
+                UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = loginViewController}, completion: nil)
             }
-            //self.performSegueWithIdentifier("segue_a_campanias", sender: self)
+            else if self.ElementosMenu[indexPath.row] == "Contact us" || self.ElementosMenu[indexPath.row] == "contact us" {
+                print("cargue Contact us")
+            }
+            else if self.ElementosMenu[indexPath.row] == "How this work" || self.ElementosMenu[indexPath.row] == "how this work" {
+                print("cargue How this work")
+            }
+            else if self.ElementosMenu[indexPath.row] == "Profile" || self.ElementosMenu[indexPath.row] == "profile" {
+                print("cargue Profile")
+            }
+            else if self.ElementosMenu[indexPath.row] == "List" || self.ElementosMenu[indexPath.row] == "list" {
+                print("cargue List")
+            }
             
         }
         TablaElementoMenu.deselectRowAtIndexPath(indexPath, animated: true)
     }
+    
+    
 }
