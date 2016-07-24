@@ -579,7 +579,9 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wmi-ru-fOv">
                                 <rect key="frame" x="0.0" y="225" width="600" height="375"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.1176470588" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.074509803920000006" green="0.1176470588" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.25490196078431371" alpha="0.84676724137931036" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellElementoMenu" id="lzf-UA-Oq2" customClass="CustomSliderMenuViewController" customModule="vmc_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -594,11 +596,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-7M-ivX">
                                                     <rect key="frame" x="46" y="11" width="287" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="TextElementoMenu" destination="xnB-7M-ivX" id="Ebe-Ge-E96"/>
                                             <outlet property="iconoListaMenu" destination="6r1-gF-ei3" id="dY1-1R-hy1"/>
@@ -615,7 +619,7 @@
                                 <rect key="frame" x="114" y="42" width="140" height="140"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Q8Z-XR-y2o" firstAttribute="top" secondItem="wmi-ru-fOv" secondAttribute="bottom" id="5BB-4C-jry"/>
                             <constraint firstItem="wmi-ru-fOv" firstAttribute="top" secondItem="Vza-yz-5QH" secondAttribute="bottom" constant="205" id="gbi-4q-dTM"/>
