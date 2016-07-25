@@ -568,7 +568,7 @@
         <!--List-->
         <scene sceneID="4PV-kJ-Knf">
             <objects>
-                <viewController id="46h-7d-hal" sceneMemberID="viewController">
+                <viewController id="46h-7d-hal" customClass="ListViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="chi-C2-QeM"/>
                         <viewControllerLayoutGuide type="bottom" id="3WQ-II-ZIQ"/>
@@ -576,9 +576,115 @@
                     <view key="view" contentMode="scaleToFill" id="jhE-Z5-bU5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-5V-STt">
+                                <rect key="frame" x="0.0" y="95" width="580" height="425"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTablaListCustom" rowHeight="37" id="KC0-Gu-fem" customClass="CustomListViewController" customModule="vmc_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="580" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC0-Gu-fem" id="RLp-xa-odi">
+                                            <rect key="frame" x="0.0" y="0.0" width="547" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvw-mK-uEr">
+                                                    <rect key="frame" x="20" y="1" width="112" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-z9-Iqr">
+                                                    <rect key="frame" x="439" y="4" width="100" height="30"/>
+                                                    <color key="backgroundColor" red="0.11372549019607843" green="0.50196078431372548" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="KfJ-06-yqf"/>
+                                                    </constraints>
+                                                    <state key="normal" title="add contact">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cantList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
+                                                    <rect key="frame" x="266" y="8" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="L6R-gj-iJE"/>
+                                                <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerX" secondItem="RLp-xa-odi" secondAttribute="centerX" constant="23" id="LVB-Vg-XFX"/>
+                                                <constraint firstItem="JOH-z9-Iqr" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="NcD-N3-zNB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JOH-z9-Iqr" secondAttribute="trailing" id="oaJ-KF-E3Y"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="TextBotonLista" destination="JOH-z9-Iqr" id="Zlk-WX-EQQ"/>
+                                            <outlet property="cantSubcriptores" destination="uLr-lS-Fh5" id="64V-xr-biH"/>
+                                            <outlet property="nombreLista" destination="dvw-mK-uEr" id="BEA-NW-ExO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="46h-7d-hal" id="koa-mu-F9q"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKU-PD-ya3">
+                                <rect key="frame" x="254" y="72" width="92" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTN-wy-nza">
+                                <rect key="frame" x="228" y="535" width="145" height="45"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.50196078431372548" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1da-Id-sMO"/>
+                                    <constraint firstAttribute="width" constant="145" id="HBG-pv-ZJW"/>
+                                </constraints>
+                                <state key="normal" title="Add new list">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vu5-aY-Bhl">
+                                <rect key="frame" x="20" y="72" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3WQ-II-ZIQ" firstAttribute="top" secondItem="rTN-wy-nza" secondAttribute="bottom" constant="20" id="0Bv-s1-NIq"/>
+                            <constraint firstItem="NKU-PD-ya3" firstAttribute="top" secondItem="chi-C2-QeM" secondAttribute="bottom" constant="8" id="8QU-S1-pd7"/>
+                            <constraint firstItem="DB3-5V-STt" firstAttribute="top" secondItem="NKU-PD-ya3" secondAttribute="bottom" constant="2" id="BZQ-ss-Yr8"/>
+                            <constraint firstItem="rTN-wy-nza" firstAttribute="top" secondItem="DB3-5V-STt" secondAttribute="bottom" constant="15" id="Cyo-Pa-Ly8"/>
+                            <constraint firstItem="DB3-5V-STt" firstAttribute="leading" secondItem="jhE-Z5-bU5" secondAttribute="leadingMargin" constant="-20" id="FfX-5I-nn5"/>
+                            <constraint firstItem="DB3-5V-STt" firstAttribute="trailing" secondItem="jhE-Z5-bU5" secondAttribute="trailingMargin" id="Meh-hV-UAF"/>
+                            <constraint firstItem="NKU-PD-ya3" firstAttribute="centerX" secondItem="jhE-Z5-bU5" secondAttribute="centerX" id="UGm-gg-CYO"/>
+                            <constraint firstItem="rTN-wy-nza" firstAttribute="centerX" secondItem="jhE-Z5-bU5" secondAttribute="centerX" id="koH-ku-C5Y"/>
+                            <constraint firstItem="DB3-5V-STt" firstAttribute="top" secondItem="chi-C2-QeM" secondAttribute="bottom" constant="31" id="sFk-dI-QhQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List" id="9CU-rQ-4hC"/>
+                    <connections>
+                        <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

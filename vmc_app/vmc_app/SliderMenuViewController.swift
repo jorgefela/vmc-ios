@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SliderMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class SliderMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var ImagenPerfil: UIImageView!
     
