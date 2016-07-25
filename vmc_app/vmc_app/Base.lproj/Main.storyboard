@@ -705,29 +705,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-yg-ljp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-yg-ljp">
                                 <rect key="frame" x="46" y="106" width="511" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-tb-jzt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-tb-jzt">
                                 <rect key="frame" x="46" y="168" width="511" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNE-Sn-7Z7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNE-Sn-7Z7">
                                 <rect key="frame" x="46" y="227" width="511" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-lw-kx5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-lw-kx5">
                                 <rect key="frame" x="46" y="285" width="511" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Io-gT-zVF">
-                                <rect key="frame" x="228" y="368" width="145" height="45"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By clicking add I certify that this is not a purchased list and the recipients have explicitly agreed to join my mailing." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-Uz-whB">
+                                <rect key="frame" x="46" y="538" width="511" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Io-gT-zVF">
+                                <rect key="frame" x="228" y="353" width="145" height="45"/>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.47450980392156861" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="B2w-Mh-ctg"/>
+                                    <constraint firstAttribute="width" constant="145" id="dUS-2r-ga4"/>
+                                </constraints>
                                 <state key="normal" title="Add susbcriber">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -739,6 +749,26 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dyQ-yg-ljp" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="05v-8z-EdC"/>
+                            <constraint firstItem="0dw-wK-OBu" firstAttribute="top" secondItem="OtG-Uz-whB" secondAttribute="bottom" constant="8" id="3cI-mK-2wu"/>
+                            <constraint firstItem="OtG-Uz-whB" firstAttribute="top" secondItem="6Io-gT-zVF" secondAttribute="bottom" constant="140" id="EZu-YC-SMD"/>
+                            <constraint firstItem="dyQ-yg-ljp" firstAttribute="top" secondItem="x7K-w7-zdD" secondAttribute="bottom" constant="42" id="HaT-tA-70c"/>
+                            <constraint firstItem="Dhw-lw-kx5" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="LwK-mD-4NB"/>
+                            <constraint firstItem="Zyk-tb-jzt" firstAttribute="top" secondItem="dyQ-yg-ljp" secondAttribute="bottom" constant="32" id="MhL-Mk-IV3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dyQ-yg-ljp" secondAttribute="trailing" constant="23" id="R5S-IU-zup"/>
+                            <constraint firstItem="6Io-gT-zVF" firstAttribute="centerX" secondItem="Xus-Kk-ErN" secondAttribute="centerX" id="T4y-Mm-ZO2"/>
+                            <constraint firstItem="6Io-gT-zVF" firstAttribute="top" secondItem="Dhw-lw-kx5" secondAttribute="bottom" constant="38" id="TsW-hy-4pO"/>
+                            <constraint firstItem="YNE-Sn-7Z7" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="WZ7-Df-9ql"/>
+                            <constraint firstItem="YNE-Sn-7Z7" firstAttribute="top" secondItem="Zyk-tb-jzt" secondAttribute="bottom" constant="29" id="Zxh-1V-drH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YNE-Sn-7Z7" secondAttribute="trailing" constant="23" id="i8P-qg-DVp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zyk-tb-jzt" secondAttribute="trailing" constant="23" id="i9l-90-l8J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OtG-Uz-whB" secondAttribute="trailing" constant="23" id="ikY-VU-zAW"/>
+                            <constraint firstItem="Dhw-lw-kx5" firstAttribute="top" secondItem="YNE-Sn-7Z7" secondAttribute="bottom" constant="28" id="iqZ-mW-Ncy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dhw-lw-kx5" secondAttribute="trailing" constant="23" id="ivm-wi-l2q"/>
+                            <constraint firstItem="Zyk-tb-jzt" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="oBd-dQ-E1C"/>
+                            <constraint firstItem="OtG-Uz-whB" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="p3Y-Mt-jaW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Subscriber" id="JUq-gj-5l6"/>
                 </viewController>
