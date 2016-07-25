@@ -39,23 +39,33 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var uPhoto = "photo_perfil.png"
-        if prefs.valueForKey("PHOTO") as! String != ""{
-            //uPhoto = prefs.valueForKey("PHOTO") as! String
-            uPhoto = "/Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/photo_perfil.png"
-        }else{
-            uPhoto = "photo_perfil.png"
-        }
-        //let URL = NSURL(string: uPhoto)!
-        //let resource = Resource(downloadURL: URL, cacheKey: "vmcappios2864")
-        self.ImagenPerfil.kf_setImageWithURL(NSURL(string: uPhoto), placeholderImage: nil, optionsInfo: [.ForceRefresh])
-       //self.ImagenPerfil.kf_setImageWithResource(resource)
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            if prefs.valueForKey("PHOTO") as! String != ""{
+                let foto = prefs.valueForKey("PHOTO") as! String
+                let uPhoto = "\(mainInstance.urlImagePerfil)\(foto)"
+                self.ImagenPerfil.kf_setImageWithURL(NSURL(string: uPhoto),
+                    placeholderImage: nil,
+                    optionsInfo: nil,
+                    progressBlock: { (receivedSize, totalSize) -> () in
+                        print("Download Progress: \(receivedSize)/\(totalSize)")
+                    },
+                    completionHandler: { (image, error, cacheType, imageURL) -> () in
+                        print("Downloaded and set! \(imageURL)")
+                    }
+                )
+                print("url: \(uPhoto)")
+            }else{
+                self.ImagenPerfil.image = UIImage(named: "photo_perfil.png")
+            }
+        })
         
         self.ImagenPerfil.layer.cornerRadius = self.ImagenPerfil.frame.size.width / 2
         self.ImagenPerfil.clipsToBounds = true
-        print("cargue imagen")
     }
+    
+    //metodos table view cell
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.ElementosMenu.count
     }
