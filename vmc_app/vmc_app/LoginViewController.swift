@@ -76,11 +76,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         let iduser = json["result"]![0]!.valueForKey("id")!
                         let lname = json["result"]![0]!.valueForKey("lname")!
                         let name = json["result"]![0]!.valueForKey("name")!
+                        var fotoPerfil = ""
+                        if json["result"]![0]!.valueForKey("photo")!  as! String != "" {
+                            fotoPerfil = json["result"]![0]!.valueForKey("photo")! as! String
+                        }
+                        print(fotoPerfil)
+                        
                         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                         prefs.setObject(json["key"]!, forKey: "KEY")
                         prefs.setObject(iduser, forKey: "IDUSER")
                         prefs.setObject(name, forKey: "NAME")
                         prefs.setObject(lname, forKey: "LNAME")
+                        prefs.setObject(fotoPerfil, forKey: "PHOTO")
                         prefs.setInteger(1, forKey: "ISLOGGEDIN")
                         prefs.synchronize()
                         dispatch_async(dispatch_get_main_queue()) {

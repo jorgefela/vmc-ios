@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SliderMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -38,6 +39,18 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var uPhoto = "photo_perfil.png"
+        if prefs.valueForKey("PHOTO") as! String != ""{
+            //uPhoto = prefs.valueForKey("PHOTO") as! String
+            uPhoto = "/Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/photo_perfil.png"
+        }else{
+            uPhoto = "photo_perfil.png"
+        }
+        //let URL = NSURL(string: uPhoto)!
+        //let resource = Resource(downloadURL: URL, cacheKey: "vmcappios2864")
+        self.ImagenPerfil.kf_setImageWithURL(NSURL(string: uPhoto), placeholderImage: nil, optionsInfo: [.ForceRefresh])
+       //self.ImagenPerfil.kf_setImageWithResource(resource)
         
         self.ImagenPerfil.layer.cornerRadius = self.ImagenPerfil.frame.size.width / 2
         self.ImagenPerfil.clipsToBounds = true
