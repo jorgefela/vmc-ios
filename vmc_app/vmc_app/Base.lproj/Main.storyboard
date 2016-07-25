@@ -848,6 +848,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo_perfil.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kq1-Qr-pve">
                                 <rect key="frame" x="114" y="42" width="140" height="140"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2if-O0-Mnp">
+                                <rect key="frame" x="23" y="190" width="323" height="21"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="name profile">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803921568626" green="0.11764705882352941" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -860,13 +873,14 @@
                     <connections>
                         <outlet property="ImagenPerfil" destination="Kq1-Qr-pve" id="Q33-eW-H0r"/>
                         <outlet property="TablaElementoMenu" destination="wmi-ru-fOv" id="OEJ-Re-YR5"/>
+                        <outlet property="nombrePerfil" destination="2if-O0-Mnp" id="3SW-zI-DsX"/>
                         <segue destination="972-xg-rYb" kind="show" identifier="segueLista" id="lo2-Zb-ZYI"/>
                         <segue destination="hcm-tD-elr" kind="show" identifier="segueProfile" id="Iqt-YY-4lh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jD-wG-Xz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="1549"/>
+            <point key="canvasLocation" x="1633" y="1531"/>
         </scene>
         <!--Statictics-->
         <scene sceneID="DSh-Qm-gbA">

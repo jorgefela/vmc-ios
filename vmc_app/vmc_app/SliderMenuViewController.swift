@@ -12,6 +12,7 @@ import Kingfisher
 class SliderMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var ImagenPerfil: UIImageView!
+    @IBOutlet weak var nombrePerfil: UILabel!
     
     @IBOutlet weak var TablaElementoMenu: UITableView!
     
@@ -60,10 +61,15 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
             }else{
                 self.ImagenPerfil.image = UIImage(named: "photo_perfil.png")
             }
+            
         })
         
         self.ImagenPerfil.layer.cornerRadius = self.ImagenPerfil.frame.size.width / 2
+        self.ImagenPerfil.layer.borderColor = UIColor( red: 190/255, green: 190/255, blue:190/255, alpha: 1.0 ).CGColor
+        self.ImagenPerfil.layer.borderWidth = 3.0
         self.ImagenPerfil.clipsToBounds = true
+        let nombre = prefs.valueForKey("NAME") as! String
+        self.nombrePerfil.text = nombre
     }
     
     //metodos table view cell

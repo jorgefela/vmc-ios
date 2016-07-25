@@ -74,19 +74,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     if rows > 0 {
                         let iduser = json["result"]![0]!.valueForKey("id")!
-                        let lname = json["result"]![0]!.valueForKey("lname")!
-                        let name = json["result"]![0]!.valueForKey("name")!
+                        var lname = ""
+                        var name = ""
+                        if json["result"]![0]!.valueForKey("lname")! as! String != "" {
+                            lname = json["result"]![0]!.valueForKey("lname")! as! String
+                        }else{
+                            lname = ""
+                        }
+                        
+                        if json["result"]![0]!.valueForKey("name")! as! String != "" {
+                            name = json["result"]![0]!.valueForKey("name")! as! String
+                        }else{
+                            name = ""
+                        }
+                        
+                        var nombre = ""
+                        
+                        if lname.isEmpty {
+                            nombre = name
+                        }else{
+                            nombre = "\(name) \(lname)"
+                        }
+                        
                         var fotoPerfil = ""
                         if json["result"]![0]!.valueForKey("photo")!  as! String != "" {
                             fotoPerfil = json["result"]![0]!.valueForKey("photo")! as! String
                         }
-                        print(fotoPerfil)
                         
                         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                         prefs.setObject(json["key"]!, forKey: "KEY")
                         prefs.setObject(iduser, forKey: "IDUSER")
-                        prefs.setObject(name, forKey: "NAME")
-                        prefs.setObject(lname, forKey: "LNAME")
+                        prefs.setObject(nombre, forKey: "NAME")
                         prefs.setObject(fotoPerfil, forKey: "PHOTO")
                         prefs.setInteger(1, forKey: "ISLOGGEDIN")
                         prefs.synchronize()
