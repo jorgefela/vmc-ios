@@ -696,7 +696,7 @@
         <!--Subscriber-->
         <scene sceneID="aJa-ab-0lN">
             <objects>
-                <viewController id="kQ8-BB-XMu" sceneMemberID="viewController">
+                <viewController id="kQ8-BB-XMu" customClass="SubscribersViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x7K-w7-zdD"/>
                         <viewControllerLayoutGuide type="bottom" id="0dw-wK-OBu"/>
@@ -708,7 +708,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dyQ-yg-ljp">
                                 <rect key="frame" x="46" y="106" width="511" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zyk-tb-jzt">
                                 <rect key="frame" x="46" y="168" width="511" height="30"/>
