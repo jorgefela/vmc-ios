@@ -609,8 +609,8 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cantList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
-                                                    <rect key="frame" x="266" y="8" width="61" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cantList" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
+                                                    <rect key="frame" x="275" y="8" width="61" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -618,7 +618,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="L6R-gj-iJE"/>
-                                                <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerX" secondItem="RLp-xa-odi" secondAttribute="centerX" constant="23" id="LVB-Vg-XFX"/>
+                                                <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerX" secondItem="RLp-xa-odi" secondAttribute="centerX" constant="32" id="LVB-Vg-XFX"/>
                                                 <constraint firstItem="JOH-z9-Iqr" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="NcD-N3-zNB"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JOH-z9-Iqr" secondAttribute="trailing" id="oaJ-KF-E3Y"/>
                                             </constraints>
