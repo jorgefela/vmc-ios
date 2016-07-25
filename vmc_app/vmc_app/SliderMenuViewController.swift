@@ -41,10 +41,11 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        dispatch_async(dispatch_get_main_queue(), {
             if prefs.valueForKey("PHOTO") as! String != ""{
                 let foto = prefs.valueForKey("PHOTO") as! String
-                let uPhoto = "\(mainInstance.urlImagePerfil)\(foto)"
+                var uPhoto = "\(mainInstance.urlImagePerfil)\(foto)"
+                uPhoto = uPhoto.convertirEspaciosGet()
                 self.ImagenPerfil.kf_setImageWithURL(NSURL(string: uPhoto),
                     placeholderImage: nil,
                     optionsInfo: nil,
@@ -52,7 +53,7 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
                         print("Download Progress: \(receivedSize)/\(totalSize)")
                     },
                     completionHandler: { (image, error, cacheType, imageURL) -> () in
-                        print("Downloaded and set! \(imageURL)")
+                        print("Downloaded and set!")
                     }
                 )
                 print("url: \(uPhoto)")

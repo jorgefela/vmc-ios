@@ -7,7 +7,18 @@
 //
 
 import UIKit
-
+extension String {
+    func replace(string:String, replacement:String) -> String {
+        return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+    
+    func removeWhitespace() -> String {
+        return self.replace(" ", replacement: "")
+    }
+    func convertirEspaciosGet() -> String {
+        return self.replace(" ", replacement: "%20")
+    }
+}
 class FuncGlobal {
     
     func alert(titulo:String, info:String, btnTxt:String, viewController: UIViewController) {
@@ -31,5 +42,6 @@ class FuncGlobal {
             alpha: CGFloat(1.0)
         )
     }
+    
     
 }

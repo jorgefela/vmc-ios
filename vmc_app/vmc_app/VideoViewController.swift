@@ -147,6 +147,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
             }else{
                 urlBase = "https://www.vmctechnology.com/app/Uploads/images/\(self.ListThumbVideos[indexPath.row])"
             }
+            urlBase = urlBase.convertirEspaciosGet()
             //let URL = NSURL(string: self.ListThumbVideos[indexPath.row])!
             //let resource = Resource(downloadURL: URL, cacheKey: "vmcappios2864")
             //cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: self.ListThumbVideos[indexPath.row])!, placeholderImage: nil, optionsInfo: [.ForceRefresh])
