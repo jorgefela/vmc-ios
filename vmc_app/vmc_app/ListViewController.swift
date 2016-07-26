@@ -13,19 +13,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var TablaList: UITableView!
     
     var ElementosList = [
-        "elemento 1",
-        "elemento 2",
-        "elemento 3",
-        "elemento 4",
-        "elemento 5"
+        "Loading..."
     ]
     
     var ElementosCantList = [
-        "323",
-        "435",
-        "22",
-        "77",
-        "43"
+        " "
+    ]
+    
+    var ElementosIdList = [
+        " "
     ]
     
     override func viewDidLoad() {
@@ -36,6 +32,103 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        
+        // START proceso de consulta
+        PreLoading().showLoading()
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        //if (estaLogueado != 1) {
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        print("datos de sesion \(idUser) \(keyServer)")
+        //}
+        
+        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/list"
+        let url = NSURL(string: url_path)
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+        let session = NSURLSession.sharedSession()
+        // start peticion
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            
+            let res = response as! NSHTTPURLResponse!;
+            
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                
+                if error != nil{print(error?.localizedDescription)}
+                
+                do{
+                    
+                    if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.ElementosList.removeAll()
+                                self.ElementosCantList.removeAll()
+                                self.ElementosIdList.removeAll()
+                                let espacio =  " ";
+                                
+                                if let json = dictionary_result["result"] as? NSArray  {
+                                    for item in json {
+                                        if let Id = item.valueForKey("id") {
+                                            self.ElementosIdList.append(Id as! String)
+                                            
+                                            if let nombre = item.valueForKey("name") {
+                                                self.ElementosList.append(nombre as! String)
+                                            }else{
+                                                self.ElementosList.append(espacio)
+                                            }
+                                            
+                                            if let cantList = item.valueForKey("n_subcriber") {
+                                                self.ElementosCantList.append(cantList as! String)
+                                            }else{
+                                                self.ElementosCantList.append("0")
+                                            }
+                                            
+                                        }
+                                    }//fin for
+                                    
+                                    PreLoading().hideLoading()
+                                    self.TablaList.reloadData()
+                                }
+                                
+                            })
+                        })
+                        
+                        
+                    }
+                }catch{
+                    print("ocurrio un error")
+                    print(error)
+                    let appDomain = NSBundle.mainBundle().bundleIdentifier
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                    dispatch_async(dispatch_get_main_queue()){
+                        PreLoading().hideLoading()
+                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        
+                    }
+                }
+            }else{
+                NSLog("Response code: %ld", res.statusCode);
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                
+                dispatch_async(dispatch_get_main_queue()){
+                    PreLoading().hideLoading()
+                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    
+                }
+            }//fin validar response.status
+            
+        })
+        
+        task.resume()
+        // end peticion
+        
+        // END   proceso de cosulta
     }
     
     // metodos tableview controllers
@@ -47,6 +140,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
         cell.nombreLista.text = self.ElementosList[indexPath.row]
         cell.cantSubcriptores.text = self.ElementosCantList[indexPath.row]
+        cell.nombreLista.intrinsicContentSize().width
         //cell.TextBotonLista.text = "add contact"
     return cell
     }
