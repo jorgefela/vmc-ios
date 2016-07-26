@@ -154,6 +154,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         if FuncGlobal().screenSize() == CGSizeMake(320.0, 568.0) {
+            cell.cantSubcriptores.font = cell.cantSubcriptores.setSizeFont(13)
+            cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 13)!
             if cantCaracts <= 17 {
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
             }else if cantCaracts > 17 && cantCaracts <= 19{
