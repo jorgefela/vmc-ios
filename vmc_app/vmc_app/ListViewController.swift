@@ -154,8 +154,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         if FuncGlobal().screenSize() == CGSizeMake(320.0, 568.0) {
+            //cell.nombreLista.frame = CGRect(x: 20, y: 19, width: 50, height: 21)
+            
             cell.cantSubcriptores.font = cell.cantSubcriptores.setSizeFont(13)
-            cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 13)!
+            cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 11)!
             if cantCaracts <= 17 {
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(17)
                 
@@ -179,7 +181,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
             }
         }
-        cell.nombreLista.preferredMaxLayoutWidth = 5
+        cell.nombreLista.frame.size.width = 100
+        cell.nombreLista.widthAnchor.constraintEqualToAnchor(nil, constant: 100).active = true
         print(FuncGlobal().screenSize())
         
         return cell
