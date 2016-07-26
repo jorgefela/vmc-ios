@@ -40,7 +40,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //if (estaLogueado != 1) {
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        print("datos de sesion \(idUser) \(keyServer)")
         //}
         
         let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/list"
@@ -140,7 +139,19 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
         cell.nombreLista.text = self.ElementosList[indexPath.row]
         cell.cantSubcriptores.text = self.ElementosCantList[indexPath.row]
-        cell.nombreLista.intrinsicContentSize().width
+        let cantCaracts = self.ElementosList[indexPath.row].length
+        
+        if cantCaracts <= 17 {
+            cell.nombreLista.font = cell.nombreLista.setSizeFont(16)
+        }else if cantCaracts > 17 && cantCaracts <= 19{
+            cell.nombreLista.font = cell.nombreLista.setSizeFont(14)
+        }else if cantCaracts > 19 && cantCaracts < 23{
+            cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
+        }else{
+            cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
+        }
+        print(self.ElementosList[indexPath.row].length)
+        
         //cell.TextBotonLista.text = "add contact"
     return cell
     }

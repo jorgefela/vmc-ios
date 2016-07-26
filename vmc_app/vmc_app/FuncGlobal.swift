@@ -7,18 +7,50 @@
 //
 
 import UIKit
+
 extension String {
+
+    //let count = micadena.length
+    var length: Int { return characters.count }
+    
+    //stringConEpacios.convertirEspaciosGet()
     func replace(string:String, replacement:String) -> String {
         return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
     }
-    
     func removeWhitespace() -> String {
         return self.replace(" ", replacement: "")
     }
     func convertirEspaciosGet() -> String {
         return self.replace(" ", replacement: "%20")
     }
+    
 }
+
+extension UILabel {
+    // cambia tamaño de altura dinamicamente UILabel
+    func resizeHeightToFit(heightConstraint: NSLayoutConstraint) {
+        let attributes = [NSFontAttributeName : font]
+        numberOfLines = 0
+        lineBreakMode = NSLineBreakMode.ByWordWrapping
+        let rect = text!.boundingRectWithSize(CGSizeMake(frame.size.width, CGFloat.max), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: attributes, context: nil)
+        heightConstraint.constant = rect.height
+        setNeedsLayout()
+    }
+    
+    //cambia el tamaño de fuente
+    func setSizeFont(sizeFont: CGFloat) -> UIFont {
+        self.sizeToFit()
+        return  UIFont(name: self.font.fontName, size: sizeFont)!
+        
+    }
+    
+ 
+
+    //myLabel.setSizeFont(60)
+}
+
+
+
 class FuncGlobal {
     
     func alert(titulo:String, info:String, btnTxt:String, viewController: UIViewController) {
