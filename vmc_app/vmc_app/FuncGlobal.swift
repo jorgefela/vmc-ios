@@ -75,5 +75,13 @@ class FuncGlobal {
         )
     }
     
+    func screenSize() -> CGSize {
+        let screenSize = UIScreen.mainScreen().bounds.size
+        if (NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) && UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+            return CGSizeMake(screenSize.height, screenSize.width)
+        }
+        return screenSize
+    }
+    
     
 }

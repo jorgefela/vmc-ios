@@ -12,6 +12,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var TablaList: UITableView!
     
+    var width = UIScreen.mainScreen().bounds.size.width
+    
     var ElementosList = [
         "Loading..."
     ]
@@ -136,7 +138,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
+        let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
         cell.nombreLista.text = self.ElementosList[indexPath.row]
         cell.cantSubcriptores.text = self.ElementosCantList[indexPath.row]
         let cantCaracts = self.ElementosList[indexPath.row].length
@@ -150,10 +152,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
         }
-        print(self.ElementosList[indexPath.row].length)
         
-        //cell.TextBotonLista.text = "add contact"
-    return cell
+        if FuncGlobal().screenSize() == CGSizeMake(320.0, 568.0) {
+            if cantCaracts <= 17 {
+                cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
+            }else if cantCaracts > 17 && cantCaracts <= 19{
+                cell.nombreLista.font = cell.nombreLista.setSizeFont(10)
+            }else if cantCaracts > 19 && cantCaracts < 23{
+                cell.nombreLista.font = cell.nombreLista.setSizeFont(9)
+            }else{
+                cell.nombreLista.font = cell.nombreLista.setSizeFont(8)
+            }
+        }
+        
+        return cell
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
