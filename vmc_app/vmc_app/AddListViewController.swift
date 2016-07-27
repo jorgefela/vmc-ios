@@ -9,6 +9,15 @@
 import UIKit
 
 class AddListViewController: UIViewController {
+    
+    @IBOutlet weak var TextNombreLista: UITextField!
+    
+    @IBOutlet weak var SegmentoSeleccion: UISegmentedControl!
+    
+    @IBOutlet weak var TextNombreNuevaLista: UITextField!
+    
+    @IBOutlet weak var TablaElementosListas: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //START color navigation controller
@@ -19,5 +28,11 @@ class AddListViewController: UIViewController {
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         //END color navigation controller
+    }
+    
+    @IBAction func BtnSegmentoSelccion(sender: UISegmentedControl) {
+    }
+    
+    @IBAction func BtnAgregarNuevaLista(sender: UIButton) {
     }
 }

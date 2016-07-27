@@ -850,6 +850,9 @@
                                     <segment title="Default Contact Fields"/>
                                     <segment title="Add More Fields"/>
                                 </segments>
+                                <connections>
+                                    <action selector="BtnSegmentoSelccion:" destination="JXD-qS-iDG" eventType="valueChanged" id="E9c-FQ-uwB"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SgJ-bW-OdV">
                                 <rect key="frame" x="20" y="224" width="560" height="356"/>
@@ -857,6 +860,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="356" id="bME-mz-alf"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="JXD-qS-iDG" id="3n7-Jf-cHG"/>
+                                    <outlet property="delegate" destination="JXD-qS-iDG" id="E9X-jF-MU5"/>
+                                </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Field Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-x5-s1Z">
                                 <rect key="frame" x="20" y="180" width="227" height="30"/>
@@ -869,6 +876,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwK-Tr-Fe9">
                                 <rect key="frame" x="255" y="180" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="BtnAgregarNuevaLista:" destination="JXD-qS-iDG" eventType="touchUpInside" id="Nmy-iN-7zg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -892,10 +902,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn"/>
+                    <connections>
+                        <outlet property="SegmentoSeleccion" destination="PRc-yy-px8" id="aMT-eg-AYz"/>
+                        <outlet property="TablaElementosListas" destination="SgJ-bW-OdV" id="iER-rO-l3r"/>
+                        <outlet property="TextNombreLista" destination="ARd-8V-cqb" id="sbQ-HB-WyD"/>
+                        <outlet property="TextNombreNuevaLista" destination="HDb-x5-s1Z" id="cMA-Qs-A8w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGG-7e-VPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6738" y="2984"/>
+            <point key="canvasLocation" x="6614" y="2984"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SvY-tg-Qhj">
