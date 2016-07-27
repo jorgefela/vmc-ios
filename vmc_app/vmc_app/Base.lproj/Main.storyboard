@@ -930,6 +930,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn"/>
                     <connections>
+                        <outlet property="BtnNuevo" destination="LwK-Tr-Fe9" id="4Id-iy-BEg"/>
                         <outlet property="SegmentoSeleccion" destination="PRc-yy-px8" id="aMT-eg-AYz"/>
                         <outlet property="TablaElementosListas" destination="SgJ-bW-OdV" id="iER-rO-l3r"/>
                         <outlet property="TextNombreLista" destination="ARd-8V-cqb" id="sbQ-HB-WyD"/>

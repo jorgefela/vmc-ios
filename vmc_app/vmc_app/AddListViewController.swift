@@ -18,6 +18,8 @@ class AddListViewController: UIViewController {
     
     @IBOutlet weak var TablaElementosListas: UITableView!
     
+    @IBOutlet weak var BtnNuevo: UIButton!
+    
     var ElementosListDefault = [
         "Email Address",
         "First Name",
@@ -35,6 +37,11 @@ class AddListViewController: UIViewController {
         ""
     ]
     
+    //declaracion para mesajes
+    let tituloMsg:String = "oops!"
+    var mesnsajeMsg:String = "required field."
+    let btnMsg:String = "OK"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +54,21 @@ class AddListViewController: UIViewController {
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         //END color navigation controller
+        
+        switch self.SegmentoSeleccion.selectedSegmentIndex {
+        case 0:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
+            break
+        case 1:
+            TextNombreNuevaLista.hidden = false
+            BtnNuevo.hidden = false
+            break
+        default:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
+        }
+        
     }
     
     //metodos UITableView
@@ -75,21 +97,24 @@ class AddListViewController: UIViewController {
         
         switch self.SegmentoSeleccion.selectedSegmentIndex {
         case 0:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
             cell.textLabel!.text = ElementosListDefault[indexPath.row]
             break
         case 1:
-            if ElementosListNuevos[indexPath.row].isEmpty {
+            TextNombreNuevaLista.hidden = false
+            BtnNuevo.hidden = false
+            if self.ElementosListNuevos.count == 0 || self.ElementosListNuevos.isEmpty {
                 cell.textLabel!.text = ""
             }else{
                 cell.textLabel!.text = ElementosListNuevos[indexPath.row]
             }
             break
         default:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
             cell.textLabel!.text = ElementosListDefault[indexPath.row]
         }
-
-        
-        cell.textLabel!.text = ElementosListDefault[indexPath.row]
         
         return cell
     }
@@ -108,8 +133,13 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func BtnSegmentoSelccion(sender: UISegmentedControl) {
+        TablaElementosListas.reloadData()
     }
     
     @IBAction func BtnAgregarNuevaLista(sender: UIButton) {
+        let vNuevaLista = TextNombreNuevaLista.text! as String
+        if vNuevaLista.isEmpty {
+            FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
+        }
     }
 }
