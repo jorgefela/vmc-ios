@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddListViewController: UIViewController {
+class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var TextNombreLista: UITextField!
     
@@ -137,9 +137,28 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func BtnAgregarNuevaLista(sender: UIButton) {
-        let vNuevaLista = TextNombreNuevaLista.text! as String
+        
+        let vNuevaLista = TextNombreNuevaLista.text!
+        
         if vNuevaLista.isEmpty {
+            
             FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
+            
+            TextNombreNuevaLista.becomeFirstResponder()
+            
+            
+        }else{
+            
+            if self.ElementosListNuevos[0].isEmpty {
+                self.ElementosListNuevos.removeAll()
+            }
+            
+            self.ElementosListNuevos.append(vNuevaLista)
+            TextNombreNuevaLista.text = ""
+            TextNombreNuevaLista.becomeFirstResponder()
+            TablaElementosListas.reloadData()
+            
         }
     }
+    
 }
