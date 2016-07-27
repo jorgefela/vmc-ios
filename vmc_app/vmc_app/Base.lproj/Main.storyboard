@@ -691,7 +691,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="LNA-qI-1gI" kind="show" id="U3t-Zp-xuE"/>
+                                    <segue destination="qKt-NQ-TeM" kind="show" id="Sch-uh-TEy"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2C-a0-LnL">
@@ -734,6 +734,7 @@
                     <navigationItem key="navigationItem" title="List" id="9CU-rQ-4hC"/>
                     <connections>
                         <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
+                        <segue destination="LNA-qI-1gI" kind="show" id="ygO-Mc-HSe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -823,10 +824,10 @@
             </objects>
             <point key="canvasLocation" x="5572" y="2285"/>
         </scene>
-        <!--View Controller-->
+        <!--Add list-->
         <scene sceneID="KGg-OQ-82v">
             <objects>
-                <viewController id="JXD-qS-iDG" sceneMemberID="viewController">
+                <viewController id="JXD-qS-iDG" customClass="AddListViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nrb-ua-GIy"/>
                         <viewControllerLayoutGuide type="bottom" id="QaO-Io-kD6"/>
@@ -834,13 +835,25 @@
                     <view key="view" contentMode="scaleToFill" id="Lx2-gH-0yJ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="List name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-8V-cqb">
+                                <rect key="frame" x="20" y="89" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="c3R-pq-kA5"/>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="gBa-IR-FFg"/>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="top" secondItem="Nrb-ua-GIy" secondAttribute="bottom" constant="25" id="piP-vJ-fva"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="q0h-YT-NJn"/>
+                    <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGG-7e-VPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6590" y="3010"/>
+            <point key="canvasLocation" x="6738" y="2984"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SvY-tg-Qhj">
@@ -1308,7 +1321,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5p-ty-Pju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5778" y="3010"/>
+            <point key="canvasLocation" x="4018" y="2926"/>
         </scene>
     </scenes>
     <resources>

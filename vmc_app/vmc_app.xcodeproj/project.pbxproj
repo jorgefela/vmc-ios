@@ -47,6 +47,7 @@
 		12D511891D45811C00395021 /* CustomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511881D45811B00395021 /* CustomListViewController.swift */; };
 		12D5118B1D45815B00395021 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118A1D45815B00395021 /* ListViewController.swift */; };
 		12D5118D1D46669100395021 /* SubscribersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118C1D46669100395021 /* SubscribersViewController.swift */; };
+		12D5118F1D4854CA00395021 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118E1D4854C900395021 /* AddListViewController.swift */; };
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,7 @@
 		12D511881D45811B00395021 /* CustomListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomListViewController.swift; sourceTree = "<group>"; };
 		12D5118A1D45815B00395021 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		12D5118C1D46669100395021 /* SubscribersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribersViewController.swift; sourceTree = "<group>"; };
+		12D5118E1D4854C900395021 /* AddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vmc_app-Bridging-Header.h"; sourceTree = "<group>"; };
 		12EF13691D400D5D009877AA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				12D511801D42DF0700395021 /* SliderMenuViewController.swift */,
 				12D5118A1D45815B00395021 /* ListViewController.swift */,
 				12D5118C1D46669100395021 /* SubscribersViewController.swift */,
+				12D5118E1D4854C900395021 /* AddListViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,
 				120DC5A41D2DF21E00BADDCA /* StaticticsViewController.swift in Sources */,
 				12D5118B1D45815B00395021 /* ListViewController.swift in Sources */,
+				12D5118F1D4854CA00395021 /* AddListViewController.swift in Sources */,
 				12477ADA1D110316005B6391 /* ViewController.swift in Sources */,
 				129C12C11D30619300B32662 /* VideoViewController.swift in Sources */,
 				129C12C31D30632E00B32662 /* showVideoViewController.swift in Sources */,
