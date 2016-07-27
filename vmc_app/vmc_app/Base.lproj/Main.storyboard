@@ -855,10 +855,10 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SgJ-bW-OdV">
-                                <rect key="frame" x="20" y="224" width="560" height="356"/>
+                                <rect key="frame" x="20" y="224" width="560" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="356" id="bME-mz-alf"/>
+                                    <constraint firstAttribute="height" constant="295" id="bME-mz-alf"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="JXD-qS-iDG" id="3n7-Jf-cHG"/>
@@ -880,6 +880,30 @@
                                     <action selector="BtnAgregarNuevaLista:" destination="JXD-qS-iDG" eventType="touchUpInside" id="Nmy-iN-7zg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3d-Lo-OVn">
+                                <rect key="frame" x="228" y="547" width="145" height="45"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.50196078431372548" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Rum-Ol-Xq6"/>
+                                    <constraint firstAttribute="width" constant="145" id="x1a-d1-ebv"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -888,13 +912,16 @@
                             <constraint firstItem="LwK-Tr-Fe9" firstAttribute="leading" secondItem="HDb-x5-s1Z" secondAttribute="trailing" constant="8" id="6mx-tP-fp3"/>
                             <constraint firstItem="SgJ-bW-OdV" firstAttribute="top" secondItem="HDb-x5-s1Z" secondAttribute="bottom" constant="14" id="8kb-QE-w2h"/>
                             <constraint firstItem="PRc-yy-px8" firstAttribute="leading" secondItem="ARd-8V-cqb" secondAttribute="leading" id="F5y-xF-fPx"/>
+                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="centerX" secondItem="Lx2-gH-0yJ" secondAttribute="centerX" constant="0.5" id="H0W-fl-Pae"/>
                             <constraint firstItem="HDb-x5-s1Z" firstAttribute="leading" secondItem="PRc-yy-px8" secondAttribute="leading" id="IAg-gC-dMM"/>
-                            <constraint firstAttribute="bottom" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="20" symbolic="YES" id="PpM-Dv-nrj"/>
+                            <constraint firstAttribute="bottom" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="81" id="PpM-Dv-nrj"/>
                             <constraint firstItem="PRc-yy-px8" firstAttribute="trailing" secondItem="ARd-8V-cqb" secondAttribute="trailing" id="QKc-Fl-r8k"/>
+                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="top" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="28" id="UzY-H4-wIU"/>
                             <constraint firstItem="ARd-8V-cqb" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="c3R-pq-kA5"/>
                             <constraint firstItem="ARd-8V-cqb" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="gBa-IR-FFg"/>
                             <constraint firstItem="PRc-yy-px8" firstAttribute="top" secondItem="ARd-8V-cqb" secondAttribute="bottom" constant="8" id="gVY-b7-Ntg"/>
                             <constraint firstItem="ARd-8V-cqb" firstAttribute="top" secondItem="Nrb-ua-GIy" secondAttribute="bottom" constant="25" id="piP-vJ-fva"/>
+                            <constraint firstItem="QaO-Io-kD6" firstAttribute="top" secondItem="L3d-Lo-OVn" secondAttribute="bottom" constant="8" id="rql-dC-Csf"/>
                             <constraint firstItem="SgJ-bW-OdV" firstAttribute="top" secondItem="LwK-Tr-Fe9" secondAttribute="bottom" constant="14" id="uYk-7H-28G"/>
                             <constraint firstItem="HDb-x5-s1Z" firstAttribute="top" secondItem="PRc-yy-px8" secondAttribute="bottom" constant="25" id="xFi-uW-azh"/>
                             <constraint firstItem="PRc-yy-px8" firstAttribute="trailing" secondItem="SgJ-bW-OdV" secondAttribute="trailing" id="xFm-xc-PvG"/>
