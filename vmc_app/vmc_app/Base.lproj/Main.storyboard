@@ -588,14 +588,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="547" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cantList" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
-                                                    <rect key="frame" x="278" y="19" width="58" height="21"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvw-mK-uEr">
-                                                    <rect key="frame" x="20" y="19" width="229" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvw-mK-uEr">
+                                                    <rect key="frame" x="20" y="19" width="238" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="name">
                                                             <attributes>
@@ -606,8 +600,8 @@
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-z9-Iqr">
-                                                    <rect key="frame" x="447" y="15" width="100" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="80" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOH-z9-Iqr">
+                                                    <rect key="frame" x="447" y="17" width="100" height="25"/>
                                                     <color key="backgroundColor" red="0.11372549019607843" green="0.50196078431372548" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="100" id="KfJ-06-yqf"/>
@@ -617,7 +611,7 @@
                                                             <fragment content="add contact">
                                                                 <attributes>
                                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                                    <font key="NSFont" size="11" name="HelveticaNeue-Medium"/>
                                                                 </attributes>
                                                             </fragment>
                                                         </attributedString>
@@ -628,11 +622,33 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
+                                                    <rect key="frame" x="278" y="19" width="58" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Ghu-gT-C1o"/>
+                                                        <constraint firstAttribute="width" constant="58" id="mEd-K3-Wcq"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="cantList">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JOH-z9-Iqr" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="09S-ED-x2N"/>
+                                                <constraint firstItem="dvw-mK-uEr" firstAttribute="leading" secondItem="RLp-xa-odi" secondAttribute="leadingMargin" constant="12" id="4Pv-d5-VDB"/>
+                                                <constraint firstItem="uLr-lS-Fh5" firstAttribute="leading" secondItem="dvw-mK-uEr" secondAttribute="trailing" constant="20" id="8Hd-Dj-HnY"/>
+                                                <constraint firstItem="dvw-mK-uEr" firstAttribute="top" secondItem="RLp-xa-odi" secondAttribute="topMargin" constant="11" id="B0M-vJ-dvF"/>
                                                 <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="L6R-gj-iJE"/>
                                                 <constraint firstItem="uLr-lS-Fh5" firstAttribute="centerX" secondItem="RLp-xa-odi" secondAttribute="centerX" constant="33" id="LVB-Vg-XFX"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dvw-mK-uEr" secondAttribute="bottom" constant="11" id="UqA-Wu-4ge"/>
+                                                <constraint firstItem="JOH-z9-Iqr" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uLr-lS-Fh5" secondAttribute="trailing" constant="111" id="eMZ-fz-EO9"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JOH-z9-Iqr" secondAttribute="trailing" constant="-8" id="hoU-4L-NVA"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -682,7 +698,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="35"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="List name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gg0-iS-3Yf">
-                                        <rect key="frame" x="27" y="7" width="74" height="21"/>
+                                        <rect key="frame" x="27" y="8" width="74" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
