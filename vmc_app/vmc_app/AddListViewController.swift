@@ -32,7 +32,7 @@ class AddListViewController: UIViewController {
     ]
     
     var ElementosListNuevos = [
-        " "
+        ""
     ]
     
     
@@ -52,12 +52,41 @@ class AddListViewController: UIViewController {
     //metodos UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.ElementosListDefault.count
-        //return self.ElementosListNuevos.count
+        
+        var vReturn = 0
+        
+        switch self.SegmentoSeleccion.selectedSegmentIndex {
+        case 0:
+            vReturn = self.ElementosListDefault.count
+            break
+        case 1:
+            vReturn = self.ElementosListNuevos.count
+            break
+        default:
+            vReturn = self.ElementosListNuevos.count
+        }
+        
+        return vReturn
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.TablaElementosListas.dequeueReusableCellWithIdentifier("CellAddList")!
+        
+        switch self.SegmentoSeleccion.selectedSegmentIndex {
+        case 0:
+            cell.textLabel!.text = ElementosListDefault[indexPath.row]
+            break
+        case 1:
+            if ElementosListNuevos[indexPath.row].isEmpty {
+                cell.textLabel!.text = ""
+            }else{
+                cell.textLabel!.text = ElementosListNuevos[indexPath.row]
+            }
+            break
+        default:
+            cell.textLabel!.text = ElementosListDefault[indexPath.row]
+        }
 
         
         cell.textLabel!.text = ElementosListDefault[indexPath.row]
@@ -67,7 +96,7 @@ class AddListViewController: UIViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-
+        print(self.SegmentoSeleccion.selectedSegmentIndex)
         dispatch_async(dispatch_get_main_queue()){
             //self.id = self.listId[indexPath.row]
             //self.nombreE = self.ListEmailNombre[indexPath.row]
