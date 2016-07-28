@@ -860,8 +860,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PRc-yy-px8">
                                 <rect key="frame" x="20" y="188" width="560" height="29"/>
                                 <segments>
-                                    <segment title="Default Contact Fields"/>
-                                    <segment title="Add More Fields"/>
+                                    <segment title="Default Fields"/>
+                                    <segment title="Extra Fields"/>
+                                    <segment title="Add Field"/>
                                 </segments>
                                 <connections>
                                     <action selector="BtnSegmentoSelccion:" destination="JXD-qS-iDG" eventType="valueChanged" id="E9c-FQ-uwB"/>

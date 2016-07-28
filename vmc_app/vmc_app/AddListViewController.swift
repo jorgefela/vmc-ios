@@ -38,15 +38,28 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         ""
     ]
     
+    var ElementosListExtra = [
+        "yo"
+    ]
+    
     //declaracion para mesajes
     let tituloMsg:String = "oops!"
-    var mesnsajeMsg:String = "required field."
+    var mesnsajeMsg:String = "Empty name list."
     let btnMsg:String = "OK"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.TablaElementosListas.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellAddList")
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        //if (estaLogueado != 1) {
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        //}
+        
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -56,12 +69,17 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         //END color navigation controller
         
+        self.SegmentoSeleccion.setEnabled(false , forSegmentAtIndex: 1)
         switch self.SegmentoSeleccion.selectedSegmentIndex {
         case 0:
             TextNombreNuevaLista.hidden = true
             BtnNuevo.hidden = true
             break
         case 1:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
+            break
+        case 2:
             TextNombreNuevaLista.hidden = false
             BtnNuevo.hidden = false
             break
@@ -83,10 +101,13 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             vReturn = self.ElementosListDefault.count
             break
         case 1:
+            vReturn = self.ElementosListExtra.count
+            break
+        case 2:
             vReturn = self.ElementosListNuevos.count
             break
         default:
-            vReturn = self.ElementosListNuevos.count
+            vReturn = self.ElementosListDefault.count
         }
         
         return vReturn
@@ -100,15 +121,20 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         case 0:
             TextNombreNuevaLista.hidden = true
             BtnNuevo.hidden = true
-            cell.textLabel!.text = ElementosListDefault[indexPath.row]
+            cell.textLabel!.text = self.ElementosListDefault[indexPath.row]
             break
         case 1:
+            TextNombreNuevaLista.hidden = true
+            BtnNuevo.hidden = true
+            cell.textLabel!.text = self.ElementosListExtra[indexPath.row]
+            break
+        case 2:
             TextNombreNuevaLista.hidden = false
             BtnNuevo.hidden = false
             if self.ElementosListNuevos.count == 0 || self.ElementosListNuevos.isEmpty {
                 cell.textLabel!.text = ""
             }else{
-                cell.textLabel!.text = ElementosListNuevos[indexPath.row]
+                cell.textLabel!.text = self.ElementosListNuevos[indexPath.row]
                 
             }
             break
@@ -146,10 +172,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         
         if vNuevaLista.isEmpty {
             
-            FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
-            
-            TextNombreNuevaLista.becomeFirstResponder()
-            
+            mesnsajeMsg = "Name field empty."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TextNombreNuevaLista)
             
         }else{
             
@@ -168,11 +192,26 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func GuardarLista(sender: UIButton) {
         
-        var postString = "lista_nueva="
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        var postString = "key=\(keyServer)&idUser=\(idUser)"
+        
+        let nombreLista = TextNombreLista.text!
+        
+        if nombreLista.isEmpty {
+            
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TextNombreLista)
+            
+        }else{
+            
+            postString += "nombre_lista=\(nombreLista)"
+            
+        }
         
         if !self.ElementosListNuevos[0].isEmpty {
             
-            postString = "lista_nueva="
+            postString += "&lista_nueva="
             
             var index = 0
             
