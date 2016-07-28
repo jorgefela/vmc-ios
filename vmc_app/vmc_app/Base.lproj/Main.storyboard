@@ -699,7 +699,7 @@
         <!--List-->
         <scene sceneID="4PV-kJ-Knf">
             <objects>
-                <viewController id="46h-7d-hal" customClass="ListViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pruebaid" id="46h-7d-hal" customClass="ListViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="chi-C2-QeM"/>
                         <viewControllerLayoutGuide type="bottom" id="3WQ-II-ZIQ"/>
@@ -1491,7 +1491,7 @@
         <!--Navigation Controller-->
         <scene sceneID="eon-pP-DxB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="972-xg-rYb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="prueba2" automaticallyAdjustsScrollViewInsets="NO" id="972-xg-rYb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ywb-xI-Z4Y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

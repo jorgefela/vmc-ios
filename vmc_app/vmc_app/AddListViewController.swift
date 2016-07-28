@@ -20,6 +20,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var BtnNuevo: UIButton!
     
+    var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    
     
     var ElementosListDefault = [
         "Email Address",
@@ -43,7 +45,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     ]
     
     //declaracion para mesajes
-    let tituloMsg:String = "oops!"
+    var tituloMsg:String = "oops!"
     var mesnsajeMsg:String = "Empty name list."
     let btnMsg:String = "OK"
     
@@ -268,11 +270,19 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
                             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     
-                                    
                                     let json2 = dictionary_result["rows"]! as! Int
+                                    
                                     if  json2 > 0 {
-                                        FuncGlobal().alertSegue(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self,toFocus:self.TextNombreLista)
+                                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("prueba2")
                                         //segueLista
+                                        
+                                        self.mesnsajeMsg = dictionary_result["message"]! as! String
+                                        self.tituloMsg = "Great!"
+                                        let popUp = UIAlertController(title: self.tituloMsg, message: self.mesnsajeMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                                        popUp.addAction(UIAlertAction(title: self.btnMsg, style: UIAlertActionStyle.Default, handler: {alertAction in UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                                        }))
+                                        self.presentViewController(popUp, animated: true, completion: nil)
+                                        
                                     }else{
                                         print("error aqui 2 ")
                                     }

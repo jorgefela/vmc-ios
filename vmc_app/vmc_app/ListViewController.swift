@@ -28,7 +28,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PreLoading().showLoading()
+        //PreLoading().showLoading()
+        
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -134,6 +135,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // END   proceso de cosulta
     }
+    
+
     
     // metodos tableview controllers
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
