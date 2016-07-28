@@ -163,7 +163,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
                                 <rect key="frame" x="271" y="402" width="59" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -1504,7 +1504,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GQO-wK-V7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="1587"/>
+            <point key="canvasLocation" x="3236" y="1625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qBA-ca-16T">
@@ -1558,7 +1558,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5p-ty-Pju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4018" y="2926"/>
+            <point key="canvasLocation" x="3652" y="3276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tqF-oX-kAk">

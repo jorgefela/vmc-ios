@@ -58,6 +58,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         //if (estaLogueado != 1) {
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        print("\(idUser) \(keyServer)")
         //}
         
         //START color navigation controller
@@ -144,7 +145,6 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             cell.textLabel!.text = ElementosListDefault[indexPath.row]
         }
         
-        //cell.textLabel!.font = UIFont(name:"Avenir", size:17)
         cell.textLabel!.font = UIFont(name:"HelveticaNeue-Thin", size:17)
         return cell
     }
@@ -191,9 +191,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func GuardarLista(sender: UIButton) {
-        
-        var error = 1
-        
+        var error:Int = 1
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
@@ -216,7 +214,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             // START -- validar nueva lista
             if !self.ElementosListNuevos[0].isEmpty {
                 
-                postString += "&lista_nueva="
+                postString += "&campos_extras="
                 
                 var index = 0
                 
@@ -247,8 +245,9 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
             request.HTTPMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            //request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.setValue("\(keyServer)", forHTTPHeaderField: "key")
             
             let session = NSURLSession.sharedSession()
@@ -270,15 +269,15 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                     
                                     
-                                    if let json = dictionary_result["result"] as? NSArray  {
-                                        for item in json {
-                                            print(item)
-                                            
-                                        }//fin for
-                                        
-                                        PreLoading().hideLoading()
-                                        
+                                    let json2 = dictionary_result["rows"]! as! Int
+                                    if  json2 > 0 {
+                                        FuncGlobal().alertSegue(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self,toFocus:self.TextNombreLista)
+                                        //segueLista
+                                    }else{
+                                        print("error aqui 2 ")
                                     }
+                                    
+                                    PreLoading().hideLoading()
                                     
                                 })
                             })
