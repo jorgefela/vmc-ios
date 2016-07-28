@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="-218" y="1510"/>
         </scene>
-        <!--View Controller-->
+        <!--Sing up-->
         <scene sceneID="CfS-sU-bli">
             <objects>
-                <viewController id="3ox-tu-d4D" sceneMemberID="viewController">
+                <viewController id="3ox-tu-d4D" customClass="SingUpViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ate-yg-DeN"/>
                         <viewControllerLayoutGuide type="bottom" id="9Q2-vd-MtC"/>
@@ -131,28 +131,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgb-Ta-1Fq">
-                                <rect key="frame" x="20" y="197" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qgb-Ta-1Fq">
+                                <rect key="frame" x="20" y="180" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="XbM-oG-gOJ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIr-Q4-K3u">
-                                <rect key="frame" x="20" y="245" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TIr-Q4-K3u">
+                                <rect key="frame" x="20" y="228" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JEn-sV-FO3"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Addres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-gt-t68">
-                                <rect key="frame" x="20" y="293" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Addres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-gt-t68">
+                                <rect key="frame" x="20" y="276" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bij-vA-yBc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZI-E3-ha8">
-                                <rect key="frame" x="20" y="342" width="560" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZI-E3-ha8">
+                                <rect key="frame" x="20" y="325" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="e2T-Uj-bUn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyO-BG-kOJ">
-                                <rect key="frame" x="252" y="131" width="118" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
+                                <rect key="frame" x="271" y="402" width="59" height="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Continue">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="RegistrarCuenta:" destination="3ox-tu-d4D" eventType="touchUpInside" id="NYh-eW-93q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-hS-8a3">
+                                <rect key="frame" x="218" y="550" width="165" height="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="I already have an account">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="IniciarSesion:" destination="3ox-tu-d4D" eventType="touchUpInside" id="KSs-Aq-tq7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyO-BG-kOJ">
+                                <rect key="frame" x="250" y="114" width="101" height="21"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Free sing up">
                                         <attributes>
@@ -164,36 +208,40 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-hS-8a3">
-                                <rect key="frame" x="190" y="550" width="220" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="I already have an account">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
-                                <rect key="frame" x="256" y="420" width="110" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Continue">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TIr-Q4-K3u" firstAttribute="top" secondItem="qgb-Ta-1Fq" secondAttribute="bottom" constant="18" id="0d1-SQ-s9P"/>
+                            <constraint firstItem="9Q2-vd-MtC" firstAttribute="top" secondItem="8cn-hS-8a3" secondAttribute="bottom" constant="20" id="5Jb-53-MGV"/>
+                            <constraint firstItem="qgb-Ta-1Fq" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" id="5nR-Et-7xG"/>
+                            <constraint firstItem="YAC-gt-t68" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="8KD-RR-hBR"/>
+                            <constraint firstItem="VyO-BG-kOJ" firstAttribute="top" secondItem="Ate-yg-DeN" secondAttribute="bottom" constant="50" id="91E-q6-fxq"/>
+                            <constraint firstItem="UZI-E3-ha8" firstAttribute="trailing" secondItem="hvb-m2-vbD" secondAttribute="trailingMargin" id="M7q-1E-rnc"/>
+                            <constraint firstItem="8cn-hS-8a3" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="MHf-cr-zbq"/>
+                            <constraint firstItem="YAC-gt-t68" firstAttribute="top" secondItem="TIr-Q4-K3u" secondAttribute="bottom" constant="18" id="NEx-p0-0vp"/>
+                            <constraint firstItem="YAC-gt-t68" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" id="QyB-QU-hRU"/>
+                            <constraint firstItem="qgb-Ta-1Fq" firstAttribute="top" secondItem="VyO-BG-kOJ" secondAttribute="bottom" constant="45" id="Ycn-Cj-h3q"/>
+                            <constraint firstItem="YAC-gt-t68" firstAttribute="trailing" secondItem="hvb-m2-vbD" secondAttribute="trailingMargin" id="av2-bR-9KU"/>
+                            <constraint firstItem="TIr-Q4-K3u" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="bgo-d7-qKn"/>
+                            <constraint firstItem="UZI-E3-ha8" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="dYf-Yf-MwD"/>
+                            <constraint firstItem="jdf-f1-8ix" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" constant="0.5" id="efQ-gH-zCp"/>
+                            <constraint firstItem="UZI-E3-ha8" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" id="f2v-GU-eXS"/>
+                            <constraint firstItem="UZI-E3-ha8" firstAttribute="top" secondItem="YAC-gt-t68" secondAttribute="bottom" constant="19" id="fzW-Nm-gc4"/>
+                            <constraint firstItem="qgb-Ta-1Fq" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="gfv-th-Zce"/>
+                            <constraint firstItem="TIr-Q4-K3u" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" id="hDh-8E-Kws"/>
+                            <constraint firstItem="8cn-hS-8a3" firstAttribute="top" secondItem="jdf-f1-8ix" secondAttribute="bottom" constant="118" id="uXQ-hP-fMQ"/>
+                            <constraint firstItem="VyO-BG-kOJ" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" constant="0.5" id="v6U-YB-zie"/>
+                            <constraint firstItem="qgb-Ta-1Fq" firstAttribute="trailing" secondItem="hvb-m2-vbD" secondAttribute="trailingMargin" id="vcq-Fj-75h"/>
+                            <constraint firstItem="TIr-Q4-K3u" firstAttribute="trailing" secondItem="hvb-m2-vbD" secondAttribute="trailingMargin" id="xFx-Mc-cKW"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iDB-4d-wI1"/>
+                    <navigationItem key="navigationItem" title="Sing up" id="iDB-4d-wI1"/>
+                    <connections>
+                        <outlet property="FirtName" destination="qgb-Ta-1Fq" id="ukW-th-BzY"/>
+                        <outlet property="LastName" destination="TIr-Q4-K3u" id="7H3-2A-xQv"/>
+                        <outlet property="PhoneNumber" destination="UZI-E3-ha8" id="iaZ-OP-Hs2"/>
+                        <outlet property="emailAddres" destination="YAC-gt-t68" id="IeB-eS-T2C"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvS-Vs-Uea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

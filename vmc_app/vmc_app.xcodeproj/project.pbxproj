@@ -30,6 +30,7 @@
 		12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12477AE01D110316005B6391 /* LaunchScreen.storyboard */; };
 		12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEA1D110347005B6391 /* vmc2-plus.jpg */; };
 		12477AED1D110347005B6391 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEB1D110347005B6391 /* logo.png */; };
+		125B475F1D4A5B3B00C92A7A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */; };
 		12766E381D394ACB00AECB41 /* mas_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */; };
 		12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E391D394F8800AECB41 /* menos_negro_cuadro.png */; };
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
@@ -78,6 +79,7 @@
 		12477AE31D110316005B6391 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12477AEA1D110347005B6391 /* vmc2-plus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vmc2-plus.jpg"; sourceTree = "<group>"; };
 		12477AEB1D110347005B6391 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
 		12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mas_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E391D394F8800AECB41 /* menos_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menos_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagenVideo.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				12D5118A1D45815B00395021 /* ListViewController.swift */,
 				12D5118C1D46669100395021 /* SubscribersViewController.swift */,
 				12D5118E1D4854C900395021 /* AddListViewController.swift */,
+				125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */,
 				12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */,
 				12D511871D42F8D900395021 /* CustomSliderMenuViewController.swift in Sources */,
+				125B475F1D4A5B3B00C92A7A /* SingUpViewController.swift in Sources */,
 				12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
