@@ -140,48 +140,57 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
+        
         cell.nombreLista.text = self.ElementosList[indexPath.row]
         cell.cantSubcriptores.text = self.ElementosCantList[indexPath.row]
+        
         let cantCaracts = self.ElementosList[indexPath.row].length
         
         if cantCaracts <= 17 {
+            
             cell.nombreLista.font = cell.nombreLista.setSizeFont(16)
+            cell.nombreLista.font = UIFont(name: "Avenir", size: 16)!
+            
         }else if cantCaracts > 17 && cantCaracts <= 19{
+            
             cell.nombreLista.font = cell.nombreLista.setSizeFont(14)
+            cell.nombreLista.font = UIFont(name: "Avenir", size: 14)!
+            
         }else if cantCaracts > 19 && cantCaracts < 23{
+            
             cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
+            cell.nombreLista.font = UIFont(name: "Avenir", size: 13)!
+            
         }else{
+            
             cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
+            cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
+            
         }
         
         if FuncGlobal().screenSize() == CGSizeMake(320.0, 568.0) {
-            //cell.nombreLista.frame = CGRect(x: 20, y: 19, width: 50, height: 21)
-            print("aaa")
+            
             cell.cantSubcriptores.font = cell.cantSubcriptores.setSizeFont(11)
             cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 11)!
-            if cantCaracts <= 17 {
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
-                
-            }else if cantCaracts > 17 && cantCaracts <= 19{
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(10)
-            }else if cantCaracts > 19 && cantCaracts < 23{
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(9)
-            }else{
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(9)
-            }
+            cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
+            cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
+
         } else if FuncGlobal().screenSize() == CGSizeMake(568.0, 320.0) {
             
             cell.cantSubcriptores.font = cell.cantSubcriptores.setSizeFont(13)
             cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 13)!
-            if cantCaracts <= 17 {
+            
+            if cantCaracts <= 23 {
+                
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
-            }else if cantCaracts > 17 && cantCaracts <= 19{
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
-            }else if cantCaracts > 19 && cantCaracts < 23{
-                cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
+                cell.nombreLista.font = UIFont(name: "Avenir", size: 13)!
+                
+
             }else{
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
+                cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
             }
         }
         //cell.nombreLista.frame.size.width = 100

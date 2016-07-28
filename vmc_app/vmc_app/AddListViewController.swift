@@ -109,6 +109,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
                 cell.textLabel!.text = ""
             }else{
                 cell.textLabel!.text = ElementosListNuevos[indexPath.row]
+                
             }
             break
         default:
@@ -117,6 +118,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             cell.textLabel!.text = ElementosListDefault[indexPath.row]
         }
         
+        //cell.textLabel!.font = UIFont(name:"Avenir", size:17)
+        cell.textLabel!.font = UIFont(name:"HelveticaNeue-Thin", size:17)
         return cell
     }
     
