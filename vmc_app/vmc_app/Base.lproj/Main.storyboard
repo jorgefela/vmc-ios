@@ -837,15 +837,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="List name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-8V-cqb">
-                                <rect key="frame" x="20" y="89" width="560" height="30"/>
+                                <rect key="frame" x="20" y="90" width="560" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="5bF-7n-7m2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PRc-yy-px8">
-                                <rect key="frame" x="20" y="127" width="560" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="Tju-gR-QP6"/>
-                                </constraints>
+                                <rect key="frame" x="20" y="188" width="560" height="29"/>
                                 <segments>
                                     <segment title="Default Contact Fields"/>
                                     <segment title="Add More Fields"/>
@@ -855,20 +855,18 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SgJ-bW-OdV">
-                                <rect key="frame" x="20" y="224" width="560" height="295"/>
+                                <rect key="frame" x="20" y="219" width="560" height="308"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="295" id="bME-mz-alf"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="JXD-qS-iDG" id="3n7-Jf-cHG"/>
                                     <outlet property="delegate" destination="JXD-qS-iDG" id="E9X-jF-MU5"/>
                                 </connections>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Field Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HDb-x5-s1Z">
-                                <rect key="frame" x="20" y="180" width="227" height="30"/>
+                                <rect key="frame" x="20" y="150" width="227" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="227" id="XVe-fR-vEz"/>
+                                    <constraint firstAttribute="width" constant="227" id="DBY-JL-dEa"/>
+                                    <constraint firstAttribute="height" constant="30" id="mgx-ti-A8n"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -876,19 +874,12 @@
                                     <outlet property="delegate" destination="JXD-qS-iDG" id="cOs-wk-a02"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwK-Tr-Fe9">
-                                <rect key="frame" x="255" y="180" width="30" height="30"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="BtnAgregarNuevaLista:" destination="JXD-qS-iDG" eventType="touchUpInside" id="Nmy-iN-7zg"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L3d-Lo-OVn">
-                                <rect key="frame" x="228" y="547" width="145" height="45"/>
+                                <rect key="frame" x="228" y="535" width="145" height="45"/>
                                 <color key="backgroundColor" red="0.11372549019607843" green="0.50196078431372548" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="Rum-Ol-Xq6"/>
-                                    <constraint firstAttribute="width" constant="145" id="x1a-d1-ebv"/>
+                                    <constraint firstAttribute="height" constant="45" id="myv-bc-xZV"/>
+                                    <constraint firstAttribute="width" constant="145" id="zT0-cf-buY"/>
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
@@ -906,29 +897,41 @@
                                         <integer key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GuardarLista:" destination="JXD-qS-iDG" eventType="touchUpInside" id="eS3-6t-Ec6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwK-Tr-Fe9">
+                                <rect key="frame" x="264" y="149" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.082352941176470587" green="0.37647058823529411" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnAgregarNuevaLista:" destination="JXD-qS-iDG" eventType="touchUpInside" id="Nmy-iN-7zg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PRc-yy-px8" firstAttribute="leading" secondItem="SgJ-bW-OdV" secondAttribute="leading" id="1EH-NX-jJd"/>
-                            <constraint firstItem="LwK-Tr-Fe9" firstAttribute="top" secondItem="PRc-yy-px8" secondAttribute="bottom" constant="25" id="3yz-d8-wB6"/>
-                            <constraint firstItem="LwK-Tr-Fe9" firstAttribute="leading" secondItem="HDb-x5-s1Z" secondAttribute="trailing" constant="8" id="6mx-tP-fp3"/>
-                            <constraint firstItem="SgJ-bW-OdV" firstAttribute="top" secondItem="HDb-x5-s1Z" secondAttribute="bottom" constant="14" id="8kb-QE-w2h"/>
-                            <constraint firstItem="PRc-yy-px8" firstAttribute="leading" secondItem="ARd-8V-cqb" secondAttribute="leading" id="F5y-xF-fPx"/>
-                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="centerX" secondItem="Lx2-gH-0yJ" secondAttribute="centerX" constant="0.5" id="H0W-fl-Pae"/>
-                            <constraint firstItem="HDb-x5-s1Z" firstAttribute="leading" secondItem="PRc-yy-px8" secondAttribute="leading" id="IAg-gC-dMM"/>
-                            <constraint firstAttribute="bottom" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="81" id="PpM-Dv-nrj"/>
-                            <constraint firstItem="PRc-yy-px8" firstAttribute="trailing" secondItem="ARd-8V-cqb" secondAttribute="trailing" id="QKc-Fl-r8k"/>
-                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="top" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="28" id="UzY-H4-wIU"/>
-                            <constraint firstItem="ARd-8V-cqb" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="c3R-pq-kA5"/>
-                            <constraint firstItem="ARd-8V-cqb" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="gBa-IR-FFg"/>
-                            <constraint firstItem="PRc-yy-px8" firstAttribute="top" secondItem="ARd-8V-cqb" secondAttribute="bottom" constant="8" id="gVY-b7-Ntg"/>
-                            <constraint firstItem="ARd-8V-cqb" firstAttribute="top" secondItem="Nrb-ua-GIy" secondAttribute="bottom" constant="25" id="piP-vJ-fva"/>
-                            <constraint firstItem="QaO-Io-kD6" firstAttribute="top" secondItem="L3d-Lo-OVn" secondAttribute="bottom" constant="8" id="rql-dC-Csf"/>
-                            <constraint firstItem="SgJ-bW-OdV" firstAttribute="top" secondItem="LwK-Tr-Fe9" secondAttribute="bottom" constant="14" id="uYk-7H-28G"/>
-                            <constraint firstItem="HDb-x5-s1Z" firstAttribute="top" secondItem="PRc-yy-px8" secondAttribute="bottom" constant="25" id="xFi-uW-azh"/>
-                            <constraint firstItem="PRc-yy-px8" firstAttribute="trailing" secondItem="SgJ-bW-OdV" secondAttribute="trailing" id="xFm-xc-PvG"/>
-                            <constraint firstItem="HDb-x5-s1Z" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="xft-xC-t5J"/>
+                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="centerX" secondItem="Lx2-gH-0yJ" secondAttribute="centerX" id="39d-Zy-eEQ"/>
+                            <constraint firstItem="LwK-Tr-Fe9" firstAttribute="leading" secondItem="HDb-x5-s1Z" secondAttribute="trailing" constant="17" id="7lI-2n-BXO"/>
+                            <constraint firstItem="SgJ-bW-OdV" firstAttribute="top" secondItem="PRc-yy-px8" secondAttribute="bottom" constant="3" id="8ay-jC-a9g"/>
+                            <constraint firstItem="PRc-yy-px8" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="DH7-ve-zWZ"/>
+                            <constraint firstItem="LwK-Tr-Fe9" firstAttribute="top" secondItem="ARd-8V-cqb" secondAttribute="bottom" constant="21" id="HTf-49-CeI"/>
+                            <constraint firstItem="PRc-yy-px8" firstAttribute="top" secondItem="HDb-x5-s1Z" secondAttribute="bottom" constant="8" id="ILJ-of-mBb"/>
+                            <constraint firstItem="HDb-x5-s1Z" firstAttribute="top" secondItem="ARd-8V-cqb" secondAttribute="bottom" constant="22" id="NSJ-7c-iQu"/>
+                            <constraint firstItem="LwK-Tr-Fe9" firstAttribute="leading" secondItem="HDb-x5-s1Z" secondAttribute="trailing" constant="17" id="WwP-jl-fJq"/>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="elA-Rh-ra8"/>
+                            <constraint firstItem="SgJ-bW-OdV" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="gOs-h0-3bg"/>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="hQT-UB-9hi"/>
+                            <constraint firstItem="QaO-Io-kD6" firstAttribute="top" secondItem="L3d-Lo-OVn" secondAttribute="bottom" constant="20" id="iq7-n4-XaE"/>
+                            <constraint firstItem="HDb-x5-s1Z" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="kB2-lQ-7W2"/>
+                            <constraint firstItem="PRc-yy-px8" firstAttribute="leading" secondItem="Lx2-gH-0yJ" secondAttribute="leadingMargin" id="mgN-oA-kQ7"/>
+                            <constraint firstItem="SgJ-bW-OdV" firstAttribute="trailing" secondItem="Lx2-gH-0yJ" secondAttribute="trailingMargin" id="nao-as-j8K"/>
+                            <constraint firstItem="L3d-Lo-OVn" firstAttribute="top" secondItem="SgJ-bW-OdV" secondAttribute="bottom" constant="8" id="x5H-FS-Qcy"/>
+                            <constraint firstItem="ARd-8V-cqb" firstAttribute="top" secondItem="Nrb-ua-GIy" secondAttribute="bottom" constant="26" id="y10-hd-Zio"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn"/>

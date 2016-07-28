@@ -20,6 +20,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var BtnNuevo: UIButton!
     
+    
     var ElementosListDefault = [
         "Email Address",
         "First Name",
@@ -159,6 +160,38 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             TablaElementosListas.reloadData()
             
         }
+    }
+    
+    
+    @IBAction func GuardarLista(sender: UIButton) {
+        
+        var postString = "lista_nueva="
+        
+        if !self.ElementosListNuevos[0].isEmpty {
+            
+            postString = "lista_nueva="
+            
+            var index = 0
+            
+            for item in ElementosListNuevos {
+                
+                if index == 0 {
+                    postString += "\(item)"
+                }else{
+                    postString += "||\(item)"
+                }
+                
+                
+                index = index + 1
+                
+            }//fin for
+            
+            print(postString)
+            
+        }
+        
+        
+        
     }
     
 }
