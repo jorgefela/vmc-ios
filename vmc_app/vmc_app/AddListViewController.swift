@@ -192,48 +192,129 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func GuardarLista(sender: UIButton) {
         
+        var error = 1
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        var postString = "key=\(keyServer)&idUser=\(idUser)"
+        
+        var postString = "id_user=\(idUser)"
         
         let nombreLista = TextNombreLista.text!
         
         if nombreLista.isEmpty {
             
+            error = 1
             FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TextNombreLista)
             
         }else{
             
-            postString += "nombre_lista=\(nombreLista)"
+            error = 0
+            postString += "&nombre_lista=\(nombreLista)"
+            
+            
+            // START -- validar nueva lista
+            if !self.ElementosListNuevos[0].isEmpty {
+                
+                postString += "&lista_nueva="
+                
+                var index = 0
+                
+                for item in ElementosListNuevos {
+                    
+                    if index == 0 {
+                        postString += "\(item)"
+                    }else{
+                        postString += "||\(item)"
+                    }
+                    
+                    
+                    index = index + 1
+                    
+                }//fin for
+                
+                print(postString)
+                
+            }
+            // END -- validar nueva lista
             
         }
         
-        if !self.ElementosListNuevos[0].isEmpty {
+        if error == 0 {
             
-            postString += "&lista_nueva="
+            let url_path: String = mainInstance.urlBase + "public/list"
+            let url = NSURL(string: url_path)
+            let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
-            var index = 0
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("\(keyServer)", forHTTPHeaderField: "key")
             
-            for item in ElementosListNuevos {
+            let session = NSURLSession.sharedSession()
+            
+            // START -- peticion
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
                 
-                if index == 0 {
-                    postString += "\(item)"
+                let res = response as! NSHTTPURLResponse!;
+                
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    
+                    if error != nil{print(error?.localizedDescription)}
+                    
+                    do{
+                        
+                        if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    
+                                    
+                                    if let json = dictionary_result["result"] as? NSArray  {
+                                        for item in json {
+                                            print(item)
+                                            
+                                        }//fin for
+                                        
+                                        PreLoading().hideLoading()
+                                        
+                                    }
+                                    
+                                })
+                            })
+                            
+                            
+                        }
+                    }catch{
+                        print("ocurrio un error")
+                        print(error)
+                        let appDomain = NSBundle.mainBundle().bundleIdentifier
+                        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                        dispatch_async(dispatch_get_main_queue()){
+                            PreLoading().hideLoading()
+                            self.navigationController!.popToRootViewControllerAnimated(true)
+                            
+                        }
+                    }
                 }else{
-                    postString += "||\(item)"
-                }
+                    NSLog("Response code: %ld", res.statusCode);
+                    let appDomain = NSBundle.mainBundle().bundleIdentifier
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        PreLoading().hideLoading()
+                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        
+                    }
+                }//fin validar response.status
                 
-                
-                index = index + 1
-                
-            }//fin for
+            })
             
-            print(postString)
-            
+            task.resume()
+            // END -- peticion
         }
+   
         
-        
-        
-    }
+    }//func GuardarLista
     
 }

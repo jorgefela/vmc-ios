@@ -28,6 +28,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PreLoading().showLoading()
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -38,7 +39,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //END color navigation controller
         
         // START proceso de consulta
-        PreLoading().showLoading()
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         //if (estaLogueado != 1) {
@@ -151,25 +152,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if cantCaracts <= 17 {
             
             cell.nombreLista.font = cell.nombreLista.setSizeFont(16)
-            //cell.nombreLista.font = UIFont(name: "Avenir", size: 16)!
             cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 16)!
             
         }else if cantCaracts > 17 && cantCaracts <= 19{
             
             cell.nombreLista.font = cell.nombreLista.setSizeFont(14)
-            //cell.nombreLista.font = UIFont(name: "Avenir", size: 14)!
             cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 14)!
             
         }else if cantCaracts > 19 && cantCaracts < 23{
             
             cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
-            //cell.nombreLista.font = UIFont(name: "Avenir", size: 13)!
             cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 13)!
             
         }else{
             
             cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
-            //cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
             cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 12)!
             
         }
@@ -177,9 +174,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if FuncGlobal().screenSize() == CGSizeMake(320.0, 568.0) {
             
             cell.cantSubcriptores.font = cell.cantSubcriptores.setSizeFont(11)
-            cell.TextBotonLista.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 11)!
+            cell.TextBotonLista.titleLabel!.font = UIFont(name: "HelveticaNeue-Thin", size: 11)!
             cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
-            //cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
             cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 12)!
 
         } else if FuncGlobal().screenSize() == CGSizeMake(568.0, 320.0) {
@@ -190,13 +186,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if cantCaracts <= 24 {
                 
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(13)
-                //cell.nombreLista.font = UIFont(name: "Avenir", size: 13)!
                 cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 13)!
                 
 
             }else{
                 cell.nombreLista.font = cell.nombreLista.setSizeFont(12)
-                //cell.nombreLista.font = UIFont(name: "Avenir", size: 12)!
                 cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 12)!
             }
         }
