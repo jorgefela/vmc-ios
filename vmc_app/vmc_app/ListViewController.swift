@@ -10,7 +10,15 @@ import UIKit
 
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //obtener medidas de pantalla
+    var width = UIScreen.mainScreen().bounds.size.width
+    var menuRest:CGFloat = 60.0
+    
+    var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    
     @IBOutlet weak var TablaList: UITableView!
+    
+    @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
     
     //var width = UIScreen.mainScreen().bounds.size.width
     
@@ -30,6 +38,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //START menu
+        if self.revealViewController() != nil {
+            let anchoMenu = self.width - menuRest
+            revealViewController().rearViewRevealWidth = anchoMenu
+            OpenSliderMenu.target = self.revealViewController()
+            OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
+        //END menu
 
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
         
@@ -50,7 +70,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         //END color navigation controller
-        
         
         // START proceso de consulta
         
@@ -248,5 +267,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
     }
+    
+    @IBAction func IrAlPanel(sender: UIBarButtonItem) {
+        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+    }
+    
     
 }

@@ -882,9 +882,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="comprobar_verde.png" id="eFA-Cr-VIA">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="IrAlPanel:" destination="46h-7d-hal" id="Fhd-EC-RRO"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="OpenSliderMenu" destination="96O-oR-tP0" id="yDQ-hv-D2c"/>
                         <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
                         <segue destination="LNA-qI-1gI" kind="show" id="ygO-Mc-HSe"/>
                         <segue destination="4um-Wp-YZ7" kind="show" id="PAs-rw-dWv"/>
@@ -892,7 +896,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4720" y="2138"/>
+            <point key="canvasLocation" x="4488" y="2201"/>
         </scene>
         <!--Subscriber-->
         <scene sceneID="aJa-ab-0lN">
@@ -1098,9 +1102,15 @@
                     <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn">
                         <barButtonItem key="leftBarButtonItem" image="flecha-izquierda_verde.png" id="zjm-dF-P3z">
                             <color key="tintColor" red="0.23529411764705882" green="1" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="Regresar:" destination="JXD-qS-iDG" id="0md-Yg-fxo"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="mal_verde.png" id="1Jf-MP-D15">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="IrAlPanel:" destination="JXD-qS-iDG" id="XCX-wn-UuZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1113,7 +1123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGG-7e-VPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6614" y="2984"/>
+            <point key="canvasLocation" x="6400" y="2979"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SvY-tg-Qhj">
@@ -1137,7 +1147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDl-Il-24G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4140" y="2562"/>
+            <point key="canvasLocation" x="3794" y="2602"/>
         </scene>
         <!--Slider Menu View Controller-->
         <scene sceneID="QAz-gk-5Xd">

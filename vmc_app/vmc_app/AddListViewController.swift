@@ -334,4 +334,21 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         
     }//func GuardarLista
     
+    @IBAction func IrAlPanel(sender: UIBarButtonItem) {
+        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+    }
+    
+    
+    @IBAction func Regresar(sender: UIBarButtonItem) {
+        dispatch_async(dispatch_get_main_queue()){
+            print("regrese")
+            self.navigationController?.popViewControllerAnimated(true)
+            //self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+    }
+    
+    
+    
+    
 }

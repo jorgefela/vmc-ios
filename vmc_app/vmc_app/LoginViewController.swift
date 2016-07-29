@@ -19,6 +19,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let estaRegistrado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        if (estaRegistrado == 1) {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
+            }
+        }
+        
     }
     
     
