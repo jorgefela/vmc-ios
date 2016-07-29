@@ -277,8 +277,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video Library" id="q5E-ap-6wV">
-                        <barButtonItem key="rightBarButtonItem" image="menu-de-lineas (1).png" id="GHr-RK-Jgr">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu_verde.png" id="GHr-RK-Jgr">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -876,7 +876,14 @@
                             <constraint firstItem="DB3-5V-STt" firstAttribute="top" secondItem="I2C-a0-LnL" secondAttribute="bottom" id="xa9-fr-VjS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="List" id="9CU-rQ-4hC"/>
+                    <navigationItem key="navigationItem" title="List" id="9CU-rQ-4hC">
+                        <barButtonItem key="leftBarButtonItem" image="menu_verde.png" width="1" id="96O-oR-tP0">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="comprobar_verde.png" id="eFA-Cr-VIA">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
                         <segue destination="LNA-qI-1gI" kind="show" id="ygO-Mc-HSe"/>
@@ -964,7 +971,14 @@
                             <constraint firstItem="OtG-Uz-whB" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="p3Y-Mt-jaW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Subscriber" id="JUq-gj-5l6"/>
+                    <navigationItem key="navigationItem" title="Subscriber" id="JUq-gj-5l6">
+                        <barButtonItem key="leftBarButtonItem" image="flecha-izquierda_verde.png" id="PI5-FU-e4v">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="mal_verde.png" id="ARe-6V-abq">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV1-rb-znb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1081,7 +1095,14 @@
                             <constraint firstItem="ARd-8V-cqb" firstAttribute="top" secondItem="Nrb-ua-GIy" secondAttribute="bottom" constant="26" id="y10-hd-Zio"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn"/>
+                    <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn">
+                        <barButtonItem key="leftBarButtonItem" image="flecha-izquierda_verde.png" id="zjm-dF-P3z">
+                            <color key="tintColor" red="0.23529411764705882" green="1" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="mal_verde.png" id="1Jf-MP-D15">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="BtnNuevo" destination="LwK-Tr-Fe9" id="4Id-iy-BEg"/>
                         <outlet property="SegmentoSeleccion" destination="PRc-yy-px8" id="aMT-eg-AYz"/>
@@ -1441,7 +1462,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Statictics" id="Zqk-hw-WlU" userLabel="Back">
-                        <barButtonItem key="rightBarButtonItem" image="menu-de-lineas (1).png" id="CQ2-Ic-y7d"/>
+                        <barButtonItem key="rightBarButtonItem" image="menu_verde.png" id="CQ2-Ic-y7d">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="LabelSubject" destination="6rm-7u-anK" id="VNe-65-yFR"/>
@@ -1630,11 +1653,14 @@
     </scenes>
     <resources>
         <image name="boton-anadir.png" width="64" height="64"/>
+        <image name="comprobar_verde.png" width="24" height="24"/>
         <image name="flecha-derecha.png" width="64" height="64"/>
+        <image name="flecha-izquierda_verde.png" width="24" height="24"/>
         <image name="lista.png" width="64" height="64"/>
         <image name="logo.png" width="125" height="143"/>
+        <image name="mal_verde.png" width="16" height="16"/>
         <image name="mas_negro_cuadro.png" width="64" height="64"/>
-        <image name="menu-de-lineas (1).png" width="24" height="24"/>
+        <image name="menu_verde.png" width="24" height="24"/>
         <image name="photo_perfil.png" width="512" height="512"/>
         <image name="sobre-de-carta.png" width="64" height="64"/>
         <image name="sobre.png" width="64" height="64"/>

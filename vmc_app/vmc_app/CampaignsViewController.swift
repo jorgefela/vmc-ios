@@ -29,14 +29,20 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
     var ListIdCampaigns = ["Loading..."]
     var ListFechaCampaigns = ["2016-02-18"]
     
+    //obtener medidas de pantalla
+    var width = UIScreen.mainScreen().bounds.size.width
+    var menuRest:CGFloat = 60.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if self.revealViewController() != nil {
-            print("aqi")
+            let anchoMenu = self.width - menuRest
+            revealViewController().rearViewRevealWidth = anchoMenu
             OpenSliderMenu.target = self.revealViewController()
             OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
         
@@ -216,7 +222,19 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomTableViewCellCampaigns
             print("act \(filaActual!)")
             print("ind \(indexPath)")
-            PreLoading().showLoading()
+            
+            // START MSG LOADING
+            let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
+            
+            alert.view.tintColor = UIColor.blackColor()
+            let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            loadingIndicator.startAnimating();
+            
+            alert.view.addSubview(loadingIndicator)
+            self.presentViewController(alert, animated: true, completion: nil)
+            // START MSG LOADING
             
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let idUser:Int = prefs.integerForKey("IDUSER") as Int
@@ -238,7 +256,7 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                 let res = response as! NSHTTPURLResponse!;
                 
                 if (res.statusCode >= 200 && res.statusCode < 300) {
-                    PreLoading().hideLoading()
+                    
                     
                     if error != nil{print(error?.localizedDescription)}
                     
@@ -296,7 +314,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                                 }
                                 
                                 // end barrido datos
-                                
+                                //esaparecer loading
+                                self.dismissViewControllerAnimated(false, completion: nil)
                                 tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
                                 
                                 
@@ -314,7 +333,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                         
                         dispatch_async(dispatch_get_main_queue()){
-                            PreLoading().hideLoading()
+                            //esaparecer loading
+                            self.dismissViewControllerAnimated(false, completion: nil)
                             self.navigationController!.popToRootViewControllerAnimated(true)
                             
                         }
@@ -325,7 +345,8 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
                     NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                     
                     dispatch_async(dispatch_get_main_queue()){
-                        PreLoading().hideLoading()
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         self.navigationController!.popToRootViewControllerAnimated(true)
                         
                     }
@@ -337,17 +358,12 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             //end task
         }
         if filas.count > 0 {
-            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
                 if self.filaAnterior != nil {
                     let myCellHidden = tableView.cellForRowAtIndexPath(self.filaAnterior!) as! CustomTableViewCellCampaigns
                     let tamanioHidden = myCellHidden.frame.height
-                    
                     if statusCelda == "show" {
-                        
                         if self.filaAnterior == self.filaActual {
-                            
                             myCellShow.ImgenExpandir.image = UIImage(named: "menos_negro_cuadro.png")
                             
                             //self.filaAnterior  = nil
