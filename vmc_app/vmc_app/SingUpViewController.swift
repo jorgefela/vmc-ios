@@ -10,6 +10,8 @@ import UIKit
 
 class SingUpViewController: UIViewController {
     
+    var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    
     @IBOutlet weak var FirtName: UITextField!
     
     @IBOutlet weak var LastName: UITextField!
@@ -35,5 +37,7 @@ class SingUpViewController: UIViewController {
     
     
     @IBAction func IniciarSesion(sender: UIButton) {
+        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+        UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
 }
