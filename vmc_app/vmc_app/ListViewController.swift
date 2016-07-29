@@ -12,7 +12,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var TablaList: UITableView!
     
-    var width = UIScreen.mainScreen().bounds.size.width
+    //var width = UIScreen.mainScreen().bounds.size.width
     
     var ElementosList = [
         "Loading..."
@@ -226,20 +226,27 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.nombreLista.font = UIFont(name: "HelveticaNeue-Thin", size: 12)!
             }
         }
-        //cell.nombreLista.frame.size.width = 100
-        //cell.nombreLista.widthAnchor.constraintEqualToAnchor(nil, constant: 100).active = true
-        print(FuncGlobal().screenSize())
         
         return cell
         
     }
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomListViewController
-        TablaList.deselectRowAtIndexPath(indexPath, animated: true)
-        myCell.layer.borderWidth = 2.0
-        myCell.layer.borderColor = UIColor.grayColor().CGColor
-        print("entre aqui")
+        dispatch_async(dispatch_get_main_queue()){
+            let indexPath = tableView.indexPathForSelectedRow!
+            
+            let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+            
+            print(currentCell.textLabel!.text)
+            
+            currentCell.layer.borderWidth = 2.0
+            currentCell.layer.borderColor = UIColor.grayColor().CGColor
+            print("entre aqui\(indexPath)")
+            self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        }
+        
+        
     }
     
 }

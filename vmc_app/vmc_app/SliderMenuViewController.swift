@@ -107,7 +107,6 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
                 self.performSegueWithIdentifier("segueProfile", sender: self)
             }
             else if self.ElementosMenu[indexPath.row] == "List" || self.ElementosMenu[indexPath.row] == "list" {
-                print("cargue List")
                 self.performSegueWithIdentifier("segueLista", sender: self)
             }
             
