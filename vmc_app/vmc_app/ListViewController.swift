@@ -28,7 +28,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //PreLoading().showLoading()
+
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
+        
+        alert.view.tintColor = UIColor.blackColor()
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        presentViewController(alert, animated: true, completion: nil)
         
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -38,6 +48,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         //END color navigation controller
+        
         
         // START proceso de consulta
         
@@ -96,7 +107,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                         }
                                     }//fin for
                                     
-                                    PreLoading().hideLoading()
+                                    //esaparecer loading
+                                    self.dismissViewControllerAnimated(false, completion: nil)
+                                    
                                     self.TablaList.reloadData()
                                 }
                                 
@@ -111,7 +124,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     let appDomain = NSBundle.mainBundle().bundleIdentifier
                     NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                     dispatch_async(dispatch_get_main_queue()){
-                        PreLoading().hideLoading()
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
                         self.navigationController!.popToRootViewControllerAnimated(true)
                         
                     }
@@ -122,7 +136,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                 
                 dispatch_async(dispatch_get_main_queue()){
-                    PreLoading().hideLoading()
+                    //esaparecer loading
+                    self.dismissViewControllerAnimated(false, completion: nil)
                     self.navigationController!.popToRootViewControllerAnimated(true)
                     
                 }

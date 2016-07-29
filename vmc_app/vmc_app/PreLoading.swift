@@ -43,6 +43,50 @@ class PreLoading {
         
     }
     
+    func showLoadingNav(viewController: UIViewController) {
+        
+        
+        let win:UIWindow = UIApplication.sharedApplication().delegate!.window!!
+        
+        self.loadingView = UIView(frame: win.frame)
+        self.loadingView.tag = 1
+        self.loadingView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+        
+        win.addSubview(self.loadingView)
+        
+        container = UIView(frame: CGRect(x: 0, y: 0, width: win.frame.width/3, height: win.frame.width/3))
+        container.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+        container.layer.cornerRadius = 10.0
+        container.layer.borderColor = UIColor.grayColor().CGColor
+        container.layer.borderWidth = 0.5
+        container.clipsToBounds = true
+        container.center = self.loadingView.center
+        
+        
+        activityIndicator.frame = CGRectMake(0, 0, win.frame.width/5, win.frame.width/5)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.center = self.loadingView.center
+        
+        
+        
+        
+        self.loadingView.addSubview(container)
+        self.loadingView.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        
+        //START color navigation controller
+        viewController.navigationController?.setNavigationBarHidden(false, animated: true)
+        viewController.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
+        viewController.navigationController!.navigationBar.translucent = false
+        //cambia color de texto navigation controller
+        let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        viewController.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        //END color navigation controller
+        
+        
+    }
+    
     func hideLoading(){
         UIView.animateWithDuration(0.0, delay: 1.0, options: .CurveEaseOut, animations: {
             self.container.alpha = 0.0
