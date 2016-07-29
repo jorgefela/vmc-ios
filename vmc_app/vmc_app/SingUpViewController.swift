@@ -11,6 +11,9 @@ import UIKit
 class SingUpViewController: UIViewController {
     
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    let tituloMsg:String = "oops!"
+    var mesnsajeMsg:String = "required fields"
+    let btnMsg:String = "OK"
     
     @IBOutlet weak var FirtName: UITextField!
     
@@ -33,11 +36,12 @@ class SingUpViewController: UIViewController {
     }
     
     @IBAction func RegistrarCuenta(sender: UIButton) {
+        FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
     }
     
     
     @IBAction func IniciarSesion(sender: UIButton) {
         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
-        UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+        UIView.transitionWithView(self.window, duration: 0.1, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
 }
