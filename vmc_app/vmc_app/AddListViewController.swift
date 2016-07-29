@@ -83,6 +83,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             BtnNuevo.hidden = true
             break
         case 2:
+            TextNombreNuevaLista.becomeFirstResponder()
             TextNombreNuevaLista.hidden = false
             BtnNuevo.hidden = false
             break
@@ -165,6 +166,18 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func BtnSegmentoSelccion(sender: UISegmentedControl) {
+        
+        switch self.SegmentoSeleccion.selectedSegmentIndex {
+        case 0:
+            break
+        case 1:
+            break
+        case 2:
+            TextNombreNuevaLista.becomeFirstResponder()
+            break
+        default:
+            print("default")
+        }
         TablaElementosListas.reloadData()
     }
     
@@ -193,25 +206,20 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func GuardarLista(sender: UIButton) {
-        var error:Int = 1
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        
         var postString = "id_user=\(idUser)"
-        
         let nombreLista = TextNombreLista.text!
         
         if nombreLista.isEmpty {
             
-            error = 1
             FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TextNombreLista)
-            
+        
         }else{
             
-            error = 0
             postString += "&nombre_lista=\(nombreLista)"
-            
             
             // START -- validar nueva lista
             if !self.ElementosListNuevos[0].isEmpty {
@@ -240,7 +248,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
             
         }
         
-        if error == 0 {
+        if !nombreLista.isEmpty {
             
             let url_path: String = mainInstance.urlBase + "public/list"
             let url = NSURL(string: url_path)

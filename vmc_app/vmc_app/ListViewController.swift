@@ -26,6 +26,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         " "
     ]
     
+    var statusCarga = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +40,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadingIndicator.startAnimating();
         
         alert.view.addSubview(loadingIndicator)
-        presentViewController(alert, animated: true, completion: nil)
+        self.presentViewController(alert, animated: true, completion: nil)
         
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -86,6 +88,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                 self.ElementosCantList.removeAll()
                                 self.ElementosIdList.removeAll()
                                 let espacio =  " ";
+                                self.statusCarga = "show"
                                 
                                 if let json = dictionary_result["result"] as? NSArray  {
                                     for item in json {
@@ -160,7 +163,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
+        
+        if self.statusCarga == "show" {
+            cell.nombreLista.hidden = false
+            cell.cantSubcriptores.hidden = false
+            cell.TextBotonLista.hidden = false
+        }else{
+            cell.nombreLista.hidden = true
+            cell.cantSubcriptores.hidden = true
+            cell.TextBotonLista.hidden = true
+        }
         
         cell.nombreLista.text = self.ElementosList[indexPath.row]
         cell.cantSubcriptores.text = self.ElementosCantList[indexPath.row]
@@ -221,7 +235,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let myCell = tableView.cellForRowAtIndexPath(indexPath) as! CustomListViewController
         TablaList.deselectRowAtIndexPath(indexPath, animated: true)
+        myCell.layer.borderWidth = 2.0
+        myCell.layer.borderColor = UIColor.grayColor().CGColor
+        print("entre aqui")
     }
     
 }
