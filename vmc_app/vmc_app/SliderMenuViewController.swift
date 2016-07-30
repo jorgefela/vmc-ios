@@ -94,7 +94,7 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
                 let appDomain = NSBundle.mainBundle().bundleIdentifier
                 NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                 //redirigo a la vista login
-                UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = loginViewController}, completion: nil)
+                UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = loginViewController}, completion: nil)
             }
             else if self.ElementosMenu[indexPath.row] == "Contact us" || self.ElementosMenu[indexPath.row] == "contact us" {
                 print("cargue Contact us")

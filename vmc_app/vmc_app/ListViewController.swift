@@ -51,16 +51,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         //END menu
 
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
         
-        alert.view.tintColor = UIColor.blackColor()
-        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
-        
-        alert.view.addSubview(loadingIndicator)
-        self.presentViewController(alert, animated: true, completion: nil)
         
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -90,16 +81,23 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let session = NSURLSession.sharedSession()
         // start peticion
         
+        
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
+        
+        alert.view.tintColor = UIColor.blackColor()
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        self.presentViewController(alert, animated: true, completion: nil)
+ 
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            
-            let res = response as! NSHTTPURLResponse!;
-            
+            let res = response as! NSHTTPURLResponse!
             if (res.statusCode >= 200 && res.statusCode < 300) {
-                
                 if error != nil{print(error?.localizedDescription)}
-                
                 do{
-                    
                     if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in

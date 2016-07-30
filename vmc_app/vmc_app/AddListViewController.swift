@@ -341,11 +341,15 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func Regresar(sender: UIBarButtonItem) {
-        dispatch_async(dispatch_get_main_queue()){
+        
             print("regrese")
-            self.navigationController?.popViewControllerAnimated(true)
-            //self.navigationController?.popToRootViewControllerAnimated(true)
-        }
+            if let navigationController = self.navigationController
+            {
+                dispatch_async(dispatch_get_main_queue()){
+                    navigationController.popViewControllerAnimated(true)
+                }
+            }
+        
     }
     
     
