@@ -47,7 +47,7 @@ class ViewController: UIViewController{
         } else {
             
             ////
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
             //cambia fondo navigation controller
             //UITabBar.appearance().barTintColor = UIColor.clearColor()
             //UITabBar.appearance().backgroundImage = UIImage()

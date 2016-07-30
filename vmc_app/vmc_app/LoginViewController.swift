@@ -17,14 +17,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let estaRegistrado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (estaRegistrado == 1) {
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
             }
+        }else{
+            super.viewDidLoad()
         }
         
     }
@@ -150,6 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+
     // start bloqueo auto rotacion
     override func shouldAutorotate() -> Bool {
         return false

@@ -54,7 +54,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         //START color navigation controller
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
         self.navigationController!.navigationBar.translucent = false
         //cambia color de texto navigation controller
@@ -83,7 +83,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
-        
+        print("\(keyServer)")
         alert.view.tintColor = UIColor.blackColor()
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
         loadingIndicator.hidesWhenStopped = true
@@ -141,24 +141,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }catch{
                     print("ocurrio un error")
                     print(error)
-                    let appDomain = NSBundle.mainBundle().bundleIdentifier
-                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                     dispatch_async(dispatch_get_main_queue()){
                         //esaparecer loading
                         self.dismissViewControllerAnimated(false, completion: nil)
-                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
                     }
                 }
             }else{
                 NSLog("Response code: %ld", res.statusCode);
-                let appDomain = NSBundle.mainBundle().bundleIdentifier
-                NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
-                
                 dispatch_async(dispatch_get_main_queue()){
                     //esaparecer loading
                     self.dismissViewControllerAnimated(false, completion: nil)
-                    self.navigationController!.popToRootViewControllerAnimated(true)
+                    let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                    UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                     
                 }
             }//fin validar response.status
@@ -169,6 +166,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // end peticion
         
         // END   proceso de cosulta
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
     }
     
 
