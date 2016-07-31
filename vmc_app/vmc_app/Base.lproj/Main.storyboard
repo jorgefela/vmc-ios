@@ -515,8 +515,11 @@
         <!--Navigation Controller-->
         <scene sceneID="xDy-wl-Rzq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Acu-Ks-7sk" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Acu-Ks-7sk" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ie-Yh-jMt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -678,7 +681,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="INL-cO-t9E">
             <objects>
-                <viewController id="u24-Xp-EI7" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IdSWReveal" id="u24-Xp-EI7" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8gk-dA-TMb"/>
                         <viewControllerLayoutGuide type="bottom" id="STu-TS-dm5"/>

@@ -22,6 +22,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //var width = UIScreen.mainScreen().bounds.size.width
     
+    
     var ElementosList = [
         "Loading..."
     ]
@@ -38,7 +39,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //START menu
         if self.revealViewController() != nil {
             let anchoMenu = self.width - menuRest
@@ -78,12 +78,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("\(keyServer)", forHTTPHeaderField: "key")
-        let session = NSURLSession.sharedSession()
+        let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        urlconfig.timeoutIntervalForRequest = 300
+        urlconfig.timeoutIntervalForResource = 300
+        var session = NSURLSession.sharedSession()
+        session = NSURLSession(configuration: urlconfig)
         // start peticion
         
-        
+        /*
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
-        print("\(keyServer)")
         alert.view.tintColor = UIColor.blackColor()
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
         loadingIndicator.hidesWhenStopped = true
@@ -91,7 +94,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadingIndicator.startAnimating();
         
         alert.view.addSubview(loadingIndicator)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.presentViewController(alert, animated: true, completion: nil)*/
  
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
@@ -127,8 +130,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                         }
                                     }//fin for
                                     
-                                    //esaparecer loading
-                                    self.dismissViewControllerAnimated(false, completion: nil)
+                                    
                                     
                                     self.TablaList.reloadData()
                                 }
@@ -150,18 +152,32 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                 }
             }else{
-                NSLog("Response code: %ld", res.statusCode);
-                dispatch_async(dispatch_get_main_queue()){
-                    //esaparecer loading
-                    self.dismissViewControllerAnimated(false, completion: nil)
-                    let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
-                    UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
-                    
+                NSLog("Response code: %ld", res.statusCode)
+                if res.statusCode == 401 {
+                    dispatch_async(dispatch_get_main_queue()){
+                        let appDomain = NSBundle.mainBundle().bundleIdentifier
+                        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                        
+                    }
+                }else{
+                    dispatch_async(dispatch_get_main_queue()){
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                        
+                    }
                 }
+                
             }//fin validar response.status
             
         })
-        
+        //esaparecer loading
+        //self.dismissViewControllerAnimated(false, completion: nil)
         task.resume()
         // end peticion
         
@@ -251,6 +267,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        /*
         dispatch_async(dispatch_get_main_queue()){
             let indexPath = tableView.indexPathForSelectedRow!
             
@@ -261,16 +278,23 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             currentCell.layer.borderWidth = 2.0
             currentCell.layer.borderColor = UIColor.grayColor().CGColor
             print("entre aqui\(indexPath)")
-            self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
+            
         
-        }
+        }*/
+        self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
         
         
     }
     
     @IBAction func IrAlPanel(sender: UIBarButtonItem) {
-        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+        
+        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+        /*
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("IdSWReveal") as! SWRevealViewController
+        let navigationController = UINavigationController(rootViewController: vc)
+        self.presentViewController(navigationController, animated: true, completion: nil)
+ */
     }
     
     

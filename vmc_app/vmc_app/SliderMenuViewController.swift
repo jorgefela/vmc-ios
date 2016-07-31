@@ -54,10 +54,9 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
                         print("Download Progress: \(receivedSize)/\(totalSize)")
                     },
                     completionHandler: { (image, error, cacheType, imageURL) -> () in
-                        print("Downloaded and set!")
+                        print("")
                     }
                 )
-                print("url: \(uPhoto)")
             }else{
                 self.ImagenPerfil.image = UIImage(named: "photo_perfil.png")
             }

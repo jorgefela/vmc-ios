@@ -20,6 +20,7 @@ class ViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if self.revealViewController() != nil {
             let anchoMenu = self.width - menuRest
             revealViewController().rearViewRevealWidth = anchoMenu
@@ -29,6 +30,8 @@ class ViewController: UIViewController{
             self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
             
         }
+        
+        print("cargue color panel view doad")
         
     }
     
@@ -44,25 +47,18 @@ class ViewController: UIViewController{
                 //self.performSegueWithIdentifier("segue_ir_a_login2", sender: self)
                 
             }
-        } else {
-            
-            ////
-            self.navigationController?.setNavigationBarHidden(false, animated: false)
-            //cambia fondo navigation controller
-            //UITabBar.appearance().barTintColor = UIColor.clearColor()
-            //UITabBar.appearance().backgroundImage = UIImage()
-            //UITabBar.appearance().shadowImage = UIImage()
-            //let bg_Nav = UIColor(hexString: "#0A1429")
-            //self.navigationController!.navigationBar.barTintColor = UIColorFromRGB(0x0A1429)
-            self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
-            self.navigationController!.navigationBar.translucent = false
-            //cambia color de texto navigation controller
-            let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-            self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
-            //cambia color de texto barra de estatus
-            //UIApplication.sharedApplication().statusBarStyle = .LightContent
-            ////
-        }   
+        } else{
+            dispatch_async(dispatch_get_main_queue()){
+                print("cargue color panel view apper")
+                self.navigationController?.setNavigationBarHidden(false, animated: false)
+                self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
+                self.navigationController!.navigationBar.translucent = false
+                
+                //cambia color de texto navigation controller
+                let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+                self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+            }
+        }
         
     }
     
