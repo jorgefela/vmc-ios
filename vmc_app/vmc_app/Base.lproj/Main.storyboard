@@ -260,7 +260,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
                                 <rect key="frame" x="0.0" y="77" width="600" height="523"/>
                                 <color key="backgroundColor" red="0.036186452955007553" green="0.10731927305459976" blue="0.21144914627075195" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -728,7 +728,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="name">
                                                             <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
                                                             </attributes>
                                                         </fragment>
@@ -766,7 +766,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="cantList">
                                                             <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
@@ -858,7 +858,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="loE-fG-ZAc" firstAttribute="centerY" secondItem="I2C-a0-LnL" secondAttribute="centerY" constant="1" id="UuX-cE-KFg"/>
                                     <constraint firstItem="loE-fG-ZAc" firstAttribute="centerX" secondItem="I2C-a0-LnL" secondAttribute="centerX" id="iwv-Rn-ahi"/>
@@ -883,7 +883,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu_verde.png" width="1" id="96O-oR-tP0">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="comprobar_verde.png" id="eFA-Cr-VIA">
+                        <barButtonItem key="rightBarButtonItem" image="comprobar-Small" id="eFA-Cr-VIA">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="IrAlPanel:" destination="46h-7d-hal" id="Fhd-EC-RRO"/>
@@ -1666,7 +1666,7 @@
     </scenes>
     <resources>
         <image name="boton-anadir.png" width="64" height="64"/>
-        <image name="comprobar_verde.png" width="24" height="24"/>
+        <image name="comprobar-Small" width="29" height="29"/>
         <image name="flecha-derecha.png" width="64" height="64"/>
         <image name="flecha-izquierda_verde.png" width="24" height="24"/>
         <image name="lista.png" width="64" height="64"/>

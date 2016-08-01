@@ -25,7 +25,6 @@
 		123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123320AF1D27198600BE0A95 /* EmailListaStaticticsController.swift */; };
 		123FF7F11D4BF4D1002FB2D9 /* menu_verde.png in Resources */ = {isa = PBXBuildFile; fileRef = 123FF7F01D4BF4D1002FB2D9 /* menu_verde.png */; };
 		123FF7F31D4BF645002FB2D9 /* flecha-izquierda_verde.png in Resources */ = {isa = PBXBuildFile; fileRef = 123FF7F21D4BF645002FB2D9 /* flecha-izquierda_verde.png */; };
-		123FF7F71D4BF850002FB2D9 /* comprobar_verde.png in Resources */ = {isa = PBXBuildFile; fileRef = 123FF7F61D4BF850002FB2D9 /* comprobar_verde.png */; };
 		123FF7FD1D4BFAA7002FB2D9 /* mal_verde.png in Resources */ = {isa = PBXBuildFile; fileRef = 123FF7FC1D4BFAA7002FB2D9 /* mal_verde.png */; };
 		12477AD81D110316005B6391 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12477AD71D110316005B6391 /* AppDelegate.swift */; };
 		12477ADA1D110316005B6391 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12477AD91D110316005B6391 /* ViewController.swift */; };
@@ -76,7 +75,6 @@
 		123320AF1D27198600BE0A95 /* EmailListaStaticticsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailListaStaticticsController.swift; sourceTree = "<group>"; };
 		123FF7F01D4BF4D1002FB2D9 /* menu_verde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_verde.png; sourceTree = "<group>"; };
 		123FF7F21D4BF645002FB2D9 /* flecha-izquierda_verde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flecha-izquierda_verde.png"; sourceTree = "<group>"; };
-		123FF7F61D4BF850002FB2D9 /* comprobar_verde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comprobar_verde.png; sourceTree = "<group>"; };
 		123FF7FC1D4BFAA7002FB2D9 /* mal_verde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mal_verde.png; sourceTree = "<group>"; };
 		12477AD41D110316005B6391 /* vmc_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vmc_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12477AD71D110316005B6391 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				12169FA41D3461A70014C12D /* avion_negroenviar.png */,
 				12766E391D394F8800AECB41 /* menos_negro_cuadro.png */,
 				12D511821D42E36800395021 /* photo_perfil.png */,
-				123FF7F61D4BF850002FB2D9 /* comprobar_verde.png */,
 				12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */,
 				123FF7FC1D4BFAA7002FB2D9 /* mal_verde.png */,
 				123320911D23E34400BE0A95 /* bg_navcontroller.png */,
@@ -342,7 +339,6 @@
 				12D511831D42E36800395021 /* photo_perfil.png in Resources */,
 				123320AC1D257BA000BE0A95 /* menu-de-lineas (1).png in Resources */,
 				123320A71D24922300BE0A95 /* lista.png in Resources */,
-				123FF7F71D4BF850002FB2D9 /* comprobar_verde.png in Resources */,
 				12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */,
 				123320961D2422FF00BE0A95 /* muestra_bar.png in Resources */,
 				123FF7FD1D4BFAA7002FB2D9 /* mal_verde.png in Resources */,
