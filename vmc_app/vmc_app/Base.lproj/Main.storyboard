@@ -37,32 +37,59 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6cs-j4-wmO">
+                            <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" borderStyle="roundedRect" placeholder="email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6cs-j4-wmO">
                                 <rect key="frame" x="53" y="321" width="494" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4og-oL-hAm"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhO-ZX-P5a">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhO-ZX-P5a">
                                 <rect key="frame" x="53" y="366" width="494" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.97652243589743593" green="0.97652243589743593" blue="0.97652243589743593" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="pYv-bQ-UUj"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-bp-oJx">
-                                <rect key="frame" x="273" y="426" width="54" height="30"/>
-                                <state key="normal" title="SIGN IN"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RMM-bp-oJx">
+                                <rect key="frame" x="235" y="426" width="130" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="799-YD-DAg"/>
+                                    <constraint firstAttribute="width" constant="130" id="Tx1-0s-a2O"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SIGN IN">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <action selector="btnSignin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NuB-IC-Cys"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5k-Hd-0YP">
-                                <rect key="frame" x="205" y="524" width="191" height="30"/>
-                                <state key="normal" title="SIGN UP FOR A FREE TRIAL"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5k-Hd-0YP">
+                                <rect key="frame" x="233" y="525" width="133" height="29"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="sing up for a free fly">
+                                            <attributes>
+                                                <color key="NSColor" red="0.4823529411764706" green="0.53333333333333333" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
                                     <segue destination="qKm-gB-ZHy" kind="show" id="JNo-AM-Mdy"/>
                                 </connections>
@@ -91,7 +118,7 @@
                             <constraint firstItem="gDA-h1-mpI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="C0C-9H-LHz"/>
                             <constraint firstItem="reF-NV-3sO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Esw-ra-wmJ"/>
                             <constraint firstItem="4kr-Xl-PyD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fbh-EL-J5Y"/>
-                            <constraint firstItem="k5k-Hd-0YP" firstAttribute="top" secondItem="RMM-bp-oJx" secondAttribute="bottom" constant="68" id="Huh-0h-Bh2"/>
+                            <constraint firstItem="k5k-Hd-0YP" firstAttribute="top" secondItem="RMM-bp-oJx" secondAttribute="bottom" constant="64" id="Huh-0h-Bh2"/>
                             <constraint firstItem="6cs-j4-wmO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="33" id="I52-A7-C9l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YhO-ZX-P5a" secondAttribute="trailing" constant="33" id="JhF-HI-gEV"/>
                             <constraint firstItem="YhO-ZX-P5a" firstAttribute="top" secondItem="6cs-j4-wmO" secondAttribute="bottom" constant="15" id="bZm-KV-iGx"/>
@@ -110,6 +137,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="botonSesion" destination="RMM-bp-oJx" id="3SN-Oe-dJh"/>
                         <outlet property="txtEmail" destination="6cs-j4-wmO" id="Kub-pb-vAC"/>
                         <outlet property="txtPassword" destination="YhO-ZX-P5a" id="gLz-ws-kVw"/>
                         <segue destination="u24-Xp-EI7" kind="show" identifier="panelPrincipalSegue" id="hhk-JF-Z2A"/>
@@ -260,7 +288,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
                                 <rect key="frame" x="0.0" y="77" width="600" height="523"/>
                                 <color key="backgroundColor" red="0.036186452955007553" green="0.10731927305459976" blue="0.21144914627075195" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -271,7 +299,7 @@
                         <color key="backgroundColor" red="0.078431372549019607" green="0.12156862745098039" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8uz-HN-EgO" secondAttribute="trailing" id="iRz-PA-6n5"/>
-                            <constraint firstItem="8uz-HN-EgO" firstAttribute="top" secondItem="yI5-0Y-J7E" secondAttribute="bottom" constant="13" id="tk0-Xq-mqA"/>
+                            <constraint firstItem="8uz-HN-EgO" firstAttribute="top" secondItem="yI5-0Y-J7E" secondAttribute="bottom" constant="57" id="tk0-Xq-mqA"/>
                             <constraint firstItem="8uz-HN-EgO" firstAttribute="bottom" secondItem="u88-0u-KwD" secondAttribute="top" id="uTz-Nj-YSb"/>
                             <constraint firstItem="8uz-HN-EgO" firstAttribute="leading" secondItem="wbo-tu-x7I" secondAttribute="leading" id="zeD-db-F6O"/>
                         </constraints>

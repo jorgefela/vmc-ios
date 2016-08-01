@@ -49,7 +49,15 @@ extension UILabel {
     //myLabel.setSizeFont(60)
 }
 
-
+extension UIColor {
+    convenience init(hexaString:String) {
+        self.init(
+            red:   CGFloat( strtoul( String(Array(hexaString.characters)[1...2]), nil, 16) ) / 255.0,
+            green: CGFloat( strtoul( String(Array(hexaString.characters)[3...4]), nil, 16) ) / 255.0,
+            blue:  CGFloat( strtoul( String(Array(hexaString.characters)[5...6]), nil, 16) ) / 255.0, alpha: 1 )
+    }
+}
+//let redColor = UIColor(hexaString: "#ff0000")   // r 1.0 g 0.0 b 0.0 a 1.0
 
 class FuncGlobal {
     

@@ -15,8 +15,35 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtPassword: UITextField!
     
     
+    @IBOutlet weak var botonSesion: UIButton!
     
     override func viewDidLoad() {
+        let bottomBorderEmail = CALayer()
+        bottomBorderEmail.frame = CGRectMake(0.0, txtEmail.frame.size.height - 1, txtEmail.frame.size.width, 1.0);
+        bottomBorderEmail.backgroundColor = UIColor.grayColor().CGColor
+        txtEmail.layer.addSublayer(bottomBorderEmail)
+        
+        let bottomBorderPass = CALayer()
+        bottomBorderPass.frame = CGRectMake(0.0, txtPassword.frame.size.height - 1, txtPassword.frame.size.width, 1.0);
+        bottomBorderPass.backgroundColor = UIColor.grayColor().CGColor
+        txtPassword.layer.addSublayer(bottomBorderPass)
+        
+        txtEmail.attributedPlaceholder = NSAttributedString(string:"email",
+                                                             attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        txtEmail.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000001)
+        txtPassword.attributedPlaceholder = NSAttributedString(string:"password",
+                                                            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        txtPassword.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000001)
+        txtEmail.font = UIFont(name: "HelveticaNeue", size: 17)!
+        txtPassword.font = UIFont(name: "HelveticaNeue", size: 17)!
+        txtPassword.textColor = UIColor.whiteColor()
+        txtEmail.textColor = UIColor.whiteColor()
+        
+        botonSesion.layer.cornerRadius = 2
+        botonSesion.layer.borderWidth = 1
+        botonSesion.layer.borderColor = UIColor(hexaString: "#00FFCF").CGColor
+        //botonSesion.layer.borderColor = UIColor.whiteColor().CGColor
+        
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
