@@ -26,7 +26,7 @@ class SingUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //START color navigation controller
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
         self.navigationController!.navigationBar.translucent = false
         //cambia color de texto navigation controller

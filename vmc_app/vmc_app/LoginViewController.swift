@@ -20,12 +20,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         let bottomBorderEmail = CALayer()
         bottomBorderEmail.frame = CGRectMake(0.0, txtEmail.frame.size.height - 1, txtEmail.frame.size.width, 1.0);
-        bottomBorderEmail.backgroundColor = UIColor.grayColor().CGColor
+        bottomBorderEmail.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         txtEmail.layer.addSublayer(bottomBorderEmail)
         
         let bottomBorderPass = CALayer()
         bottomBorderPass.frame = CGRectMake(0.0, txtPassword.frame.size.height - 1, txtPassword.frame.size.width, 1.0);
-        bottomBorderPass.backgroundColor = UIColor.grayColor().CGColor
+        bottomBorderPass.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         txtPassword.layer.addSublayer(bottomBorderPass)
         
         txtEmail.attributedPlaceholder = NSAttributedString(string:"email",
