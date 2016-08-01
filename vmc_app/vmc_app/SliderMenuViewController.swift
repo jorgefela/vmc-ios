@@ -24,18 +24,22 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
     
     var ElementosMenu = [
-        "List",
-        "Profile",
-        "How this work",
-        "Contact us",
-        "Logout"
+        "dashboard",
+        "profile",
+        "list",
+        "how this work",
+        "contact us",
+        "logout"
     ]
+    // nombre de iconos en la misma posicion
+    // de elemento del menu
     var IconosMenu = [
-        "List",
-        "Profile",
-        "How this work",
-        "Contact us",
-        "Logout"
+        "dashboard-Small",     // ico dashboard
+        "perfil-menu-Small",   // ico profile
+        "menu-lista-Small",    // ico list
+        "play-menu-Small",     // ico how this work
+        "telefono-menu-Small", // ico contact us
+        "cerrar-menu-Small"    // ico logout
     ]
     
     override func viewDidLoad() {
@@ -80,6 +84,7 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomSliderMenuViewController = self.TablaElementoMenu.dequeueReusableCellWithIdentifier("CellElementoMenu")! as! CustomSliderMenuViewController
         cell.TextElementoMenu.text = self.ElementosMenu[indexPath.row]
+        cell.iconoListaMenu.image = UIImage(named: "\(self.IconosMenu[indexPath.row])")
         return cell
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

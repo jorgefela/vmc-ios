@@ -248,7 +248,7 @@
             </objects>
             <point key="canvasLocation" x="-206" y="2242"/>
         </scene>
-        <!--Video Library-->
+        <!--welcome-->
         <scene sceneID="HZz-G0-maX">
             <objects>
                 <viewController id="u6f-sD-zkL" customClass="ViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -276,7 +276,7 @@
                             <constraint firstItem="8uz-HN-EgO" firstAttribute="leading" secondItem="wbo-tu-x7I" secondAttribute="leading" id="zeD-db-F6O"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Video Library" id="q5E-ap-6wV">
+                    <navigationItem key="navigationItem" title="welcome" id="q5E-ap-6wV">
                         <barButtonItem key="rightBarButtonItem" image="menu-desplegable-Small" id="GHr-RK-Jgr">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
@@ -979,10 +979,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Subscriber" id="JUq-gj-5l6">
-                        <barButtonItem key="leftBarButtonItem" image="flecha-izquierda_verde.png" id="PI5-FU-e4v">
+                        <barButtonItem key="leftBarButtonItem" image="flecha-izq-Small" id="PI5-FU-e4v">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="mal_verde.png" id="ARe-6V-abq">
+                        <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="ARe-6V-abq">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -1103,13 +1103,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add list" id="q0h-YT-NJn">
-                        <barButtonItem key="leftBarButtonItem" image="flecha-izquierda_verde.png" id="zjm-dF-P3z">
+                        <barButtonItem key="leftBarButtonItem" image="flecha-izq-Small" id="zjm-dF-P3z">
                             <color key="tintColor" red="0.23529411764705882" green="1" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="Regresar:" destination="JXD-qS-iDG" id="0md-Yg-fxo"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="mal_verde.png" id="1Jf-MP-D15">
+                        <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="1Jf-MP-D15">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="IrAlPanel:" destination="JXD-qS-iDG" id="XCX-wn-UuZ"/>
@@ -1178,10 +1178,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6r1-gF-ei3">
-                                                    <rect key="frame" x="8" y="7" width="30" height="30"/>
+                                                    <rect key="frame" x="25" y="9" width="25" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xnB-7M-ivX">
-                                                    <rect key="frame" x="46" y="11" width="287" height="21"/>
+                                                    <rect key="frame" x="63" y="11" width="287" height="21"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1666,12 +1666,12 @@
     </scenes>
     <resources>
         <image name="boton-anadir.png" width="64" height="64"/>
+        <image name="cerrar-Small" width="29" height="29"/>
         <image name="comprobar-Small" width="29" height="29"/>
         <image name="flecha-derecha.png" width="64" height="64"/>
-        <image name="flecha-izquierda_verde.png" width="24" height="24"/>
+        <image name="flecha-izq-Small" width="29" height="29"/>
         <image name="lista.png" width="64" height="64"/>
         <image name="logo.png" width="125" height="143"/>
-        <image name="mal_verde.png" width="16" height="16"/>
         <image name="mas_negro_cuadro.png" width="64" height="64"/>
         <image name="menu-desplegable-Small" width="29" height="29"/>
         <image name="photo_perfil.png" width="512" height="512"/>
