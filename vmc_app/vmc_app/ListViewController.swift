@@ -78,6 +78,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+        print("list: \(keyServer)")
         let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         urlconfig.timeoutIntervalForRequest = 300
         urlconfig.timeoutIntervalForResource = 300
@@ -85,7 +86,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         session = NSURLSession(configuration: urlconfig)
         // start peticion
         
-        /*
+        
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
         alert.view.tintColor = UIColor.blackColor()
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
@@ -94,7 +95,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         loadingIndicator.startAnimating();
         
         alert.view.addSubview(loadingIndicator)
-        self.presentViewController(alert, animated: true, completion: nil)*/
+        self.presentViewController(alert, animated: true, completion: nil)
  
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
@@ -131,7 +132,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                     }//fin for
                                     
                                     
-                                    
+                                    //esaparecer loading
+                                    self.dismissViewControllerAnimated(false, completion: nil)
                                     self.TablaList.reloadData()
                                 }
                                 
@@ -176,8 +178,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }//fin validar response.status
             
         })
-        //esaparecer loading
-        //self.dismissViewControllerAnimated(false, completion: nil)
+        
         task.resume()
         // end peticion
         

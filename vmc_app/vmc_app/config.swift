@@ -20,7 +20,8 @@ class Main {
     }
 }
 var mainInstance = Main(
-    urlb:"http://localhost:8888/modificacion/slim_app/", // url base
+    //urlb:"http://localhost:8888/modificacion/slim_app/", // url base
+    urlb:"http://192.168.0.100/slim_app/", // url base
     color: 0x0A1429, //color para el navigation controller
     uImages: "https://www.vmctechnology.com/app/Uploads/images/",
     uImagePerfil: "https://www.vmctechnology.com/app/Uploads/user/"
