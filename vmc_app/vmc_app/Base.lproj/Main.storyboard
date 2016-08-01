@@ -260,7 +260,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uz-HN-EgO">
                                 <rect key="frame" x="0.0" y="77" width="600" height="523"/>
                                 <color key="backgroundColor" red="0.036186452955007553" green="0.10731927305459976" blue="0.21144914627075195" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -277,7 +277,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Video Library" id="q5E-ap-6wV">
-                        <barButtonItem key="rightBarButtonItem" image="menu_verde.png" id="GHr-RK-Jgr">
+                        <barButtonItem key="rightBarButtonItem" image="menu-desplegable-Small" id="GHr-RK-Jgr">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -288,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSC-XC-RME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="461"/>
+            <point key="canvasLocation" x="-33" y="425"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cz4-6S-0qS">
@@ -880,7 +880,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List" id="9CU-rQ-4hC">
-                        <barButtonItem key="leftBarButtonItem" image="menu_verde.png" width="1" id="96O-oR-tP0">
+                        <barButtonItem key="leftBarButtonItem" image="menu-desplegable-Small" width="1" id="96O-oR-tP0">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="comprobar-Small" id="eFA-Cr-VIA">
@@ -1475,7 +1475,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Statictics" id="Zqk-hw-WlU" userLabel="Back">
-                        <barButtonItem key="rightBarButtonItem" image="menu_verde.png" id="CQ2-Ic-y7d">
+                        <barButtonItem key="rightBarButtonItem" image="menu-desplegable-Small" id="CQ2-Ic-y7d">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -1673,7 +1673,7 @@
         <image name="logo.png" width="125" height="143"/>
         <image name="mal_verde.png" width="16" height="16"/>
         <image name="mas_negro_cuadro.png" width="64" height="64"/>
-        <image name="menu_verde.png" width="24" height="24"/>
+        <image name="menu-desplegable-Small" width="29" height="29"/>
         <image name="photo_perfil.png" width="512" height="512"/>
         <image name="sobre-de-carta.png" width="64" height="64"/>
         <image name="sobre.png" width="64" height="64"/>
