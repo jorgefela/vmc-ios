@@ -113,6 +113,10 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
             else if self.ElementosMenu[indexPath.row] == "List" || self.ElementosMenu[indexPath.row] == "list" {
                 self.performSegueWithIdentifier("segueLista", sender: self)
             }
+            else if self.ElementosMenu[indexPath.row] == "Dashboard" || self.ElementosMenu[indexPath.row] == "dashboard" {
+                let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
+                UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+            }
             
         }
         TablaElementoMenu.deselectRowAtIndexPath(indexPath, animated: true)
