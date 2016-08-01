@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let estaRegistrado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (estaRegistrado == 1) {
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
+                //self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
             }
         }else{
             super.viewDidLoad()

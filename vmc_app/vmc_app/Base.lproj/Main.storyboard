@@ -724,14 +724,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-5V-STt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="59" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-5V-STt">
                                 <rect key="frame" x="0.0" y="99" width="580" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTablaListCustom" rowHeight="59" id="KC0-Gu-fem" customClass="CustomListViewController" customModule="vmc_app" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellTablaListCustom" rowHeight="59" id="KC0-Gu-fem" customClass="CustomListViewController" customModule="vmc_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="580" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KC0-Gu-fem" id="RLp-xa-odi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="KC0-Gu-fem" id="RLp-xa-odi">
                                             <rect key="frame" x="0.0" y="0.0" width="547" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -742,6 +742,23 @@
                                                             <attributes>
                                                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
+                                                    <rect key="frame" x="278" y="19" width="58" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Ghu-gT-C1o"/>
+                                                        <constraint firstAttribute="width" constant="58" id="mEd-K3-Wcq"/>
+                                                    </constraints>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="cantList">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -769,23 +786,6 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-lS-Fh5">
-                                                    <rect key="frame" x="278" y="19" width="58" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Ghu-gT-C1o"/>
-                                                        <constraint firstAttribute="width" constant="58" id="mEd-K3-Wcq"/>
-                                                    </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="cantList">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="JOH-z9-Iqr" firstAttribute="centerY" secondItem="RLp-xa-odi" secondAttribute="centerY" id="09S-ED-x2N"/>
@@ -813,6 +813,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="46h-7d-hal" id="koa-mu-F9q"/>
+                                    <outlet property="delegate" destination="46h-7d-hal" id="6MM-UY-KpN"/>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTN-wy-nza">
@@ -905,7 +906,7 @@
                     <connections>
                         <outlet property="OpenSliderMenu" destination="96O-oR-tP0" id="yDQ-hv-D2c"/>
                         <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
-                        <segue destination="LNA-qI-1gI" kind="show" id="ygO-Mc-HSe"/>
+                        <segue destination="LNA-qI-1gI" kind="show" identifier="segue_new_contac" id="ygO-Mc-HSe"/>
                         <segue destination="4um-Wp-YZ7" kind="show" id="PAs-rw-dWv"/>
                     </connections>
                 </viewController>
@@ -913,7 +914,7 @@
             </objects>
             <point key="canvasLocation" x="4488" y="2201"/>
         </scene>
-        <!--Subscriber-->
+        <!--new contact-->
         <scene sceneID="aJa-ab-0lN">
             <objects>
                 <viewController id="kQ8-BB-XMu" customClass="SubscribersViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -945,12 +946,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By clicking add I certify that this is not a purchased list and the recipients have explicitly agreed to join my mailing." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OtG-Uz-whB">
-                                <rect key="frame" x="46" y="538" width="511" height="54"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Io-gT-zVF">
                                 <rect key="frame" x="228" y="353" width="145" height="45"/>
                                 <color key="backgroundColor" red="0.10588235294117647" green="0.47450980392156861" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
@@ -958,7 +953,7 @@
                                     <constraint firstAttribute="height" constant="45" id="B2w-Mh-ctg"/>
                                     <constraint firstAttribute="width" constant="145" id="dUS-2r-ga4"/>
                                 </constraints>
-                                <state key="normal" title="Add susbcriber">
+                                <state key="normal" title="SAVE">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -966,16 +961,32 @@
                                         <integer key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GuardaContacto:" destination="kQ8-BB-XMu" eventType="touchUpInside" id="eIq-Pa-TI5"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s15-H5-f48">
+                                <rect key="frame" x="46" y="420" width="511" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="by clicking add I certify that this is not a purchased list and the recipients have explicitly agreed to join my mailing.">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Avenir-Book"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dyQ-yg-ljp" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="05v-8z-EdC"/>
-                            <constraint firstItem="0dw-wK-OBu" firstAttribute="top" secondItem="OtG-Uz-whB" secondAttribute="bottom" constant="8" id="3cI-mK-2wu"/>
-                            <constraint firstItem="OtG-Uz-whB" firstAttribute="top" secondItem="6Io-gT-zVF" secondAttribute="bottom" constant="140" id="EZu-YC-SMD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s15-H5-f48" secondAttribute="trailing" constant="23" id="EBt-Mj-zHg"/>
                             <constraint firstItem="dyQ-yg-ljp" firstAttribute="top" secondItem="x7K-w7-zdD" secondAttribute="bottom" constant="42" id="HaT-tA-70c"/>
                             <constraint firstItem="Dhw-lw-kx5" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="LwK-mD-4NB"/>
                             <constraint firstItem="Zyk-tb-jzt" firstAttribute="top" secondItem="dyQ-yg-ljp" secondAttribute="bottom" constant="32" id="MhL-Mk-IV3"/>
+                            <constraint firstItem="0dw-wK-OBu" firstAttribute="top" secondItem="s15-H5-f48" secondAttribute="bottom" constant="52" id="QNk-RI-bFI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dyQ-yg-ljp" secondAttribute="trailing" constant="23" id="R5S-IU-zup"/>
                             <constraint firstItem="6Io-gT-zVF" firstAttribute="centerX" secondItem="Xus-Kk-ErN" secondAttribute="centerX" id="T4y-Mm-ZO2"/>
                             <constraint firstItem="6Io-gT-zVF" firstAttribute="top" secondItem="Dhw-lw-kx5" secondAttribute="bottom" constant="38" id="TsW-hy-4pO"/>
@@ -983,21 +994,33 @@
                             <constraint firstItem="YNE-Sn-7Z7" firstAttribute="top" secondItem="Zyk-tb-jzt" secondAttribute="bottom" constant="29" id="Zxh-1V-drH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YNE-Sn-7Z7" secondAttribute="trailing" constant="23" id="i8P-qg-DVp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zyk-tb-jzt" secondAttribute="trailing" constant="23" id="i9l-90-l8J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OtG-Uz-whB" secondAttribute="trailing" constant="23" id="ikY-VU-zAW"/>
                             <constraint firstItem="Dhw-lw-kx5" firstAttribute="top" secondItem="YNE-Sn-7Z7" secondAttribute="bottom" constant="28" id="iqZ-mW-Ncy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dhw-lw-kx5" secondAttribute="trailing" constant="23" id="ivm-wi-l2q"/>
+                            <constraint firstItem="s15-H5-f48" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="lOz-TK-X6e"/>
                             <constraint firstItem="Zyk-tb-jzt" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="oBd-dQ-E1C"/>
-                            <constraint firstItem="OtG-Uz-whB" firstAttribute="leading" secondItem="Xus-Kk-ErN" secondAttribute="leadingMargin" constant="26" id="p3Y-Mt-jaW"/>
+                            <constraint firstItem="s15-H5-f48" firstAttribute="top" secondItem="6Io-gT-zVF" secondAttribute="bottom" constant="22" id="uou-e9-TzK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Subscriber" id="JUq-gj-5l6">
+                    <navigationItem key="navigationItem" title="new contact" id="JUq-gj-5l6">
                         <barButtonItem key="leftBarButtonItem" image="flecha-izq-Small" id="PI5-FU-e4v">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="Atras:" destination="kQ8-BB-XMu" id="VIh-ms-WRr"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="ARe-6V-abq">
                             <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="IrAlPanel:" destination="kQ8-BB-XMu" id="msd-EK-T7i"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="EmailContacto" destination="dyQ-yg-ljp" id="rI2-ag-Mn5"/>
+                        <outlet property="LastNombre" destination="YNE-Sn-7Z7" id="Xut-Wg-KiQ"/>
+                        <outlet property="NombreContacto" destination="Zyk-tb-jzt" id="kQ1-CT-GDj"/>
+                        <outlet property="TelfonoContacto" destination="Dhw-lw-kx5" id="C9w-Lb-zwH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV1-rb-znb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

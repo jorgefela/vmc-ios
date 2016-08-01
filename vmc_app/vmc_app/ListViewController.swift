@@ -39,6 +39,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.TablaList.allowsSelection = true
+        //self.TablaList.editing = true
+        //self.TablaList.allowsSelectionDuringEditing = true
         //START menu
         if self.revealViewController() != nil {
             let anchoMenu = self.width - menuRest
@@ -201,6 +204,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         let cell:CustomListViewController = self.TablaList.dequeueReusableCellWithIdentifier("cellTablaListCustom")! as! CustomListViewController
+        cell.TextBotonLista.tag = indexPath.row
+        cell.TextBotonLista.addTarget(self, action: #selector(ListViewController.someAction), forControlEvents: .TouchUpInside)
+        
+
         
         if self.statusCarga == "show" {
             cell.nombreLista.hidden = false
@@ -267,24 +274,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        /*
-        dispatch_async(dispatch_get_main_queue()){
-            let indexPath = tableView.indexPathForSelectedRow!
-            
-            let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-            
-            print(currentCell.textLabel!.text)
-            
-            currentCell.layer.borderWidth = 2.0
-            currentCell.layer.borderColor = UIColor.grayColor().CGColor
-            print("entre aqui\(indexPath)")
-            
-        
-        }*/
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+     {
+        NSLog("You selected cell #\(indexPath.row)!")
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        
     }
     
     @IBAction func IrAlPanel(sender: UIBarButtonItem) {
@@ -297,6 +291,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.presentViewController(navigationController, animated: true, completion: nil)
  */
     }
+    
+
+    
+    //accion del boton en la fila
+    func someAction(sender:UIButton) {
+        let buttonRow = sender.tag
+        print("aqui le di \(buttonRow)")
+        
+        self.performSegueWithIdentifier("segue_new_contac", sender: self)
+    }
+    
     
     
 }
