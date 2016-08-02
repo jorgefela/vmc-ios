@@ -49,6 +49,8 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     var mesnsajeMsg:String = "Empty name list."
     let btnMsg:String = "OK"
     
+    var dataSegue : String = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -340,17 +342,17 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func Regresar(sender: UIBarButtonItem) {
-        
-            print("regrese")
-            if let navigationController = self.navigationController
-            {
-                dispatch_async(dispatch_get_main_queue()){
-                    navigationController.popViewControllerAnimated(true)
-                }
-            }
+    @IBAction func Regresar(segue : UIStoryboardSegue) {
+        //self.navigationController!.popViewControllerAnimated(true)
+         self.performSegueWithIdentifier("pruebaid", sender: self)
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "pruebaid"{
+            let DestViewController = segue.destinationViewController as! UINavigationController
+            let targetController = DestViewController.topViewController as! ListViewController
+            targetController.dataSegue = "hello from ReceiveVC !"
+        }}
     
     
     

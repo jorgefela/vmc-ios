@@ -37,8 +37,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var statusCarga = ""
     
+    var dataSegue : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("aqui \(dataSegue)")
         //self.TablaList.allowsSelection = true
         //self.TablaList.editing = true
         //self.TablaList.allowsSelectionDuringEditing = true
