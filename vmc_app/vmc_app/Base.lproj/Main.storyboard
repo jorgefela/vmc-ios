@@ -841,7 +841,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="qKt-NQ-TeM" kind="show" id="Sch-uh-TEy"/>
+                                    <segue destination="JXD-qS-iDG" kind="show" id="hgs-45-Tsc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2C-a0-LnL">
@@ -915,6 +915,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4488" y="2201"/>
+        </scene>
+        <!--Reveal View Controller-->
+        <scene sceneID="hpR-FU-9VM">
+            <objects>
+                <viewController id="hXh-yJ-WUc" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Am-Wg-zad"/>
+                        <viewControllerLayoutGuide type="bottom" id="20m-kh-y2F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="er2-Yo-n85">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="lIf-hd-b6T" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="TBu-dX-7zB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kHh-kd-XOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4647" y="3204"/>
         </scene>
         <!--new contact-->
         <scene sceneID="aJa-ab-0lN">
@@ -1143,7 +1164,7 @@
                         <barButtonItem key="leftBarButtonItem" image="flecha-izq-Small" id="zjm-dF-P3z">
                             <color key="tintColor" red="0.23529411764705882" green="1" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="fkR-yB-Y9j" kind="unwind" unwindAction="Regresar:" id="MLM-ba-ohj"/>
+                                <action selector="Regresar:" destination="JXD-qS-iDG" id="dnF-WN-dxD"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="1Jf-MP-D15">
@@ -1162,9 +1183,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fGG-7e-VPu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fkR-yB-Y9j" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6326" y="2973"/>
+            <point key="canvasLocation" x="4868" y="2963"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SvY-tg-Qhj">
@@ -1663,7 +1683,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5p-ty-Pju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3668" y="3402"/>
+            <point key="canvasLocation" x="4244" y="3080"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tqF-oX-kAk">
@@ -1718,8 +1738,10 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bWk-Zv-rk8"/>
         <segue reference="zUs-AK-gml"/>
+        <segue reference="bWk-Zv-rk8"/>
+        <segue reference="TBu-dX-7zB"/>
+        <segue reference="hgs-45-Tsc"/>
         <segue reference="IS5-Ez-L8g"/>
     </inferredMetricsTieBreakers>
 </document>

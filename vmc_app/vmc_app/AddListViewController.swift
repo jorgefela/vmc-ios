@@ -341,12 +341,11 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
     
-    
-    @IBAction func Regresar(segue : UIStoryboardSegue) {
-        //self.navigationController!.popViewControllerAnimated(true)
-         self.performSegueWithIdentifier("pruebaid", sender: self)
-        
+    @IBAction func Regresar(sender: UIBarButtonItem) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
+    
+ 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "pruebaid"{
             let DestViewController = segue.destinationViewController as! UINavigationController
