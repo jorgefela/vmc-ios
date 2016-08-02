@@ -11,8 +11,13 @@ import UIKit
 class PerfilViewController: UIViewController {
     
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    //obtener medidas de pantalla
+    var width = UIScreen.mainScreen().bounds.size.width
+    var menuRest:CGFloat = 60.0
     
     @IBOutlet weak var FotoPerfil: UIImageView!
+    
+    @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +56,16 @@ class PerfilViewController: UIViewController {
             self.FotoPerfil.clipsToBounds = true
             
         })
+        
+        if self.revealViewController() != nil {
+            let anchoMenu = self.width - menuRest
+            revealViewController().rearViewRevealWidth = anchoMenu
+            OpenSliderMenu.target = self.revealViewController()
+            OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
     }
     
     

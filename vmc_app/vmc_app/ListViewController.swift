@@ -327,7 +327,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let buttonRow = sender.tag
         print("aqui le di \(buttonRow)")
         
-        self.performSegueWithIdentifier("segue_new_contac", sender: self)
+        //self.performSegueWithIdentifier("segue_new_contac", sender: self)
     }
     
     
