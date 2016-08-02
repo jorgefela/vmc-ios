@@ -935,7 +935,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHh-kd-XOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4647" y="3204"/>
+            <point key="canvasLocation" x="2580" y="2400"/>
         </scene>
         <!--new contact-->
         <scene sceneID="aJa-ab-0lN">
@@ -1189,7 +1189,7 @@
         <!--Profile-->
         <scene sceneID="SvY-tg-Qhj">
             <objects>
-                <viewController id="3pc-jy-Fcj" sceneMemberID="viewController">
+                <viewController id="3pc-jy-Fcj" customClass="PerfilViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Esv-We-OX9"/>
                         <viewControllerLayoutGuide type="bottom" id="5Sf-h9-hkx"/>
@@ -1198,17 +1198,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-WP-Gam">
-                                <rect key="frame" x="230" y="72" width="140" height="140"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJS-WP-Gam">
+                                <rect key="frame" x="240" y="86" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="08j-zq-57O"/>
+                                    <constraint firstAttribute="height" constant="120" id="sO1-Fo-hSa"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iJS-WP-Gam" firstAttribute="top" secondItem="Esv-We-OX9" secondAttribute="bottom" constant="22" id="SpR-Rt-BRO"/>
+                            <constraint firstItem="iJS-WP-Gam" firstAttribute="centerX" secondItem="7gz-vI-jUf" secondAttribute="centerX" id="o1I-u3-SLO"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="pyn-Ze-7CT"/>
+                    <navigationItem key="navigationItem" title="Profile" id="pyn-Ze-7CT">
+                        <barButtonItem key="leftBarButtonItem" image="menu-desplegable-Small" id="5rD-ya-giQ">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="comprobar-Small" id="P0H-Th-3PM">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="IrAlPanel:" destination="3pc-jy-Fcj" id="nlR-5F-pX4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="FotoPerfil" destination="iJS-WP-Gam" id="nQ6-9I-ate"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDl-Il-24G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3794" y="2602"/>
+            <point key="canvasLocation" x="2573" y="2294"/>
         </scene>
         <!--Slider Menu View Controller-->
         <scene sceneID="QAz-gk-5Xd">
@@ -1290,7 +1311,7 @@
                         <outlet property="TablaElementoMenu" destination="wmi-ru-fOv" id="OEJ-Re-YR5"/>
                         <outlet property="nombrePerfil" destination="2if-O0-Mnp" id="3SW-zI-DsX"/>
                         <segue destination="972-xg-rYb" kind="show" identifier="segueLista" id="lo2-Zb-ZYI"/>
-                        <segue destination="hcm-tD-elr" kind="show" identifier="segueProfile" id="Iqt-YY-4lh"/>
+                        <segue destination="hcm-tD-elr" kind="custom" identifier="segueProfile" customClass="SWRevealViewControllerSeguePushController" id="Yh6-RU-mAe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jD-wG-Xz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1618,7 +1639,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKL-vr-p6k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362" y="2269"/>
+            <point key="canvasLocation" x="1819" y="2285"/>
         </scene>
         <!--detailed list-->
         <scene sceneID="bry-S8-1oM">
