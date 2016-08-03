@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, datosGuardadosNewContactoDelagado {
     
     //obtener medidas de pantalla
     var width = UIScreen.mainScreen().bounds.size.width
@@ -37,11 +37,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var statusCarga = ""
     
-    var dataSegue : String = ""
+    var filaSeleccionada:NSIndexPath?
+    var tableViewSel: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("aqui \(dataSegue)")
+        print("aqui lista \(filaSeleccionada)")
         //self.TablaList.allowsSelection = true
         //self.TablaList.editing = true
         //self.TablaList.allowsSelectionDuringEditing = true
@@ -280,7 +281,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
      {
-        NSLog("You selected cell #\(indexPath.row)!")
+        self.filaSeleccionada = indexPath
+        self.tableViewSel = tableView
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -325,11 +327,45 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //accion del boton en la fila
     func someAction(sender:UIButton) {
         let buttonRow = sender.tag
-        print("aqui le di \(buttonRow)")
+        let indexPath = NSIndexPath(forRow:buttonRow, inSection:0)
+        //let cell = self.tableViewSel!.cellForRowAtIndexPath(indexPath) as! CustomListViewController
+        self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
+        print("aqui le di \(buttonRow) \(indexPath)")
+        
         
         //self.performSegueWithIdentifier("segue_new_contac", sender: self)
     }
     
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let miSegue = segue.identifier!
+        if  miSegue == "segue_new_contac",
+            let destination = segue.destinationViewController as? SubscribersViewController
+        {
+            //paso el id del email a la viariable que esta en el siguiente controller
+            destination.filaSeleccionadaDestino = self.filaSeleccionada
+            destination.tableViewDes = self.tableViewSel
+            destination.delagadoNewContacto = self
+            
+        }
+    }
+    
+    func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath, tableViewDel: UITableView) {
+        var filas: Array<NSIndexPath> = []
+        if let miFila:NSIndexPath = filaSelcc {
+            filas += [miFila]
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let myCell = self.tableViewSel!.cellForRowAtIndexPath(filaSelcc) as! CustomListViewController
+                
+                myCell.cantSubcriptores.text = nroRegistros
+                
+               // self.tableViewSel!.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
+               // self.TablaList.reloadData()
+            })
+            
+        }
+        
+    }
     
     
 }

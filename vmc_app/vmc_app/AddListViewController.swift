@@ -49,7 +49,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     var mesnsajeMsg:String = "Empty name list."
     let btnMsg:String = "OK"
     
-    var dataSegue : String = ""
+    var filaSeleccionada:NSIndexPath?
     
     
     override func viewDidLoad() {
@@ -350,7 +350,7 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "pruebaid"{
             let DestViewController = segue.destinationViewController as! UINavigationController
             let targetController = DestViewController.topViewController as! ListViewController
-            targetController.dataSegue = "hello from ReceiveVC !"
+            targetController.filaSeleccionada = filaSeleccionada
         }}
     
     

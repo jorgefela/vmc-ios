@@ -7,7 +7,15 @@
 //
 
 import UIKit
+
+//devuelve los datos ingresados del nuevo contacto
+@objc protocol datosGuardadosNewContactoDelagado {
+    func getDatosGuardados(nroRegistros: String, filaSelcc:NSIndexPath, tableViewDel: UITableView)
+}
+
 class SubscribersViewController: UIViewController {
+    
+    weak var delagadoNewContacto : datosGuardadosNewContactoDelagado?
     
     
     @IBOutlet weak var EmailContacto: UITextField!
@@ -22,6 +30,9 @@ class SubscribersViewController: UIViewController {
     @IBOutlet weak var TelfonoContacto: UITextField!
     
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
+    
+    var filaSeleccionadaDestino:NSIndexPath?
+    var tableViewDes: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +51,14 @@ class SubscribersViewController: UIViewController {
     
     
     @IBAction func Atras(sender: UIBarButtonItem) {
-        print("regrese")
+        
         if let navigationController = self.navigationController
         {
             dispatch_async(dispatch_get_main_queue()){
+                if let miFila : NSIndexPath = self.filaSeleccionadaDestino {
+                    self.delagadoNewContacto?.getDatosGuardados("8", filaSelcc: miFila,tableViewDel: self.tableViewDes!)
+                }
+                
                 navigationController.popViewControllerAnimated(true)
             }
         }
@@ -54,6 +69,8 @@ class SubscribersViewController: UIViewController {
         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
+    
+
     
     
     

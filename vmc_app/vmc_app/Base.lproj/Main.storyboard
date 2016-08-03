@@ -916,12 +916,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="3015"/>
+            <point key="canvasLocation" x="1748" y="3015"/>
         </scene>
         <!--new contact-->
         <scene sceneID="aJa-ab-0lN">
             <objects>
-                <viewController id="kQ8-BB-XMu" customClass="SubscribersViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="id_new_contacto_view" id="kQ8-BB-XMu" customClass="SubscribersViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x7K-w7-zdD"/>
                         <viewControllerLayoutGuide type="bottom" id="0dw-wK-OBu"/>
@@ -1028,7 +1028,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV1-rb-znb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2378" y="3015"/>
+            <point key="canvasLocation" x="2530" y="3015"/>
         </scene>
         <!--Add list-->
         <scene sceneID="KGg-OQ-82v">
@@ -1211,7 +1211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDl-Il-24G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1267" y="3015"/>
+            <point key="canvasLocation" x="1027" y="3037"/>
         </scene>
         <!--Slider Menu View Controller-->
         <scene sceneID="QAz-gk-5Xd">
@@ -1309,10 +1309,10 @@
                         <viewControllerLayoutGuide type="bottom" id="OwK-Zj-8MJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ufd-Jb-5mZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk1-hx-vhL">
                                 <rect key="frame" x="20" y="14" width="560" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="name">
@@ -1324,7 +1324,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rm-7u-anK">
                                 <rect key="frame" x="20" y="37" width="560" height="18"/>
                                 <attributedString key="attributedText">
                                     <fragment content="subject">
@@ -1350,7 +1350,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fkB-UG-OcD">
-                                <rect key="frame" x="20" y="91" width="560" height="501"/>
+                                <rect key="frame" x="20" y="91" width="560" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="miCellCampaing2" rowHeight="200" id="HMi-OS-kUu" customClass="CustomTableViewCellCampaigns" customModule="vmc_app" customModuleProvider="target">
@@ -1745,6 +1745,6 @@
         <segue reference="GaJ-wJ-hCg"/>
         <segue reference="zUs-AK-gml"/>
         <segue reference="bWk-Zv-rk8"/>
-        <segue reference="IS5-Ez-L8g"/>
+        <segue reference="jDn-de-0N9"/>
     </inferredMetricsTieBreakers>
 </document>
