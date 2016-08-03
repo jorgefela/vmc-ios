@@ -37,8 +37,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var statusCarga = ""
     
-    var filaSeleccionada:NSIndexPath?
-    var tableViewSel: UITableView?
+    var filaSeleccionada : NSIndexPath?
+    var tableViewSel : UITableView?
+    var idList : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -283,6 +284,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
      {
         self.filaSeleccionada = indexPath
         self.tableViewSel = tableView
+        self.idList = ElementosIdList[indexPath.row]
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
@@ -345,6 +347,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.filaSeleccionadaDestino = self.filaSeleccionada
             destination.tableViewDes = self.tableViewSel
+            destination.id_list = self.idList
             destination.delagadoNewContacto = self
             
         }

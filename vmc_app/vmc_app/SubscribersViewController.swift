@@ -10,7 +10,7 @@ import UIKit
 
 //devuelve los datos ingresados del nuevo contacto
 @objc protocol datosGuardadosNewContactoDelagado {
-    func getDatosGuardados(nroRegistros: String, filaSelcc:NSIndexPath, tableViewDel: UITableView)
+    func getDatosGuardados(nroRegistros: String, filaSelcc:NSIndexPath)
 }
 
 class SubscribersViewController: UIViewController {
@@ -32,7 +32,7 @@ class SubscribersViewController: UIViewController {
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
     
     var filaSeleccionadaDestino:NSIndexPath?
-    var tableViewDes: UITableView?
+    var idList : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,7 @@ class SubscribersViewController: UIViewController {
         {
             dispatch_async(dispatch_get_main_queue()){
                 if let miFila : NSIndexPath = self.filaSeleccionadaDestino {
-                    self.delagadoNewContacto?.getDatosGuardados("8", filaSelcc: miFila,tableViewDel: self.tableViewDes!)
+                    self.delagadoNewContacto?.getDatosGuardados("8", filaSelcc: miFila)
                 }
                 
                 navigationController.popViewControllerAnimated(true)
