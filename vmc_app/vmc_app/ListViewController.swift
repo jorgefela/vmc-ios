@@ -330,10 +330,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //accion del boton en la fila
     func someAction(sender:UIButton) {
         let buttonRow = sender.tag
-        let indexPath = NSIndexPath(forRow:buttonRow, inSection:0)
+        self.idList = ElementosIdList[buttonRow]
+        //let indexPath = NSIndexPath(forRow:buttonRow, inSection:0)
         //let cell = self.tableViewSel!.cellForRowAtIndexPath(indexPath) as! CustomListViewController
         self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
-        print("aqui le di \(buttonRow) \(indexPath)")
+        print("aqui le di \(ElementosIdList[buttonRow]) ")
         
         
         //self.performSegueWithIdentifier("segue_new_contac", sender: self)
@@ -341,15 +342,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+
         let miSegue = segue.identifier!
         if  miSegue == "segue_new_contac",
             let destination = segue.destinationViewController as? SubscribersViewController
         {
+           // var indexPath : NSIndexPath?
+            if let button = sender as? UIButton {
+                let cell = button.superview?.superview as! UITableViewCell
+                //indexPath = self.TablaList.indexPathForCell(cell)!
+                self.idList = ElementosIdList[button.tag]
+                self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
+                
+            }
+            
+            
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.filaSeleccionadaDestino = self.filaSeleccionada
             destination.id_list = self.idList
             destination.delagadoNewContacto = self
-            print("lista prepare \(self.idList)")
             
         }
     }

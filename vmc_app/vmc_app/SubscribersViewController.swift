@@ -41,13 +41,8 @@ class SubscribersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        //if (estaLogueado != 1) {
-        let idUser:Int = prefs.integerForKey("IDUSER") as Int
-        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        print("\(idUser) \(keyServer)")
-        //}
+        print("mi id \(id_list)")
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
         self.navigationController!.navigationBar.translucent = false
@@ -122,8 +117,13 @@ class SubscribersViewController: UIViewController {
                                         self.mesnsajeMsg = dictionary_result["message"]! as! String
                                         self.tituloMsg = "Great!"
                                         var numSubcri = ""
-                                        if let datosJson = dictionary_result["rows"] as? NSArray   {
+                                        /*if let datosJson = dictionary_result["result"] as? NSArray {
                                             numSubcri = datosJson.valueForKey("n_subcriber") as! String
+                                        }*/
+                                        if dictionary_result["result"]![0]!.valueForKey("n_subcriber")! as! String != "" {
+                                            numSubcri = dictionary_result["result"]![0]!.valueForKey("n_subcriber")! as! String
+                                        }else{
+                                            numSubcri = "0"
                                         }
                                         let popUp = UIAlertController(title: self.tituloMsg, message: self.mesnsajeMsg, preferredStyle: UIAlertControllerStyle.Alert)
                                         popUp.addAction(UIAlertAction(title: self.btnMsg, style: UIAlertActionStyle.Default, handler: {alertAction in
