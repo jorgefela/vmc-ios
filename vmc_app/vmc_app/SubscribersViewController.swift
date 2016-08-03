@@ -41,6 +41,13 @@ class SubscribersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        //if (estaLogueado != 1) {
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        print("\(idUser) \(keyServer)")
+        //}
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
         self.navigationController!.navigationBar.translucent = false
@@ -72,7 +79,106 @@ class SubscribersViewController: UIViewController {
             mesnsajeMsg = "phone required field"
             FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TelfonoContacto)
         }else{
-        }
+            
+            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+            //if (estaLogueado != 1) {
+            let idUser:Int = prefs.integerForKey("IDUSER") as Int
+            let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+            //}
+            let postString = "id_user=\(idUser)&id_list=\(id_list!)&nombre=\(nombre!)&lnombre=\(lnombre!)&email=\(email!)&telefono=\(telefono!)"
+            print(postString)
+            let url_path: String = mainInstance.urlBase + "public/contact"
+            let url = NSURL(string: url_path)
+            let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+            
+            request.HTTPMethod = "POST"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+            
+            let session = NSURLSession.sharedSession()
+            // START -- peticion
+            
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+                
+                let res = response as! NSHTTPURLResponse!;
+                
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    
+                    if error != nil{print(error?.localizedDescription)}
+                    
+                    do{
+                        
+                        if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    
+                                    let json2 = dictionary_result["rows"]! as! Int
+                                    
+                                    if  json2 > 0 {
+                                        //let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("prueba2")
+                                        //segueLista
+                                        
+                                        self.mesnsajeMsg = dictionary_result["message"]! as! String
+                                        self.tituloMsg = "Great!"
+                                        var numSubcri = ""
+                                        if let datosJson = dictionary_result["rows"] as? NSArray   {
+                                            numSubcri = datosJson.valueForKey("n_subcriber") as! String
+                                        }
+                                        let popUp = UIAlertController(title: self.tituloMsg, message: self.mesnsajeMsg, preferredStyle: UIAlertControllerStyle.Alert)
+                                        popUp.addAction(UIAlertAction(title: self.btnMsg, style: UIAlertActionStyle.Default, handler: {alertAction in
+                                            if let navigationController = self.navigationController
+                                            {
+                                                dispatch_async(dispatch_get_main_queue()) {
+                                                    if let miFila : NSIndexPath = self.filaSeleccionadaDestino {
+                                                        self.delagadoNewContacto?.getDatosGuardados("\(numSubcri)", filaSelcc: miFila)
+                                                    }
+                                                    navigationController.popViewControllerAnimated(true)
+                                                }
+                                            }
+                                        }))
+                                        self.presentViewController(popUp, animated: true, completion: nil)
+                                        
+                                    }else{
+                                        print("error aqui 2 ")
+                                    }
+                                    
+                                    PreLoading().hideLoading()
+                                    
+                                })
+                            })
+                            
+                            
+                        }
+                    }catch{
+                        print("ocurrio un error")
+                        print(error)
+                        let appDomain = NSBundle.mainBundle().bundleIdentifier
+                        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                        dispatch_async(dispatch_get_main_queue()){
+                            PreLoading().hideLoading()
+                            self.navigationController!.popToRootViewControllerAnimated(true)
+                            
+                        }
+                    }
+                }else{
+                    NSLog("Response code: %ld", res.statusCode);
+                    let appDomain = NSBundle.mainBundle().bundleIdentifier
+                    NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                        PreLoading().hideLoading()
+                        self.navigationController!.popToRootViewControllerAnimated(true)
+                        
+                    }
+                }//fin validar response.status
+                
+            })
+            
+            task.resume()
+            // END -- peticion
+            
+        }//fin else
     }
     
     

@@ -286,6 +286,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableViewSel = tableView
         self.idList = ElementosIdList[indexPath.row]
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
+        print("lista sele\(self.idList)")
     }
     
     
@@ -348,6 +349,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destination.filaSeleccionadaDestino = self.filaSeleccionada
             destination.id_list = self.idList
             destination.delagadoNewContacto = self
+            print("lista prepare \(self.idList)")
             
         }
     }
