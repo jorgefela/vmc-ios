@@ -346,14 +346,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         {
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.filaSeleccionadaDestino = self.filaSeleccionada
-            destination.tableViewDes = self.tableViewSel
             destination.id_list = self.idList
             destination.delagadoNewContacto = self
             
         }
     }
     
-    func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath, tableViewDel: UITableView) {
+    func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath) {
         var filas: Array<NSIndexPath> = []
         if let miFila:NSIndexPath = filaSelcc {
             filas += [miFila]

@@ -31,8 +31,13 @@ class SubscribersViewController: UIViewController {
     
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
     
+    //declaracion para mesajes
+    var tituloMsg:String = "oops!"
+    var mesnsajeMsg:String = "email required field."
+    let btnMsg:String = "OK"
+    
     var filaSeleccionadaDestino:NSIndexPath?
-    var idList : String?
+    var id_list : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,27 @@ class SubscribersViewController: UIViewController {
     
     
     @IBAction func GuardaContacto(sender: UIButton) {
+        let email = EmailContacto.text
+        let nombre = NombreContacto.text
+        let lnombre = LastNombre.text
+        let telefono = TelfonoContacto.text
+        if email!.isEmpty {
+            mesnsajeMsg = "email required field."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.EmailContacto)
+        }else if(!FuncGlobal().isValidEmail(email! as String)){
+            mesnsajeMsg = "invalid email."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.EmailContacto)
+        }else if nombre!.isEmpty {
+            mesnsajeMsg = "name required field"
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.NombreContacto)
+        }else if lnombre!.isEmpty {
+            mesnsajeMsg = "last name required field"
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.LastNombre)
+        }else if telefono!.isEmpty {
+            mesnsajeMsg = "phone required field"
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus:self.TelfonoContacto)
+        }else{
+        }
     }
     
     
