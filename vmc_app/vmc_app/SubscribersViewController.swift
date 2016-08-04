@@ -51,26 +51,36 @@ class SubscribersViewController: UIViewController {
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
         
         // START -- color borde linea abajo
+        /*
         let bottomBorderEmail = CALayer()
         bottomBorderEmail.frame = CGRectMake(0.0, EmailContacto.frame.size.height - 1, EmailContacto.frame.size.width, 1.0);
         bottomBorderEmail.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
         EmailContacto.layer.addSublayer(bottomBorderEmail)
+         */
         
+        EmailContacto.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexaString: "#F0F0F0"), thickness: 1.5)
+        /*
         let bottomBorderContacto = CALayer()
         bottomBorderContacto.frame = CGRectMake(0.0, NombreContacto.frame.size.height - 1, NombreContacto.frame.size.width, 1.0);
         bottomBorderContacto.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
         NombreContacto.layer.addSublayer(bottomBorderContacto)
+        */
         
+        NombreContacto.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexaString: "#F0F0F0"), thickness: 1.5)
+        /*
         let bottomBorderNombre = CALayer()
         bottomBorderNombre.frame = CGRectMake(0.0, LastNombre.frame.size.height - 0.01, LastNombre.frame.size.width, 2.0);
         bottomBorderNombre.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         LastNombre.layer.addSublayer(bottomBorderNombre)
+        */
+        
+        LastNombre.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexaString: "#F0F0F0"), thickness: 1.5)
         
         //let bottomBorderTlf = CALayer()
         //bottomBorderTlf.frame = CGRectMake(0.0, TelfonoContacto.frame.size.height - 1, TelfonoContacto.frame.size.width, 1.0);
         //bottomBorderTlf.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
         //TelfonoContacto.layer.addSublayer(bottomBorderTlf)
-        TelfonoContacto.layer.addBorder(UIRectEdge.Bottom, color: UIColor.greenColor(), thickness: 1.5)
+        TelfonoContacto.layer.addBorder(UIRectEdge.Bottom, color: UIColor(hexaString: "#F0F0F0"), thickness: 1.5)
         // END -- color borde linea abajo
         
         // START -- color placeholder
