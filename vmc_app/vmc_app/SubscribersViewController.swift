@@ -38,10 +38,11 @@ class SubscribersViewController: UIViewController {
     
     var filaSeleccionadaDestino:NSIndexPath?
     var id_list : String?
+    var tableViewDes : UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("mi id \(id_list)")
+        print("mi id \(filaSeleccionadaDestino)")
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -187,9 +188,6 @@ class SubscribersViewController: UIViewController {
         if let navigationController = self.navigationController
         {
             dispatch_async(dispatch_get_main_queue()){
-                if let miFila : NSIndexPath = self.filaSeleccionadaDestino {
-                    self.delagadoNewContacto?.getDatosGuardados("8", filaSelcc: miFila)
-                }
                 
                 navigationController.popViewControllerAnimated(true)
             }

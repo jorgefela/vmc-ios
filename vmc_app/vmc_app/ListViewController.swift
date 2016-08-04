@@ -350,10 +350,11 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         {
            // var indexPath : NSIndexPath?
             if let button = sender as? UIButton {
-                let cell = button.superview?.superview as! UITableViewCell
+                //let cell = button.superview?.superview as! UITableViewCell
                 //indexPath = self.TablaList.indexPathForCell(cell)!
                 self.idList = ElementosIdList[button.tag]
                 self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
+                print("mi fila segue \(self.filaSeleccionada)")
                 
             }
             
@@ -367,11 +368,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath) {
+        print("reg:\(nroRegistros) mi fila recibida \(filaSelcc) mi table: \(self.tableViewSel)")
         var filas: Array<NSIndexPath> = []
         if let miFila:NSIndexPath = filaSelcc {
             filas += [miFila]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                let myCell = self.tableViewSel!.cellForRowAtIndexPath(filaSelcc) as! CustomListViewController
+                let myCell = self.TablaList!.cellForRowAtIndexPath(filaSelcc) as! CustomListViewController
                 
                 myCell.cantSubcriptores.text = nroRegistros
                 
