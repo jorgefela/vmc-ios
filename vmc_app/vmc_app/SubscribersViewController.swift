@@ -42,7 +42,6 @@ class SubscribersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("mi id \(filaSeleccionadaDestino)")
         
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -50,6 +49,61 @@ class SubscribersViewController: UIViewController {
         //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        
+        // START -- color borde linea abajo
+        let bottomBorderEmail = CALayer()
+        bottomBorderEmail.frame = CGRectMake(0.0, EmailContacto.frame.size.height - 1, EmailContacto.frame.size.width, 1.0);
+        bottomBorderEmail.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
+        EmailContacto.layer.addSublayer(bottomBorderEmail)
+        
+        let bottomBorderContacto = CALayer()
+        bottomBorderContacto.frame = CGRectMake(0.0, NombreContacto.frame.size.height - 1, NombreContacto.frame.size.width, 1.0);
+        bottomBorderContacto.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
+        NombreContacto.layer.addSublayer(bottomBorderContacto)
+        
+        let bottomBorderNombre = CALayer()
+        bottomBorderNombre.frame = CGRectMake(0.0, LastNombre.frame.size.height - 0.01, LastNombre.frame.size.width, 2.0);
+        bottomBorderNombre.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
+        LastNombre.layer.addSublayer(bottomBorderNombre)
+        
+        //let bottomBorderTlf = CALayer()
+        //bottomBorderTlf.frame = CGRectMake(0.0, TelfonoContacto.frame.size.height - 1, TelfonoContacto.frame.size.width, 1.0);
+        //bottomBorderTlf.backgroundColor = UIColor(hexaString: "#F0F0F0").CGColor
+        //TelfonoContacto.layer.addSublayer(bottomBorderTlf)
+        TelfonoContacto.layer.addBorder(UIRectEdge.Bottom, color: UIColor.greenColor(), thickness: 1.5)
+        // END -- color borde linea abajo
+        
+        // START -- color placeholder
+        EmailContacto.attributedPlaceholder = NSAttributedString(string:"email",
+                                                            attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        NombreContacto.attributedPlaceholder = NSAttributedString(string:"name",
+                                                                 attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        LastNombre.attributedPlaceholder = NSAttributedString(string:"last name",
+                                                                  attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        
+        TelfonoContacto.attributedPlaceholder = NSAttributedString(string:"phone",
+                                                              attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
+        // END -- color placeholder
+        
+        // START -- transparencia placeholder
+        EmailContacto.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000000)
+        NombreContacto.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000000)
+        LastNombre.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000000)
+        TelfonoContacto.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000000)
+        // END -- transparencia placeholder
+        
+        //START -- color y fuente placeholder
+        EmailContacto.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+        NombreContacto.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+        LastNombre.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+        TelfonoContacto.font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+        EmailContacto.textColor = UIColor.grayColor()
+        NombreContacto.textColor = UIColor.grayColor()
+        LastNombre.textColor = UIColor.grayColor()
+        TelfonoContacto.textColor = UIColor.grayColor()
+        //END -- color y fuente placeholder
         
     }
     
