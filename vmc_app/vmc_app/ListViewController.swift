@@ -318,11 +318,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
-        /*
-        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("IdSWReveal") as! SWRevealViewController
-        let navigationController = UINavigationController(rootViewController: vc)
-        self.presentViewController(navigationController, animated: true, completion: nil)
- */
     }
     
 
@@ -331,19 +326,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func someAction(sender:UIButton) {
         let buttonRow = sender.tag
         self.idList = ElementosIdList[buttonRow]
-        //let indexPath = NSIndexPath(forRow:buttonRow, inSection:0)
-        //let cell = self.tableViewSel!.cellForRowAtIndexPath(indexPath) as! CustomListViewController
         self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
-        print("aqui le di \(ElementosIdList[buttonRow]) ")
-        
-        
-        //self.performSegueWithIdentifier("segue_new_contac", sender: self)
     }
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-
+        
         let miSegue = segue.identifier!
         if  miSegue == "segue_new_contac",
             let destination = segue.destinationViewController as? SubscribersViewController
@@ -354,10 +342,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //indexPath = self.TablaList.indexPathForCell(cell)!
                 self.idList = ElementosIdList[button.tag]
                 self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
-                print("mi fila segue \(self.filaSeleccionada)")
-                
             }
-            
             
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.filaSeleccionadaDestino = self.filaSeleccionada
@@ -374,11 +359,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             filas += [miFila]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let myCell = self.TablaList!.cellForRowAtIndexPath(filaSelcc) as! CustomListViewController
-                
                 myCell.cantSubcriptores.text = nroRegistros
-                
-               // self.tableViewSel!.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
-               // self.TablaList.reloadData()
             })
             
         }

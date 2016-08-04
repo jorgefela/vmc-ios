@@ -844,7 +844,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="JXD-qS-iDG" kind="show" id="hgs-45-Tsc"/>
+                                    <segue destination="JXD-qS-iDG" kind="show" identifier="segueAgregarLista" id="hgs-45-Tsc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2C-a0-LnL">

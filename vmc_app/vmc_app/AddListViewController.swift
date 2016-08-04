@@ -49,21 +49,13 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     var mesnsajeMsg:String = "Empty name list."
     let btnMsg:String = "OK"
     
-    var filaSeleccionada:NSIndexPath?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.TablaElementosListas.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellAddList")
         
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        //if (estaLogueado != 1) {
-        let idUser:Int = prefs.integerForKey("IDUSER") as Int
-        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        print("\(idUser) \(keyServer)")
-        //}
         
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -337,23 +329,12 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
     }//func GuardarLista
     
     @IBAction func IrAlPanel(sender: UIBarButtonItem) {
-        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
     
     @IBAction func Regresar(sender: UIBarButtonItem) {
         self.navigationController?.popViewControllerAnimated(true)
     }
-    
- 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "pruebaid"{
-            let DestViewController = segue.destinationViewController as! UINavigationController
-            let targetController = DestViewController.topViewController as! ListViewController
-            targetController.filaSeleccionada = filaSeleccionada
-        }}
-    
-    
-    
     
 }

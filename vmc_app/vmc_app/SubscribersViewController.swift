@@ -197,7 +197,7 @@ class SubscribersViewController: UIViewController {
     
     @IBAction func IrAlPanel(sender: UIBarButtonItem) {
         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("IdSWReveal")
-        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+        UIView.transitionWithView(self.window, duration: 0.5, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
     }
     
 
