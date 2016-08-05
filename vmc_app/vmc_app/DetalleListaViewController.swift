@@ -18,6 +18,10 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //cambio color y titulo del boton regresar
+        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
+        self.navigationController?.navigationBar.topItem?.title = ""
+        
         //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
@@ -35,13 +39,8 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         
         self.busquedaController.searchBar.barTintColor = UIColor.whiteColor()
         self.busquedaController.searchBar.tintColor = UIColor.grayColor()
-        //self.busquedaController.searchBar.backgroundColor = UIColor(hexaString: "#0198F3")
         self.busquedaController.searchBar.sizeToFit()
         //self.busquedaController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
-        //UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(hexaString: "#0198F3")
-        
-        //myTextField.attributedPlaceholder =
-        //NSAttributedString(string: "placeholder text", attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
         
         let searchIcon = UIImage(named: "lupa_blanca-Small")
         self.busquedaController.searchBar.setImage(searchIcon, forSearchBarIcon: .Search, state: .Normal)
@@ -67,7 +66,9 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
                 searchField.layer.cornerRadius = 14
             }
         }
-        //
+        // END -- Editar propiedades de campos de búsqueda
+        
+        // START - cambio de color background textfield barra de busqueda
         for view in self.busquedaController.searchBar.subviews {
             for subview in view.subviews {
                 if subview .isKindOfClass(UITextField) {
@@ -76,10 +77,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
                 }
             }
         }
-        
-        //self.searchDisplayController!.searchBar.backgroundColor = UIColor(hexaString: "#0198F3")
-        //UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(hexaString: "#0198F3")
-        // END -- Editar propiedades de campos de búsqueda
+        // END - cambio de color background textfield barra de busqueda
         
         self.busquedaController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.title = "New title"
@@ -97,8 +95,17 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         self.filtrarElementos = self.ElementoLista.filter{ (varLista:String) -> Bool in
+            var pase = "N"
+            if let varBusqueda = self.busquedaController.searchBar.text?.lowercaseString {
+                pase = "S"
+                print("\(varBusqueda)")
+            }else{
+                pase = "N"
+                
+            }
+            
             var retornar = false
-            if (self.busquedaController.searchBar.text?.lowercaseString) != nil {
+            if pase == "S" {
                 if varLista.lowercaseString.containsString(self.busquedaController.searchBar.text!.lowercaseString) {
                     retornar = true
                 }else{
@@ -181,6 +188,10 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         // Pass the selected object to the new view controller.
     }
     */
+    func atras()
+    {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     deinit{
         if let superView = busquedaController.view.superview
         {

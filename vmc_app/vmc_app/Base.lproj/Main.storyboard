@@ -1741,11 +1741,11 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AB4-Vp-ZWR"/>
         <segue reference="hgs-45-Tsc"/>
         <segue reference="GaJ-wJ-hCg"/>
         <segue reference="bWk-Zv-rk8"/>
         <segue reference="zUs-AK-gml"/>
         <segue reference="jDn-de-0N9"/>
+        <segue reference="Hl8-Ij-RtV"/>
     </inferredMetricsTieBreakers>
 </document>
