@@ -17,61 +17,72 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.navigationController?.setNavigationBarHidden(false, animated: false)
-        //self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
-        //self.navigationController!.navigationBar.translucent = false
         
-        //cambia color de texto navigation controller
-        let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
-        //self.extendedLayoutIncludesOpaqueBars = true
-        
-        // START -- barra de busqueda
-        self.resultatosController.tableView.dataSource = self
-        self.resultatosController.tableView.delegate = self
-        
-        self.busquedaController = UISearchController(searchResultsController: self.resultatosController)
-        self.tableView.tableHeaderView = self.busquedaController.searchBar
-        self.busquedaController.searchResultsUpdater = self
-        self.busquedaController.dimsBackgroundDuringPresentation = false
-        // END -- barra de busqueda
-        
-        self.busquedaController.searchBar.barTintColor = UIColor.whiteColor()
-        
-        self.busquedaController.searchBar.tintColor = UIColor.grayColor()
-        self.busquedaController.searchBar.sizeToFit()
-        //self.busquedaController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(hexaString: "#0198F3")
-        let searchIcon = UIImage(named: "lupa_blanca-Small")
-        self.busquedaController.searchBar.setImage(searchIcon, forSearchBarIcon: .Search, state: .Normal)
-        
-        let clearIcon = UIImage(named: "lupa_blanca-Small")
-        self.busquedaController.searchBar.setImage(clearIcon, forSearchBarIcon: .Clear, state: .Normal)
-        
-        // Edit search field properties
-        if let searchField = self.busquedaController.searchBar.valueForKey("_searchField") as? UITextField  {
-            if searchField.respondsToSelector(Selector("setAttributedPlaceholder:")) {
-                let placeholder = "Search"
-                let attributedString = NSMutableAttributedString(string: placeholder)
-                let range = NSRange(location: 0, length: placeholder.characters.count)
-                let color = UIColor(white: 1.0, alpha: 0.7)
-                attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
-                attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-Medium", size: 15)!, range: range)
-                searchField.attributedPlaceholder = attributedString
-                
-                searchField.clearButtonMode = UITextFieldViewMode.WhileEditing
-                searchField.textColor = .whiteColor()
+       
+            //cambia color de texto navigation controller
+            let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+            //self.extendedLayoutIncludesOpaqueBars = true
+            
+            // START -- barra de busqueda
+            self.resultatosController.tableView.dataSource = self
+            self.resultatosController.tableView.delegate = self
+            
+            self.busquedaController = UISearchController(searchResultsController: self.resultatosController)
+            self.tableView.tableHeaderView = self.busquedaController.searchBar
+            self.busquedaController.searchResultsUpdater = self
+            self.busquedaController.dimsBackgroundDuringPresentation = false
+            // END -- barra de busqueda
+            
+            self.busquedaController.searchBar.barTintColor = UIColor.whiteColor()
+            
+            self.busquedaController.searchBar.tintColor = UIColor.grayColor()
+            self.busquedaController.searchBar.sizeToFit()
+            //self.busquedaController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
+            UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(hexaString: "#0198F3")
+            let searchIcon = UIImage(named: "lupa_blanca-Small")
+            self.busquedaController.searchBar.setImage(searchIcon, forSearchBarIcon: .Search, state: .Normal)
+            
+            let clearIcon = UIImage(named: "cerrar_blanco-Small")
+            self.busquedaController.searchBar.setImage(clearIcon, forSearchBarIcon: .Clear, state: .Normal)
+            
+            
+            // Edit search field properties
+            if let searchField = self.busquedaController.searchBar.valueForKey("_searchField") as? UITextField  {
+                if searchField.respondsToSelector(Selector("setAttributedPlaceholder:")) {
+                    let placeholder = "Search"
+                    let attributedString = NSMutableAttributedString(string: placeholder)
+                    let range = NSRange(location: 0, length: placeholder.characters.count)
+                    let color = UIColor(white: 1.0, alpha: 0.7)
+                    attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+                    attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: "AvenirNext-Medium", size: 15)!, range: range)
+                    searchField.attributedPlaceholder = attributedString
+                    
+                    searchField.clearButtonMode = UITextFieldViewMode.WhileEditing
+                    searchField.textColor = .whiteColor()
+                    searchField.textAlignment = .Left
+                    searchField.layer.cornerRadius = 14
+                    
+                }
             }
-        }
+            
+            
+            self.busquedaController.hidesNavigationBarDuringPresentation = false
+            
+            self.navigationItem.title = "New title"
         
-        self.busquedaController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
-        self.navigationItem.title = "New title"
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("ejecute la acccion 2")
+
     }
     
     
