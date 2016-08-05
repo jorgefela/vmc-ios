@@ -286,7 +286,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableViewSel = tableView
         self.idList = ElementosIdList[indexPath.row]
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
-        print("lista sele\(self.idList)")
+        self.performSegueWithIdentifier("segue_detalle_lista", sender: self)
     }
     
     

@@ -911,7 +911,7 @@
                     <connections>
                         <outlet property="OpenSliderMenu" destination="96O-oR-tP0" id="yDQ-hv-D2c"/>
                         <outlet property="TablaList" destination="DB3-5V-STt" id="zRc-cs-YmZ"/>
-                        <segue destination="4um-Wp-YZ7" kind="show" id="PAs-rw-dWv"/>
+                        <segue destination="w8q-RG-VNe" kind="show" identifier="segue_detalle_lista" id="AB4-Vp-ZWR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gYk-Ft-4B0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1028,7 +1028,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yV1-rb-znb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2530" y="3015"/>
+            <point key="canvasLocation" x="2650" y="2293"/>
         </scene>
         <!--Add list-->
         <scene sceneID="KGg-OQ-82v">
@@ -1623,35 +1623,6 @@
             </objects>
             <point key="canvasLocation" x="1267" y="2279"/>
         </scene>
-        <!--detailed list-->
-        <scene sceneID="bry-S8-1oM">
-            <objects>
-                <tableViewController id="Q8V-rm-P4b" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hEk-yM-APg">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="a6n-SR-Zye">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a6n-SR-Zye" id="vtv-kN-gZf">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Q8V-rm-P4b" id="mPR-tb-zXp"/>
-                            <outlet property="delegate" destination="Q8V-rm-P4b" id="nUS-Wc-tT2"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="detailed list" id="I7K-Pk-eAL"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sr4-9D-ne2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2658" y="1911"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="uFG-GD-THE">
             <objects>
@@ -1669,6 +1640,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nsD-U7-El9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3472" y="2293"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="4rF-Lh-FWm">
+            <objects>
+                <tableViewController id="w8q-RG-VNe" customClass="DetalleListaViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zqK-Gm-HYo">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="olc-Qy-jio">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="olc-Qy-jio" id="Xtr-8l-b3a">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="w8q-RG-VNe" id="UjY-Uh-3jy"/>
+                            <outlet property="delegate" destination="w8q-RG-VNe" id="ut9-39-kuD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="List" id="i3b-5g-QGF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUB-dP-P0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2550" y="3073"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4BW-5m-sQv">
@@ -1707,22 +1707,22 @@
             <point key="canvasLocation" x="-697" y="2285"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="yeg-Bp-DsQ">
+        <scene sceneID="OXt-AW-53s">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4um-Wp-YZ7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fE4-mo-K32" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0TN-qr-h3H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VvR-X0-HNs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Q8V-rm-P4b" kind="relationship" relationship="rootViewController" id="mhj-Fd-4PU"/>
+                        <segue destination="w8q-RG-VNe" kind="relationship" relationship="rootViewController" id="Hl8-Ij-RtV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NT5-Bw-ear" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xY-sw-ecC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680" y="2279"/>
+            <point key="canvasLocation" x="4087" y="2293"/>
         </scene>
     </scenes>
     <resources>
@@ -1741,10 +1741,11 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AB4-Vp-ZWR"/>
         <segue reference="hgs-45-Tsc"/>
         <segue reference="GaJ-wJ-hCg"/>
-        <segue reference="zUs-AK-gml"/>
         <segue reference="bWk-Zv-rk8"/>
+        <segue reference="zUs-AK-gml"/>
         <segue reference="jDn-de-0N9"/>
     </inferredMetricsTieBreakers>
 </document>

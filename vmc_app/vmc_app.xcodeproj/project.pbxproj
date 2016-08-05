@@ -26,6 +26,7 @@
 		12477AEC1D110347005B6391 /* vmc2-plus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEA1D110347005B6391 /* vmc2-plus.jpg */; };
 		12477AED1D110347005B6391 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 12477AEB1D110347005B6391 /* logo.png */; };
 		125B475F1D4A5B3B00C92A7A /* SingUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */; };
+		126311F71D54448300E07F9F /* DetalleListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311F61D54448300E07F9F /* DetalleListaViewController.swift */; };
 		12766E381D394ACB00AECB41 /* mas_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */; };
 		12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E391D394F8800AECB41 /* menos_negro_cuadro.png */; };
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
@@ -72,6 +73,7 @@
 		12477AEA1D110347005B6391 /* vmc2-plus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "vmc2-plus.jpg"; sourceTree = "<group>"; };
 		12477AEB1D110347005B6391 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingUpViewController.swift; sourceTree = "<group>"; };
+		126311F61D54448300E07F9F /* DetalleListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleListaViewController.swift; sourceTree = "<group>"; };
 		12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mas_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E391D394F8800AECB41 /* menos_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menos_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagenVideo.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				12D5118E1D4854C900395021 /* AddListViewController.swift */,
 				125B475E1D4A5B3A00C92A7A /* SingUpViewController.swift */,
 				12F4E44A1D514F480006E10F /* PerfilViewController.swift */,
+				126311F61D54448300E07F9F /* DetalleListaViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
 				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				12D511891D45811C00395021 /* CustomListViewController.swift in Sources */,
+				126311F71D54448300E07F9F /* DetalleListaViewController.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,
