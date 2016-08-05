@@ -31,8 +31,6 @@ class ViewController: UIViewController{
             
         }
         
-        print("cargue color panel view doad")
-        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -49,7 +47,6 @@ class ViewController: UIViewController{
             }
         } else{
             dispatch_async(dispatch_get_main_queue()){
-                print("cargue color panel view apper")
                 self.navigationController?.setNavigationBarHidden(false, animated: false)
                 self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
                 self.navigationController!.navigationBar.translucent = false

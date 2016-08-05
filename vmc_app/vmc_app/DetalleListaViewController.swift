@@ -17,8 +17,16 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        definesPresentationContext = true
-        self.extendedLayoutIncludesOpaqueBars = !self.navigationController!.navigationBar.translucent
+        //self.navigationController?.setNavigationBarHidden(false, animated: false)
+        //self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
+        //self.navigationController!.navigationBar.translucent = false
+        
+        //cambia color de texto navigation controller
+        let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        //self.extendedLayoutIncludesOpaqueBars = true
+        
+        // START -- barra de busqueda
         self.resultatosController.tableView.dataSource = self
         self.resultatosController.tableView.delegate = self
         
@@ -26,12 +34,16 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         self.tableView.tableHeaderView = self.busquedaController.searchBar
         self.busquedaController.searchResultsUpdater = self
         self.busquedaController.dimsBackgroundDuringPresentation = false
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // END -- barra de busqueda
+        
+        self.busquedaController.searchBar.barTintColor = UIColor.whiteColor()
+        
+        self.busquedaController.searchBar.tintColor = UIColor.grayColor()
+        self.busquedaController.searchBar.sizeToFit()
+        //self.busquedaController.searchBar.setValue("Cancelar", forKey: "cancelButtonText")
+        self.busquedaController.hidesNavigationBarDuringPresentation = false
+        definesPresentationContext = true
+        self.navigationItem.title = "New title"
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,9 +51,9 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         // Dispose of any resources that can be recreated.
     }
     
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         self.filtrarElementos = self.ElementoLista.filter{ (varLista:String) -> Bool in
-            print("\(self.busquedaController.searchBar.text!.lowercaseString)")
             var retornar = false
             if (self.busquedaController.searchBar.text?.lowercaseString) != nil {
                 if varLista.lowercaseString.containsString(self.busquedaController.searchBar.text!.lowercaseString) {
