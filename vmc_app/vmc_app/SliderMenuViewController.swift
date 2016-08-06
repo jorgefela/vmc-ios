@@ -73,6 +73,7 @@ class SliderMenuViewController: UIViewController, UITableViewDataSource, UITable
         self.ImagenPerfil.clipsToBounds = true
         let nombre = prefs.valueForKey("NAME") as! String
         self.nombrePerfil.text = nombre
+        TablaElementoMenu.tableFooterView = UIView(frame:CGRectZero)
     }
     
     //metodos table view cell
