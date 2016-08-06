@@ -1664,11 +1664,18 @@
                             <outlet property="delegate" destination="w8q-RG-VNe" id="ut9-39-kuD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="List" id="i3b-5g-QGF"/>
+                    <navigationItem key="navigationItem" title="List" id="i3b-5g-QGF">
+                        <barButtonItem key="rightBarButtonItem" image="menu-desplegable-Small" id="aiF-0d-15A">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="OpenSliderMenu" destination="aiF-0d-15A" id="P2A-ef-hzj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUB-dP-P0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2550" y="3073"/>
+            <point key="canvasLocation" x="2440" y="3031"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4BW-5m-sQv">
@@ -1741,11 +1748,11 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AB4-Vp-ZWR"/>
         <segue reference="hgs-45-Tsc"/>
         <segue reference="GaJ-wJ-hCg"/>
         <segue reference="bWk-Zv-rk8"/>
         <segue reference="zUs-AK-gml"/>
         <segue reference="jDn-de-0N9"/>
-        <segue reference="Hl8-Ij-RtV"/>
     </inferredMetricsTieBreakers>
 </document>

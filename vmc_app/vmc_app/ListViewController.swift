@@ -37,9 +37,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var statusCarga = ""
     
+    //datos para la view agregar contacto
     var filaSeleccionada : NSIndexPath?
     var tableViewSel : UITableView?
     var idList : String?
+    //dato view detalle de lista
+    var nombreLista = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,15 +89,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("\(keyServer)", forHTTPHeaderField: "key")
-        print("list: \(keyServer)")
         let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
         urlconfig.timeoutIntervalForRequest = 300
         urlconfig.timeoutIntervalForResource = 300
         var session = NSURLSession.sharedSession()
         session = NSURLSession(configuration: urlconfig)
+        
         // start peticion
-        
-        
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
         alert.view.tintColor = UIColor.blackColor()
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
@@ -286,6 +287,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.tableViewSel = tableView
         self.idList = ElementosIdList[indexPath.row]
         self.TablaList.deselectRowAtIndexPath(indexPath, animated: true)
+        self.nombreLista = self.ElementosList[indexPath.row]
         self.performSegueWithIdentifier("segue_detalle_lista", sender: self)
     }
     
@@ -350,10 +352,16 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destination.delagadoNewContacto = self
             
         }
+        else if  miSegue == "segue_detalle_lista",
+            let destination = segue.destinationViewController as? DetalleListaViewController {
+            destination.nombreLista = self.nombreLista
+            destination.idList = self.idList!
+            
+        }
     }
     
     func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath) {
-        print("reg:\(nroRegistros) mi fila recibida \(filaSelcc) mi table: \(self.tableViewSel)")
+        
         var filas: Array<NSIndexPath> = []
         if let miFila:NSIndexPath = filaSelcc {
             filas += [miFila]

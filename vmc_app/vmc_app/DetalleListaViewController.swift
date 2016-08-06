@@ -10,13 +10,30 @@ import UIKit
 
 class DetalleListaViewController: UITableViewController, UISearchResultsUpdating {
     
-    var ElementoLista = ["daniel", "hnnia"]
+    var window : UIWindow = UIApplication.sharedApplication().keyWindow!
+    
+    var width = UIScreen.mainScreen().bounds.size.width
+    var menuRest:CGFloat = 60.0
+    
+    
+    @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
+    
+    var ElementoLista = [""]
+    var ElementosIdList = [""]
     var filtrarElementos  = [String]()
     var busquedaController : UISearchController!
     var resultatosController = UITableViewController()
+    
+    //almacena proveniente de view Lista (vista anterior)
+    var nombreLista = ""
+    var idList : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if nombreLista.isEmpty {
+            nombreLista = "List"
+        }
+        
         
         //cambio color y titulo del boton regresar
         self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
@@ -80,9 +97,123 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         // END - cambio de color background textfield barra de busqueda
         
         self.busquedaController.hidesNavigationBarDuringPresentation = false
-        self.navigationItem.title = "New title"
+        self.navigationItem.title = nombreLista
         
         definesPresentationContext = true
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let idUser:Int = prefs.integerForKey("IDUSER") as Int
+        let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+        
+        let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/contacts_list/\(idList)"
+        let url = NSURL(string: url_path)
+        let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+        let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        urlconfig.timeoutIntervalForRequest = 300
+        urlconfig.timeoutIntervalForResource = 300
+        var session = NSURLSession.sharedSession()
+        session = NSURLSession(configuration: urlconfig)
+        
+        // START -- peticion
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
+        alert.view.tintColor = UIColor.blackColor()
+        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            let res = response as! NSHTTPURLResponse!
+            if (res.statusCode >= 200 && res.statusCode < 300) {
+                if error != nil{print(error?.localizedDescription)}
+                do{
+                    if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                self.ElementoLista.removeAll()
+                                let espacio =  " ";
+                                
+                                if let json = dictionary_result["result"] as? NSArray  {
+                                    for item in json {
+                                        if let Id = item.valueForKey("id") {
+                                            self.ElementosIdList.append(Id as! String)
+                                            
+                                            if let email = item.valueForKey("email") {
+                                                self.ElementoLista.append(email as! String)
+                                            }else{
+                                                self.ElementoLista.append(espacio)
+                                            }
+                                        }
+                                    }//fin for
+                                    
+                                    
+                                    //esaparecer loading
+                                    self.dismissViewControllerAnimated(false, completion: nil)
+                                    self.tableView.reloadData()
+                                }
+                                
+                            })
+                        })
+                    }
+                }catch{
+                    print("ocurrio un error")
+                    print(error)
+                    dispatch_async(dispatch_get_main_queue()){
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                        
+                    }
+                }
+            }else{
+                NSLog("Response code: %ld", res.statusCode)
+                if res.statusCode == 401 {
+                    dispatch_async(dispatch_get_main_queue()){
+                        let appDomain = NSBundle.mainBundle().bundleIdentifier
+                        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                        
+                    }
+                }else{
+                    dispatch_async(dispatch_get_main_queue()){
+                        //esaparecer loading
+                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                        UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                        
+                    }
+                }
+                
+            }//fin validar response.status
+            
+        })
+        
+        task.resume()
+        // END -- peticion
+        
+        //START menu
+        if self.revealViewController() != nil {
+            let anchoMenu = self.width - menuRest
+            revealViewController().rearViewRevealWidth = anchoMenu
+            OpenSliderMenu.target = self.revealViewController()
+            OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+            
+        }
+        //END menu
+        
         
     }
 
@@ -188,14 +319,10 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         // Pass the selected object to the new view controller.
     }
     */
-    func atras()
-    {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
+    
     deinit{
         if let superView = busquedaController.view.superview
         {
-            print("removido")
             superView.removeFromSuperview()
         }
     }
