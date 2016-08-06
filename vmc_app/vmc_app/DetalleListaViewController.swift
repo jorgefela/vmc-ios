@@ -15,7 +15,6 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     var width = UIScreen.mainScreen().bounds.size.width
     var menuRest:CGFloat = 60.0
     
-    
     @IBOutlet weak var OpenSliderMenu: UIBarButtonItem!
     
     var ElementoLista = [""]
@@ -27,6 +26,10 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     //almacena proveniente de view Lista (vista anterior)
     var nombreLista = ""
     var idList : String = ""
+    
+    // actualiza la fila que se envio
+    // al editar en contacto
+    var filaSeleccionada : NSIndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,6 +141,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
                             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                                 self.ElementoLista.removeAll()
+                                self.ElementosIdList.removeAll()
                                 let espacio =  " ";
                                 
                                 if let json = dictionary_result["result"] as? NSArray  {
@@ -272,18 +276,53 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         //let cell = UITableViewCell()
         if tableView == self.tableView {
             cell.nombreEmail.text = self.ElementoLista[indexPath.row]
-            
-            //cell.textLabel?.text = self.ElementoLista[indexPath.row]
         }else{
             cell.nombreEmail.text = self.filtrarElementos[indexPath.row]
-            //cell.textLabel?.text = self.filtrarElementos[indexPath.row]
         }
+        
+        cell.botonEditar.tag = indexPath.row
+        cell.botonEditar.addTarget(self, action: #selector(DetalleListaViewController.editarContacto), forControlEvents: .TouchUpInside)
         cell.nombreEmail.font = UIFont(name: "HelveticaNeue-Thin", size: 16)!
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        print(self.ElementosIdList[indexPath.row])
+    }
+    
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.backgroundColor = UIColor.clearColor()
+    }
+    
+    //accion del boton en la fila
+    func editarContacto(sender:UIButton) {
+        let buttonRow = sender.tag
+        self.idList = ElementosIdList[buttonRow]
+        self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let miSegue = segue.identifier!
+        if  miSegue == "segue_edit_contacto",
+            let destination = segue.destinationViewController as? EditarContactoViewController
+        {
+            // var indexPath : NSIndexPath?
+            if let button = sender as? UIButton {
+                //let cell = button.superview?.superview as! UITableViewCell
+                //indexPath = self.TablaList.indexPathForCell(cell)!
+                self.idList = ElementosIdList[button.tag]
+                self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
+            }
+            
+            //paso el id del email a la viariable que esta en el siguiente controller
+            destination.filaSeleccionada = self.filaSeleccionada
+            destination.idList = self.idList
+            //destination.delagadoNewContacto = self
+            
+        }
     }
     
     deinit{

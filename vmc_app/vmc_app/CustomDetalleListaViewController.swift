@@ -13,4 +13,6 @@ class CustomDetalleListaViewController: UITableViewCell {
  
     @IBOutlet weak var nombreEmail: UILabel!
 
+    @IBOutlet weak var botonEditar: UIButton!
+    
 }
