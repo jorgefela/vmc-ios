@@ -235,7 +235,6 @@ class AddListViewController: UIViewController, UITextFieldDelegate {
                     
                 }//fin for
                 
-                print(postString)
                 
             }
             // END -- validar nueva lista

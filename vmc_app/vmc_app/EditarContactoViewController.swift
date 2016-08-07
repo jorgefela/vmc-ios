@@ -22,6 +22,11 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     var index = 0
     
+    //declaracion para mesajes
+    var tituloMsg:String = "oops!"
+    var mesnsajeMsg:String = "empty email."
+    let btnMsg:String = "OK"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableViewContacto.beginUpdates()
@@ -58,7 +63,59 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
         
     }
     
+    @IBAction func guardar(sender: UIButton) {
+        
+        let campoEmail = NSIndexPath(forRow:0, inSection:0)
+        let campoName = NSIndexPath(forRow:1, inSection:0)
+        let campoLname = NSIndexPath(forRow:2, inSection:0)
+        let campoPhone = NSIndexPath(forRow:3, inSection:0)
+        
+        let cellEmail = self.tableViewContacto.cellForRowAtIndexPath(campoEmail) as! CustomEditContactoViewController
+        let cellName = self.tableViewContacto.cellForRowAtIndexPath(campoName) as! CustomEditContactoViewController
+        let cellLname = self.tableViewContacto.cellForRowAtIndexPath(campoLname) as! CustomEditContactoViewController
+        let cellPhone = self.tableViewContacto.cellForRowAtIndexPath(campoPhone) as! CustomEditContactoViewController
+        
+        let email:String = cellEmail.FieldContacto.text!
+        let name:String = cellName.FieldContacto.text!
+        let lName:String = cellLname.FieldContacto.text!
+        let phone:String = cellPhone.FieldContacto.text!
+        
+        if email == " " || email.isEmpty {
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellEmail.FieldContacto)
+        }
+        
+        else if !FuncGlobal().isValidEmail(email as String) {
+            mesnsajeMsg = "invalid email."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellEmail.FieldContacto)
+        }
+            
+        else if name == "" || name.isEmpty {
+            mesnsajeMsg = "empty name."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellName.FieldContacto)
+        }
+            
+        else if lName == "" || lName.isEmpty {
+            mesnsajeMsg = "empty last name."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellLname.FieldContacto)
+        }
+            
+        else if phone == "" || phone.isEmpty {
+            mesnsajeMsg = "empty phone."
+            FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellPhone.FieldContacto)
+        }else{
+            
+            let postString = "email=\(email)&nombre=\(name)&lnombre=\(lName)&telefono=\(phone)"
+            print(postString)
+            
+        }
+        
+        
+    }
 
+
+    @IBAction func eliminar(sender: UIButton) {
+        print("eliminado")
+    }
     
     
 }
