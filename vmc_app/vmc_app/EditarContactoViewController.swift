@@ -33,6 +33,7 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        PreLoading().showLoading()
         definesPresentationContext = true
         self.tableViewContacto.beginUpdates()
         //self.tableViewContacto.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
@@ -57,18 +58,6 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
         session = NSURLSession(configuration: urlconfig)
         
         // START -- peticion
-        /*
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
-        alert.view.tintColor = UIColor.blackColor()
-        let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(10, 5, 50, 50)) as UIActivityIndicatorView
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
-        
-        alert.view.addSubview(loadingIndicator)
-        self.presentViewController(alert, animated: true, completion: nil)
- */
-        
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
             if (res.statusCode >= 200 && res.statusCode < 300) {
@@ -125,6 +114,7 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                                     
                                     //esaparecer loading
                                     //self.dismissViewControllerAnimated(false, completion: nil)
+                                    PreLoading().hideLoading()
                                 }
                                 
                             })
@@ -135,7 +125,8 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                     print(error)
                     dispatch_async(dispatch_get_main_queue()){
                         //esaparecer loading
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        //self.dismissViewControllerAnimated(false, completion: nil)
+                        PreLoading().hideLoading()
                         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
                         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
@@ -148,7 +139,8 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                         let appDomain = NSBundle.mainBundle().bundleIdentifier
                         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                         //esaparecer loading
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        //self.dismissViewControllerAnimated(false, completion: nil)
+                        PreLoading().hideLoading()
                         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
                         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
@@ -156,7 +148,8 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                 }else{
                     dispatch_async(dispatch_get_main_queue()){
                         //esaparecer loading
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        //self.dismissViewControllerAnimated(false, completion: nil)
+                        PreLoading().hideLoading()
                         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
                         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
@@ -241,10 +234,112 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let idUser:Int = prefs.integerForKey("IDUSER") as Int
             let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-            print("\(keyServer)")
             
-            let postString = "id=\(id)&id_user=\(idUser)email=\(email)&nombre=\(name)&lnombre=\(lName)&telefono=\(phone)"
-            print(postString)
+            let postString = "id=\(id)&id_user=\(idUser)&email=\(email)&nombre=\(name)&lnombre=\(lName)&telefono=\(phone)"
+            
+            let url_path: String = mainInstance.urlBase + "public/contact"
+            let url = NSURL(string: url_path)
+            let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+            request.HTTPMethod = "PUT"
+            request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            //request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("\(keyServer)", forHTTPHeaderField: "key")
+            
+            let urlconfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+            urlconfig.timeoutIntervalForRequest = 300
+            urlconfig.timeoutIntervalForResource = 300
+            var session = NSURLSession.sharedSession()
+            session = NSURLSession(configuration: urlconfig)
+            
+            // START -- peticion
+            let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+                let res = response as! NSHTTPURLResponse!
+                if (res.statusCode >= 200 && res.statusCode < 300) {
+                    if error != nil{print(error?.localizedDescription)}
+                    do{
+                        if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
+                            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    
+                                    let numReg = dictionary_result["rows"]! as! Int
+                                    if numReg > 0 {
+                                        if let json = dictionary_result["result"] as? NSArray  {
+                                            self.mesnsajeMsg = dictionary_result["message"]! as! String
+                                            self.tituloMsg = "Great!"
+                                            
+                                            for item in json {
+                                                if let Id = item.valueForKey("id") {
+                                                    print("\(Id)")
+                                                    
+                                                    let campoEmail = NSIndexPath(forRow:0, inSection:0)
+                                                    
+                                                    
+                                                    let cellEmail = self.tableViewContacto.cellForRowAtIndexPath(campoEmail) as! CustomEditContactoViewController
+                                                    
+                                                    if let email = item.valueForKey("email") {
+                                                        cellEmail.FieldContacto.text = email as? String
+                                                    }else{
+                                                        cellEmail.FieldContacto.text = ""
+                                                    }
+                                                    
+                                                }
+                                            }//fin for
+                                            FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self)
+                                    }
+                                    
+                                        
+                                        
+                                        //esaparecer loading
+                                        //self.dismissViewControllerAnimated(false, completion: nil)
+                                        PreLoading().hideLoading()
+                                    }
+                                    
+                                })
+                            })
+                        }
+                    }catch{
+                        print("ocurrio un error")
+                        print(error)
+                        dispatch_async(dispatch_get_main_queue()){
+                            //esaparecer loading
+                            //self.dismissViewControllerAnimated(false, completion: nil)
+                            PreLoading().hideLoading()
+                            let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                            UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                            
+                        }
+                    }
+                }else{
+                    NSLog("Response code: %ld", res.statusCode)
+                    if res.statusCode == 401 {
+                        dispatch_async(dispatch_get_main_queue()){
+                            let appDomain = NSBundle.mainBundle().bundleIdentifier
+                            NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+                            //esaparecer loading
+                            //self.dismissViewControllerAnimated(false, completion: nil)
+                            PreLoading().hideLoading()
+                            let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                            UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                            
+                        }
+                    }else{
+                        dispatch_async(dispatch_get_main_queue()){
+                            //esaparecer loading
+                            //self.dismissViewControllerAnimated(false, completion: nil)
+                            PreLoading().hideLoading()
+                            let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
+                            UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
+                            
+                        }
+                    }
+                    
+                }//fin validar response.status
+                
+            })
+            
+            task.resume()
+            // END -- peticion
             
         }
         
