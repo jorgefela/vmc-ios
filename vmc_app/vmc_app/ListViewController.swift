@@ -46,7 +46,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("aqui lista \(filaSeleccionada)")
         //self.TablaList.allowsSelection = true
         //self.TablaList.editing = true
         //self.TablaList.allowsSelectionDuringEditing = true

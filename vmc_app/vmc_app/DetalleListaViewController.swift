@@ -26,6 +26,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     //almacena proveniente de view Lista (vista anterior)
     var nombreLista = ""
     var idList : String = ""
+    var idContacto : String = ""
     
     // actualiza la fila que se envio
     // al editar en contacto
@@ -313,13 +314,14 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
             if let button = sender as? UIButton {
                 //let cell = button.superview?.superview as! UITableViewCell
                 //indexPath = self.TablaList.indexPathForCell(cell)!
-                self.idList = ElementosIdList[button.tag]
+                self.idContacto = ElementosIdList[button.tag]
                 self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
             }
             
             //paso el id del email a la viariable que esta en el siguiente controller
             destination.filaSeleccionada = self.filaSeleccionada
             destination.idList = self.idList
+            destination.id = self.idContacto
             //destination.delagadoNewContacto = self
             
         }
