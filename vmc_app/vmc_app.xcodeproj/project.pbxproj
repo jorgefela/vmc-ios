@@ -29,6 +29,7 @@
 		126311F71D54448300E07F9F /* DetalleListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311F61D54448300E07F9F /* DetalleListaViewController.swift */; };
 		126311FB1D55854C00E07F9F /* CustomDetalleListaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311FA1D55854C00E07F9F /* CustomDetalleListaViewController.swift */; };
 		126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */; };
+		126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */; };
 		12766E381D394ACB00AECB41 /* mas_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */; };
 		12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E391D394F8800AECB41 /* menos_negro_cuadro.png */; };
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
@@ -78,6 +79,7 @@
 		126311F61D54448300E07F9F /* DetalleListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleListaViewController.swift; sourceTree = "<group>"; };
 		126311FA1D55854C00E07F9F /* CustomDetalleListaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDetalleListaViewController.swift; sourceTree = "<group>"; };
 		126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditarContactoViewController.swift; sourceTree = "<group>"; };
+		126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEditContactoViewController.swift; sourceTree = "<group>"; };
 		12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mas_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E391D394F8800AECB41 /* menos_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menos_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagenVideo.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */,
 				12D511881D45811B00395021 /* CustomListViewController.swift */,
 				126311FA1D55854C00E07F9F /* CustomDetalleListaViewController.swift */,
+				126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */,
 			);
 			name = customControllers;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				12D511891D45811C00395021 /* CustomListViewController.swift in Sources */,
 				126311F71D54448300E07F9F /* DetalleListaViewController.swift in Sources */,
 				126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */,
+				126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,
