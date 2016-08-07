@@ -15,10 +15,12 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     var idList : String = ""
     
-    var LabelArray = ["email", "name", "last name", "phone"]
-    var CampoArray = ["", "", "", ""]
+    var LabelArray = ["email", "name", "last name", "phone", ""]
+    var CampoArray = ["", "", "", "", ""]
     
     @IBOutlet weak var tableViewContacto: UITableView!
+    
+    var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,24 +32,24 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var count = 0
-        count = self.LabelArray.count
         
-        return count
+        return self.LabelArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomEditContactoViewController = self.tableViewContacto.dequeueReusableCellWithIdentifier("cell_edit_contact")! as! CustomEditContactoViewController
+        if index != 0 {
+            let separatorLineView: UIView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 1))
+            separatorLineView.backgroundColor = UIColor(hexaString: "#D8D8D8")
+            cell.contentView.addSubview(separatorLineView)
+        }
+        
         
         cell.nombreCampo.text = self.LabelArray[indexPath.row]
         
-
         cell.nombreCampo.font = UIFont(name: "HelveticaNeue", size: 16)!
         cell.nombreCampo.textColor = UIColor.grayColor()
-        let separatorLineView: UIView = UIView(frame: CGRectMake(0, 0, view.frame.size.width, 2))
-        separatorLineView.backgroundColor = UIColor.grayColor()
-        cell.contentView.addSubview(separatorLineView)
-        //separatorLineView.backgroundColor = UIColor(red: 247, green: 247, blue: 247)
+        index = index + 1
         return cell
     }
     
