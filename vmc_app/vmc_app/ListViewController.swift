@@ -362,10 +362,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let destination = segue.destinationViewController as? DetalleListaViewController {
             destination.nombreLista = self.nombreLista
             destination.idList = self.idList!
+            self.navigationItem.title = " "
             
         }
     }
     
+    //legado
     func getDatosGuardados(nroRegistros: String, filaSelcc: NSIndexPath) {
         
         var filas: Array<NSIndexPath> = []

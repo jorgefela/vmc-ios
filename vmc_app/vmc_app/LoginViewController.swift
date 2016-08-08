@@ -146,7 +146,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         prefs.setInteger(1, forKey: "ISLOGGEDIN")
                         prefs.synchronize()
                         dispatch_async(dispatch_get_main_queue()) {
-                            print("login: \(json["key"]!)")
                             self.performSegueWithIdentifier("panelPrincipalSegue", sender: self)
                         }
                     }else{

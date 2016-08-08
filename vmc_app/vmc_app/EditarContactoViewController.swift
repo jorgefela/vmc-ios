@@ -7,7 +7,15 @@
 //
 
 import UIKit
+
+//devuelve los datos ingresados del nuevo contacto
+@objc protocol datosEditContactoDelagado {
+    func getDatosProtocol(email: String, filaSelcc:NSIndexPath, titulo: String)
+}
+
 class EditarContactoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+     weak var delagado : datosEditContactoDelagado?
     
     var window : UIWindow = UIApplication.sharedApplication().keyWindow!
     
@@ -18,6 +26,9 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     var idList : String = ""
     
     var id : String = ""
+    
+    var tituloLista : String = ""
+    var email : String = ""
     
     var LabelArray = ["email", "name", "last name", "phone", ""]
     var CampoArray = ["", "", "", "", ""]
@@ -33,16 +44,18 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //cambio color y titulo del boton regresar
-        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.delagado?.getDatosProtocol("\(email)", filaSelcc: self.filaSeleccionada!, titulo: "\(self.tituloLista)")
+        self.navigationController?.navigationBar.topItem?.title = " "
+        
         let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
-        //UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        //let backButton = UIBarButtonItem(title: "", style:.Plain, target: self, action: #selector(EditarContactoViewController.goBack))
+        //self.navigationItem.leftBarButtonItem = backButton
+        
 
 
         //PreLoading().showLoading()
-        definesPresentationContext = true
+        //definesPresentationContext = true
         self.tableViewContacto.beginUpdates()
         //self.tableViewContacto.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
         self.tableViewContacto.separatorStyle = UITableViewCellSeparatorStyle.None
@@ -172,6 +185,23 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
         // END -- peticion
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        //cambio color y titulo del boton regresar
+        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
+        self.navigationController?.navigationBar.topItem?.title = " "
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        //let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        //self.navigationItem.backBarButtonItem = backItem
+        
+        //self.navigationController?.navigationBar.topItem?.title = ""
+        //let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
+        //UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return self.LabelArray.count
@@ -277,6 +307,7 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                                     let numReg = dictionary_result["rows"]! as! Int
                                     if numReg > 0 {
                                         if let json = dictionary_result["result"] as? NSArray  {
+                                            self.delagado?.getDatosProtocol("\(email)", filaSelcc: self.filaSeleccionada!, titulo: self.tituloLista)
                                             print("\(json.valueForKey("id"))")
                                             self.tituloMsg = "Great!"
                                             
@@ -345,6 +376,10 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
 
     @IBAction func eliminar(sender: UIButton) {
         print("eliminado")
+    }
+    
+    func goBack() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

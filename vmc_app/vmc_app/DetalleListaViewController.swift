@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetalleListaViewController: UITableViewController, UISearchResultsUpdating {
+class DetalleListaViewController: UITableViewController, UISearchResultsUpdating, datosEditContactoDelagado {
     
     var window : UIWindow = UIApplication.sharedApplication().keyWindow!
     
@@ -27,6 +27,8 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     var nombreLista = ""
     var idList : String = ""
     var idContacto : String = ""
+    var tituloLista : String = ""
+    var email : String = ""
     
     // actualiza la fila que se envio
     // al editar en contacto
@@ -41,7 +43,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         
         //cambio color y titulo del boton regresar
         self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = " "
         
         //cambia color de texto navigation controller
         let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -300,6 +302,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     func editarContacto(sender:UIButton) {
         let buttonRow = sender.tag
         self.idList = ElementosIdList[buttonRow]
+        self.email = ElementoLista[buttonRow]
         self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
     }
     
@@ -310,11 +313,13 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         if  miSegue == "segue_edit_contacto",
             let destination = segue.destinationViewController as? EditarContactoViewController
         {
+            self.navigationItem.title = " "
             // var indexPath : NSIndexPath?
             if let button = sender as? UIButton {
                 //let cell = button.superview?.superview as! UITableViewCell
                 //indexPath = self.TablaList.indexPathForCell(cell)!
                 self.idContacto = ElementosIdList[button.tag]
+                self.email = ElementoLista[button.tag]
                 self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
             }
             
@@ -322,9 +327,27 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
             destination.filaSeleccionada = self.filaSeleccionada
             destination.idList = self.idList
             destination.id = self.idContacto
-            //destination.delagadoNewContacto = self
+            destination.tituloLista = self.nombreLista
+            destination.email = self.email
+            
+            destination.delagado = self
             
         }
+    }
+    //legado
+    func getDatosProtocol(email: String, filaSelcc: NSIndexPath, titulo: String) {
+        
+        var filas: Array<NSIndexPath> = []
+        if let miFila:NSIndexPath = filaSelcc {
+            filas += [miFila]
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                let myCell = self.tableView!.cellForRowAtIndexPath(filaSelcc) as! CustomDetalleListaViewController
+                myCell.nombreEmail.text = email
+                self.navigationItem.title = titulo
+            })
+            
+        }
+        
     }
     
     deinit{
