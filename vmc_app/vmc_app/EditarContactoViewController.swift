@@ -33,7 +33,15 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PreLoading().showLoading()
+        //cambio color y titulo del boton regresar
+        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
+        self.navigationController?.navigationBar.topItem?.title = ""
+        let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
+        //UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+
+
+        //PreLoading().showLoading()
         definesPresentationContext = true
         self.tableViewContacto.beginUpdates()
         //self.tableViewContacto.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
@@ -231,6 +239,7 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
             mesnsajeMsg = "empty phone."
             FuncGlobal().alertFocus(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self,toFocus: cellPhone.FieldContacto)
         }else{
+            
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let idUser:Int = prefs.integerForKey("IDUSER") as Int
             let keyServer:String = (prefs.valueForKey("KEY") as? String)!
@@ -242,6 +251,7 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
             let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "PUT"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             //request.addValue("application/json", forHTTPHeaderField: "Accept")
             request.setValue("\(keyServer)", forHTTPHeaderField: "key")
@@ -261,32 +271,18 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
                         if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
                                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                                    
+                                    print(dictionary_result)
+                                    self.mesnsajeMsg = dictionary_result["message"]! as! String
+                                    self.tituloMsg = "Error!"
                                     let numReg = dictionary_result["rows"]! as! Int
                                     if numReg > 0 {
                                         if let json = dictionary_result["result"] as? NSArray  {
-                                            self.mesnsajeMsg = dictionary_result["message"]! as! String
+                                            print("\(json.valueForKey("id"))")
                                             self.tituloMsg = "Great!"
                                             
-                                            for item in json {
-                                                if let Id = item.valueForKey("id") {
-                                                    print("\(Id)")
-                                                    
-                                                    let campoEmail = NSIndexPath(forRow:0, inSection:0)
-                                                    
-                                                    
-                                                    let cellEmail = self.tableViewContacto.cellForRowAtIndexPath(campoEmail) as! CustomEditContactoViewController
-                                                    
-                                                    if let email = item.valueForKey("email") {
-                                                        cellEmail.FieldContacto.text = email as? String
-                                                    }else{
-                                                        cellEmail.FieldContacto.text = ""
-                                                    }
-                                                    
-                                                }
-                                            }//fin for
-                                            FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self)
-                                    }
+                                        }
+                                        
+                                        FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self)
                                     
                                         
                                         

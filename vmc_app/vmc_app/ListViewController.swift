@@ -191,11 +191,18 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // end peticion
         
         // END   proceso de cosulta
+        
+        self.navigationItem.title = "list"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "list"
     }
     
 

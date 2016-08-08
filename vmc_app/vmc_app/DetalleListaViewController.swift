@@ -103,7 +103,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         self.busquedaController.hidesNavigationBarDuringPresentation = false
         self.navigationItem.title = nombreLista
         
-        definesPresentationContext = true
+        //definesPresentationContext = true
         
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
