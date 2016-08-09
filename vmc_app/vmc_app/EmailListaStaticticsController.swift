@@ -160,6 +160,7 @@ class EmailListStaticticsController: UIViewController, UITableViewDataSource, UI
             cell.fechaEmail.hidden = true
         }
         
+
         cell.nombreEmail!.text = ListEmailNombre[indexPath.row]
         cell.descripcionEmail!.text = ListEmailDescripcion[indexPath.row]
         cell.fechaEmail!.text = ListEmailFecha[indexPath.row]
