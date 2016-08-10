@@ -8,3 +8,16 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
+<ifModule mod_headers.c>
+    Header set Connection keep-alive
+</ifModule>
+
+# 1 MES
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|xml|txt|css)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# 1 SEMANA
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>

@@ -2,16 +2,22 @@
 
 namespace models;
 use lib\Core;
+//use lib\DB;
 use PDO;
 
 class Login extends Authenticate {
 
 	protected $core;
+	public $db;
+	public $num_reg = 0;
+	public $message = "No records found";
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
 	  parent::__construct();
+	  $this->db=parent::connect_db();
 	}
+
 
 	public function getUserByLogin($email, $pass) {
 
@@ -19,21 +25,31 @@ class Login extends Authenticate {
 
 		if( !empty($email) and !empty($pass) ){
 			$pass = md5($pass);
-			$sql = "SELECT * FROM yr14_user WHERE email=:email AND password=:pass AND role='user' LIMIT 1";
-			$stmt = $this->core->dbh->prepare($sql);
-			$stmt->bindParam(':email', $email, PDO::PARAM_STR);
-			$stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
+			$role = "user";
 
-			if ($stmt->execute()) {
-				$r = $stmt->fetchAll(PDO::FETCH_ASSOC);
-				$stmt->closeCursor();
-				if( count($r) > 0 ) {
+			$sql = "SELECT * FROM yr14_user WHERE email='".$email."' AND password='".$pass."' AND role='user' LIMIT 1";
+
+			if ($result = mysqli_query($this->db,$sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
+
+				$r = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+
+				if( $this->num_reg > 0 ) {
+
+					$this->message = "Success";
+
 					parent::createKey($email);
 
 				}else{
+
 					parent::cleanKey();
 
 				}
+				mysqli_free_result($result);
+				$result = null;
 
 			} else {
 				
@@ -46,4 +62,6 @@ class Login extends Authenticate {
 		$stmt=null;
 		return $r;
 	}
+
+
 }

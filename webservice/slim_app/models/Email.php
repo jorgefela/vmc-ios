@@ -4,64 +4,107 @@ namespace models;
 use lib\Core;
 use PDO;
 
-class Email {
+class Email extends Database {
 
 	protected $core;
+	public $db;
+	public $num_reg = 0;
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
+	  $this->db=parent::connect_db();
 	}
 
-	public function getEmailOnly($id) {
-		$r=array();	 
+	public function getEmailOnly($id_user, $id, $full_data) {
+		$r=array();
 		
-		$sql = "SELECT * FROM yr14_email WHERE id=:id LIMIT 1";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':id', $id, PDO::PARAM_INT);	
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
+		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id)){
+
+			$campos = "id, userid, catid, title, from_name, from_email, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email WHERE id = ".$id." AND userid =".$id_user." AND status = 1 ";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+				
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
 		}
-		$stmt=null;		
 		return $r;
 	}
 
-	public function getEmail($id_user) {
-		$r=array();	 
-		
-		$sql = "SELECT * FROM yr14_email WHERE userid =:id";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':id', $id_user, PDO::PARAM_INT);	
+	public function getEmail($id_user, $full_data) {
+		$r=array();	
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
+		if(\lib\Core::isInteger($id_user)){
+
+			$campos = "id, userid, catid, title, from_name, from_email, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email WHERE userid =".$id_user." AND status = 1 ORDER BY id DESC";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
 		}
-		$stmt=null;		
+
 		return $r;
 	}
 
-	public function getEmailFromTo($id_user, $from, $to) {
-		$r=array();	 
-		
-		$sql = "SELECT * FROM yr14_email WHERE userid =:id LIMIT :pagFrom , :pagTo";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':id', $id_user, PDO::PARAM_INT);	
-		$stmt->bindValue(':pagFrom', (int) trim($from), PDO::PARAM_INT);	
-		$stmt->bindValue(':pagTo', (int) trim($to), PDO::PARAM_INT);
+	public function getEmailFromTo($id_user, $from, $to, $full_data) {
+		$r=array();	
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
-		}
-		$stmt=null;		
+		if(\lib\Core::isInteger($id_user)){
+
+			$campos = "id, userid, catid, title, from_name, from_email, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email WHERE userid =".$id_user." AND status = 1 LIMIT ".$from." , ".$to."";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+		} 
+
 		return $r;
 	}
 

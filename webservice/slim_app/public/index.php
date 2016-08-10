@@ -1,4 +1,8 @@
 <?php
+ini_set('max_execution_time', 500);
+set_time_limit(500);
+session_cache_limiter(false);
+session_start();
 require '../middleware/middleware.php';
 require '../vendor/autoload.php';
 require '../config.php';

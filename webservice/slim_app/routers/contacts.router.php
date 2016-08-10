@@ -1,26 +1,33 @@
 <?php
-$app->get('/user/:id_user/contact(/:id)','authenticate', function ($id_user, $id=0) use ($app) {
+$app->get('/user/:id_user/contact(/:id)','authenticate', function ($id_user, $id = 0) use ($app) {
 
   $app->contentType('application/json');
+  $ob = new models\Contacts();
 
-  if(!empty($id_user) && isInteger($id_user) && $id==0){
+  if( !empty($id_user) && isInteger($id_user) && $id == 0){
 
-      $ob = new models\Contacts();
+
       $data = $ob->getContacts($id_user);
-      echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
-  }else if(!empty($id_user) && isInteger($id_user) && isInteger($id) && $id != 0){
+  }else if( !empty($id_user) && isInteger($id_user) && isInteger($id) && $id != 0 ){
 
-    $ob = new models\Contacts();
-    $data = $ob->getContactsOnly($id);
-    echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+    $data = $ob->getContactsOnly($id, $id_user);
+    $rows = $ob->num_reg;
+    $message = $ob->message;
+    echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   }else{
 
-     $data =array();
-     echo '{"reponse": "1", "result": '.json_encode($data).', "message":"No records found"}';
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
-  }
+  } 
+  $data = null;
 
 });
 
@@ -28,56 +35,155 @@ $app->get('/user/:id_user/contact(/:id)','authenticate', function ($id_user, $id
 $app->get('/user/:id_user/contacts/from/:from/to/:to','authenticate', function ($id_user, $from, $to) use ($app) {
 
   $app->contentType('application/json');
+  $ob = new models\Contacts();
 
-  if(!empty($id_user) && isInteger($id_user) && (!empty($from) && isInteger($from) || $from==0) && !empty($to) && isInteger($to) ){
+  if( !empty($id_user) && isInteger($id_user) && (!empty($from) && isInteger($from) || $from == 0) && !empty($to) && isInteger($to) ){
 
-      $ob = new models\Contacts();
+      
       $data = $ob->getContactsFromTo($id_user, $from, $to);
-      echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   } else {
 
-     $data =array();
-     echo '{"reponse": "1", "result": '.json_encode($data).', "message":"No records found"}';
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
   }
+  $data = null;
 
 });
 
 $app->get('/user/:id_user/contacts_list/:id','authenticate', function ($id_user, $id) use ($app) {
 
   $app->contentType('application/json');
+  $ob = new models\Contacts();
 
-  if(!empty($id_user) && isInteger($id_user) && !empty($id) && isInteger($id) ){
+  if( !empty($id_user) && isInteger($id_user) && !empty($id) && isInteger($id) ){
 
-      $ob = new models\Contacts();
       $data = $ob->getContactsList($id_user, $id);
-      echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   }else{
 
      $data =array();
-     echo '{"reponse": "1", "result": '.json_encode($data).', "message":"No records found"}';
+     $rows = $ob->num_reg;
+     $message = $ob->message;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
   }
+
+  $data = null;
 
 });
 //range for paging contact list
 $app->get('/user/:id_user/contacts_list/:id/from/:from/to/:to','authenticate', function ($id_user, $id, $from, $to) use ($app) {
 
   $app->contentType('application/json');
+  $ob = new models\Contacts();
 
-  if(!empty($id_user) && isInteger($id_user) && !empty($id) && isInteger($id) && (!empty($from) && isInteger($from) || $from==0) && !empty($to) && isInteger($to) ){
+  if( !empty($id_user) && isInteger($id_user) && !empty($id) && isInteger($id) && (!empty($from) && isInteger($from) || $from == 0) && !empty($to) && isInteger($to) ){
 
-      $ob = new models\Contacts();
+      
       $data = $ob->getContactsListFromTo($id_user, $id, $from, $to);
-      echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   } else {
 
-     $data =array();
-     echo '{"reponse": "1", "result": '.json_encode($data).', "message":"No records found"}';
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
   }
+  $data = null;
 
+});
+
+$app->post('/contact','authenticate', function () use ($app) {
+
+  $data = $app->request()->post();
+
+  $ob = new models\Contacts();
+
+  
+
+  if( !empty($data["id_user"]) && isInteger($data["id_user"]) ){
+
+      $data["email"] = cleanValues($data["email"]);
+      $data["nombre"] = cleanValues($data["nombre"]);
+      $data["lnombre"] = cleanValues($data["lnombre"]);
+      $data["telefono"] = cleanValues($data["telefono"]);
+
+      $data = $ob->insertContact($data);
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+
+      if( $rows == 0 ){
+
+        echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+
+      }else{
+
+        echo '{"reponse": "1", "rows": '.$rows.', "result": ['.json_encode($data).'], "message":"'.$message.'"}';
+
+      }
+      
+
+  } else {
+
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message2;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+      
+  }
+  unset($ob);
+});
+
+$app->put('/contact','authenticate', function () use ($app) {
+
+  $data = $app->request()->put();
+  //$data = $app->request->params;
+
+  $ob = new models\Contacts();
+
+  if( !empty($data["id_user"]) && isInteger($data["id_user"]) && !empty($data["id"]) && isInteger($data["id"]) ){
+
+      $data["email"] = cleanValues($data["email"]);
+      $data["nombre"] = cleanValues($data["nombre"]);
+      $data["lnombre"] = cleanValues($data["lnombre"]);
+      $data["telefono"] = cleanValues($data["telefono"]);
+
+      $data = $ob->updateContact($data);
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+
+      if( $rows == 0 ){
+
+        echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+
+      }else{
+
+        echo '{"reponse": "1", "rows": '.$rows.', "result": ['.json_encode($data).'], "message":"'.$message.'"}';
+
+      }
+      
+
+  } else {
+
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message3;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+      
+  }
+  unset($ob);
 });

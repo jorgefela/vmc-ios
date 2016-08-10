@@ -42,6 +42,45 @@ class Core {
         }
         return self::$instance;
     }
+
+    public static function isInteger($input){
+        $input=cleanValues($input);
+        return(ctype_digit(strval($input)));
+    }
+
+    public static function isFormatoFechaSencillo($str){
+        $str=trim($str);
+        $trozos = explode ("-", $str);
+        $long1 = strlen($trozos[0]); 
+
+        if($long1==4){
+
+            $dia=$trozos[2];
+            $mes=$trozos[1];
+            $anio=$trozos[0];
+
+        }else if($long1>0 and $long1 < 3){
+            $dia=$trozos[0];
+            $mes=$trozos[1];
+            $anio=$trozos[2];
+        }else{
+            return false;
+        }
+
+        
+        if(checkdate ($mes,$dia,$anio)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public static function limpiaSimbolosEspeciales($string) {
+        $string = str_replace(' ', '-', $string);
+        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+        return preg_replace('/-+/', '_', $string);
+    }
     
     // others global functions
 }

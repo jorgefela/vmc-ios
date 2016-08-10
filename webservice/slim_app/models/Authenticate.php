@@ -5,7 +5,7 @@ use lib\Core;
 use PDO;
 use lib\Config;
 
-class Authenticate  {
+class Authenticate extends Database  {
 
 	public $keyRemote = null;
 	public $keyDate = null;
@@ -24,14 +24,18 @@ class Authenticate  {
 		$key      = $this->security->key;
 		$date     = $this->keyDate;
 		$ipVist   = $this->get_real_ip();
-		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email.$date);
+		$keyToken = $this->encryptVal($prefix.$key.$ipVist.$email);
 		$emailecr = $this->encryptVal($email);
 		$timeSesion = $this->security->time_cookie;
+		$_SESSION["ipVist"] = $ipVist;
+		$_SESSION["emailecr"] = $emailecr;
+		$_SESSION["keyToken"] = $keyToken;
 
 		$app->setEncryptedCookie('uid', $prefix, $timeSesion);
 		$app->setEncryptedCookie('uemail', $emailecr, $timeSesion);
 		$app->setEncryptedCookie('key', $keyToken, $timeSesion);
 		$this->keyRemote = $keyToken;
+
 		
 	}
 
@@ -40,7 +44,9 @@ class Authenticate  {
 		$app = \Slim\Slim::getInstance();
 
 		$this->keyRemote = null;
-		
+		unset($_SESSION["ipVist"]);
+		unset($_SESSION["emailecr"]);
+		unset($_SESSION["keyToken"]);
 		$app->setEncryptedCookie('uid', '', '0.01 minutes');
 		$app->setEncryptedCookie('uemail', '', '0.01 minutes');
 		$app->setEncryptedCookie('key', '', '0.01 minutes');
@@ -59,13 +65,12 @@ class Authenticate  {
 
 	}
 
-
 	public function authenticate(\Slim\Route $route) {
 
 		$app = \Slim\Slim::getInstance();
-		$uid = $app->getEncryptedCookie('uid');
-		$uem = $app->getEncryptedCookie('uemail');
-		$key = $app->getEncryptedCookie('key');
+		$uid   = $this->security->prefix;
+		$uem = $_SESSION["emailecr"];
+		$key = $_SESSION["keyToken"];
 
 		if ($this->validateUserKey($uid, $key, $uem) === false ) {
 			$app->halt(401);
@@ -95,7 +100,7 @@ class Authenticate  {
 		$dRemotKey = $this->decryptVal($remoteKey);
 
 
-		if ( ($uid === $prefix) && ($dkeyToken === $prefix.$dkey.$ipVist.$email.$date) && ($dRemotKey === $prefix.$dkey.$ipVist.$email.$date) ) {
+		if ( ($uid === $prefix) && ($dkeyToken === $prefix.$dkey.$ipVist.$email) && ($dRemotKey === $prefix.$dkey.$ipVist.$email) ) {
 
 			return true;
 

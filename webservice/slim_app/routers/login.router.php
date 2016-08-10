@@ -16,25 +16,29 @@ $app->post('/login', function () use ($app) {
     }else{
         
         $key = "";
-        $dataRsl=false;
+        $ob   = new models\Login($app);
 
         if(!empty($data['email']) && validEmail($data['email'])){
 
             $data['email'] = cleanValues($data['email']);
             $data['password'] = cleanValues($data['password']);
-            $ob   = new models\Login($app);
+            
             $dataRsl = $ob->getUserByLogin($data['email'], $data['password']);
             $key  = $ob->getKey();
+            
 
         }
-         
-        if($dataRsl==false){
-            $response = 0;
-            $dataRsl = array();
-        }else{
-            $response = 1;
-        }
         $app->contentType('application/json');
-        echo '{"success": '.$response.', "key": "'. $key .'", "result": ' . json_encode($dataRsl) . '}';
+        $rows = $ob->num_reg;
+        $message = $ob->message;
+         
+        if($rows==0){
+            
+            echo '{"success": 1, "key": "'. $key .'", "rows": '.$rows.', "message":"'.$message.'", "result": []}';
+
+        }else{
+            echo '{"success": 1, "key": "'. $key .'", "rows": '.$rows.', "message":"'.$message.'", "result": [' . json_encode($dataRsl) . ']}';
+        }
+                
    }
 });
