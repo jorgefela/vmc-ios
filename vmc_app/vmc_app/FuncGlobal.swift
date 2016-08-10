@@ -133,6 +133,23 @@ class FuncGlobal {
         return screenSize
     }
     
+    // MARK: - NavigationBar methods
+    func setupNavigationBar (viewController: UIViewController)
+    {
+        
+        //current tab screen title
+        tabBarController?.title = "Manage"
+        
+        //Hide back button or left bar button
+        tabBarController?.navigationItem.leftBarButtonItem = UIBarButtonItem(title: " ", style: .Plain, target: nil, action: nil)
+        
+        //custom right bar button
+        var image = UIImage(named: "dummy_settings_icon")
+        image = image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action:  "settingButtonAction")
+        viewController.navigationController?.navigationBar.topItem?.title = " "
+    }
+    
     
     
 }
