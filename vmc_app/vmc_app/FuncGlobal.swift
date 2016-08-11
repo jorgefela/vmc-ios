@@ -52,7 +52,7 @@ extension CALayer {
     
     func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
         
-        var border = CALayer()
+        let border = CALayer()
         
         switch edge {
         case UIRectEdge.Top:
@@ -132,6 +132,7 @@ class FuncGlobal {
         }
         return screenSize
     }
+    /*
     
     // MARK: - NavigationBar methods
     func setupNavigationBar (viewController: UIViewController)
@@ -148,7 +149,7 @@ class FuncGlobal {
         image = image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action:  "settingButtonAction")
         viewController.navigationController?.navigationBar.topItem?.title = " "
-    }
+    }*/
     
     
     
