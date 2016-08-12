@@ -45,10 +45,15 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delagado?.getDatosProtocol("\(email)", filaSelcc: self.filaSeleccionada!, titulo: "\(self.tituloLista)")
-        self.navigationController?.navigationBar.topItem?.title = " "
+       // self.navigationController?.navigationBar.topItem?.title = " "
         
-        let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        //let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
+        //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        
+        
+        
+        //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        //self.navigationController?.navigationBar.topItem?.title = ""
         //let backButton = UIBarButtonItem(title: "", style:.Plain, target: self, action: #selector(EditarContactoViewController.goBack))
         //self.navigationItem.leftBarButtonItem = backButton
         
@@ -187,16 +192,27 @@ class EditarContactoViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
+        
+        //let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
+        //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)
         //cambio color y titulo del boton regresar
-        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
-        self.navigationController?.navigationBar.topItem?.title = " "
+        //self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
+        //self.navigationController?.navigationBar.topItem?.title = " "
         //self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         //let backItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         //self.navigationItem.backBarButtonItem = backItem
         
+        self.navigationController!.navigationBar.tintColor = UIColor(hexaString: "#00FFD8")
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "flecha-izq-Small")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "flecha-izq-Small")
         //self.navigationController?.navigationBar.topItem?.title = ""
+        if let navButtons = self.navigationController?.navigationBar.items {
+            print("entre aqui")
+            if navButtons.count > 0 {
+                navButtons[0].title = ""
+            }
+        }
+        
         //let backImg: UIImage = UIImage(named: "flecha-izq-Small")!
         //UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
         //UIBarButtonItem.appearance().setBackButtonBackgroundImage(backImg, forState: .Normal, barMetrics: .Default)

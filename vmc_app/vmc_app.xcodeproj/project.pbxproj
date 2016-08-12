@@ -49,6 +49,7 @@
 		12D5118B1D45815B00395021 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118A1D45815B00395021 /* ListViewController.swift */; };
 		12D5118D1D46669100395021 /* SubscribersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118C1D46669100395021 /* SubscribersViewController.swift */; };
 		12D5118F1D4854CA00395021 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5118E1D4854C900395021 /* AddListViewController.swift */; };
+		12E7553A1D5E6276003B6155 /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E755391D5E6275003B6155 /* EmailViewController.swift */; };
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
 		12F4E44B1D514F490006E10F /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4E44A1D514F480006E10F /* PerfilViewController.swift */; };
 		12FA2C471D5033640077DE18 /* SBGestureTableView in Resources */ = {isa = PBXBuildFile; fileRef = 12FA2C461D5033640077DE18 /* SBGestureTableView */; };
@@ -101,6 +102,7 @@
 		12D5118A1D45815B00395021 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		12D5118C1D46669100395021 /* SubscribersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribersViewController.swift; sourceTree = "<group>"; };
 		12D5118E1D4854C900395021 /* AddListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		12E755391D5E6275003B6155 /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		12EF13681D400D5A009877AA /* vmc_app-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "vmc_app-Bridging-Header.h"; sourceTree = "<group>"; };
 		12EF13691D400D5D009877AA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				12F4E44A1D514F480006E10F /* PerfilViewController.swift */,
 				126311F61D54448300E07F9F /* DetalleListaViewController.swift */,
 				126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */,
+				12E755391D5E6275003B6155 /* EmailViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				129C12C31D30632E00B32662 /* showVideoViewController.swift in Sources */,
 				12D5118D1D46669100395021 /* SubscribersViewController.swift in Sources */,
 				12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */,
+				12E7553A1D5E6276003B6155 /* EmailViewController.swift in Sources */,
 				12477AD81D110316005B6391 /* AppDelegate.swift in Sources */,
 				120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */,
 				123320B01D27198600BE0A95 /* EmailListaStaticticsController.swift in Sources */,

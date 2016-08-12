@@ -313,7 +313,9 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         if  miSegue == "segue_edit_contacto",
             let destination = segue.destinationViewController as? EditarContactoViewController
         {
-            self.navigationItem.title = " "
+            //self.navigationItem.title = ""
+            let backButton = UIBarButtonItem(title: "", style:.Plain, target: nil, action: nil)
+            navigationItem.backBarButtonItem = backButton
             // var indexPath : NSIndexPath?
             if let button = sender as? UIButton {
                 //let cell = button.superview?.superview as! UITableViewCell
