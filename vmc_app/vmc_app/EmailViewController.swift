@@ -9,16 +9,19 @@
 import UIKit
 class EmailViewController: UICollectionViewController {
     
+    var datosColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.datosColeccion.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_colletion", forIndexPath: indexPath) as UICollectionViewCell
+        
         return cell
     }
 }
