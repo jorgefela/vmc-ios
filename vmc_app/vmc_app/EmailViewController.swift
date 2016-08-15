@@ -27,7 +27,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomEmailViewController = self.emailTable.dequeueReusableCellWithIdentifier("cell_email_mod")! as! CustomEmailViewController
-        cell.desc1video.text = self.footerColeccion[indexPath.row]
+        cell.titulo1email.text = self.tituloColeccion[indexPath.row]
         return cell
     }
     /*
