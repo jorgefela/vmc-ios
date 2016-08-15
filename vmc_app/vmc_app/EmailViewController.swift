@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class EmailViewController: UICollectionViewController {
+class EmailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
     var imgTituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
@@ -17,7 +17,7 @@ class EmailViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+    /*
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.thumbColeccion.count
     }
@@ -32,4 +32,5 @@ class EmailViewController: UICollectionViewController {
         
         return cell
     }
+ */
 }

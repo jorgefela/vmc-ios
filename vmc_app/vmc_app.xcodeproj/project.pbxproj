@@ -36,6 +36,7 @@
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
 		12766E4A1D3D1E3000AECB41 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12766E481D3D1E3000AECB41 /* CFNetwork.framework */; };
 		12766E4D1D3D2A9200AECB41 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12766E4C1D3D2A9200AECB41 /* Kingfisher.framework */; };
+		1295BC481D624146008860E1 /* CustomEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295BC471D624146008860E1 /* CustomEmailViewController.swift */; };
 		129C12C11D30619300B32662 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C12C01D30619300B32662 /* VideoViewController.swift */; };
 		129C12C31D30632E00B32662 /* showVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C12C21D30632E00B32662 /* showVideoViewController.swift */; };
 		12A02F3B1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */; };
@@ -89,6 +90,7 @@
 		12766E481D3D1E3000AECB41 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		12766E491D3D1E3000AECB41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		12766E4C1D3D2A9200AECB41 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../../../Users/macbook3/Library/Developer/Xcode/DerivedData/vmc_app-hifjvhnhjgxvqbeftqmisktfcsyf/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
+		1295BC471D624146008860E1 /* CustomEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEmailViewController.swift; sourceTree = "<group>"; };
 		129C12C01D30619300B32662 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		129C12C21D30632E00B32662 /* showVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showVideoViewController.swift; sourceTree = "<group>"; };
 		12A02F3A1D2F1AF3000FC1E0 /* CustomTableVewCellEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableVewCellEmail.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				12D511881D45811B00395021 /* CustomListViewController.swift */,
 				126311FA1D55854C00E07F9F /* CustomDetalleListaViewController.swift */,
 				126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */,
+				1295BC471D624146008860E1 /* CustomEmailViewController.swift */,
 			);
 			name = customControllers;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */,
 				126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
+				1295BC481D624146008860E1 /* CustomEmailViewController.swift in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,
 				120DC5A41D2DF21E00BADDCA /* StaticticsViewController.swift in Sources */,
