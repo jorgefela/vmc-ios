@@ -1316,7 +1316,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="470" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uqb-NI-VjG">
-                                <rect key="frame" x="0.0" y="64" width="600" height="501"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_email_mod" rowHeight="470" id="xuc-9H-nZY" customClass="CustomEmailViewController" customModule="vmc_app" customModuleProvider="target">
@@ -1400,6 +1400,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="email" id="XxJ-fC-6bi"/>
+                    <connections>
+                        <outlet property="emailTable" destination="uqb-NI-VjG" id="Tep-5h-TIm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Z3-hS-MUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

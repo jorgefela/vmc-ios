@@ -9,6 +9,8 @@
 import UIKit
 class EmailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var emailTable: UITableView!
+    
     var tituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
     var imgTituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
     var thumbColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
@@ -16,6 +18,17 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return self.thumbColeccion.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:CustomEmailViewController = self.emailTable.dequeueReusableCellWithIdentifier("cell_email_mod")! as! CustomEmailViewController
+        cell.desc1video.text = self.footerColeccion[indexPath.row]
+        return cell
     }
     /*
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
