@@ -22,6 +22,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     var idEmailColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
     
     var pase = "0"
+    var cantReg = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,6 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
         
         let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/email"
-        print(url_path)
         let url = NSURL(string: url_path)
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
@@ -42,7 +42,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         urlconfig.timeoutIntervalForResource = 300
         var session = NSURLSession.sharedSession()
         session = NSURLSession(configuration: urlconfig)
-        
+        /*
         // START -- alert
         let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
         alert.view.tintColor = UIColor.blackColor()
@@ -54,7 +54,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         alert.view.addSubview(loadingIndicator)
         self.presentViewController(alert, animated: true, completion: nil)
         // END -- alert
-        
+        */
         // START -- peticion
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
@@ -69,6 +69,8 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                 self.tituloColeccion.removeAll()
                                 self.thumbColeccion.removeAll()
                                 self.idEmailColeccion.removeAll()
+                                
+                                self.cantReg = (dictionary_result["rows"] as? Int)!
                                 
                                 if let json = dictionary_result["result"] as? NSArray  {
                                     self.pase = "1"
@@ -88,7 +90,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                     
                                     
                                     //esaparecer loading
-                                    self.dismissViewControllerAnimated(false, completion: nil)
+                                   // self.dismissViewControllerAnimated(false, completion: nil)
+                                    self.emailTable.reloadData()
+                                
                                 }
                                 
                             })
@@ -99,7 +103,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                     print(error)
                     dispatch_async(dispatch_get_main_queue()){
                         //esaparecer loading
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        //self.dismissViewControllerAnimated(false, completion: nil)
                         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
                         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
@@ -112,7 +116,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                         let appDomain = NSBundle.mainBundle().bundleIdentifier
                         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
                         //esaparecer loading
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        //self.dismissViewControllerAnimated(false, completion: nil)
                         let segueViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LoginView")
                         UIView.transitionWithView(self.window, duration: 0, options: UIViewAnimationOptions.TransitionNone, animations: {() -> Void in self.window.rootViewController = segueViewController}, completion: nil)
                         
@@ -136,15 +140,25 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let count = self.idEmailColeccion.count / 2
+        if self.cantReg > 0 {
+            if self.cantReg % 2 == 0 {
+                print("\(self.cantReg) is even number")
+            } else {
+                print("\(self.cantReg) is odd number")
+            }
+        }
         
-        return self.thumbColeccion.count
+        print(count)
+        return self.idEmailColeccion.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomEmailViewController = self.emailTable.dequeueReusableCellWithIdentifier("cell_email_mod")! as! CustomEmailViewController
         let urlBase  = mainInstance.urlImagePreviewEmail + "\(self.idEmailColeccion[indexPath.row]).png"
-        print(urlBase)
+        
         if pase != "0" {
+            print(urlBase)/*
             cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!,
                                                 placeholderImage: nil,
                                                 optionsInfo: nil,
@@ -154,7 +168,13 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                 completionHandler: { (image, error, cacheType, imageURL) -> () in
                                                     print("Downloaded and set!")
                 }
-            )
+            )*/
+            
+            let myCache = ImageCache(name: "vmc_cache")
+            
+            cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!,
+                                         placeholderImage: nil,
+                                         optionsInfo: [.TargetCache(myCache)])
         }
         cell.titulo1email.text = self.tituloColeccion[indexPath.row]
         

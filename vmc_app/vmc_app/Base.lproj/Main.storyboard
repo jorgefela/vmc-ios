@@ -1335,7 +1335,7 @@
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3b6-Nc-2id">
                                                     <rect key="frame" x="11" y="48" width="278" height="394"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bti-yk-Sqr">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bti-yk-Sqr">
                                                             <rect key="frame" x="0.0" y="0.0" width="278" height="394"/>
                                                         </imageView>
                                                     </subviews>
@@ -1344,7 +1344,7 @@
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhv-NX-tyb">
                                                     <rect key="frame" x="308" y="48" width="278" height="394"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-U4-PES">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-U4-PES">
                                                             <rect key="frame" x="0.0" y="0.0" width="278" height="394"/>
                                                         </imageView>
                                                     </subviews>
