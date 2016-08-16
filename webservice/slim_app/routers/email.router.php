@@ -4,34 +4,30 @@
 $app->get('/user/:id_user/email(/:id)','authenticate', function ($id_user, $id=0) use ($app) {
 
   $app->contentType('application/json');
-  $rows = 0;
-  $message = "No records found";
+  $ob = new models\Email();
 
   if(!empty($id_user) && isInteger($id_user) && $id==0){
 
-      $ob = new models\Email();
-      $full="";
+      $full = "";
       $data = $ob->getEmail($id_user, $full);
       $rows = $ob->num_reg;
-      if($rows>0){
-        $message = "";
-      }
+      $message = $ob->message;
       echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   }else if(!empty($id_user) && isInteger($id_user) && isInteger($id) && $id != 0){
 
     $ob = new models\Email();
-    $full="";
+    $full = "";
     $data = $ob->getEmailOnly($id_user, $id, $full);
     $rows = $ob->num_reg;
-      if($rows>0){
-        $message = "";
-      }
+    $message = $ob->message;
     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   }else{
 
      $data =array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
   }
@@ -42,23 +38,21 @@ $app->get('/user/:id_user/email(/:id)','authenticate', function ($id_user, $id=0
 $app->get('/user/:id_user/email/from/:from/to/:to','authenticate', function ($id_user, $from, $to) use ($app) {
 
   $app->contentType('application/json');
-  $rows = 0;
-  $message = "No records found";
+  $ob = new models\Email();
 
   if(!empty($id_user) && isInteger($id_user) && (!empty($from) && isInteger($from) || $from==0) && !empty($to) && isInteger($to) ){
 
-      $ob = new models\Email();
       $full="";
       $data = $ob->getEmailFromTo($id_user, $from, $to, $full);
       $rows = $ob->num_reg;
-      if($rows>0){
-        $message = "";
-      }
+      $message = $ob->message;
       echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   } else {
 
-     $data =array();
+     $data = array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       
   }

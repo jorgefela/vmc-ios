@@ -9,6 +9,8 @@ class Email extends Database {
 	protected $core;
 	public $db;
 	public $num_reg = 0;
+	public $message = "No records found";
+	public $message2 = "Failed to create email";
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
