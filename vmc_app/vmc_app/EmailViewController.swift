@@ -15,13 +15,13 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var emailTable: UITableView!
     
-    var tituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
-    var imgTituloColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
-    var thumbColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
-    var footerColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
-    var idEmailColeccion = ["elemnto 1","elemnto 2", "elemnto 3","elemnto 4","elemnto 5"]
+    var tituloColeccion = [""]
+    var tituloColeccion2 = [""]
+    var idEmailColeccion = [""]
+    var idEmailColeccion2 = [""]
     
     var pase = "0"
+    let myCache = ImageCache(name: "vmc_cache")
     var cantReg = 0
     
     override func viewDidLoad() {
@@ -67,26 +67,52 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                 
                                 let espacio =  "";
                                 self.tituloColeccion.removeAll()
-                                self.thumbColeccion.removeAll()
                                 self.idEmailColeccion.removeAll()
+                                self.tituloColeccion2.removeAll()
+                                self.idEmailColeccion2.removeAll()
                                 
                                 self.cantReg = (dictionary_result["rows"] as? Int)!
                                 
                                 if let json = dictionary_result["result"] as? NSArray  {
                                     self.pase = "1"
+                                    var cambio = 0
                                     for item in json {
+                                        
                                         if let Id = item.valueForKey("id") {
-                                            self.idEmailColeccion.append(Id as! String)
                                             
-                                            if let title = item.valueForKey("title") {
-                                                self.tituloColeccion.append(title as! String)
+                                            //alterno entre los arrays
+                                            if cambio == 0 {
+                                                self.idEmailColeccion.append(Id as! String)
+                                                
+                                                if let title = item.valueForKey("title") {
+                                                    self.tituloColeccion.append(title as! String)
+                                                }else{
+                                                    self.tituloColeccion.append(espacio)
+                                                }
+                                                cambio = 1
+                                                
                                             }else{
-                                                self.tituloColeccion.append(espacio)
+                                                
+                                                self.idEmailColeccion2.append(Id as! String)
+                                                
+                                                if let title = item.valueForKey("title") {
+                                                    self.tituloColeccion2.append(title as! String)
+                                                }else{
+                                                    self.tituloColeccion2.append(espacio)
+                                                }
+                                                cambio = 0
                                             }
-                                            
-                                            
+                                        
                                         }
+                                        
                                     }//fin for
+                                    
+                                    if self.cantReg > 0 {
+                                        if self.cantReg % 2 != 0 {
+                                            //igualo las cantidades
+                                            self.idEmailColeccion2.append("")
+                                        }
+                                    }
                                     
                                     
                                     //esaparecer loading
@@ -140,61 +166,34 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = self.idEmailColeccion.count / 2
-        if self.cantReg > 0 {
-            if self.cantReg % 2 == 0 {
-                print("\(self.cantReg) is even number")
-            } else {
-                print("\(self.cantReg) is odd number")
-            }
-        }
-        
-        print(count)
+
         return self.idEmailColeccion.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomEmailViewController = self.emailTable.dequeueReusableCellWithIdentifier("cell_email_mod")! as! CustomEmailViewController
         let urlBase  = mainInstance.urlImagePreviewEmail + "\(self.idEmailColeccion[indexPath.row]).png"
+        var urlBase2 = ""
+        if !self.idEmailColeccion2[indexPath.row].isEmpty {
+            urlBase2  = mainInstance.urlImagePreviewEmail + "\(self.idEmailColeccion2[indexPath.row]).png"
+            cell.titulo2email.text = self.tituloColeccion2[indexPath.row]
+        }
+        
         
         if pase != "0" {
-            print(urlBase)/*
-            cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!,
-                                                placeholderImage: nil,
-                                                optionsInfo: nil,
-                                                progressBlock: { (receivedSize, totalSize) -> () in
-                                                    print("Download Progress: \(receivedSize)/\(totalSize)")
-                },
-                                                completionHandler: { (image, error, cacheType, imageURL) -> () in
-                                                    print("Downloaded and set!")
-                }
-            )*/
             
-            let myCache = ImageCache(name: "vmc_cache")
+            cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
             
-            cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!,
-                                         placeholderImage: nil,
-                                         optionsInfo: [.TargetCache(myCache)])
+            if !self.idEmailColeccion2[indexPath.row].isEmpty {
+                
+                cell.thumb2video.kf_setImageWithURL(NSURL(string: urlBase2)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+                
+            }
+            
         }
         cell.titulo1email.text = self.tituloColeccion[indexPath.row]
         
-        
         return cell
-    }
-    /*
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.thumbColeccion.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell_colletion", forIndexPath: indexPath) as UICollectionViewCell
-        let thumbnail = cell.viewWithTag(2) as! UIImageView
-        thumbnail.image = UIImage(named: "photo_perfil.png")
-        let footer = cell.viewWithTag(3) as! UILabel
-        print(footer)
-        footer.text = self.footerColeccion[indexPath.row]
-        
-        return cell
-    }
- */
 }
