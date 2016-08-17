@@ -24,6 +24,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     let myCache = ImageCache(name: "vmc_cache")
     var cantReg = 0
     
+    //datos para el segue
+    var idSelectEmail = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -201,9 +204,37 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    func emailSelect()
+    func emailSelect(sender:UITapGestureRecognizer)
     {
-        print("Tapped on Image")
+        
+        
+        let buttonRow = sender.view
+        print("aqui \(buttonRow)")
+        //self.idList = ElementosIdList[buttonRow]
+        //self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let miSegue = segue.identifier!
+        if  miSegue == "segue_detalle_email",
+            let destination = segue.destinationViewController as? DetalleEmailViewController
+        {
+            // var indexPath : NSIndexPath?
+            if let button = sender as? UIButton {
+                print(button)
+                //let cell = button.superview?.superview as! UITableViewCell
+                //indexPath = self.TablaList.indexPathForCell(cell)!
+                //self.idList = ElementosIdList[button.tag]
+               // self.filaSeleccionada = NSIndexPath(forRow:button.tag, inSection:0)
+            }
+            
+            //paso el id del email a la viariable que esta en el siguiente controller
+            destination.filaSeleccionadaDestino = self.filaSeleccionada
+            destination.id_list = self.idList
+            destination.delagadoNewContacto = self
+            
+        }
     }
     
 }
