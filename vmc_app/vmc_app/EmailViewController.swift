@@ -183,10 +183,15 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         if pase != "0" {
             
             cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+            cell.thumb1video.tag = indexPath.row
+            let tap = UITapGestureRecognizer(target: self, action: #selector(EmailViewController.emailSelect))
+            cell.thumb1video.addGestureRecognizer(tap)
+            cell.thumb1video.userInteractionEnabled = true
             
             if !self.idEmailColeccion2[indexPath.row].isEmpty {
                 
                 cell.thumb2video.kf_setImageWithURL(NSURL(string: urlBase2)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+                cell.thumb2video.tag = indexPath.row
                 
             }
             
@@ -194,6 +199,11 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.titulo1email.text = self.tituloColeccion[indexPath.row]
         
         return cell
+    }
+    
+    func emailSelect()
+    {
+        print("Tapped on Image")
     }
     
 }
