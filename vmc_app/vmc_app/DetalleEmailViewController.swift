@@ -10,8 +10,13 @@ import UIKit
 
 class DetalleEmailViewController: UIViewController {
     
+    var idEmail = ""
+    
     @IBOutlet weak var thumbEmailDetalle: UIImageView!
+    
     override func viewDidLoad() {
+        
+        print(idEmail)
         super.viewDidLoad()
     }
     
