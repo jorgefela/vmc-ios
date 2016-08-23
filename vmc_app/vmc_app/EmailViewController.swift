@@ -223,6 +223,7 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
             // var indexPath : NSIndexPath?
             if let button = sender as? UIButton {
                 print(button)
+                print(destination)
                 //let cell = button.superview?.superview as! UITableViewCell
                 //indexPath = self.TablaList.indexPathForCell(cell)!
                 //self.idList = ElementosIdList[button.tag]
@@ -230,9 +231,8 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             
             //paso el id del email a la viariable que esta en el siguiente controller
-            destination.filaSeleccionadaDestino = self.filaSeleccionada
-            destination.id_list = self.idList
-            destination.delagadoNewContacto = self
+            
+            destination.idEmail = self.idSelectEmail
             
         }
     }
