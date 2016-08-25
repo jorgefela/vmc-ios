@@ -195,6 +195,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 cell.thumb2video.kf_setImageWithURL(NSURL(string: urlBase2)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
                 cell.thumb2video.tag = indexPath.row
+                let tap2 = UITapGestureRecognizer(target: self, action: #selector(EmailViewController.emailSelect2))
+                cell.thumb2video.addGestureRecognizer(tap2)
+                cell.thumb2video.userInteractionEnabled = true
                 
             }
             
@@ -208,8 +211,21 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     {
         
         
-        let buttonRow = sender.view
-        print("aqui \(buttonRow)")
+        let buttonRow = sender.view!
+        idSelectEmail = idEmailColeccion[buttonRow.tag]
+        print("aqui \(idSelectEmail)")
+        self.performSegueWithIdentifier("segue_detalle_email", sender: self)
+        //self.idList = ElementosIdList[buttonRow]
+        //self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
+    }
+    func emailSelect2(sender:UITapGestureRecognizer)
+    {
+        
+        
+        let buttonRow = sender.view!
+        idSelectEmail = idEmailColeccion2[buttonRow.tag]
+        print("aqui2 \(idSelectEmail)")
+        self.performSegueWithIdentifier("segue_detalle_email", sender: self)
         //self.idList = ElementosIdList[buttonRow]
         //self.filaSeleccionada = NSIndexPath(forRow:buttonRow, inSection:0)
     }
@@ -220,10 +236,11 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         if  miSegue == "segue_detalle_email",
             let destination = segue.destinationViewController as? DetalleEmailViewController
         {
+            //print(destination)
             // var indexPath : NSIndexPath?
             if let button = sender as? UIButton {
                 print(button)
-                print(destination)
+                
                 //let cell = button.superview?.superview as! UITableViewCell
                 //indexPath = self.TablaList.indexPathForCell(cell)!
                 //self.idList = ElementosIdList[button.tag]
