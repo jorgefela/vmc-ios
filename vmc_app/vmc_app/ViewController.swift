@@ -19,6 +19,9 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIView.setAnimationsEnabled(false)
+        self.navigationItem.prompt = nil
+        UIView.setAnimationsEnabled(true)
         
         
         if self.revealViewController() != nil {
@@ -47,6 +50,9 @@ class ViewController: UIViewController{
             }
         } else{
             dispatch_async(dispatch_get_main_queue()){
+                UIView.setAnimationsEnabled(false)
+                self.navigationItem.prompt = nil
+                UIView.setAnimationsEnabled(true)
                 self.navigationController?.setNavigationBarHidden(false, animated: false)
                 self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
                 self.navigationController!.navigationBar.translucent = false

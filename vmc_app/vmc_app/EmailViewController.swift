@@ -221,7 +221,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     func emailSelect(sender:UITapGestureRecognizer)
     {
         
-        
+        UIView.setAnimationsEnabled(false)
+        self.navigationItem.prompt = nil
+        UIView.setAnimationsEnabled(true)
         let buttonRow = sender.view!
         idSelectEmail = idEmailColeccion[buttonRow.tag]
         print("aqui \(idSelectEmail)")
@@ -231,7 +233,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     func emailSelect2(sender:UITapGestureRecognizer)
     {
-        
+        UIView.setAnimationsEnabled(false)
+        self.navigationItem.prompt = nil
+        UIView.setAnimationsEnabled(true)
         
         let buttonRow = sender.view!
         idSelectEmail = idEmailColeccion2[buttonRow.tag]

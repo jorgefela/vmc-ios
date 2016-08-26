@@ -26,6 +26,9 @@ class DetalleEmailViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIView.setAnimationsEnabled(false)
+        self.navigationItem.prompt = nil
+        UIView.setAnimationsEnabled(true)
         self.tableOpciones.registerClass(UITableViewCell.self, forCellReuseIdentifier: "opcionesEmail")
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
