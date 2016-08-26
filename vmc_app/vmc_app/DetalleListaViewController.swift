@@ -101,8 +101,10 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
             }
         }
         // END - cambio de color background textfield barra de busqueda
-        
+        //self.extendedLayoutIncludesOpaqueBars = !self.navigationController!.navigationBar.translucent
         self.busquedaController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = true
+        
         self.navigationItem.title = nombreLista
         
         //definesPresentationContext = true
@@ -236,11 +238,12 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
 
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+
         self.filtrarElementos = self.ElementoLista.filter{ (varLista:String) -> Bool in
             var pase = "N"
             if let varBusqueda = self.busquedaController.searchBar.text?.lowercaseString {
+                print(varBusqueda)
                 pase = "S"
-                print("\(varBusqueda)")
             }else{
                 pase = "N"
                 
@@ -259,6 +262,14 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
             return retornar
         }
         self.resultatosController.tableView.reloadData()
+    }
+    
+    func willPresentSearchController(searchController: UISearchController) {
+        navigationController?.navigationBar.translucent = true
+    }
+    
+    func willDismissSearchController(searchController: UISearchController) {
+        navigationController?.navigationBar.translucent = false
     }
 
     // MARK: - Table view data source
@@ -282,8 +293,8 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         }else{
             cell.nombreEmail.text = self.filtrarElementos[indexPath.row]
         }
-        
         cell.botonEditar.tag = indexPath.row
+        print("mi filaaa\(indexPath.row)")
         cell.botonEditar.addTarget(self, action: #selector(DetalleListaViewController.editarContacto), forControlEvents: .TouchUpInside)
         cell.nombreEmail.font = UIFont(name: "HelveticaNeue-Thin", size: 16)!
         return cell
@@ -291,7 +302,7 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        print(self.ElementosIdList[indexPath.row])
+        //print(self.ElementosIdList[indexPath.row])
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -341,11 +352,15 @@ class DetalleListaViewController: UITableViewController, UISearchResultsUpdating
         
         var filas: Array<NSIndexPath> = []
         if let miFila:NSIndexPath = filaSelcc {
-            filas += [miFila]
+            print(miFila)
+            let fila2 = NSIndexPath(forRow:1, inSection:0)
+            print(fila2)
+            filas += [fila2]
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 let myCell = self.tableView!.cellForRowAtIndexPath(filaSelcc) as! CustomDetalleListaViewController
                 myCell.nombreEmail.text = email
                 self.navigationItem.title = titulo
+               //self.tableView.reloadRowsAtIndexPaths(filas, withRowAnimation: UITableViewRowAnimation.Automatic)
             })
             
         }
