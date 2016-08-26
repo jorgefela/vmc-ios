@@ -1312,7 +1312,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Hvx-JS-m8n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ydY-6n-tmf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="470" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uqb-NI-VjG">
@@ -1320,7 +1320,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_email_mod" rowHeight="470" id="xuc-9H-nZY" customClass="CustomEmailViewController" customModule="vmc_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="470"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="470"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xuc-9H-nZY" id="wL4-qi-1kx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="469"/>
@@ -1394,28 +1394,31 @@
                         <viewControllerLayoutGuide type="bottom" id="6NK-d4-BE0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kmX-vM-88s">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-dU-hKN">
-                                <rect key="frame" x="52" y="72" width="496" height="270"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-dU-hKN">
+                                <rect key="frame" x="86" y="72" width="428" height="339"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVe-xh-FKl">
-                                <rect key="frame" x="0.0" y="397" width="600" height="203"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tVe-xh-FKl">
+                                <rect key="frame" x="0.0" y="414" width="600" height="186"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="186" id="K9W-DC-gCZ"/>
+                                </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2j5-6G-BpS">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idOpcEditEmail" id="2j5-6G-BpS" customClass="CustomOpcionEditEmail" customModule="vmc_app" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2j5-6G-BpS" id="RoV-t4-2T4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-q0-1Wc">
-                                                    <rect key="frame" x="52" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="52" y="10" width="25" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlJ-YD-gnj">
-                                                    <rect key="frame" x="135" y="11" width="210" height="21"/>
+                                                    <rect key="frame" x="100" y="11" width="210" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="edit email">
                                                             <attributes>
@@ -1430,19 +1433,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.13333333333333333" green="0.59607843137254901" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="imgEmail" destination="dU8-q0-1Wc" id="uXc-jY-GYk"/>
+                                            <outlet property="textEmail" destination="DlJ-YD-gnj" id="Uxd-Jb-0IM"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="WtI-Dp-Xfv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idOpcStatistics" id="WtI-Dp-Xfv">
                                         <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WtI-Dp-Xfv" id="ftQ-eD-LZi">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDr-yi-8TA">
-                                                    <rect key="frame" x="52" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="52" y="10" width="25" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wP5-YT-ut5">
-                                                    <rect key="frame" x="135" y="11" width="210" height="21"/>
+                                                    <rect key="frame" x="100" y="11" width="210" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="statistics">
                                                             <attributes>
@@ -1461,14 +1468,14 @@
                                         <rect key="frame" x="0.0" y="116" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yA0-pS-b03" id="cic-kq-6NJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tcn-hq-asG">
-                                                    <rect key="frame" x="52" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="52" y="9" width="25" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENo-5k-t1H">
-                                                    <rect key="frame" x="135" y="11" width="210" height="21"/>
+                                                    <rect key="frame" x="100" y="11" width="210" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="delete email">
                                                             <attributes>
@@ -1487,14 +1494,14 @@
                                         <rect key="frame" x="0.0" y="160" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YFY-q3-x9Z" id="1Qd-dY-lll">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fq3-Wi-N9O">
-                                                    <rect key="frame" x="52" y="2" width="39" height="39"/>
+                                                    <rect key="frame" x="52" y="7" width="25" height="25"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tT0-hk-TPT">
-                                                    <rect key="frame" x="135" y="11" width="210" height="21"/>
+                                                    <rect key="frame" x="100" y="11" width="210" height="21"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="let's fly">
                                                             <attributes>
@@ -1511,18 +1518,35 @@
                                         <color key="backgroundColor" red="0.070588235294117646" green="0.10980392156862745" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yR0-dN-Noh" id="gwE-qC-91d"/>
+                                    <outlet property="delegate" destination="yR0-dN-Noh" id="nJp-7c-FBN"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="tqr-dU-hKN" secondAttribute="trailing" constant="66" id="0Yr-w3-1B6"/>
+                            <constraint firstItem="tqr-dU-hKN" firstAttribute="top" secondItem="1dk-YV-Vli" secondAttribute="bottom" constant="8" id="2R0-uK-5ga"/>
+                            <constraint firstItem="tVe-xh-FKl" firstAttribute="leading" secondItem="kmX-vM-88s" secondAttribute="leadingMargin" constant="-20" id="9Qy-ZT-87I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tVe-xh-FKl" secondAttribute="trailing" constant="-20" id="ItS-3M-6Hb"/>
+                            <constraint firstItem="6NK-d4-BE0" firstAttribute="top" secondItem="tVe-xh-FKl" secondAttribute="bottom" id="J9Q-Ue-XpM"/>
+                            <constraint firstItem="tqr-dU-hKN" firstAttribute="leading" secondItem="kmX-vM-88s" secondAttribute="leadingMargin" constant="66" id="JZ2-yJ-XDI"/>
+                            <constraint firstItem="tVe-xh-FKl" firstAttribute="top" secondItem="tqr-dU-hKN" secondAttribute="bottom" constant="3" id="PUK-Hs-R7M"/>
+                            <constraint firstItem="tqr-dU-hKN" firstAttribute="centerX" secondItem="kmX-vM-88s" secondAttribute="centerX" id="pJp-Jw-AbE"/>
+                            <constraint firstItem="tVe-xh-FKl" firstAttribute="top" secondItem="tqr-dU-hKN" secondAttribute="bottom" constant="3" id="xiR-Vt-1ie"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="emails" id="Jrc-zL-dV6"/>
                     <connections>
+                        <outlet property="tableOpciones" destination="tVe-xh-FKl" id="g4U-wa-etU"/>
                         <outlet property="thumbEmailDetalle" destination="tqr-dU-hKN" id="kLd-Hh-L7L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvD-uH-1ry" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2365" y="-5"/>
+            <point key="canvasLocation" x="2365" y="-5.5"/>
         </scene>
         <!--Statictics-->
         <scene sceneID="DSh-Qm-gbA">
@@ -2215,14 +2239,14 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="AB4-Vp-ZWR"/>
         <segue reference="bWk-Zv-rk8"/>
-        <segue reference="BH5-aK-9lh"/>
         <segue reference="zUs-AK-gml"/>
-        <segue reference="cdk-xI-J5b"/>
         <segue reference="jDn-de-0N9"/>
         <segue reference="GaJ-wJ-hCg"/>
         <segue reference="hgs-45-Tsc"/>
-        <segue reference="AB4-Vp-ZWR"/>
         <segue reference="5lr-f3-9c7"/>
+        <segue reference="fWp-Nt-uJ0"/>
+        <segue reference="cdk-xI-J5b"/>
     </inferredMetricsTieBreakers>
 </document>

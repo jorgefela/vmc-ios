@@ -36,6 +36,8 @@
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
 		12766E4A1D3D1E3000AECB41 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12766E481D3D1E3000AECB41 /* CFNetwork.framework */; };
 		12766E4D1D3D2A9200AECB41 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12766E4C1D3D2A9200AECB41 /* Kingfisher.framework */; };
+		127BECA01D703C72008379C5 /* CustomOpcionEditEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127BEC9F1D703C72008379C5 /* CustomOpcionEditEmail.swift */; };
+		127BECA21D704040008379C5 /* CustomOpcionStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127BECA11D704040008379C5 /* CustomOpcionStatistics.swift */; };
 		1295BC481D624146008860E1 /* CustomEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295BC471D624146008860E1 /* CustomEmailViewController.swift */; };
 		1295BC4A1D63715C008860E1 /* DetalleEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1295BC491D63715C008860E1 /* DetalleEmailViewController.swift */; };
 		129C12C11D30619300B32662 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129C12C01D30619300B32662 /* VideoViewController.swift */; };
@@ -91,6 +93,8 @@
 		12766E481D3D1E3000AECB41 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		12766E491D3D1E3000AECB41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		12766E4C1D3D2A9200AECB41 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../../../Users/macbook3/Library/Developer/Xcode/DerivedData/vmc_app-hifjvhnhjgxvqbeftqmisktfcsyf/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework"; sourceTree = "<group>"; };
+		127BEC9F1D703C72008379C5 /* CustomOpcionEditEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOpcionEditEmail.swift; sourceTree = "<group>"; };
+		127BECA11D704040008379C5 /* CustomOpcionStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOpcionStatistics.swift; sourceTree = "<group>"; };
 		1295BC471D624146008860E1 /* CustomEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEmailViewController.swift; sourceTree = "<group>"; };
 		1295BC491D63715C008860E1 /* DetalleEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleEmailViewController.swift; sourceTree = "<group>"; };
 		129C12C01D30619300B32662 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				126311FA1D55854C00E07F9F /* CustomDetalleListaViewController.swift */,
 				126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */,
 				1295BC471D624146008860E1 /* CustomEmailViewController.swift */,
+				127BEC9F1D703C72008379C5 /* CustomOpcionEditEmail.swift */,
+				127BECA11D704040008379C5 /* CustomOpcionStatistics.swift */,
 			);
 			name = customControllers;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 				12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */,
 				12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */,
 				12D511891D45811C00395021 /* CustomListViewController.swift in Sources */,
+				127BECA21D704040008379C5 /* CustomOpcionStatistics.swift in Sources */,
 				126311F71D54448300E07F9F /* DetalleListaViewController.swift in Sources */,
 				126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */,
 				126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */,
@@ -427,6 +434,7 @@
 				129C12C11D30619300B32662 /* VideoViewController.swift in Sources */,
 				129C12C31D30632E00B32662 /* showVideoViewController.swift in Sources */,
 				12D5118D1D46669100395021 /* SubscribersViewController.swift in Sources */,
+				127BECA01D703C72008379C5 /* CustomOpcionEditEmail.swift in Sources */,
 				12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */,
 				12E7553A1D5E6276003B6155 /* EmailViewController.swift in Sources */,
 				12477AD81D110316005B6391 /* AppDelegate.swift in Sources */,
