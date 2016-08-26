@@ -166,6 +166,17 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         task.resume()
         // END -- peticion
+        
+        dispatch_async(dispatch_get_main_queue()){
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+            self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
+            self.navigationController!.navigationBar.translucent = false
+            
+            //cambia color de texto navigation controller
+            let colorTxtTitulo: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+            self.navigationController!.navigationBar.titleTextAttributes = colorTxtTitulo as? [String : AnyObject]
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
