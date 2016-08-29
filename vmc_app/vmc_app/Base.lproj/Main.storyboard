@@ -2114,6 +2114,148 @@
             </objects>
             <point key="canvasLocation" x="3325" y="3116"/>
         </scene>
+        <!--contact-->
+        <scene sceneID="Jl7-KC-GlB">
+            <objects>
+                <viewController id="TWr-uX-mMH" customClass="EditarContactoViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y0o-bu-gBi"/>
+                        <viewControllerLayoutGuide type="bottom" id="RU7-YN-ql3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cMB-DZ-RCc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7N6-dB-wyT">
+                                <rect key="frame" x="33" y="43" width="532" height="233"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="wZH-KP-wnv"/>
+                                </constraints>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell_edit_contact" id="gQn-4L-J2W" customClass="CustomEditContactoViewController" customModule="vmc_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="10" width="532" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gQn-4L-J2W" id="QQ4-RT-dIp">
+                                            <rect key="frame" x="0.0" y="0.0" width="532" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nombre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hS-KG-3gb">
+                                                    <rect key="frame" x="1" y="11" width="75" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="dl4-Mo-ccX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-vy-Sc5">
+                                                    <rect key="frame" x="94" y="8" width="458" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5yC-vy-Sc5" firstAttribute="top" secondItem="QQ4-RT-dIp" secondAttribute="topMargin" id="6QY-WR-LFP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5yC-vy-Sc5" secondAttribute="trailing" constant="-28" id="Ais-NH-YiS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="5yC-vy-Sc5" secondAttribute="bottom" constant="-3" id="MFb-tR-ut4"/>
+                                                <constraint firstItem="0hS-KG-3gb" firstAttribute="baseline" secondItem="5yC-vy-Sc5" secondAttribute="baseline" id="Nxm-uT-S7Z"/>
+                                                <constraint firstItem="0hS-KG-3gb" firstAttribute="leading" secondItem="QQ4-RT-dIp" secondAttribute="leadingMargin" constant="-7" id="Z7r-j2-2G2"/>
+                                                <constraint firstItem="5yC-vy-Sc5" firstAttribute="leading" secondItem="0hS-KG-3gb" secondAttribute="trailing" constant="18" id="fUd-L2-Mdh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="FieldContacto" destination="5yC-vy-Sc5" id="hNn-sl-arr"/>
+                                            <outlet property="nombreCampo" destination="0hS-KG-3gb" id="hiZ-qi-bbE"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TWr-uX-mMH" id="t38-eV-SjH"/>
+                                    <outlet property="delegate" destination="TWr-uX-mMH" id="EwL-1G-lJa"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96V-io-Ecr">
+                                <rect key="frame" x="204" y="277" width="192" height="45"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.50196078430000002" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="192" id="6ZH-lD-Q3Y"/>
+                                    <constraint firstAttribute="height" constant="45" id="fX2-SO-ZL5"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="save">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="guardar:" destination="TWr-uX-mMH" eventType="touchUpInside" id="XBu-ie-gmI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0T-8s-Vdi">
+                                <rect key="frame" x="204" y="342" width="192" height="45"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.0" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4fd-HS-z4A"/>
+                                    <constraint firstAttribute="width" constant="192" id="IPr-rV-FvU"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="delete contact">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Medium"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="eliminar:" destination="TWr-uX-mMH" eventType="touchUpInside" id="Qq4-1X-FMK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7N6-dB-wyT" firstAttribute="leading" secondItem="cMB-DZ-RCc" secondAttribute="leadingMargin" constant="13" id="CXQ-US-jce"/>
+                            <constraint firstItem="d0T-8s-Vdi" firstAttribute="centerX" secondItem="cMB-DZ-RCc" secondAttribute="centerX" id="Er9-G3-yFX"/>
+                            <constraint firstItem="7N6-dB-wyT" firstAttribute="top" secondItem="cMB-DZ-RCc" secondAttribute="topMargin" constant="43" id="JJQ-wy-wru"/>
+                            <constraint firstItem="96V-io-Ecr" firstAttribute="centerX" secondItem="cMB-DZ-RCc" secondAttribute="centerX" id="OWt-aA-sUe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7N6-dB-wyT" secondAttribute="trailing" constant="15" id="fU8-6a-JVX"/>
+                            <constraint firstItem="96V-io-Ecr" firstAttribute="top" secondItem="7N6-dB-wyT" secondAttribute="bottom" constant="1" id="ihE-BK-od8"/>
+                            <constraint firstItem="d0T-8s-Vdi" firstAttribute="top" secondItem="96V-io-Ecr" secondAttribute="bottom" constant="20" id="nMe-Zt-CbN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="contact" id="12p-B4-gya">
+                        <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="mYV-0T-ORC">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableViewContacto" destination="7N6-dB-wyT" id="6Lv-Vo-t1i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Br-Pu-b0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3855" y="3190"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4BW-5m-sQv">
             <objects>
