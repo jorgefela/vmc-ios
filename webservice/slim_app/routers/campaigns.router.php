@@ -10,6 +10,8 @@ $app->get('/user/:id_user/email/:id_email/campaigns(/:id)','authenticate', funct
 
       $ob = new models\Campaigns();
       $data = $ob->getCampaigns($id_user, $id_email);
+      $rows = $ob->num_reg;
+      $message = $ob->message;
       echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
 
   }else if(!empty($id_user) && isInteger($id_user) && isInteger($id) && $id != 0){

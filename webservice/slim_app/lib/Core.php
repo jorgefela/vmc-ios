@@ -24,8 +24,9 @@ class Core {
         // getting DB password from config                
         $password = Config::read('db.password');
 
-        $this->dbh = new PDO($dsn, $user, $password);
-        $this->dbh->exec("set names utf8");
+        //$this->dbh = new PDO($dsn, $user, $password);
+        $this->dbh = null;
+        //$this->dbh->exec("set names utf8");
 
         // getting DB keys cookies from config 
         $this->secret = Config::read('secret');
