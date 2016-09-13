@@ -60,6 +60,7 @@ class CampaignsViewController: UIViewController, UITableViewDataSource, UITableV
             LabelSubject.text = subjectEmail
             
             let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/email/\(idEmail)/campaigns"
+            //print(url_path)
             let url = NSURL(string: url_path)
             let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             request.HTTPMethod = "GET"

@@ -16,6 +16,8 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     var ListUrlVideos = ["Cargando..."]
     var ListTipoUrlVideos = ["Cargando..."]
     var ListThumbVideos = ["Cargando..."]
+    let videoCache = ImageCache(name: "cache_video")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -23,11 +25,12 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
         //if (estaLogueado != 1) {
         let idUser:Int = prefs.integerForKey("IDUSER") as Int
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
-        print("datos de sesion \(idUser) \(keyServer)")
+        //print("datos de sesion \(idUser) \(keyServer)")
         //}
-        print("cargue controlador de video")
+        //print("cargue controlador de video")
         
         let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/videos"
+        //print(url_path)
         let url = NSURL(string: url_path)
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
@@ -155,7 +158,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
             if urlBase.isEmpty {
                 urlBase = "https://www.vmctechnology.com/app/Uploads/images/"
             }
-            cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: urlBase)!,
+            /*cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: urlBase)!,
                 placeholderImage: nil,
                 optionsInfo: nil,
                 progressBlock: { (receivedSize, totalSize) -> () in
@@ -164,7 +167,11 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 completionHandler: { (image, error, cacheType, imageURL) -> () in
                     print("Downloaded and set!")
                 }
-            )
+            )*/
+            
+            cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: urlBase)!,
+                placeholderImage: nil,
+                optionsInfo: [.TargetCache(self.videoCache)])
            
         })
        // cell.ImageVideoThumb.image = bgImage
