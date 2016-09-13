@@ -2,46 +2,69 @@
 namespace models;
 use lib\Core;
 use PDO;
-class Video {
+class Video extends Database {
 
 	protected $core;
+	public $db;
+	public $num_reg = 0;
+	public $message = "No records found";
 
 	function __construct() {
 	  $this->core = \lib\Core::getInstance();
+	  $this->db=parent::connect_db();
 	}
 
 	public function getVideoLibrary($id) {
 		$r=array();	 
 
-		$sql = "SELECT * FROM `yr14_video` WHERE userid=:userid";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':userid', $id, PDO::PARAM_INT);	
+		
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
-		}		
+		if(\lib\Core::isInteger($id) and \lib\Core::isInteger($id)){
+
+			$sql = "SELECT * FROM `yr14_video` WHERE userid='".$id."'";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+				$this->message = "Success";
+				
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+
+		}
+
 		return $r;
 	}
 
 	public function getVideoLibraryFromTo($id_user, $from, $to) {
 		$r=array();	 
 		
-		$sql = "SELECT * FROM `yr14_video` WHERE userid=:userid LIMIT :pagFrom , :pagTo";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':userid', $id_user, PDO::PARAM_INT);
-		$stmt->bindValue(':pagFrom', (int) trim($from), PDO::PARAM_INT);	
-		$stmt->bindValue(':pagTo', (int) trim($to), PDO::PARAM_INT);
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
+
+		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id_user)){
+
+			$sql = "SELECT * FROM `yr14_video` WHERE userid='".$id_user."' LIMIT '".$from."' , '".$to."'";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+				$this->message = "Success";
+				
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+
 		}
-		$stmt=null;		
+
 		return $r;
 	}
 }

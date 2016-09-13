@@ -70,19 +70,27 @@ class Campaigns extends Database {
 	public function getCampaignsFromTo($id_user, $from, $to) {
 		$r=array();	
 		
-		$sql = "SELECT * FROM yr14_email_campaign WHERE user_id =:id LIMIT :pagFrom , :pagTo";
-		$stmt=$this->core->dbh->prepare($sql);
-		$stmt->bindParam(':id', $id_user, PDO::PARAM_INT);	
-		$stmt->bindValue(':pagFrom', (int) trim($from), PDO::PARAM_INT);	
-		$stmt->bindValue(':pagTo', (int) trim($to), PDO::PARAM_INT);
+		
 
-		if ($stmt->execute()) {
-			$r=$stmt->fetchAll(PDO::FETCH_ASSOC);
-			$stmt->closeCursor();
-		} else {
-			$r = 0;
+		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id_user)){
+
+			$sql = "SELECT * FROM yr14_email_campaign WHERE user_id = '".$id_user."' LIMIT '".$from."' , '".$to."'";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+				$this->message = "Success";
+				
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+
 		}
-		$stmt=null;		
+
 		return $r;
 	}
 }
