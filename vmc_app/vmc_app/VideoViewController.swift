@@ -184,20 +184,28 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         var urlBase = "https://www.vmctechnology.com/app/Uploads/videos/"
         
-        if !ListUrlVideos[indexPath.row].isEmpty {
+        
+        if !ListUrlVideos[indexPath.row].isEmpty && ListTipoUrlVideos[indexPath.row] != "youtube" {
             urlBase = "https://www.vmctechnology.com/app/Uploads/videos/\(ListUrlVideos[indexPath.row])"
+            let videoURL = NSURL(string: urlBase)
+            
+            let player = AVPlayer(URL: videoURL!)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.presentViewController(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
+            
+        }else if !ListTipoUrlVideos[indexPath.row].isEmpty && ListTipoUrlVideos[indexPath.row] == "youtube" {
+            
+            urlBase = "\(ListUrlVideos[indexPath.row])"
         }
+      
 
-        let videoURL = NSURL(string: urlBase)
-        print(urlBase)
-        let player = AVPlayer(URL: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.presentViewController(playerViewController, animated: true) {
-            playerViewController.player!.play()
-        }
+        
         TableViewVideo.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
