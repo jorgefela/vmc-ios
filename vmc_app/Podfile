@@ -5,10 +5,11 @@ target 'vmc_app' do
 
   # Pods for vmc_app
   source 'https://github.com/CocoaPods/Specs.git'
-   platform :ios, '8.0'
+  platform :ios, ‘9.0’
   use_frameworks!
 
   pod 'Kingfisher', '~> 2.4'
   #pod 'AImage'
+  #pod "PlayerView"
 
 end

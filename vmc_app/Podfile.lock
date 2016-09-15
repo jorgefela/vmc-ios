@@ -1,12 +1,15 @@
 PODS:
   - Kingfisher (2.6.0)
+  - PlayerView (0.2.7)
 
 DEPENDENCIES:
   - Kingfisher (~> 2.4)
+  - PlayerView
 
 SPEC CHECKSUMS:
   Kingfisher: d84c5fd176ea86cc7b8aac65fd55feda6f70f130
+  PlayerView: df7661e281b2ba73b1b814ab9d7824b996db6cd3
 
-PODFILE CHECKSUM: 1de207658953ef8c4a067955c5562ef69f3bfaf2
+PODFILE CHECKSUM: b6d6ef1b893214c882814759b3d04cffa1c9eddf
 
 COCOAPODS: 1.0.1

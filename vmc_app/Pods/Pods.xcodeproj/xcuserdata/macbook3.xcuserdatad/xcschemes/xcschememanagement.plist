@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PlayerView-PlayerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PlayerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-vmc_app.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,7 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4F39EA53452757EE28A38DB747E7B8A3</key>
+		<key>2283F2F713CE2EC02E80A59393D2947C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>295030CA216BF9AB70DC5C4B63E92BC6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A05E7B8CE5EF8E125E1CAA5F0F39CDE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
