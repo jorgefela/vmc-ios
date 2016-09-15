@@ -8,9 +8,13 @@
 
 import UIKit
 import Kingfisher
+import AVKit
+import AVFoundation
 
 class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var TableViewVideo: UITableView!
+    var moviePlayer:AVPlayerViewController!
+    
     var ListVideos = ["Cargando..."]
     var ListIdVideos = ["Cargando..."]
     var ListUrlVideos = ["Cargando..."]
@@ -180,7 +184,20 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var urlBase = "https://www.vmctechnology.com/app/Uploads/videos/"
+        
+        if !ListUrlVideos[indexPath.row].isEmpty {
+            urlBase = "https://www.vmctechnology.com/app/Uploads/videos/\(ListUrlVideos[indexPath.row])"
+        }
 
+        let videoURL = NSURL(string: urlBase)
+        print(urlBase)
+        let player = AVPlayer(URL: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        self.presentViewController(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
         TableViewVideo.deselectRowAtIndexPath(indexPath, animated: true)
     }
 }
