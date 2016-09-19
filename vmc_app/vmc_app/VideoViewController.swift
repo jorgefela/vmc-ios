@@ -10,8 +10,10 @@ import UIKit
 import Kingfisher
 import AVKit
 import AVFoundation
+import YouTubePlayer
 
-class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet weak var TableViewVideo: UITableView!
     var moviePlayer:AVPlayerViewController!
     
@@ -190,18 +192,35 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         if !ListUrlVideos[indexPath.row].isEmpty && ListTipoUrlVideos[indexPath.row] != "youtube" {
             urlBase = "https://www.vmctechnology.com/app/Uploads/videos/\(ListUrlVideos[indexPath.row])"
-            let videoURL = NSURL(string: urlBase)
+            let filename = "\(urlBase)"
+            let extnsion = (filename as NSString).pathExtension
             
-            let player = AVPlayer(URL: videoURL!)
-            let playerViewController = AVPlayerViewController()
-            playerViewController.player = player
-            self.presentViewController(playerViewController, animated: true) {
-                playerViewController.player!.play()
+            if extnsion == "flv" {
+                
+                
+                
+            } else {
+                
+                let videoURL = NSURL(string: urlBase)
+                
+                let player = AVPlayer(URL: videoURL!)
+                let playerViewController = AVPlayerViewController()
+                playerViewController.player = player
+                self.presentViewController(playerViewController, animated: true) {
+                    playerViewController.player!.play()
+                }
+                
             }
+           
+            
+            
+            
             
         }else if !ListTipoUrlVideos[indexPath.row].isEmpty && ListTipoUrlVideos[indexPath.row] == "youtube" {
             
             urlBase = "\(ListUrlVideos[indexPath.row])"
+            let myVideoURL = NSURL(string: urlBase)
+            //videoPlayer.loadVideoURL(myVideoURL!)
         }
       
 

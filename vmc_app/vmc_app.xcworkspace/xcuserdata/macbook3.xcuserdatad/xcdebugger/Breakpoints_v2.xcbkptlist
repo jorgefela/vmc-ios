@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vmc_app/VideoViewController.swift"
-            timestampString = "495656839.75436"
+            timestampString = "496008755.223023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "VideoViewController"
             landmarkType = "3">
          </BreakpointContent>
