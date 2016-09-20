@@ -57,6 +57,7 @@
 		12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12EF136A1D400D5D009877AA /* SWRevealViewController.m */; };
 		12F4E44B1D514F490006E10F /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F4E44A1D514F480006E10F /* PerfilViewController.swift */; };
 		12FA2C471D5033640077DE18 /* SBGestureTableView in Resources */ = {isa = PBXBuildFile; fileRef = 12FA2C461D5033640077DE18 /* SBGestureTableView */; };
+		12FBD2721D919D4200F61AFC /* RecordVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FBD2711D919D4200F61AFC /* RecordVideoViewController.swift */; };
 		37B175D9609F338FCC0151A2 /* Pods_vmc_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		12EF136A1D400D5D009877AA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		12F4E44A1D514F480006E10F /* PerfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		12FA2C461D5033640077DE18 /* SBGestureTableView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SBGestureTableView; sourceTree = "<group>"; };
+		12FBD2711D919D4200F61AFC /* RecordVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVideoViewController.swift; sourceTree = "<group>"; };
 		68611B7C6EABE3AF7E5D9F47 /* Pods_vmc_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vmc_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE696CA92C54372DFDDB874 /* Pods-vmc_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.debug.xcconfig"; sourceTree = "<group>"; };
 		F96026F360FB780DC0EABBE1 /* Pods-vmc_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vmc_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-vmc_app/Pods-vmc_app.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */,
 				12E755391D5E6275003B6155 /* EmailViewController.swift */,
 				1295BC491D63715C008860E1 /* DetalleEmailViewController.swift */,
+				12FBD2711D919D4200F61AFC /* RecordVideoViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				12D5118D1D46669100395021 /* SubscribersViewController.swift in Sources */,
 				127BECA01D703C72008379C5 /* CustomOpcionEditEmail.swift in Sources */,
 				12169FA11D33FC200014C12D /* CustomTableViewCellCampaigns.swift in Sources */,
+				12FBD2721D919D4200F61AFC /* RecordVideoViewController.swift in Sources */,
 				12E7553A1D5E6276003B6155 /* EmailViewController.swift in Sources */,
 				12477AD81D110316005B6391 /* AppDelegate.swift in Sources */,
 				120DC5A21D2DF18200BADDCA /* CampaignsViewController.swift in Sources */,
