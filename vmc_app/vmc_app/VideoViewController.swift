@@ -10,7 +10,6 @@ import UIKit
 import Kingfisher
 import AVKit
 import AVFoundation
-import YouTubePlayer
 
 class VideoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -26,6 +25,9 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+        
+        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         //let estaLogueado:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         //if (estaLogueado != 1) {
@@ -199,6 +201,8 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 
                 
                 
+                
+                
             } else {
                 
                 let videoURL = NSURL(string: urlBase)
@@ -219,8 +223,6 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
         }else if !ListTipoUrlVideos[indexPath.row].isEmpty && ListTipoUrlVideos[indexPath.row] == "youtube" {
             
             urlBase = "\(ListUrlVideos[indexPath.row])"
-            let myVideoURL = NSURL(string: urlBase)
-            //videoPlayer.loadVideoURL(myVideoURL!)
         }
       
 
