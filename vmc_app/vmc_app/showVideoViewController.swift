@@ -30,4 +30,6 @@ class showVideoViewController: UIViewController{
         super.didReceiveMemoryWarning()
         
     }
+    
+    
 }
