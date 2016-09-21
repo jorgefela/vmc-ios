@@ -1,0 +1,6 @@
+framework module AImage {
+  umbrella header "AImage-umbrella.h"
+
+  export *
+  module * { export * }
+}

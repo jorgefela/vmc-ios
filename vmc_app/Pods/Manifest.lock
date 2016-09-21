@@ -1,12 +1,15 @@
 PODS:
+  - AImage (1.0.0)
   - Kingfisher (2.6.0)
 
 DEPENDENCIES:
+  - AImage
   - Kingfisher (~> 2.4)
 
 SPEC CHECKSUMS:
+  AImage: 67dd5909d0782adbd03719b88dcd3414d43199b6
   Kingfisher: d84c5fd176ea86cc7b8aac65fd55feda6f70f130
 
-PODFILE CHECKSUM: 73233d743550283652086afa587419dcd5fa4d3b
+PODFILE CHECKSUM: f57b4f9460bbd4839848bc1015c3a87914a6bf9e
 
 COCOAPODS: 1.0.1
