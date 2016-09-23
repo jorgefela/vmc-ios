@@ -9,7 +9,7 @@
 import UIKit
 
 class PreLoading {
-    
+   
     var loadingView = UIView()
     var container = UIView()
     var activityIndicator = UIActivityIndicatorView()
