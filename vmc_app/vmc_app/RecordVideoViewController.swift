@@ -18,7 +18,7 @@ class RecordVideoViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("auii")
+        
         grabar()
     }
     
@@ -31,7 +31,7 @@ class RecordVideoViewController: UIViewController, UIImagePickerControllerDelega
         print("cargue funcion de grabacion")
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
             if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-                
+                print("verfique camara")
                 imagePicker.sourceType = .Camera
                 imagePicker.mediaTypes = [kUTTypeMovie as String]
                 imagePicker.allowsEditing = false
