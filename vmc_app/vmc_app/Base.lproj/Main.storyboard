@@ -1409,7 +1409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Z3-hS-MUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1947" y="181.5"/>
+            <point key="canvasLocation" x="2946" y="68.5"/>
         </scene>
         <!--emails-->
         <scene sceneID="Eta-Vy-L6h">
@@ -2247,87 +2247,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmZ-N7-nIe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2826" y="-793"/>
-        </scene>
-        <!--emails-->
-        <scene sceneID="DML-be-cYT">
-            <objects>
-                <viewController id="JMu-dW-OhJ" customClass="EmailViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kVp-VL-WIM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Q8w-Ac-n36"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="efW-hW-q2X">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="213" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="u0T-57-sQS">
-                                <rect key="frame" x="0.0" y="33" width="600" height="639"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_email_mod" rowHeight="213" id="O3o-2O-iPm" customClass="CustomEmailViewController" customModule="vmc_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="213"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3o-2O-iPm" id="yAt-Hw-huj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" verticalHuggingPriority="122" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="122" fixedFrame="YES" text="titulo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3M-kY-qDC">
-                                                    <rect key="frame" x="11" y="19" width="140" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gjs-we-fJU">
-                                                    <rect key="frame" x="11" y="48" width="140" height="159"/>
-                                                    <subviews>
-                                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmb-pM-6Ue">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="159"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <view contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nsk-MJ-x53">
-                                                    <rect key="frame" x="164" y="48" width="140" height="159"/>
-                                                    <subviews>
-                                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W5s-QS-TN7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="159"/>
-                                                        </imageView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="249" verticalHuggingPriority="122" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="122" fixedFrame="YES" text="titulo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqV-Ae-eGh">
-                                                    <rect key="frame" x="164" y="19" width="140" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="thumb1video" destination="cmb-pM-6Ue" id="vqt-zE-MSU"/>
-                                            <outlet property="thumb2video" destination="W5s-QS-TN7" id="AR2-mh-MFF"/>
-                                            <outlet property="titulo1email" destination="W3M-kY-qDC" id="saS-d6-wWL"/>
-                                            <outlet property="titulo2email" destination="GqV-Ae-eGh" id="sLO-Qy-Sbt"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="JMu-dW-OhJ" id="AK8-R1-iex"/>
-                                    <outlet property="delegate" destination="JMu-dW-OhJ" id="xYv-wW-lJO"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="emails" prompt="" id="1zo-qb-j77"/>
-                    <connections>
-                        <outlet property="emailTable" destination="u0T-57-sQS" id="1rI-IB-zvp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eAm-h9-IcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1947" y="181.5"/>
         </scene>
     </scenes>
     <resources>
