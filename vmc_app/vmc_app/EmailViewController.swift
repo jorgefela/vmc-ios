@@ -18,7 +18,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
     var tituloColeccion = [""]
     var tituloColeccion2 = [""]
     var idEmailColeccion = [""]
+    var imgEmailColeccion = [""]
     var idEmailColeccion2 = [""]
+    var imgEmailColeccion2 = [""]
     
     var pase = "0"
     let myCache = ImageCache(name: "vmc_cache")
@@ -73,6 +75,9 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                 self.idEmailColeccion.removeAll()
                                 self.tituloColeccion2.removeAll()
                                 self.idEmailColeccion2.removeAll()
+                                self.imgEmailColeccion.removeAll()
+                                self.imgEmailColeccion.removeAll()
+                                
                                 
                                 self.cantReg = (dictionary_result["rows"] as? Int)!
                                 
@@ -89,6 +94,12 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                 
                                                 if let title = item.valueForKey("title") {
                                                     self.tituloColeccion.append(title as! String)
+                                                    if let img = item.valueForKey("title") {
+                                                        self.imgEmailColeccion.append(img as! String)
+                                                    }else{
+                                                        self.imgEmailColeccion.append(espacio)
+                                                    }
+                                                    
                                                 }else{
                                                     self.tituloColeccion.append(espacio)
                                                 }
@@ -100,6 +111,11 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
                                                 
                                                 if let title = item.valueForKey("title") {
                                                     self.tituloColeccion2.append(title as! String)
+                                                    if let img = item.valueForKey("title") {
+                                                        self.imgEmailColeccion2.append(img as! String)
+                                                    }else{
+                                                        self.imgEmailColeccion2.append(espacio)
+                                                    }
                                                 }else{
                                                     self.tituloColeccion2.append(espacio)
                                                 }
