@@ -14,7 +14,7 @@ import AVFoundation
 class RecordVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker: UIImagePickerController! = UIImagePickerController()
-    let saveFileName = "/test.mp4"
+    let saveFileName = "/video_test.mp4"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,10 @@ class RecordVideoViewController: UIViewController, UIImagePickerControllerDelega
     
     func grabar(){
         
-        print("cargue funcion de grabacion")
+     
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
             if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-                print("verfique camara")
+             
                 imagePicker.sourceType = .Camera
                 imagePicker.mediaTypes = [kUTTypeMovie as String]
                 imagePicker.allowsEditing = false

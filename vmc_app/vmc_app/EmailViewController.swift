@@ -207,25 +207,41 @@ class EmailViewController: UIViewController, UITableViewDataSource, UITableViewD
         if !self.idEmailColeccion2[indexPath.row].isEmpty {
             urlBase2  = mainInstance.urlImagePreviewEmail + "\(self.idEmailColeccion2[indexPath.row]).png"
             cell.titulo2email.text = self.tituloColeccion2[indexPath.row]
+            cell.titulo2email.hidden = false
+            cell.thumb2video.hidden = false
+        }else{
+            cell.titulo2email.hidden = true
+            cell.thumb2video.hidden = true
         }
         
         
         if pase != "0" {
+            if( indexPath.row == 0){
+                cell.thumb1video.image = UIImage(named: "grabacion1.png")
+            }
+            if( indexPath.row == 1){
+                cell.thumb1video.image = UIImage(named: "grabacion3.png")
+            }
             
-            cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+            
+            //cell.thumb1video.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
             cell.thumb1video.tag = indexPath.row
             let tap = UITapGestureRecognizer(target: self, action: #selector(EmailViewController.emailSelect))
             cell.thumb1video.addGestureRecognizer(tap)
             cell.thumb1video.userInteractionEnabled = true
             
             if !self.idEmailColeccion2[indexPath.row].isEmpty {
+                if( indexPath.row == 0){
+                    cell.thumb2video.image = UIImage(named: "grabacion2.png")
+                }
                 
-                cell.thumb2video.kf_setImageWithURL(NSURL(string: urlBase2)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+                //cell.thumb2video.kf_setImageWithURL(NSURL(string: urlBase2)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
                 cell.thumb2video.tag = indexPath.row
                 let tap2 = UITapGestureRecognizer(target: self, action: #selector(EmailViewController.emailSelect2))
                 cell.thumb2video.addGestureRecognizer(tap2)
                 cell.thumb2video.userInteractionEnabled = true
                 
+            }else{
             }
             
         }

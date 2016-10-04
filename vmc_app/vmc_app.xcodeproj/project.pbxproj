@@ -46,6 +46,9 @@
 		12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */; };
 		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
+		12CEBBA21DA313710040345D /* grabacion2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBB9F1DA313710040345D /* grabacion2.png */; };
+		12CEBBA31DA313710040345D /* grabacion1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBBA01DA313710040345D /* grabacion1.png */; };
+		12CEBBA41DA313710040345D /* grabacion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBBA11DA313710040345D /* grabacion3.png */; };
 		12D511811D42DF0700395021 /* SliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511801D42DF0700395021 /* SliderMenuViewController.swift */; };
 		12D511831D42E36800395021 /* photo_perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 12D511821D42E36800395021 /* photo_perfil.png */; };
 		12D511871D42F8D900395021 /* CustomSliderMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */; };
@@ -104,6 +107,9 @@
 		12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreLoading.swift; sourceTree = "<group>"; };
 		12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGlobal.swift; sourceTree = "<group>"; };
 		12A02F431D2F5272000FC1E0 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		12CEBB9F1DA313710040345D /* grabacion2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion2.png; sourceTree = "<group>"; };
+		12CEBBA01DA313710040345D /* grabacion1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion1.png; sourceTree = "<group>"; };
+		12CEBBA11DA313710040345D /* grabacion3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion3.png; sourceTree = "<group>"; };
 		12D511801D42DF0700395021 /* SliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderMenuViewController.swift; sourceTree = "<group>"; };
 		12D511821D42E36800395021 /* photo_perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo_perfil.png; sourceTree = "<group>"; };
 		12D511861D42F8D900395021 /* CustomSliderMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSliderMenuViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +192,9 @@
 		12477AE91D11032F005B6391 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				12CEBB9F1DA313710040345D /* grabacion2.png */,
+				12CEBBA01DA313710040345D /* grabacion1.png */,
+				12CEBBA11DA313710040345D /* grabacion3.png */,
 				12169FA41D3461A70014C12D /* avion_negroenviar.png */,
 				12766E391D394F8800AECB41 /* menos_negro_cuadro.png */,
 				12D511821D42E36800395021 /* photo_perfil.png */,
@@ -344,7 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */,
+				12CEBBA41DA313710040345D /* grabacion3.png in Resources */,
 				123320A51D24922300BE0A95 /* boton-anadir.png in Resources */,
+				12CEBBA31DA313710040345D /* grabacion1.png in Resources */,
 				12FA2C471D5033640077DE18 /* SBGestureTableView in Resources */,
 				12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */,
 				12477AED1D110347005B6391 /* logo.png in Resources */,
@@ -356,6 +367,7 @@
 				123320961D2422FF00BE0A95 /* muestra_bar.png in Resources */,
 				12477ADF1D110316005B6391 /* Assets.xcassets in Resources */,
 				12169FA31D345FFA0014C12D /* avion_enviar.png in Resources */,
+				12CEBBA21DA313710040345D /* grabacion2.png in Resources */,
 				12477ADD1D110316005B6391 /* Main.storyboard in Resources */,
 				126312011D587E0E00E07F9F /* SwiftAlertView in Resources */,
 				123320AE1D2717BE00BE0A95 /* sobre-de-carta.png in Resources */,

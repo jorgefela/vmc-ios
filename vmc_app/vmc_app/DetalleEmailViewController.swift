@@ -65,7 +65,9 @@ class DetalleEmailViewController: UIViewController, UITableViewDataSource, UITab
                                         if let Id = item.valueForKey("id") {
                                             
                                             let urlBase  = mainInstance.urlImagePreviewEmail + "\(Id).png"
-                                            self.thumbEmailDetalle.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+                                            //self.thumbEmailDetalle.kf_setImageWithURL(NSURL(string: urlBase)!, placeholderImage: nil,optionsInfo: [.TargetCache(self.myCache)])
+                                            //sobre escrito
+                                            self.thumbEmailDetalle.image = UIImage(named: "grabacion1.png")
                                             
                                             
                                         }
