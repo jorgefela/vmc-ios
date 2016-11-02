@@ -31,6 +31,8 @@
 		126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */; };
 		126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */; };
 		126312011D587E0E00E07F9F /* SwiftAlertView in Resources */ = {isa = PBXBuildFile; fileRef = 126312001D587E0E00E07F9F /* SwiftAlertView */; };
+		1271156F1DCA425A00AA1940 /* logo_g_v.png in Resources */ = {isa = PBXBuildFile; fileRef = 1271156D1DCA425A00AA1940 /* logo_g_v.png */; };
+		127115701DCA425A00AA1940 /* logo_takebird.png in Resources */ = {isa = PBXBuildFile; fileRef = 1271156E1DCA425A00AA1940 /* logo_takebird.png */; };
 		12766E381D394ACB00AECB41 /* mas_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */; };
 		12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */ = {isa = PBXBuildFile; fileRef = 12766E391D394F8800AECB41 /* menos_negro_cuadro.png */; };
 		12766E451D3C80F800AECB41 /* CustomImagenVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */; };
@@ -91,6 +93,8 @@
 		126311FC1D567BE700E07F9F /* EditarContactoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditarContactoViewController.swift; sourceTree = "<group>"; };
 		126311FE1D5692C000E07F9F /* CustomEditContactoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomEditContactoViewController.swift; sourceTree = "<group>"; };
 		126312001D587E0E00E07F9F /* SwiftAlertView */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftAlertView; sourceTree = "<group>"; };
+		1271156D1DCA425A00AA1940 /* logo_g_v.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_g_v.png; sourceTree = "<group>"; };
+		1271156E1DCA425A00AA1940 /* logo_takebird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_takebird.png; sourceTree = "<group>"; };
 		12766E371D394ACA00AECB41 /* mas_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mas_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E391D394F8800AECB41 /* menos_negro_cuadro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menos_negro_cuadro.png; sourceTree = "<group>"; };
 		12766E441D3C80F800AECB41 /* CustomImagenVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagenVideo.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				123320951D2422FF00BE0A95 /* muestra_bar.png */,
 				123320A11D24922300BE0A95 /* boton-anadir.png */,
 				12477AEA1D110347005B6391 /* vmc2-plus.jpg */,
+				1271156D1DCA425A00AA1940 /* logo_g_v.png */,
+				1271156E1DCA425A00AA1940 /* logo_takebird.png */,
 				12477AEB1D110347005B6391 /* logo.png */,
 			);
 			name = resources;
@@ -355,10 +361,12 @@
 				12766E3A1D394F8800AECB41 /* menos_negro_cuadro.png in Resources */,
 				12CEBBA41DA313710040345D /* grabacion3.png in Resources */,
 				123320A51D24922300BE0A95 /* boton-anadir.png in Resources */,
+				1271156F1DCA425A00AA1940 /* logo_g_v.png in Resources */,
 				12CEBBA31DA313710040345D /* grabacion1.png in Resources */,
 				12FA2C471D5033640077DE18 /* SBGestureTableView in Resources */,
 				12477AE21D110316005B6391 /* LaunchScreen.storyboard in Resources */,
 				12477AED1D110347005B6391 /* logo.png in Resources */,
+				127115701DCA425A00AA1940 /* logo_takebird.png in Resources */,
 				12766E381D394ACB00AECB41 /* mas_negro_cuadro.png in Resources */,
 				123320921D23E34400BE0A95 /* bg_navcontroller.png in Resources */,
 				12169FA51D3461A70014C12D /* avion_negroenviar.png in Resources */,
