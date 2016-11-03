@@ -187,28 +187,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
-                                <rect key="frame" x="271" y="425" width="59" height="30"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Continue">
-                                            <attributes>
-                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="RegistrarCuenta:" destination="3ox-tu-d4D" eventType="touchUpInside" id="NYh-eW-93q"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8cn-hS-8a3">
                                 <rect key="frame" x="218" y="550" width="165" height="30"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
                                         <fragment content="I already have an account">
                                             <attributes>
+                                                <color key="NSColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                 <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
@@ -219,7 +204,7 @@
                                     <action selector="IniciarSesion:" destination="3ox-tu-d4D" eventType="touchUpInside" id="KSs-Aq-tq7"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_g_v.png" translatesAutoresizingMaskIntoConstraints="NO" id="3fN-9D-7Xe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_takebird.png" translatesAutoresizingMaskIntoConstraints="NO" id="3fN-9D-7Xe">
                                 <rect key="frame" x="254" y="80" width="92" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="qrv-Vf-ouc"/>
@@ -239,13 +224,35 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-f1-8ix">
+                                <rect key="frame" x="46" y="420" width="508" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="IfY-0f-77G"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="CONTINUE">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="RegistrarCuenta:" destination="3ox-tu-d4D" eventType="touchUpInside" id="NYh-eW-93q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.011764705882352941" green="0.074509803921568626" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="TIr-Q4-K3u" firstAttribute="top" secondItem="qgb-Ta-1Fq" secondAttribute="bottom" constant="18" id="0d1-SQ-s9P"/>
+                            <constraint firstItem="jdf-f1-8ix" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" constant="26" id="57F-yR-A5F"/>
                             <constraint firstItem="9Q2-vd-MtC" firstAttribute="top" secondItem="8cn-hS-8a3" secondAttribute="bottom" constant="20" id="5Jb-53-MGV"/>
                             <constraint firstItem="qgb-Ta-1Fq" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" constant="26" id="5nR-Et-7xG"/>
                             <constraint firstItem="YAC-gt-t68" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="8KD-RR-hBR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jdf-f1-8ix" secondAttribute="trailing" constant="26" id="949-L2-Hv3"/>
                             <constraint firstItem="qgb-Ta-1Fq" firstAttribute="top" secondItem="c7X-Le-bJb" secondAttribute="bottom" constant="26" id="9qx-iA-XFd"/>
                             <constraint firstItem="aY1-pJ-bcb" firstAttribute="top" secondItem="Ate-yg-DeN" secondAttribute="bottom" id="C2o-or-Vff"/>
                             <constraint firstItem="c7X-Le-bJb" firstAttribute="top" secondItem="3fN-9D-7Xe" secondAttribute="bottom" constant="-16" id="IPg-Qe-Ngc"/>
@@ -257,7 +264,7 @@
                             <constraint firstItem="YAC-gt-t68" firstAttribute="trailing" secondItem="hvb-m2-vbD" secondAttribute="trailingMargin" constant="-26" id="av2-bR-9KU"/>
                             <constraint firstItem="TIr-Q4-K3u" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="bgo-d7-qKn"/>
                             <constraint firstItem="UZI-E3-ha8" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="dYf-Yf-MwD"/>
-                            <constraint firstItem="jdf-f1-8ix" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" constant="0.5" id="efQ-gH-zCp"/>
+                            <constraint firstItem="jdf-f1-8ix" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="efQ-gH-zCp"/>
                             <constraint firstItem="UZI-E3-ha8" firstAttribute="leading" secondItem="hvb-m2-vbD" secondAttribute="leadingMargin" constant="26" id="f2v-GU-eXS"/>
                             <constraint firstItem="UZI-E3-ha8" firstAttribute="top" secondItem="YAC-gt-t68" secondAttribute="bottom" constant="18" id="fzW-Nm-gc4"/>
                             <constraint firstItem="qgb-Ta-1Fq" firstAttribute="centerX" secondItem="hvb-m2-vbD" secondAttribute="centerX" id="gfv-th-Zce"/>
@@ -274,6 +281,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sing up" id="iDB-4d-wI1"/>
                     <connections>
+                        <outlet property="BtnRegistrar" destination="jdf-f1-8ix" id="YzM-JQ-0db"/>
                         <outlet property="FirtName" destination="qgb-Ta-1Fq" id="ukW-th-BzY"/>
                         <outlet property="LastName" destination="TIr-Q4-K3u" id="7H3-2A-xQv"/>
                         <outlet property="PhoneNumber" destination="UZI-E3-ha8" id="iaZ-OP-Hs2"/>
@@ -2233,6 +2241,7 @@
         <image name="estadistica-panel-60" width="60" height="60"/>
         <image name="flecha-izq-Small" width="29" height="29"/>
         <image name="logo_g_v.png" width="1628" height="1629"/>
+        <image name="logo_takebird.png" width="241" height="241"/>
         <image name="mas_negro_cuadro.png" width="64" height="64"/>
         <image name="menu-desplegable-Small" width="29" height="29"/>
         <image name="photo_perfil.png" width="512" height="512"/>
