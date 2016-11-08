@@ -1,15 +1,15 @@
 PODS:
-  - AImage (1.0.0)
   - Kingfisher (2.6.0)
+  - XLForm (3.2.0)
 
 DEPENDENCIES:
-  - AImage
   - Kingfisher (~> 2.4)
+  - XLForm (~> 3.0)
 
 SPEC CHECKSUMS:
-  AImage: 67dd5909d0782adbd03719b88dcd3414d43199b6
   Kingfisher: d84c5fd176ea86cc7b8aac65fd55feda6f70f130
+  XLForm: 2250b4e96ab8ffa5f3355838c79edd90de451782
 
-PODFILE CHECKSUM: f57b4f9460bbd4839848bc1015c3a87914a6bf9e
+PODFILE CHECKSUM: f97a944d3092a4cff9483838fe62f7ba481909a3
 
 COCOAPODS: 1.0.1
