@@ -14,29 +14,8 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>XLForm.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>8ECD1252D07C2DD2F58F74A574F57815</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A14D8BA6703C474E6BC2E4686663CD68</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A7A2371A780C50D26136667B2386F644</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
