@@ -2233,6 +2233,143 @@
             </objects>
             <point key="canvasLocation" x="2826" y="-793"/>
         </scene>
+        <!--Add list-->
+        <scene sceneID="Zcg-2w-4Gr">
+            <objects>
+                <viewController id="qyN-eu-Bac" customClass="AddListViewController" customModule="vmc_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5aq-pR-Gf3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ht5-qt-ZGR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LuM-aP-49t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="List name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gUd-FQ-0W9">
+                                <rect key="frame" x="20" y="90" width="560" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="b8G-du-l7M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Nty-KP-bNx">
+                                <rect key="frame" x="20" y="188" width="560" height="29"/>
+                                <segments>
+                                    <segment title="Default Fields"/>
+                                    <segment title="Extra Fields"/>
+                                    <segment title="Add Field"/>
+                                </segments>
+                                <connections>
+                                    <action selector="BtnSegmentoSelccion:" destination="qyN-eu-Bac" eventType="valueChanged" id="Yv5-eZ-2cv"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcM-X7-IGV">
+                                <rect key="frame" x="20" y="219" width="560" height="308"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qyN-eu-Bac" id="Jd2-lx-biv"/>
+                                    <outlet property="delegate" destination="qyN-eu-Bac" id="6hZ-wX-sWY"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Field Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgh-sA-Fss">
+                                <rect key="frame" x="20" y="150" width="227" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Py1-N9-vEr"/>
+                                    <constraint firstAttribute="width" constant="227" id="hJJ-mc-HBO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qyN-eu-Bac" id="kfD-td-Siv"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dwp-vB-pnO">
+                                <rect key="frame" x="228" y="535" width="145" height="45"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.50196078430000002" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="145" id="Q5L-00-Mpm"/>
+                                    <constraint firstAttribute="height" constant="45" id="uvh-s9-UGK"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Save">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="GuardarLista:" destination="qyN-eu-Bac" eventType="touchUpInside" id="dwp-2S-aY1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPX-pf-rpp">
+                                <rect key="frame" x="264" y="149" width="30" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" red="0.08235294118" green="0.37647058820000001" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnAgregarNuevaLista:" destination="qyN-eu-Bac" eventType="touchUpInside" id="hEX-vx-nyI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gUd-FQ-0W9" firstAttribute="top" secondItem="5aq-pR-Gf3" secondAttribute="bottom" constant="26" id="0Go-k9-jof"/>
+                            <constraint firstItem="lgh-sA-Fss" firstAttribute="leading" secondItem="LuM-aP-49t" secondAttribute="leadingMargin" id="2xQ-5w-P5e"/>
+                            <constraint firstItem="lgh-sA-Fss" firstAttribute="top" secondItem="gUd-FQ-0W9" secondAttribute="bottom" constant="22" id="35O-Zm-htX"/>
+                            <constraint firstItem="dcM-X7-IGV" firstAttribute="leading" secondItem="LuM-aP-49t" secondAttribute="leadingMargin" id="CCs-xf-ayA"/>
+                            <constraint firstItem="Dwp-vB-pnO" firstAttribute="centerX" secondItem="LuM-aP-49t" secondAttribute="centerX" id="FFD-Vw-vO0"/>
+                            <constraint firstItem="gUd-FQ-0W9" firstAttribute="leading" secondItem="LuM-aP-49t" secondAttribute="leadingMargin" id="Ffk-5K-r6t"/>
+                            <constraint firstItem="Nty-KP-bNx" firstAttribute="leading" secondItem="LuM-aP-49t" secondAttribute="leadingMargin" id="MrN-t9-xYC"/>
+                            <constraint firstItem="WPX-pf-rpp" firstAttribute="top" secondItem="gUd-FQ-0W9" secondAttribute="bottom" constant="21" id="PPq-VV-ELJ"/>
+                            <constraint firstItem="Nty-KP-bNx" firstAttribute="top" secondItem="lgh-sA-Fss" secondAttribute="bottom" constant="8" id="Q5t-Q6-5UE"/>
+                            <constraint firstItem="dcM-X7-IGV" firstAttribute="top" secondItem="Nty-KP-bNx" secondAttribute="bottom" constant="3" id="Rpz-LG-pQn"/>
+                            <constraint firstItem="WPX-pf-rpp" firstAttribute="leading" secondItem="lgh-sA-Fss" secondAttribute="trailing" constant="17" id="UzL-Il-fut"/>
+                            <constraint firstItem="dcM-X7-IGV" firstAttribute="trailing" secondItem="LuM-aP-49t" secondAttribute="trailingMargin" id="Yaz-1a-kUr"/>
+                            <constraint firstItem="Ht5-qt-ZGR" firstAttribute="top" secondItem="Dwp-vB-pnO" secondAttribute="bottom" constant="20" id="ekE-Vr-wmy"/>
+                            <constraint firstItem="Nty-KP-bNx" firstAttribute="trailing" secondItem="LuM-aP-49t" secondAttribute="trailingMargin" id="h54-bY-Txj"/>
+                            <constraint firstItem="WPX-pf-rpp" firstAttribute="leading" secondItem="lgh-sA-Fss" secondAttribute="trailing" constant="17" id="lNY-gj-UJW"/>
+                            <constraint firstItem="gUd-FQ-0W9" firstAttribute="trailing" secondItem="LuM-aP-49t" secondAttribute="trailingMargin" id="nKk-zX-vEO"/>
+                            <constraint firstItem="Dwp-vB-pnO" firstAttribute="top" secondItem="dcM-X7-IGV" secondAttribute="bottom" constant="8" id="sEy-bA-Rhi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add list" id="TFC-7c-g00">
+                        <barButtonItem key="leftBarButtonItem" image="flecha-izq-Small" id="obE-kR-Tb8">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="Regresar:" destination="qyN-eu-Bac" id="Mji-2l-b3v"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="cerrar-Small" id="mGu-QE-rrm">
+                            <color key="tintColor" red="0.23529411759999999" green="1" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="IrAlPanel:" destination="qyN-eu-Bac" id="hbZ-lT-n1j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BtnNuevo" destination="WPX-pf-rpp" id="9cm-BS-Mre"/>
+                        <outlet property="SegmentoSeleccion" destination="Nty-KP-bNx" id="5Nt-V5-lNj"/>
+                        <outlet property="TablaElementosListas" destination="dcM-X7-IGV" id="1dd-ri-3CD"/>
+                        <outlet property="TextNombreLista" destination="gUd-FQ-0W9" id="k2c-OY-54G"/>
+                        <outlet property="TextNombreNuevaLista" destination="lgh-sA-Fss" id="2Bi-Mx-8qh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AbM-tc-Fkq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1284" y="3935"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cerrar-Small" width="29" height="29"/>
