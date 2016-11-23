@@ -50,10 +50,7 @@ class PerfilViewController: UIViewController {
                 self.FotoPerfil.image = UIImage(named: "photo_perfil.png")
             }
             
-            self.FotoPerfil.layer.cornerRadius = self.FotoPerfil.frame.size.width / 2
-            self.FotoPerfil.layer.borderColor = UIColor( red: 190/255, green: 190/255, blue:190/255, alpha: 1.0 ).CGColor
-            self.FotoPerfil.layer.borderWidth = 3.0
-            self.FotoPerfil.clipsToBounds = true
+
             
         })
         
