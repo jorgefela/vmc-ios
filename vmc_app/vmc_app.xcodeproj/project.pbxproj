@@ -48,6 +48,7 @@
 		12A02F401D2F362D000FC1E0 /* PreLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */; };
 		12A02F421D2F3F87000FC1E0 /* FuncGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */; };
 		12A02F441D2F5273000FC1E0 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A02F431D2F5272000FC1E0 /* config.swift */; };
+		12B211761DE875B600593C7D /* RecordCpVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B211751DE875B600593C7D /* RecordCpVc.swift */; };
 		12CEBBA21DA313710040345D /* grabacion2.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBB9F1DA313710040345D /* grabacion2.png */; };
 		12CEBBA31DA313710040345D /* grabacion1.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBBA01DA313710040345D /* grabacion1.png */; };
 		12CEBBA41DA313710040345D /* grabacion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CEBBA11DA313710040345D /* grabacion3.png */; };
@@ -111,6 +112,7 @@
 		12A02F3F1D2F362D000FC1E0 /* PreLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreLoading.swift; sourceTree = "<group>"; };
 		12A02F411D2F3F87000FC1E0 /* FuncGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncGlobal.swift; sourceTree = "<group>"; };
 		12A02F431D2F5272000FC1E0 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
+		12B211751DE875B600593C7D /* RecordCpVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCpVc.swift; sourceTree = "<group>"; };
 		12CEBB9F1DA313710040345D /* grabacion2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion2.png; sourceTree = "<group>"; };
 		12CEBBA01DA313710040345D /* grabacion1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion1.png; sourceTree = "<group>"; };
 		12CEBBA11DA313710040345D /* grabacion3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grabacion3.png; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				12E755391D5E6275003B6155 /* EmailViewController.swift */,
 				1295BC491D63715C008860E1 /* DetalleEmailViewController.swift */,
 				12FBD2711D919D4200F61AFC /* RecordVideoViewController.swift */,
+				12B211751DE875B600593C7D /* RecordCpVc.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				126311FD1D567BE800E07F9F /* EditarContactoViewController.swift in Sources */,
 				126311FF1D5692C000E07F9F /* CustomEditContactoViewController.swift in Sources */,
 				12EF136B1D400D5D009877AA /* SWRevealViewController.m in Sources */,
+				12B211761DE875B600593C7D /* RecordCpVc.swift in Sources */,
 				1295BC481D624146008860E1 /* CustomEmailViewController.swift in Sources */,
 				123320901D230F4A00BE0A95 /* LoginViewController.swift in Sources */,
 				12A02F441D2F5273000FC1E0 /* config.swift in Sources */,
