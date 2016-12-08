@@ -33,6 +33,53 @@
             endingLineNumber = "23"
             landmarkName = "EditarContactoViewController"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.EditarContactoViewController.filaSeleccionada.getter : Swift.Optional&lt;__ObjC.NSIndexPath&gt;"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
+                  timestampString = "502923623.220377"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "35">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.EditarContactoViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.NSBundle&gt;) -&gt; vmc_app.EditarContactoViewController"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
+                  timestampString = "502923623.256648"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "425">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.EditarContactoViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;vmc_app.EditarContactoViewController&gt;"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
+                  timestampString = "502923623.257049"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "318">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
