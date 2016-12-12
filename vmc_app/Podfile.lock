@@ -1,15 +1,12 @@
 PODS:
   - Kingfisher (2.6.0)
-  - ReachabilitySwift (2.4)
 
 DEPENDENCIES:
   - Kingfisher (~> 2.4)
-  - ReachabilitySwift (~> 2.4)
 
 SPEC CHECKSUMS:
   Kingfisher: d84c5fd176ea86cc7b8aac65fd55feda6f70f130
-  ReachabilitySwift: dc7452dab85ff881904215e1a113326ad8d07beb
 
-PODFILE CHECKSUM: a340d30a09e57d30836c407675e13d6eeff6037c
+PODFILE CHECKSUM: 4608278430657c81cfcea12bb55fe1646f8e5b69
 
 COCOAPODS: 1.0.1

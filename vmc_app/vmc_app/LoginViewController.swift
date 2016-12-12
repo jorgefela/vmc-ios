@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReachabilitySwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
@@ -16,6 +17,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var botonSesion: UIButton!
+    
+    
     
     override func viewDidLoad() {
         let bottomBorderEmail = CALayer()
@@ -30,10 +33,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         txtEmail.attributedPlaceholder = NSAttributedString(string:"email",
                                                              attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
-        txtEmail.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.10000001)
+        txtEmail.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000001)
         txtPassword.attributedPlaceholder = NSAttributedString(string:"password",
                                                             attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
-        txtPassword.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.10000001)
+        txtPassword.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000001)
         txtEmail.font = UIFont(name: "HelveticaNeue", size: 17)!
         txtPassword.font = UIFont(name: "HelveticaNeue", size: 17)!
         txtPassword.textColor = UIColor.whiteColor()
@@ -55,7 +58,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }else{
             super.viewDidLoad()
         }
-        
     }
     
     
@@ -198,5 +200,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         return true
     }
+    
+
     
 }

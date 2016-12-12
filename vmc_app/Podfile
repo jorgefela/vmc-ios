@@ -9,6 +9,5 @@ target 'vmc_app' do
   use_frameworks!
 
   pod 'Kingfisher', '~> 2.4'
-  pod 'ReachabilitySwift', '~> 2.4'
 
 end

@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-544" y="1604"/>
+            <point key="canvasLocation" x="-330" y="1604"/>
         </scene>
         <!--Sing up-->
         <scene sceneID="CfS-sU-bli">
@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvS-Vs-Uea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="1401"/>
+            <point key="canvasLocation" x="633" y="1557"/>
         </scene>
         <!--welcome-->
         <scene sceneID="HZz-G0-maX">
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSC-XC-RME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="670"/>
+            <point key="canvasLocation" x="-81" y="802"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="cz4-6S-0qS">
@@ -1315,7 +1315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jD-wG-Xz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="1386"/>
+            <point key="canvasLocation" x="1657" y="1546"/>
         </scene>
         <!--emails-->
         <scene sceneID="6pR-38-sBJ">
@@ -1397,7 +1397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Z3-hS-MUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2278" y="-58.5"/>
+            <point key="canvasLocation" x="2326" y="-50.5"/>
         </scene>
         <!--emails-->
         <scene sceneID="Eta-Vy-L6h">
