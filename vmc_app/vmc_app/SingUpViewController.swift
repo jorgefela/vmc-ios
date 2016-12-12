@@ -10,6 +10,8 @@ import UIKit
 
 class SingUpViewController: UIViewController {
     
+    var width = UIScreen.mainScreen().bounds.size.width
+    
     var window :UIWindow = UIApplication.sharedApplication().keyWindow!
     let tituloMsg:String = "oops!"
     var mesnsajeMsg:String = "required fields"
@@ -27,7 +29,10 @@ class SingUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("cargue vista")
+        var anchoPantalla = FirtName.frame.size.width
+        if width > 508.0 {
+            anchoPantalla = width - 66
+        }
         //START color navigation controller
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.navigationController!.navigationBar.barTintColor = FuncGlobal().UIColorFromRGB(mainInstance.colorCabecera)
@@ -39,7 +44,7 @@ class SingUpViewController: UIViewController {
         
         // START - Estetica input transparente
         let PrimerNombre = CALayer()
-        PrimerNombre.frame = CGRectMake(0.0, FirtName.frame.size.height - 1, FirtName.frame.size.width, 1.0);
+        PrimerNombre.frame = CGRectMake(0.0, FirtName.frame.size.height - 1, anchoPantalla, 1.0);
         PrimerNombre.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         FirtName.layer.addSublayer(PrimerNombre)
         FirtName.attributedPlaceholder = NSAttributedString(string:"First Name",
@@ -48,7 +53,7 @@ class SingUpViewController: UIViewController {
         
         
         let SegundoNombre = CALayer()
-        SegundoNombre.frame = CGRectMake(0.0, LastName.frame.size.height - 1, LastName.frame.size.width, 1.0);
+        SegundoNombre.frame = CGRectMake(0.0, LastName.frame.size.height - 1, anchoPantalla, 1.0);
         SegundoNombre.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         LastName.layer.addSublayer(SegundoNombre)
         LastName.attributedPlaceholder = NSAttributedString(string:"Last Name",
@@ -57,7 +62,7 @@ class SingUpViewController: UIViewController {
         
         
         let Emails = CALayer()
-        Emails.frame = CGRectMake(0.0, emailAddres.frame.size.height - 1, emailAddres.frame.size.width, 1.0);
+        Emails.frame = CGRectMake(0.0, emailAddres.frame.size.height - 1, anchoPantalla, 1.0);
         Emails.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         emailAddres.layer.addSublayer(Emails)
         emailAddres.attributedPlaceholder = NSAttributedString(string:"Email Addres",
@@ -66,7 +71,7 @@ class SingUpViewController: UIViewController {
         
         
         let Telefonos = CALayer()
-        Telefonos.frame = CGRectMake(0.0, PhoneNumber.frame.size.height - 1, PhoneNumber.frame.size.width, 1.0);
+        Telefonos.frame = CGRectMake(0.0, PhoneNumber.frame.size.height - 1, anchoPantalla, 1.0);
         Telefonos.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         PhoneNumber.layer.addSublayer(Telefonos)
         PhoneNumber.attributedPlaceholder = NSAttributedString(string:"Phone Number",

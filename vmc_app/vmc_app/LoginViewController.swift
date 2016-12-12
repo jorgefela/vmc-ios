@@ -11,6 +11,8 @@ import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    var width = UIScreen.mainScreen().bounds.size.width
+    
     @IBOutlet weak var txtEmail: UITextField!
     
     @IBOutlet weak var txtPassword: UITextField!
@@ -21,13 +23,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidLoad() {
+        var anchPantalla = txtEmail.frame.size.width
+        if width > 494.0 {
+            anchPantalla = width - 66
+        }
         let bottomBorderEmail = CALayer()
-        bottomBorderEmail.frame = CGRectMake(0.0, txtEmail.frame.size.height - 1, txtEmail.frame.size.width, 1.0);
+        bottomBorderEmail.frame = CGRectMake(0.0, txtEmail.frame.size.height - 1, anchPantalla, 1.0);
         bottomBorderEmail.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         txtEmail.layer.addSublayer(bottomBorderEmail)
         
         let bottomBorderPass = CALayer()
-        bottomBorderPass.frame = CGRectMake(0.0, txtPassword.frame.size.height - 1, txtPassword.frame.size.width, 1.0);
+        bottomBorderPass.frame = CGRectMake(0.0, txtPassword.frame.size.height - 1, anchPantalla, 1.0);
         bottomBorderPass.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         txtPassword.layer.addSublayer(bottomBorderPass)
         
