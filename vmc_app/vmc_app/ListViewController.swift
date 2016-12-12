@@ -52,7 +52,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //START menu
         if self.revealViewController() != nil {
             let anchoMenu = self.width - menuRest
-            revealViewController().rearViewRevealWidth = anchoMenu
+            print(anchoMenu)
+            //revealViewController().rearViewRevealWidth = anchoMenu
             OpenSliderMenu.target = self.revealViewController()
             OpenSliderMenu.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
