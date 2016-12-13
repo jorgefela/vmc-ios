@@ -400,6 +400,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.070588235294117646" green="0.26666666666666666" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.078431372549019607" green="0.35686274509803922" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -480,7 +481,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLW-Yg-lnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="671.5"/>
+            <point key="canvasLocation" x="922" y="609.5"/>
         </scene>
         <!--Video Library-->
         <scene sceneID="9Fb-NG-UYG">
