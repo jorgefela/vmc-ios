@@ -62,7 +62,7 @@ class SingUpViewController: UIViewController {
         
         
         let Emails = CALayer()
-        Emails.frame = CGRectMake(0.0, emailAddres.frame.size.height - 1, anchoPantalla, 1.0);
+        Emails.frame = CGRectMake(0.0, emailAddres.frame.size.height - 1, anchoPantalla, 5.0);
         Emails.backgroundColor = UIColor(hexaString: "#00FFCF").CGColor
         emailAddres.layer.addSublayer(Emails)
         emailAddres.attributedPlaceholder = NSAttributedString(string:"Email Addres",
@@ -77,6 +77,16 @@ class SingUpViewController: UIViewController {
         PhoneNumber.attributedPlaceholder = NSAttributedString(string:"Phone Number",
                                                                attributes:[NSForegroundColorAttributeName: UIColor.grayColor()])
         PhoneNumber.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.0000001)
+        
+        FirtName.font = UIFont(name: "HelveticaNeue", size: 17)!
+        LastName.font = UIFont(name: "HelveticaNeue", size: 17)!
+        emailAddres.font = UIFont(name: "HelveticaNeue", size: 17)!
+        PhoneNumber.font = UIFont(name: "HelveticaNeue", size: 17)!
+        
+        FirtName.textColor = UIColor.whiteColor()
+        LastName.textColor = UIColor.whiteColor()
+        emailAddres.textColor = UIColor.whiteColor()
+        PhoneNumber.textColor = UIColor.whiteColor()
         
         
         // END - Estetica input transparente

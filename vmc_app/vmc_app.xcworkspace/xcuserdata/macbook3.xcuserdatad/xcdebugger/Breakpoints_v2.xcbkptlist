@@ -42,7 +42,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503276460.57836"
+                  timestampString = "503287745.445936"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -57,7 +57,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503276460.578874"
+                  timestampString = "503287745.447349"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -72,12 +72,108 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503276460.579124"
+                  timestampString = "503287745.447555"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
                   endingLineNumber = "24"
                   offsetFromSymbolStart = "318">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "vmc_app/LoginViewController.swift"
+            timestampString = "503287557.77497"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "btnSignin(_:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.LoginViewController.(btnSignin (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
+                  timestampString = "503287745.449892"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "10587">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.LoginViewController.(btnSignin (__ObjC.UIButton) -&gt; ()).(closure #1).(closure #2)"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
+                  timestampString = "503287745.450172"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "vmc_app/LoginViewController.swift"
+            timestampString = "503287744.779781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
+            landmarkName = "alert()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.LoginViewController.alert () -&gt; ()"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
+                  timestampString = "503287745.45194"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "321">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "vmc_app.LoginViewController.(alert () -&gt; ()).(closure #1)"
+                  moduleName = "vmc_app"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
+                  timestampString = "503287745.452158"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "18">
                </Location>
             </Locations>
          </BreakpointContent>

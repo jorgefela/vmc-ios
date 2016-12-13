@@ -20,6 +20,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var botonSesion: UIButton!
     
+    var tituloMsg:String = "oops"
+    var mesnsajeMsg:String = "Username / Password empty"
+    let btnMsg:String = "OK"
+    
     
     
     override func viewDidLoad() {
@@ -74,9 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         let lUsuario:NSString = txtEmail.text!
         let lContrasenia:NSString = txtPassword.text!
-        let tituloMsg:String = "oops"
-        var mesnsajeMsg:String = "Username / Password empty"
-        let btnMsg:String = "OK"
+        
         
         if ( lUsuario.isEqualToString("") || lContrasenia.isEqualToString("") ) {
             PreLoading().hideLoading()
@@ -98,22 +100,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             let myUrl = NSURL(string: mainInstance.urlBase + "public/login")
             let request = NSMutableURLRequest(URL:myUrl!)
-            request.HTTPMethod = "POST";
+            request.HTTPMethod = "POST"
             
             // Compose a query string
             let postString = "email=\(lUsuario)&password=\(lContrasenia)"
             request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
                 data, response, error in
-                
+                PreLoading().hideLoading()
                 do {
                     guard let data = data else {
-                        throw JSONError.NoData
+                        return self.alert()
                     }
+                    
                     guard let json = try NSJSONSerialization.JSONObjectWithData(data, options:[]) as? NSDictionary else {
                         throw JSONError.ConversionFailed
                     }
-                    PreLoading().hideLoading()
+                    
                     
                     let rows: Int = json["rows"]! as! Int
                     
@@ -171,9 +174,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
                 PreLoading().hideLoading()
                 if statusMsg == "error_pass" {
-                    mesnsajeMsg = "Username / Password invalid"
-                    print(mesnsajeMsg)
-                    //FuncGlobal().alert(tituloMsg, info: mesnsajeMsg, btnTxt: btnMsg, viewController: self)
+                    self.mesnsajeMsg = "Username / Password invalid"
+                    print(self.mesnsajeMsg)
+                    let triggerTime2 = (Int64(NSEC_PER_SEC) * 1)
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime2), dispatch_get_main_queue(), { () -> Void in FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: self.btnMsg, viewController: self)
+                    })
                 }
                 
             }
@@ -181,6 +186,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             //end proceso de logueo
         }
     }//end btnSignin
+    
+    func alert(){
+        print("error data")
+        self.tituloMsg = "Error!"
+        self.mesnsajeMsg = "No data"
+        let triggerTime2 = (Int64(NSEC_PER_SEC) * 1)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime2), dispatch_get_main_queue(), { () -> Void in FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: "OK", viewController: self)
+        })
+    }
     
     
     override func didReceiveMemoryWarning() {
