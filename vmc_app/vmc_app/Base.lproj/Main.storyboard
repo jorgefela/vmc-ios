@@ -404,7 +404,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.078431372549019607" green="0.35686274509803922" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="i3J-Lu-7CI" kind="show" id="BH5-aK-9lh"/>
+                                            <segue destination="fRG-X1-tfs" kind="show" id="bJc-bI-5ks"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="XmC-Zp-Tjy">
@@ -705,7 +705,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RkJ-Fw-cIn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="659.5"/>
+            <point key="canvasLocation" x="1437" y="1433.5"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="INL-cO-t9E">
@@ -1327,7 +1327,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Hvx-JS-m8n"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ydY-6n-tmf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="213" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="uqb-NI-VjG">
@@ -1335,7 +1335,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell_email_mod" rowHeight="213" id="xuc-9H-nZY" customClass="CustomEmailViewController" customModule="vmc_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="213"/>
+                                        <rect key="frame" x="0.0" y="65" width="600" height="213"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xuc-9H-nZY" id="wL4-qi-1kx">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
@@ -1398,7 +1398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Z3-hS-MUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2578" y="-75.5"/>
+            <point key="canvasLocation" x="3063" y="-610"/>
         </scene>
         <!--emails-->
         <scene sceneID="6YR-cu-5ay">
@@ -1409,11 +1409,12 @@
                         <viewControllerLayoutGuide type="bottom" id="eko-Rt-Yr9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="APy-gd-ulA">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fJa-VJ-a7U">
-                                <rect key="frame" x="20" y="20" width="560" height="572"/>
+                                <rect key="frame" x="20" y="20" width="560" height="537"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nLz-iV-RA4">
                                     <size key="itemSize" width="130" height="164"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1422,24 +1423,37 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellEmailColl" id="AzN-Lt-tgm" customClass="CustomEmailColletion" customModule="vmc_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="130" height="164"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="130" height="164"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="130" height="164"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-cw-k0N">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-cw-k0N">
                                                     <rect key="frame" x="0.0" y="28" width="130" height="130"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-hN-qdu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-hN-qdu">
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="29"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="29" id="5du-PL-FtT"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Fzq-cw-k0N" secondAttribute="trailing" constant="-8" id="4lS-bE-oOn"/>
+                                            <constraint firstItem="Fzq-cw-k0N" firstAttribute="leading" secondItem="AzN-Lt-tgm" secondAttribute="leadingMargin" constant="-8" id="8Gp-CU-pfL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Fzq-cw-k0N" secondAttribute="bottom" constant="-2" id="N6b-ua-958"/>
+                                            <constraint firstItem="vJp-hN-qdu" firstAttribute="leading" secondItem="AzN-Lt-tgm" secondAttribute="leadingMargin" constant="-8" id="U0L-06-OEX"/>
+                                            <constraint firstItem="Fzq-cw-k0N" firstAttribute="top" secondItem="AzN-Lt-tgm" secondAttribute="topMargin" constant="20" id="lp7-I7-9jB"/>
+                                            <constraint firstItem="vJp-hN-qdu" firstAttribute="top" secondItem="AzN-Lt-tgm" secondAttribute="topMargin" constant="-8" id="qIU-cy-13c"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="vJp-hN-qdu" secondAttribute="trailing" constant="-8" id="y60-De-8af"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="ImgEmail" destination="Fzq-cw-k0N" id="PBX-wM-sWw"/>
                                             <outlet property="TituloEmail" destination="vJp-hN-qdu" id="6Yh-Kk-6hA"/>
@@ -1467,7 +1481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyf-D6-fnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3392" y="380"/>
+            <point key="canvasLocation" x="1731" y="652"/>
         </scene>
         <!--emails-->
         <scene sceneID="Eta-Vy-L6h">
@@ -1478,14 +1492,14 @@
                         <viewControllerLayoutGuide type="bottom" id="6NK-d4-BE0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kmX-vM-88s">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="565"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-dU-hKN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tqr-dU-hKN">
                                 <rect key="frame" x="20" y="20" width="560" height="397"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="tVe-xh-FKl">
-                                <rect key="frame" x="0.0" y="379" width="600" height="186"/>
+                                <rect key="frame" x="0.0" y="414" width="600" height="186"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="186" id="K9W-DC-gCZ"/>
@@ -2342,14 +2356,14 @@
         <image name="vmc2-plus.jpg" width="1242" height="2208"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BH5-aK-9lh"/>
+        <segue reference="bJc-bI-5ks"/>
         <segue reference="zUs-AK-gml"/>
         <segue reference="bWk-Zv-rk8"/>
-        <segue reference="cdk-xI-J5b"/>
         <segue reference="jDn-de-0N9"/>
-        <segue reference="hgs-45-Tsc"/>
         <segue reference="AB4-Vp-ZWR"/>
+        <segue reference="hgs-45-Tsc"/>
         <segue reference="GaJ-wJ-hCg"/>
         <segue reference="5lr-f3-9c7"/>
+        <segue reference="cdk-xI-J5b"/>
     </inferredMetricsTieBreakers>
 </document>
