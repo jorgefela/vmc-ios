@@ -70,6 +70,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                             let espacio =  " ";
                             
                             if let json = dictionary_result["result"] as? NSArray  {
+                                print(json)
                                 for item in json {
                                     if let Id = item.valueForKey("id") {
                                         self.ListIdVideos.append(Id as! String)
