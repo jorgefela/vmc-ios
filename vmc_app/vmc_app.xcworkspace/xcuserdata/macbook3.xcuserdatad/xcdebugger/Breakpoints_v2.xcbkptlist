@@ -42,7 +42,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503362020.902397"
+                  timestampString = "503427437.448033"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -57,7 +57,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503362020.902974"
+                  timestampString = "503427437.448545"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -72,60 +72,12 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/EditarContactoViewController.swift"
-                  timestampString = "503362020.903201"
+                  timestampString = "503427437.448767"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
                   endingLineNumber = "24"
                   offsetFromSymbolStart = "318">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "vmc_app/LoginViewController.swift"
-            timestampString = "503287557.77497"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "btnSignin(_:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "vmc_app.LoginViewController.(btnSignin (__ObjC.UIButton) -&gt; ()).(closure #1)"
-                  moduleName = "vmc_app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
-                  timestampString = "503362020.905341"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "10401">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "vmc_app.LoginViewController.(btnSignin (__ObjC.UIButton) -&gt; ()).(closure #1).(closure #2)"
-                  moduleName = "vmc_app"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
-                  timestampString = "503362020.905542"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "180"
-                  endingLineNumber = "180"
-                  offsetFromSymbolStart = "18">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -153,7 +105,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
-                  timestampString = "503362020.907292"
+                  timestampString = "503427437.451076"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "195"
@@ -168,7 +120,7 @@
                   moduleName = "vmc_app"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Applications/MAMP/htdocs/vmc-ios/vmc_app/vmc_app/LoginViewController.swift"
-                  timestampString = "503362020.907604"
+                  timestampString = "503427437.45128"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "195"
@@ -185,11 +137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vmc_app/EmailColletionViewController.swift"
-            timestampString = "503361628.021259"
+            timestampString = "503424962.857741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>

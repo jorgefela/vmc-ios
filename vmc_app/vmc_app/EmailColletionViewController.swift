@@ -164,8 +164,21 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         let cell:CustomEmailColletion = EmailCollectionData.dequeueReusableCellWithReuseIdentifier("cellEmailColl", forIndexPath: indexPath) as! CustomEmailColletion
         var imagen = self.ImgDataCollection[indexPath.row] as String
         imagen = imagen.convertirEspaciosGet()
-        imagen = mainInstance.urlImagePreviewEmail + "\(imagen).png"
-        cell.ImgEmail.image =  UIImage(named:"photo_perfil.png")
+        imagen = mainInstance.urlImages + "\(imagen).gif"
+        imagen = "https://www.vmctechnology.com/app/Uploads/images/NzFlODA0NTIzODZmNDk5ZDgzODZmNmUzMGY0Nzk1NDM=-f81e67657a4f43f2bb412aed62efb9d8d.gif"
+        
+        print(imagen)
+        cell.ImgEmail.kf_setImageWithURL(NSURL(string: imagen),
+                                           placeholderImage: nil,
+                                           optionsInfo: nil,
+                                           progressBlock: { (receivedSize, totalSize) -> () in
+                                            print("Download Progress: \(receivedSize)/\(totalSize)")
+            },
+                                           completionHandler: { (image, error, cacheType, imageURL) -> () in
+                                            print("error")
+            }
+        )
+        //cell.ImgEmail.image =  UIImage(named:"photo_perfil.png")
         cell.TituloEmail.text = self.TitleDataCollection[indexPath.row] as String
         return cell
     }
