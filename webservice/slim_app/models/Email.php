@@ -54,7 +54,20 @@ class Email extends Database {
 
 		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id)){
 
-			$campos = "id, userid, catid, title, from_name, from_email,file,thumb,v_type, subject,send_date, status, shortUrl, created_date";
+			$campos = "t1.id,
+			           t1.userid,
+								 t1.catid,
+								 t1.title,
+								 t1.from_name,
+								 t1.from_email,
+								 t2.file,
+								 t2.thumb,
+								 t2.v_type,
+								 t1.subject,
+								 t1.send_date,
+								 t1.status,
+								 t1.shortUrl,
+								 t1.created_date";
 
 			if(!empty($full_data) and $full_data=="full"){
 
@@ -62,7 +75,8 @@ class Email extends Database {
 
 			}
 
-			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE id = ".$id." AND userid =".$id_user." AND status = 1 ";
+			$sql = "SELECT ".$campos." FROM `yr14_email_movil` AS t1
+			INNER JOIN `yr14_video_movil` AS t2 ON t1.`idvideom` = t2.`id` WHERE t1.id = ".$id." AND t1.userid =".$id_user." AND t1.status = 1 ";
 
 			if ($result = mysqli_query($this->db, $sql)) {
 
@@ -115,7 +129,20 @@ class Email extends Database {
 
 		if(\lib\Core::isInteger($id_user)){
 
-			$campos = "id, userid, catid, title, from_name, from_email,file,thumb,v_type, subject,send_date, status, shortUrl, created_date";
+			$campos = "t1.id,
+			           t1.userid,
+								 t1.catid,
+								 t1.title,
+								 t1.from_name,
+								 t1.from_email,
+								 t2.file,
+								 t2.thumb,
+								 t2.v_type,
+								 t1.subject,
+								 t1.send_date,
+								 t1.status,
+								 t1.shortUrl,
+								 t1.created_date";
 
 			if(!empty($full_data) and $full_data=="full"){
 
@@ -123,7 +150,10 @@ class Email extends Database {
 
 			}
 
-			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE userid =".$id_user." AND status = 1 ORDER BY id DESC";
+			$sql = "SELECT ".$campos."
+			        FROM `yr14_email_movil` AS t1
+							INNER JOIN `yr14_video_movil` AS t2 ON t1.`idvideom` = t2.`id`
+							WHERE t1.userid =".$id_user." AND t1.status = 1 ORDER BY t1.id DESC";
 
 			if ($result = mysqli_query($this->db, $sql)) {
 
@@ -176,7 +206,20 @@ class Email extends Database {
 
 		if(\lib\Core::isInteger($id_user)){
 
-			$campos = "id, userid, catid, title, from_name,file,thumb,v_type, from_email, subject,send_date, status, shortUrl, created_date";
+			$campos = "t1.id,
+			           t1.userid,
+								 t1.catid,
+								 t1.title,
+								 t1.from_name,
+								 t1.from_email,
+								 t2.file,
+								 t2.thumb,
+								 t2.v_type,
+								 t1.subject,
+								 t1.send_date,
+								 t1.status,
+								 t1.shortUrl,
+								 t1.created_date";
 
 			if(!empty($full_data) and $full_data=="full"){
 
@@ -184,7 +227,8 @@ class Email extends Database {
 
 			}
 
-			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE userid =".$id_user." AND status = 1 LIMIT ".$from." , ".$to."";
+			$sql = "SELECT ".$campos." FROM `yr14_email_movil` AS t1
+			INNER JOIN `yr14_video_movil` AS t2 ON t1.`idvideom` = t2.`id` WHERE t1.userid =".$id_user." AND t1.status = 1 LIMIT ".$from." , ".$to."";
 
 			if ($result = mysqli_query($this->db, $sql)) {
 
