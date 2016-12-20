@@ -19,7 +19,7 @@ class Email extends Database {
 
 	public function getEmailOnly($id_user, $id, $full_data) {
 		$r=array();
-		
+
 
 		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id)){
 
@@ -36,7 +36,38 @@ class Email extends Database {
 			if ($result = mysqli_query($this->db, $sql)) {
 
 				$this->num_reg = mysqli_num_rows($result);
-				
+
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+		}
+		return $r;
+	}
+
+	public function getEmailOnlyMovil($id_user, $id, $full_data) {
+		$r=array();
+
+
+		if(\lib\Core::isInteger($id_user) and \lib\Core::isInteger($id)){
+
+			$campos = "id, userid, catid, title, from_name, from_email,file,thumb,v_type, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE id = ".$id." AND userid =".$id_user." AND status = 1 ";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
 				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					$r[] = $row;
 				}
@@ -49,7 +80,7 @@ class Email extends Database {
 	}
 
 	public function getEmail($id_user, $full_data) {
-		$r=array();	
+		$r=array();
 
 		if(\lib\Core::isInteger($id_user)){
 
@@ -79,8 +110,39 @@ class Email extends Database {
 		return $r;
 	}
 
+	public function getEmailMovil($id_user, $full_data) {
+		$r=array();
+
+		if(\lib\Core::isInteger($id_user)){
+
+			$campos = "id, userid, catid, title, from_name, from_email,file,thumb,v_type, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE userid =".$id_user." AND status = 1 ORDER BY id DESC";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+		}
+
+		return $r;
+	}
+
 	public function getEmailFromTo($id_user, $from, $to, $full_data) {
-		$r=array();	
+		$r=array();
 
 		if(\lib\Core::isInteger($id_user)){
 
@@ -105,7 +167,37 @@ class Email extends Database {
 				$result = null;
 
 			}
-		} 
+		}
+
+		return $r;
+	}
+	public function getEmailMovilFromTo($id_user, $from, $to, $full_data) {
+		$r=array();
+
+		if(\lib\Core::isInteger($id_user)){
+
+			$campos = "id, userid, catid, title, from_name,file,thumb,v_type, from_email, subject,send_date, status, shortUrl, created_date";
+
+			if(!empty($full_data) and $full_data=="full"){
+
+				$campos = "*";
+
+			}
+
+			$sql = "SELECT ".$campos." FROM yr14_email_movil WHERE userid =".$id_user." AND status = 1 LIMIT ".$from." , ".$to."";
+
+			if ($result = mysqli_query($this->db, $sql)) {
+
+				$this->num_reg = mysqli_num_rows($result);
+
+				while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+					$r[] = $row;
+				}
+				mysqli_free_result($result);
+				$result = null;
+
+			}
+		}
 
 		return $r;
 	}
