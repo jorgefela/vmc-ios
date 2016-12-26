@@ -154,6 +154,7 @@ class Email extends Database {
 			        FROM `yr14_email_movil` AS t1
 							INNER JOIN `yr14_video_movil` AS t2 ON t1.`idvideom` = t2.`id`
 							WHERE t1.userid =".$id_user." AND t1.status = 1 ORDER BY t1.id DESC";
+							//var_dump($sql);
 
 			if ($result = mysqli_query($this->db, $sql)) {
 

@@ -12,6 +12,7 @@ import Kingfisher
 class EmailColletionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var screenWidth = UIScreen.mainScreen().bounds.size.width
+    var screenHeigh = UIScreen.mainScreen().bounds.size.height
     
     var window : UIWindow = UIApplication.sharedApplication().keyWindow!
     
@@ -26,6 +27,7 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         // auto adaptacion automatica
         screenWidth = (screenWidth - 12 * 4) / 2
+        print("\(screenWidth) \(screenHeigh)")
         
         //parametros
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -33,6 +35,7 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         let keyServer:String = (prefs.valueForKey("KEY") as? String)!
         
         let url_path: String = mainInstance.urlBase + "public/user/\(idUser)/email"
+        print(url_path)
         let url = NSURL(string: url_path)
         let request: NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "GET"
@@ -44,12 +47,13 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         urlconfig.timeoutIntervalForResource = 300
         var session = NSURLSession.sharedSession()
         session = NSURLSession(configuration: urlconfig)
+        print("\(keyServer)")
         
         // START -- peticion
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
             if (res.statusCode >= 200 && res.statusCode < 300) {
-                if error != nil{print(error?.localizedDescription)}
+                if error != nil{print("hola" + (error?.localizedDescription)!)}
                 do{
                     if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in
