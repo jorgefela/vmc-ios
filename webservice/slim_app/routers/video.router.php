@@ -55,3 +55,32 @@ $app->get('/user/:id_user/videos/from/:from/to/:to','authenticate', function ($i
   }
 
 });
+
+$app->get('/video/upload','authenticate', function () use ($app) {
+
+  $data = $app->request()->post();
+
+  $app->contentType('application/json');
+  $ob = new models\Video();
+
+  if(!empty($data["id_user"]) && isInteger($data["id_user"]) ){
+
+      
+      $data = $ob->getVideoLibrary($id_user);
+      $rows = $ob->num_reg;
+      $message = $ob->message;
+      echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+      //echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
+
+  }else{
+
+     $data =array();
+     $rows = $ob->num_reg;
+     $message = $ob->message;
+     echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
+     //echo '{"reponse": "1", "result": '.json_encode($data).', "message":"No records found"}';
+      
+  }
+
+
+});
