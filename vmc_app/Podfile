@@ -8,5 +8,7 @@ target 'vmc_app' do
   platform :ios, '9.0'
   use_frameworks!
   pod 'Kingfisher', '~> 2.4'
-  pod 'SwiftHTTP', '~> 2.0.0'
+  #pod 'SwiftHTTP', '~> 2.0.0'
+  #pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire', '2.0.2'
 end

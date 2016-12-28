@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Kingfisher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -14,25 +19,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftHTTP.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>463628F4611CD9CB37D7E441CD007AB9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C5260DFD5FC7D9752651851FE81EA155</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED24316949CAA7B0362E69CAD275D8D5</key>
+		<key>D891614845B68A77765EDD9250277A2E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD0B989480C32EBDB31398153A7FC79F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

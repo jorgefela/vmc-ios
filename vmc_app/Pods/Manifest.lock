@@ -1,15 +1,15 @@
 PODS:
+  - Alamofire (2.0.2)
   - Kingfisher (2.6.1)
-  - SwiftHTTP (2.0.2)
 
 DEPENDENCIES:
+  - Alamofire (= 2.0.2)
   - Kingfisher (~> 2.4)
-  - SwiftHTTP (~> 2.0.0)
 
 SPEC CHECKSUMS:
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   Kingfisher: 7e5515bf6c4f2acad91f6400955d2257549cab7b
-  SwiftHTTP: faa1a5f7670568ffc9361898229dbe84a6088468
 
-PODFILE CHECKSUM: 66242442ba7d3b5bd7aff7177845656e39c3455c
+PODFILE CHECKSUM: 8b501c1ae03cc36a3192cd88e6858ce74e1ad44a
 
 COCOAPODS: 1.2.0.beta.1

@@ -22,6 +22,7 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
     var ImgDataCollection = [""]
     var TitleDataCollection = [""]
     var cantReg = Int(0)
+    var id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,5 +188,9 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        print(self.IdDataCollection[indexPath.row])
+        self.id = self.IdDataCollection[indexPath.row]
+    }
     
 }

@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVKit
 import AVFoundation
+import Alamofire
 
 class RecordVideoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
