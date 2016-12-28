@@ -68,45 +68,57 @@ class Video extends Database {
 		return $r;
 	}
 
-	public function SubirVideoLibrary($datos) {
+	public function SubirVideoLibrary($id_user, $nombre, $archivo_video, $archivo_imagen) {
 
 		$insert = false;
 		$r=array();	
+		$ruta = getcwd();
+		//$aRuta = explode("public", $ruta);
+		$aRuta = explode("api", $ruta);
 
-		$target_dir = "app/Uploads/videos/";
-		$nombre_video = $this->getString($data["id_user"]).".mp4";
+		$target_dir = $aRuta[0]."app/Uploads/videos/";
+		$target_dir_imagen = $aRuta[0]."app/Uploads/images/";
+		$nombre_archivos = $this->getString($id_user);
+		$nombre_video = $nombre_archivos.".mp4";
+		$nombre_imagen = $nombre_archivos.".jpg";
 		//$target_dir = $target_dir . basename($_FILES["uploadFile"]["name"]);
 		$target_dir = $target_dir . $nombre_video;
+		$target_dir_imagen = $target_dir_imagen . $nombre_imagen;
+		
 		//$_FILES["uploadFile"]["tmp_name"]
-		if (move_uploaded_file($archivo, $target_dir)) {
+		if (move_uploaded_file($archivo_video, $target_dir)) {
 			$this->message = "Success ".$target_dir;
 			$this->num_reg = 1;
 			$insert = true;
+			if (move_uploaded_file($archivo_imagen, $target_dir_imagen)) {
+
+			}
 		} else {
 			$this->message = "Sorry, there was an error uploading your file.";
 			$this->num_reg = 0;
 			$insert = false;
 		}
 
-		if($insert and \lib\Core::isInteger($data["id_user"])){
+		if($insert and \lib\Core::isInteger($id_user)){
 			$fecha = date("Y-m-d H:i:s");
 
 			$sql = "INSERT INTO `yr14_video` (userid, catid, v_type, name, file, btn_pos, primery_thumb, thumb,alt, description, status, shortUrl, created_date, trash_date)
 			VALUE (
-					".$data["id_user"].",0,'mp4',
-					'".$data["nombre_video"]."',
-					'',
-					'".$data["url_video"]."',
-					'".$data["url_video"]."',
-					'',
+					".$id_user.",0,'mp4',
+					'".$nombre."',
 					'".$nombre_video."',
-					'".$data["descripcion"]."',1,'',
+					'',
+					'".$nombre_imagen."',
+					'".$nombre_imagen."',
+					'Click to play video',
+					'',1,'urlcorta',
 					'".$fecha."',
 					'0000-00-00 00:00:00')";
 
 			if ($result = mysqli_query($this->db, $sql)) {
 				$idinsert = mysqli_insert_id($this->db);
-				$r = $this->getVideoinsert($id);
+				//var_dump("id: ".$idinsert);
+				$r = $this->getVideoinsert($idinsert);
 
 				$this->num_reg = 0;
 				$this->message = "Success";
@@ -140,7 +152,7 @@ class Video extends Database {
 
 		if(\lib\Core::isInteger($id)){
 
-			$sql = "SELECT * FROM `yr14_video` WHERE userid='".$id."' LIMIT 1";
+			$sql = "SELECT * FROM `yr14_video` WHERE id = '".$id."' LIMIT 1";
 
 			if ($result = mysqli_query($this->db, $sql)) {
 

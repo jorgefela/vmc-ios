@@ -56,24 +56,28 @@ $app->get('/user/:id_user/videos/from/:from/to/:to','authenticate', function ($i
 
 });
 
-$app->get('/video/upload','authenticate', function () use ($app) {
+$app->post('/video/upload','authenticate', function () use ($app) {
 
-  $data = $app->request()->post();
-
-  $app->contentType('application/json');
   $ob = new models\Video();
 
-  if(!empty($data["id_user"]) && isInteger($data["id_user"]) ){
+$file_video = $_FILES['archivo_video']['tmp_name'];
+$file_imagen = $_FILES['archivo_imagen']['tmp_name'];
 
-      
-      $data = $ob->getVideoLibrary($id_user);
+  if(!empty($app->request()->post("id_user")) && isInteger($app->request()->post("id_user")) ){
+
+      $app->contentType('application/json');
+      $data = $ob->SubirVideoLibrary($app->request()->post("id_user"),
+                                     $app->request()->post("nombre_video"),
+                                     $_FILES['archivo_video']['tmp_name'],
+                                     $_FILES['archivo_imagen']['tmp_name']
+                                     );
       $rows = $ob->num_reg;
       $message = $ob->message;
       echo '{"reponse": "1", "rows": '.$rows.', "result": '.json_encode($data).', "message":"'.$message.'"}';
       //echo '{"reponse": "1", "result": '.json_encode($data).', "message":""}';
 
   }else{
-
+$app->contentType('application/json');
      $data =array();
      $rows = $ob->num_reg;
      $message = $ob->message;
