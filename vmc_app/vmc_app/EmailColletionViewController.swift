@@ -54,7 +54,7 @@ class EmailColletionViewController: UIViewController, UICollectionViewDataSource
         let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             let res = response as! NSHTTPURLResponse!
             if (res.statusCode >= 200 && res.statusCode < 300) {
-                if error != nil{print("hola" + (error?.localizedDescription)!)}
+                if error != nil{print(error?.localizedDescription)}
                 do{
                     if let dictionary_result = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {()in

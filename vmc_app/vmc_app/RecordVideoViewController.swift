@@ -32,6 +32,21 @@ class RecordVideoViewController: UIViewController, UIImagePickerControllerDelega
      
         if (UIImagePickerController.isSourceTypeAvailable(.Camera)) {
             if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
+                let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                let idUser:Int = prefs.integerForKey("IDUSER") as Int
+                let keyServer:String = (prefs.valueForKey("KEY") as? String)!
+                let url_path: String = mainInstance.urlBase + "video/upload"
+                print("\(idUser) \(url_path) \(keyServer)")
+                // ruta via post
+                // variables a enviar:
+                // { id_user }
+                // { nombre_video }
+                // { archivo_video }
+                // { archivo_imagen }
+                
+                /*
+                 la imagen debe ser generada a partir del video
+                 */
              
                 imagePicker.sourceType = .Camera
                 imagePicker.mediaTypes = [kUTTypeMovie as String]
