@@ -191,7 +191,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         print("error data")
         self.tituloMsg = "Error!"
         self.mesnsajeMsg = "No data"
-        let triggerTime2 = (Int64(NSEC_PER_SEC) * 1)
+        let triggerTime2 = (Int64(NSEC_PER_SEC) * 2)
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime2), dispatch_get_main_queue(), { () -> Void in FuncGlobal().alert(self.tituloMsg, info: self.mesnsajeMsg, btnTxt: "OK", viewController: self)
         })
     }

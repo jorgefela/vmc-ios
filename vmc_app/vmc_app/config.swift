@@ -21,12 +21,14 @@ class Main {
     }
 }
 var mainInstance = Main(
-    urlb:"http://localhost/vmc-ios/webservice/slim_app/", // url base
+    //urlb:"http://localhost/vmc-ios/webservice/slim_app/", // url base
     //urlb:"http://192.168.0.100/slim_app/", // url base
-    //urlb:"http://vmctechnology.com/api/v1/", // url base produccion
+    urlb:"http://vmctechnology.com/api/v1/", // url base produccion
     color: 1252671, //color para el navigation controller 1649746 0x0A1429 1252671
     uImages: "https://www.vmctechnology.com/app/Uploads/images/",
     uImagePerfil: "https://www.vmctechnology.com/app/Uploads/user/",
     uImagePreviewEmail: "https://www.vmctechnology.com/app/Emails/mail-img/"
 )
 //var mainInstance = Main(urlb:"http://localhost:8888/vmc-ios/webservice/slim_app/")
+//ruta por defecto imagen video
+//https://www.vmctechnology.com/app/Uploads/images/5db9b2f26cf021083bcc56008d0c2203-Y-play_button-overlay.png

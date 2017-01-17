@@ -153,10 +153,13 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:CustomImagenVideo = self.TableViewVideo.dequeueReusableCellWithIdentifier("imgenVideoThm")! as! CustomImagenVideo
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            var urlBase = "https://www.vmctechnology.com/app/Uploads/images/"
+            var urlBase = "https://www.vmctechnology.com/app/Uploads/images/5db9b2f26cf021083bcc56008d0c2203-Y-play_button-overlay.png"
             if "youtube" == self.ListTipoUrlVideos[indexPath.row] {
                 urlBase = "\(self.ListThumbVideos[indexPath.row])"
             }else{
+                if self.ListThumbVideos[indexPath.row].isEmpty {
+                    urlBase = "https://www.vmctechnology.com/app/Uploads/images/5db9b2f26cf021083bcc56008d0c2203-Y-play_button-overlay.png"
+                }
                 urlBase = "https://www.vmctechnology.com/app/Uploads/images/\(self.ListThumbVideos[indexPath.row])"
             }
             urlBase = urlBase.convertirEspaciosGet()
@@ -165,7 +168,7 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
             //cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: self.ListThumbVideos[indexPath.row])!, placeholderImage: nil, optionsInfo: [.ForceRefresh])
             //cell.ImageVideoThumb.kf_setImageWithResource(resource)
             if urlBase.isEmpty {
-                urlBase = "https://www.vmctechnology.com/app/Uploads/images/"
+                urlBase = "https://www.vmctechnology.com/app/Uploads/images/5db9b2f26cf021083bcc56008d0c2203-Y-play_button-overlay.png"
             }
             /*cell.ImageVideoThumb.kf_setImageWithURL(NSURL(string: urlBase)!,
                 placeholderImage: nil,
