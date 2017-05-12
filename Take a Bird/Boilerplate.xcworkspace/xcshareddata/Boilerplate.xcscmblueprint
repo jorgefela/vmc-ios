@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A80153585366FBB0D96CDC2728073680A3D2E879",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6FFFBD103B1794ED014ADDB22CA21C2EDBFA9F37" : 9223372036854775807,
+    "A80153585366FBB0D96CDC2728073680A3D2E879" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FFFCB8CE-1373-451A-9610-A173FD52965B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6FFFBD103B1794ED014ADDB22CA21C2EDBFA9F37" : "",
+    "A80153585366FBB0D96CDC2728073680A3D2E879" : "Boilerplate_iOS_VIPER\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Boilerplate",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Boilerplate.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:CheesecakeLabs\/CKLApp-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FFFBD103B1794ED014ADDB22CA21C2EDBFA9F37"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CheesecakeLabs\/Boilerplate_iOS_VIPER.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A80153585366FBB0D96CDC2728073680A3D2E879"
+    }
+  ]
+}
