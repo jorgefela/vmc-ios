@@ -90,8 +90,10 @@ class Video extends Database {
 			$this->message = "Success ".$target_dir;
 			$this->num_reg = 1;
 			$insert = true;
-			if (move_uploaded_file($archivo_imagen, $target_dir_imagen)) {
+			if (@move_uploaded_file($archivo_imagen, $target_dir_imagen)) {
 
+			}else{
+				$nombre_imagen = "5db9b2f26cf021083bcc56008d0c2203-Y-play_button-overlay.png";
 			}
 		} else {
 			$this->message = "Sorry, there was an error uploading your file.";

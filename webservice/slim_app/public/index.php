@@ -9,7 +9,7 @@ require '../config.php';
 
 
 $app = new \Slim\Slim(array(
-    'debug' => false,
+    'debug' => true,
 ));
 
 // Automatically load router files
