@@ -22,6 +22,12 @@ class MainBaseViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var txtEmail: UITextField!
+    
+    @IBOutlet weak var txtPasword: UITextField!
+    
+    @IBOutlet weak var btnLogIn: UIButton!
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -42,15 +48,26 @@ class MainBaseViewController: BaseViewController {
     
     // MARK: IBActions
     
-    @IBAction func onDoSomethinClicked() {
-        print("aqui si presione")
-        presenter?.doSomething()
+    @IBAction func funcbtnLogIn() {
+        
+        presenter?.pLogIn()
     }
+    
+
+    @IBAction func funcBtnRegister(_ sender: UIButton) {
+        print("cargando vista regiester")
+        presenter?.pRegister()
+    }
+    
     
     // MARK: Private
     
     private func setupView() {
-        // TODO: Setup view here
+        
+        setupBotonLogIn()
+        
+        setupInputsBase()
+        
     }
     
     func moveToNextField(_ view: UIView, nextFieldTag: Int) {
@@ -59,7 +76,7 @@ class MainBaseViewController: BaseViewController {
             nextResponder?.becomeFirstResponder()
         } else {
             view.resignFirstResponder()
-            onDoSomethinClicked()
+            funcbtnLogIn()
         }
     }
     
@@ -97,6 +114,27 @@ class MainBaseViewController: BaseViewController {
 
 extension  MainBaseViewController: MainBaseView {
     
-    //TODO: Implement MainSearchView methods here
+    //TODO: Implementar métodos MainBaseView aquí
+    
+    func setupBotonLogIn(){
+        // TODO: Color de borde bonton
+        btnLogIn.backgroundColor = .clear
+        btnLogIn.layer.cornerRadius = 2
+        btnLogIn.layer.borderWidth = 1
+        let verdeManzana : UIColor = UIColor.verdeManzana
+        btnLogIn.layer.borderColor = verdeManzana.cgColor
+    }
+    
+    func setupInputsBase(){
+        // TODO: Estilo Inputs Login
+        // transparencia de bordes
+        txtEmail.backgroundColor = UIColor.white.withAlphaComponent(0.0000001)
+        txtPasword.backgroundColor = UIColor.white.withAlphaComponent(0.0000001)
+        // Color de texto
+        txtEmail.font = UIFont(name: "HelveticaNeue", size: 17)!
+        txtPasword.font = UIFont(name: "HelveticaNeue", size: 17)!
+        txtPasword.textColor = UIColor.white
+        txtEmail.textColor = UIColor.white
+    }
     
 }

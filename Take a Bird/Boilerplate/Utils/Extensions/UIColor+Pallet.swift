@@ -52,4 +52,7 @@ extension UIColor {
     static var bubbleGum: UIColor {
         return UIColor("#fb70bf")
     }
+    static var verdeManzana: UIColor {
+        return UIColor("#00FFCF")
+    }
 }

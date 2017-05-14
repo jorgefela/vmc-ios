@@ -14,7 +14,8 @@ protocol MainBaseView: BaseView {
 }
 
 protocol MainBasePresentation: class {
-    func doSomething()
+    func pLogIn()
+    func pRegister()
 }
 
 protocol MainBaseUseCase: class {

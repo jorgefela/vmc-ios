@@ -18,12 +18,15 @@ class MainBasePresenter {
 
 extension MainBasePresenter: MainBasePresentation {
     
-    func doSomething() {
+    //TODO: Implementar otros métodos de presenter->view aqui
+    func pLogIn() {
         print("te encontre")
-        view?.showMessage("I'm doing something!!", withTitle: "Hey")
+        view?.showMessage("Perfecto!!", withTitle: "Aqui")
     }
     
-    //TODO: Implementar otros métodos de presenter->view aqui
+    func pRegister(){
+        print("register en presente")
+    }
     
 }
 
