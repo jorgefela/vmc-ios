@@ -28,29 +28,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="E4z-Rj-Cbd">
-                                        <rect key="frame" x="95" y="63" width="185" height="185"/>
+                                        <rect key="frame" x="113" y="36" width="149" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="185" id="apn-wX-JQb"/>
-                                            <constraint firstAttribute="width" constant="185" id="vfR-wz-he1"/>
+                                            <constraint firstAttribute="height" constant="128" id="apn-wX-JQb"/>
+                                            <constraint firstAttribute="width" constant="149" id="vfR-wz-he1"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6x-1V-hKC">
-                                        <rect key="frame" x="113" y="201" width="150" height="47"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="47" id="aWF-wg-yn8"/>
-                                            <constraint firstAttribute="width" constant="150" id="len-6h-vdW"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Take a Bird">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="28" name="Arial-BoldItalicMT"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNC-2h-X2r">
                                         <rect key="frame" x="24" y="368" width="78" height="25"/>
                                         <constraints>
@@ -127,6 +110,22 @@
                                             <action selector="funcBtnRegister:" destination="vhB-EU-8XX" eventType="touchUpInside" id="J8o-6W-LWy"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlY-l6-uh9">
+                                        <rect key="frame" x="24" y="415" width="78" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="78" id="82p-ax-73s"/>
+                                            <constraint firstAttribute="height" constant="25" id="wsz-ip-VY1"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Password">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.86107512953367871" green="0.86107512953367871" blue="0.86107512953367871" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="18" name="Avenir-Medium"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKY-nx-RT8">
                                         <rect key="frame" x="108" y="365" width="243" height="30"/>
                                         <nil key="textColor"/>
@@ -165,17 +164,18 @@
                                             <constraint firstAttribute="height" constant="1" id="IcG-l8-3gF"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlY-l6-uh9">
-                                        <rect key="frame" x="24" y="415" width="78" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6x-1V-hKC">
+                                        <rect key="frame" x="113" y="139" width="150" height="47"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="78" id="82p-ax-73s"/>
-                                            <constraint firstAttribute="height" constant="25" id="wsz-ip-VY1"/>
+                                            <constraint firstAttribute="height" constant="47" id="aWF-wg-yn8"/>
+                                            <constraint firstAttribute="width" constant="150" id="len-6h-vdW"/>
                                         </constraints>
                                         <attributedString key="attributedText">
-                                            <fragment content="Password">
+                                            <fragment content="Take a Bird">
                                                 <attributes>
-                                                    <color key="NSColor" red="0.86107512953367871" green="0.86107512953367871" blue="0.86107512953367871" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <font key="NSFont" size="18" name="Avenir-Medium"/>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="28" name="Arial-BoldItalicMT"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -196,7 +196,7 @@
                                     <constraint firstItem="ftC-tF-iaq" firstAttribute="top" secondItem="N6A-sy-SOa" secondAttribute="bottom" id="fSn-WS-MYc"/>
                                     <constraint firstItem="WlY-l6-uh9" firstAttribute="centerY" secondItem="N6A-sy-SOa" secondAttribute="centerY" id="jT7-M3-pzZ"/>
                                     <constraint firstItem="RXH-qG-BOs" firstAttribute="top" secondItem="ftC-tF-iaq" secondAttribute="bottom" constant="37" id="kOp-g1-agp"/>
-                                    <constraint firstItem="Z6x-1V-hKC" firstAttribute="top" secondItem="E4z-Rj-Cbd" secondAttribute="bottom" constant="-47" id="tv5-F8-32K"/>
+                                    <constraint firstItem="Z6x-1V-hKC" firstAttribute="top" secondItem="E4z-Rj-Cbd" secondAttribute="bottom" constant="-25" id="tv5-F8-32K"/>
                                     <constraint firstAttribute="trailing" secondItem="DTG-Sl-hme" secondAttribute="trailing" constant="24" id="w26-tj-Qx5"/>
                                 </constraints>
                             </scrollView>
@@ -210,7 +210,7 @@
                             <constraint firstItem="8X9-IJ-AsJ" firstAttribute="top" secondItem="vWX-3x-405" secondAttribute="top" id="3s0-NG-RSn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ftC-tF-iaq" secondAttribute="trailing" constant="8" id="7AW-Er-7SM"/>
                             <constraint firstItem="DTG-Sl-hme" firstAttribute="leading" secondItem="AQJ-e1-ioB" secondAttribute="leadingMargin" constant="8" id="7ER-UL-Evk"/>
-                            <constraint firstItem="E4z-Rj-Cbd" firstAttribute="top" secondItem="7hV-4f-UiB" secondAttribute="bottom" constant="43" id="8uS-UX-Mvs"/>
+                            <constraint firstItem="E4z-Rj-Cbd" firstAttribute="top" secondItem="7hV-4f-UiB" secondAttribute="bottom" constant="16" id="8uS-UX-Mvs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dKY-nx-RT8" secondAttribute="trailing" constant="8" id="AVb-IP-KVj"/>
                             <constraint firstItem="RXH-qG-BOs" firstAttribute="leading" secondItem="AQJ-e1-ioB" secondAttribute="leadingMargin" constant="8" id="Bus-Jq-bC6"/>
                             <constraint firstItem="vWX-3x-405" firstAttribute="leading" secondItem="AQJ-e1-ioB" secondAttribute="leading" id="H7x-QM-3MX"/>

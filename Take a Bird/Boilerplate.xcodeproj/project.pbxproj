@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1215490B1EC90C1300836312 /* RegistroContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215490A1EC90C1300836312 /* RegistroContract.swift */; };
+		1215490D1EC90C6D00836312 /* RegistroInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1215490C1EC90C6D00836312 /* RegistroInteractor.swift */; };
+		124EE3561EC8FB0500290D01 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EE3551EC8FB0500290D01 /* RegistroViewController.swift */; };
+		124EE3581EC8FB6B00290D01 /* RegistroPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EE3571EC8FB6B00290D01 /* RegistroPresenter.swift */; };
+		124EE35D1EC8FCC200290D01 /* RegistroRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124EE35C1EC8FCC200290D01 /* RegistroRouter.swift */; };
+		124EE35F1EC8FD7500290D01 /* RegistroStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124EE35E1EC8FD7500290D01 /* RegistroStoryboard.storyboard */; };
 		12A1512A1EC6554500D86C88 /* MainBaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A151291EC6554500D86C88 /* MainBaseContract.swift */; };
 		12A1512E1EC65B0400D86C88 /* MainBaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A1512D1EC65B0400D86C88 /* MainBaseInteractor.swift */; };
 		12A151301EC65B6C00D86C88 /* MainBaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A1512F1EC65B6C00D86C88 /* MainBaseRouter.swift */; };
@@ -74,6 +80,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1215490A1EC90C1300836312 /* RegistroContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistroContract.swift; path = Registro/Contract/RegistroContract.swift; sourceTree = "<group>"; };
+		1215490C1EC90C6D00836312 /* RegistroInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistroInteractor.swift; path = Registro/Interactor/RegistroInteractor.swift; sourceTree = "<group>"; };
+		124EE3551EC8FB0500290D01 /* RegistroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistroViewController.swift; path = Registro/View/RegistroViewController.swift; sourceTree = "<group>"; };
+		124EE3571EC8FB6B00290D01 /* RegistroPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistroPresenter.swift; path = Registro/Presenter/RegistroPresenter.swift; sourceTree = "<group>"; };
+		124EE35C1EC8FCC200290D01 /* RegistroRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistroRouter.swift; path = Registro/Router/RegistroRouter.swift; sourceTree = "<group>"; };
+		124EE35E1EC8FD7500290D01 /* RegistroStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = RegistroStoryboard.storyboard; path = Registro/View/RegistroStoryboard.storyboard; sourceTree = "<group>"; };
 		12A151291EC6554500D86C88 /* MainBaseContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBaseContract.swift; path = Contract/MainBaseContract.swift; sourceTree = "<group>"; };
 		12A1512D1EC65B0400D86C88 /* MainBaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBaseInteractor.swift; path = Interactor/MainBaseInteractor.swift; sourceTree = "<group>"; };
 		12A1512F1EC65B6C00D86C88 /* MainBaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBaseRouter.swift; path = Router/MainBaseRouter.swift; sourceTree = "<group>"; };
@@ -145,6 +157,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		124EE3501EC8F11F00290D01 /* Registro */ = {
+			isa = PBXGroup;
+			children = (
+				124EE3591EC8FC4000290D01 /* Contract */,
+				124EE3541EC8FA3C00290D01 /* Router */,
+				124EE3531EC8FA3300290D01 /* Interactor */,
+				124EE3521EC8FA1F00290D01 /* Presenter */,
+				124EE3511EC8FA1000290D01 /* View */,
+			);
+			name = Registro;
+			sourceTree = "<group>";
+		};
+		124EE3511EC8FA1000290D01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				124EE3551EC8FB0500290D01 /* RegistroViewController.swift */,
+				124EE35E1EC8FD7500290D01 /* RegistroStoryboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		124EE3521EC8FA1F00290D01 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				124EE3571EC8FB6B00290D01 /* RegistroPresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		124EE3531EC8FA3300290D01 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1215490C1EC90C6D00836312 /* RegistroInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		124EE3541EC8FA3C00290D01 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				124EE35C1EC8FCC200290D01 /* RegistroRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		124EE3591EC8FC4000290D01 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				1215490A1EC90C1300836312 /* RegistroContract.swift */,
+			);
+			name = Contract;
+			sourceTree = "<group>";
+		};
 		331185DF1E946D1000624CC6 /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,6 +533,7 @@
 		33E031C5C8BB899C8D6BE189 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				124EE3501EC8F11F00290D01 /* Registro */,
 				3322887B1DD28241001042CE /* Base */,
 				33BE59931E36CB00000661F6 /* MainBase */,
 			);
@@ -593,6 +659,7 @@
 				33CAF4D91DD75BDD00465298 /* LaunchScreen.storyboard in Resources */,
 				33CAF4D41DD75AF600465298 /* Localizable.strings in Resources */,
 				33EFA4081E0C5394009B2703 /* PlainButtonCell.xib in Resources */,
+				124EE35F1EC8FD7500290D01 /* RegistroStoryboard.storyboard in Resources */,
 				12A151361EC65CB900D86C88 /* MainBaseStoryboard.storyboard in Resources */,
 				337EB0771DD39BCB00733F9C /* SanFranciscoText-Medium.otf in Resources */,
 				33B53F251DD0ECD500462C66 /* (null) in Resources */,
@@ -683,6 +750,7 @@
 				3328AE651DF9ED590067C544 /* ReusableView.swift in Sources */,
 				12A1512A1EC6554500D86C88 /* MainBaseContract.swift in Sources */,
 				3322885F1DD26B3C001042CE /* Constants.swift in Sources */,
+				1215490B1EC90C1300836312 /* RegistroContract.swift in Sources */,
 				12A151301EC65B6C00D86C88 /* MainBaseRouter.swift in Sources */,
 				3369D0C41DD91F0A0026BCBF /* ValidableUILabel.swift in Sources */,
 				3328AE631DF9ECF50067C544 /* UITableView.swift in Sources */,
@@ -691,6 +759,9 @@
 				331185E11E946D2D00624CC6 /* Product.swift in Sources */,
 				33E44BAE1DE6052F006F6379 /* UIImage+Icons.swift in Sources */,
 				333EAC1E1DE63B6F001E573E /* SimpleCircle.swift in Sources */,
+				124EE3581EC8FB6B00290D01 /* RegistroPresenter.swift in Sources */,
+				1215490D1EC90C6D00836312 /* RegistroInteractor.swift in Sources */,
+				124EE3561EC8FB0500290D01 /* RegistroViewController.swift in Sources */,
 				331185DE1E946C8600624CC6 /* ProfileApiDataManager.swift in Sources */,
 				33973E9A1DD5175C0044DBDF /* RoundedTextField.swift in Sources */,
 				3328AE5F1DF9DB1D0067C544 /* NibLoadableView.swift in Sources */,
@@ -698,6 +769,7 @@
 				33B2581B1E08679100A006D7 /* SectionHeaderLabelCell.swift in Sources */,
 				331185DC1E946BBD00624CC6 /* ProfileLocalDataManager.swift in Sources */,
 				12A151341EC65C5200D86C88 /* MainBaseViewController.swift in Sources */,
+				124EE35D1EC8FCC200290D01 /* RegistroRouter.swift in Sources */,
 				3322885D1DD26AAF001042CE /* UIFont+Utils.swift in Sources */,
 				332F1C871DD33A790080B38D /* AppDelegate.swift in Sources */,
 				3323C49A1DFB1E8700C134BC /* UIAlertController.swift in Sources */,

@@ -43,11 +43,17 @@ class MainBaseRouter {
 
 extension MainBaseRouter: MainBaseWireframe {
     // TODO: Implement wireframe methods
-    /*
-    func presentRegister(forArticle article: Article) {
-        let registerModuleViewController = DetailsRouter.assembleModule(article)
-        viewController?.navigationController?.pushViewController(detailsModuleViewController, animated: true)
+    
+    func presentRegister() {
+        print("estoyy")
+        //let mainBaseViewController = RegistroRouter.setupModule()
+        //let mainBaseViewController = PruebaRouter.setupModule()
+        //print(mainBaseViewController)
+        //presentView(mainBaseViewController)
+        
+        //let registerModuleViewController = RegisterUserRouter.setupModule()
+        //viewController?.navigationController?.pushViewController(registerModuleViewController, animated: true)
     }
- */
+ 
 }
 

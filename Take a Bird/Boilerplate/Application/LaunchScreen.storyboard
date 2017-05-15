@@ -30,7 +30,7 @@
                                     <fragment content="Take a Bird">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="48" name="Arial-BoldItalicMT"/>
+                                            <font key="NSFont" size="24" name="Arial-BoldItalicMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

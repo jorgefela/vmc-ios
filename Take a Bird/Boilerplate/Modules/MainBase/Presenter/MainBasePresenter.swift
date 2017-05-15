@@ -7,7 +7,7 @@
 //
 
 class MainBasePresenter {
-    
+     
     // MARK: Properties
     
     weak var view: MainBaseView?
@@ -21,11 +21,12 @@ extension MainBasePresenter: MainBasePresentation {
     //TODO: Implementar otros métodos de presenter->view aqui
     func pLogIn() {
         print("te encontre")
-        view?.showMessage("Perfecto!!", withTitle: "Aqui")
+       // view?.showMessage("Perfecto!!", withTitle: "Aqui")
     }
     
     func pRegister(){
-        print("register en presente")
+        // llamo a la vista de registro
+        router?.presentRegister()
     }
     
 }

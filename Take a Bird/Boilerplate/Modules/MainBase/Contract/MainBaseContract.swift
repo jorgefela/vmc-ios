@@ -14,6 +14,7 @@ protocol MainBaseView: BaseView {
 }
 
 protocol MainBasePresentation: class {
+    
     func pLogIn()
     func pRegister()
 }
@@ -27,6 +28,8 @@ protocol MainBaseInteractorOutput: class {
 }
 
 protocol MainBaseWireframe: class {
+    
+    func presentRegister()
     
 }
 
