@@ -22,18 +22,13 @@ class RegistroViewController: BaseViewController {
     
     @IBOutlet weak var txtSegundoNombre: UITextField!
     
-    
     @IBOutlet weak var txtEmail: UITextField!
-    
     
     @IBOutlet weak var txtTelefono: UITextField!
     
-    
     @IBOutlet weak var txtPassword: UITextField!
     
-    
     @IBOutlet weak var txtRepetirPassword: UITextField!
-    
     
     @IBOutlet weak var btnRegistrar: UIButton!
     
@@ -54,19 +49,21 @@ class RegistroViewController: BaseViewController {
     
     // MARK: Private
     private func setupView() {
-        print("cargue setup registro")
+        
         setupBotonLogIn()
         
         setupInputsBase()
         
     }
     
+    // MARK: IBActions
 
     @IBAction func funcBtnRegistrar(_ sender: UIButton) {
     }
     
     
     @IBAction func funcLogin(_ sender: UIButton) {
+        presenter?.pLogin()
     }
     
     

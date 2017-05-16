@@ -26,7 +26,12 @@ class RegistroPresenter {
 extension RegistroPresenter: RegistroPresentation {
     // TODO: implement presentation methods
     func pRegistrarUsuario(){
-        print("registrando usuario")
+        print("registrando usuario a la api")
+    }
+    
+    func pLogin(){
+        // llamo a la vista de login
+        router?.presentMainBaser()
     }
     
     

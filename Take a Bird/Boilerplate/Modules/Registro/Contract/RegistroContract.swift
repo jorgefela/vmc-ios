@@ -16,6 +16,7 @@ protocol RegistroView: BaseView {
 protocol RegistroPresentation: class {
     // TODO: Declare presentation methods
     func pRegistrarUsuario()
+    func pLogin()
 }
 
 protocol RegistroUseCase: class {
@@ -28,6 +29,5 @@ protocol RegistroInteractorOutput: class {
 
 protocol RegistroWireframe: class {
     // TODO: Declare wireframe methods
-    //conexion entre modulos
-    //static func setupModule() -> RegistroViewController
+    func presentMainBaser()
 }

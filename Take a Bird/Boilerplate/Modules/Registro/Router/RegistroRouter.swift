@@ -42,4 +42,10 @@ class RegistroRouter {
 
 extension RegistroRouter: RegistroWireframe {
     // TODO: Implement wireframe methods
+    func presentMainBaser() {
+        
+        let window :UIWindow = UIApplication.shared.keyWindow!
+        let rootRouter = RootRouter()
+        rootRouter.presentFirstScreen(inWindow: window)
+    }
 }

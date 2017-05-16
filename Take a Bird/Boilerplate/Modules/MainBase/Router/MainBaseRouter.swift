@@ -44,17 +44,26 @@ extension MainBaseRouter: MainBaseWireframe {
     // TODO: Implement wireframe methods
     
     func presentRegister() {
-        let window :UIWindow = UIApplication.shared.keyWindow!
-        print("estoyy")
-        //let mainBaseViewController = RegistroRouter.setupModule()
-        //print(mainBaseViewController)
-        //presentView(mainBaseViewController)
         
-        //let registerModuleViewController = RegisterUserRouter.setupModule()
-        //viewController?.navigationController?.pushViewController(registerModuleViewController, animated: true)
+       /* let window :UIWindow = UIApplication.shared.keyWindow!
+        print("estoyy")
+       
         
         let rootRouter = RootRouter()
         rootRouter.presentRegisterScreen(inWindow: window)
+ */
+        
+        /*let targetStoryboard = UIStoryboard(name: RegistroViewController.storyboardName, bundle: nil)
+        
+        let targetViewController: RegistroViewController = targetStoryboard.instantiateViewController(withIdentifier: RegistroViewController.storyboardName) as! RegistroViewController
+        let mainBaseViewController = RegistroRouter.setupModule()
+ */
+        //print(mainBaseViewController)
+        //presentView(mainBaseViewController)
+        //presentViewController(mainBaseViewController, animated: false, completion: nil)
+        //self.showViewController(mainBaseViewController, sender: self)
+        //let registerModuleViewController = RegisterUserRouter.setupModule()
+        //viewController?.navigationController?.pushViewController(registerModuleViewController, animated: true)
     }
     
  
