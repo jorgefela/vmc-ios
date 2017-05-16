@@ -17,6 +17,9 @@ class RegistroPresenter {
     weak var view: RegistroView?
     var router: RegistroWireframe?
     var interactor: RegistroUseCase?
+    
+    
+    
 }
 
 
@@ -25,9 +28,13 @@ extension RegistroPresenter: RegistroPresentation {
     func pRegistrarUsuario(){
         print("registrando usuario")
     }
+    
+    
 }
 
 
 extension RegistroPresenter: RegistroInteractorOutput {
     // TODO: implement interactor output methods
 }
+
+

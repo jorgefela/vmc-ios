@@ -19,14 +19,18 @@ class RootRouter: NSObject {
     func presentFirstScreen(inWindow window: UIWindow) {
         presentMainBaseScreen()
     }
-    /*
-    private func presentMainSearchScreen() {
-        let mainSearchViewController = MainSearchRouter.setupModule()
-        presentView(mainSearchViewController)
-    }*/
+    func presentRegisterScreen(inWindow window: UIWindow) {
+        presentMainRegisterScreen()
+    }
     
     private func presentMainBaseScreen() {
         let mainBaseViewController = MainBaseRouter.setupModule()
+        presentView(mainBaseViewController)
+    }
+    
+    private func presentMainRegisterScreen() {
+        print("entre aqui*****")
+        let mainBaseViewController = RegistroRouter.setupModule()
         presentView(mainBaseViewController)
     }
     

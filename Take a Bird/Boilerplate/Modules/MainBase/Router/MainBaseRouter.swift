@@ -20,7 +20,6 @@ class MainBaseRouter {
     static func setupModule() -> MainBaseViewController {
         
         let viewController = UIStoryboard(name: MainBaseViewController.storyboardName, bundle: nil).instantiateViewController() as MainBaseViewController
-        
         let presenter = MainBasePresenter()
         let router = MainBaseRouter()
         let interactor = MainBaseInteractor()
@@ -45,15 +44,20 @@ extension MainBaseRouter: MainBaseWireframe {
     // TODO: Implement wireframe methods
     
     func presentRegister() {
+        let window :UIWindow = UIApplication.shared.keyWindow!
         print("estoyy")
         //let mainBaseViewController = RegistroRouter.setupModule()
-        //let mainBaseViewController = PruebaRouter.setupModule()
         //print(mainBaseViewController)
         //presentView(mainBaseViewController)
         
         //let registerModuleViewController = RegisterUserRouter.setupModule()
         //viewController?.navigationController?.pushViewController(registerModuleViewController, animated: true)
+        
+        let rootRouter = RootRouter()
+        rootRouter.presentRegisterScreen(inWindow: window)
     }
+    
+ 
  
 }
 

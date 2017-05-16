@@ -19,38 +19,20 @@ class RegistroRouter {
     
     static func setupModule() -> RegistroViewController {
         
-        //MainBaseViewController.storyboardName
-        //RegistroViewController.storyboardName
-        
-        //let viewController:RegistroViewController = UIStoryboard(name: "RegistroStoryboard").instantiateViewController() as! RegistroViewController
-        //let viewController = UIStoryboard(name: RegistroViewController.storyboardName, bundle: nil).instantiateViewController() as RegistroViewController
-        
-        //let storyBoard = UIStoryboard(name: MainBaseViewController.storyboardName, bundle: nil)
-        
-        //Here instantiate view controller with the storyboard instance,
-        //Before that create a storyboardId for the corresponding view controller.
-        //let viewController = storyBoard.instantiateViewController(withIdentifier: RegistroViewController.storyboardName) as! RegistroViewController
-        
-        let storyboard = UIStoryboard(name: MainBaseViewController.storyboardName, bundle: nil)
-        // 'storyboardName' contains "Main_iPhone"
-        //let storyboardName : String = storyboard.value(forKey: RegistroViewController.storyboardName) as! String
-        
-        let viewController = storyboard.instantiateViewController(withIdentifier: RegistroViewController.storyboardName) as! RegistroViewController
-        
-      
-        
+        var mainView: UIStoryboard!
+        mainView = UIStoryboard(name: RegistroViewController.storyboardName, bundle: nil)
+        let viewController : RegistroViewController = mainView.instantiateViewController(withIdentifier: RegistroViewController.storyboardName) as! RegistroViewController
         let presenter = RegistroPresenter()
         let router = RegistroRouter()
         let interactor = RegistroInteractor()
         
         viewController.presenter =  presenter
         
-        presenter.view = (viewController  as! RegistroView)
+        presenter.view = viewController as? RegistroView
         presenter.router = router
         presenter.interactor = interactor
         
         router.view = viewController
-        
         interactor.output = presenter
         
         return viewController
