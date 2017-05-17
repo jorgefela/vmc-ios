@@ -19,6 +19,12 @@
 		12A151321EC65BE300D86C88 /* MainBasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A151311EC65BE300D86C88 /* MainBasePresenter.swift */; };
 		12A151341EC65C5200D86C88 /* MainBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A151331EC65C5200D86C88 /* MainBaseViewController.swift */; };
 		12A151361EC65CB900D86C88 /* MainBaseStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12A151351EC65CB900D86C88 /* MainBaseStoryboard.storyboard */; };
+		12B21AC21ECC8ED3009774A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B21AC11ECC8ED3009774A1 /* HomeViewController.swift */; };
+		12B21AC41ECC8FCB009774A1 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B21AC31ECC8FCB009774A1 /* HomeRouter.swift */; };
+		12B21AC61ECC90A5009774A1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B21AC51ECC90A5009774A1 /* HomePresenter.swift */; };
+		12B21AC81ECC913A009774A1 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B21AC71ECC9139009774A1 /* HomeInteractor.swift */; };
+		12B21ACA1ECC9193009774A1 /* HomeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B21AC91ECC9193009774A1 /* HomeContract.swift */; };
+		12B21ACC1ECC934C009774A1 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12B21ACB1ECC934C009774A1 /* HomeStoryboard.storyboard */; };
 		331185DC1E946BBD00624CC6 /* ProfileLocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331185DB1E946BBD00624CC6 /* ProfileLocalDataManager.swift */; };
 		331185DE1E946C8600624CC6 /* ProfileApiDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331185DD1E946C8600624CC6 /* ProfileApiDataManager.swift */; };
 		331185E11E946D2D00624CC6 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331185E01E946D2D00624CC6 /* Product.swift */; };
@@ -92,6 +98,12 @@
 		12A151311EC65BE300D86C88 /* MainBasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBasePresenter.swift; path = Presenter/MainBasePresenter.swift; sourceTree = "<group>"; };
 		12A151331EC65C5200D86C88 /* MainBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainBaseViewController.swift; path = View/MainBaseViewController.swift; sourceTree = "<group>"; };
 		12A151351EC65CB900D86C88 /* MainBaseStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainBaseStoryboard.storyboard; path = View/MainBaseStoryboard.storyboard; sourceTree = "<group>"; };
+		12B21AC11ECC8ED3009774A1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Home/View/HomeViewController.swift; sourceTree = "<group>"; };
+		12B21AC31ECC8FCB009774A1 /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeRouter.swift; path = Home/Router/HomeRouter.swift; sourceTree = "<group>"; };
+		12B21AC51ECC90A5009774A1 /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomePresenter.swift; path = Home/Presenter/HomePresenter.swift; sourceTree = "<group>"; };
+		12B21AC71ECC9139009774A1 /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeInteractor.swift; path = Home/Interactor/HomeInteractor.swift; sourceTree = "<group>"; };
+		12B21AC91ECC9193009774A1 /* HomeContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeContract.swift; path = Home/Contract/HomeContract.swift; sourceTree = "<group>"; };
+		12B21ACB1ECC934C009774A1 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = HomeStoryboard.storyboard; path = Home/View/HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		2772617FDE2E9467C1775557 /* Pods-Boilerplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Boilerplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Boilerplate/Pods-Boilerplate.debug.xcconfig"; sourceTree = "<group>"; };
 		331185DB1E946BBD00624CC6 /* ProfileLocalDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileLocalDataManager.swift; path = Utils/DataManagers/Local/ProfileLocalDataManager.swift; sourceTree = "<group>"; };
 		331185DD1E946C8600624CC6 /* ProfileApiDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileApiDataManager.swift; path = Utils/DataManagers/Api/ProfileApiDataManager.swift; sourceTree = "<group>"; };
@@ -208,6 +220,59 @@
 				1215490A1EC90C1300836312 /* RegistroContract.swift */,
 			);
 			name = Contract;
+			sourceTree = "<group>";
+		};
+		12B21ABB1ECC7572009774A1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC01ECC8CF8009774A1 /* View */,
+				12B21ABF1ECC8CCC009774A1 /* Router */,
+				12B21ABE1ECC75A7009774A1 /* Presenter */,
+				12B21ABD1ECC759A009774A1 /* Interactor */,
+				12B21ABC1ECC7580009774A1 /* Contract */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		12B21ABC1ECC7580009774A1 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC91ECC9193009774A1 /* HomeContract.swift */,
+			);
+			name = Contract;
+			sourceTree = "<group>";
+		};
+		12B21ABD1ECC759A009774A1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC71ECC9139009774A1 /* HomeInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		12B21ABE1ECC75A7009774A1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC51ECC90A5009774A1 /* HomePresenter.swift */,
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		12B21ABF1ECC8CCC009774A1 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC31ECC8FCB009774A1 /* HomeRouter.swift */,
+			);
+			name = Router;
+			sourceTree = "<group>";
+		};
+		12B21AC01ECC8CF8009774A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				12B21AC11ECC8ED3009774A1 /* HomeViewController.swift */,
+				12B21ACB1ECC934C009774A1 /* HomeStoryboard.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		331185DF1E946D1000624CC6 /* Product */ = {
@@ -533,6 +598,7 @@
 		33E031C5C8BB899C8D6BE189 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				12B21ABB1ECC7572009774A1 /* Home */,
 				124EE3501EC8F11F00290D01 /* Registro */,
 				3322887B1DD28241001042CE /* Base */,
 				33BE59931E36CB00000661F6 /* MainBase */,
@@ -654,6 +720,7 @@
 			files = (
 				337EB0781DD39BCB00733F9C /* SanFranciscoText-Regular.otf in Resources */,
 				337EB0761DD39BCB00733F9C /* SanFranciscoText-Light.otf in Resources */,
+				12B21ACC1ECC934C009774A1 /* HomeStoryboard.storyboard in Resources */,
 				33B2581C1E08679100A006D7 /* SectionHeaderLabelCell.xib in Resources */,
 				33D965911E946693001EDF07 /* Assets.xcassets in Resources */,
 				33CAF4D91DD75BDD00465298 /* LaunchScreen.storyboard in Resources */,
@@ -745,9 +812,11 @@
 				332F1C891DD33A790080B38D /* RootRouter.swift in Sources */,
 				33DF46191E099DCE007CB16E /* Double.swift in Sources */,
 				12A151321EC65BE300D86C88 /* MainBasePresenter.swift in Sources */,
+				12B21AC41ECC8FCB009774A1 /* HomeRouter.swift in Sources */,
 				335E2C3A1DF86472007D17D9 /* DataResponse.swift in Sources */,
 				33CAF4B41DD7340000465298 /* String.swift in Sources */,
 				3328AE651DF9ED590067C544 /* ReusableView.swift in Sources */,
+				12B21AC61ECC90A5009774A1 /* HomePresenter.swift in Sources */,
 				12A1512A1EC6554500D86C88 /* MainBaseContract.swift in Sources */,
 				3322885F1DD26B3C001042CE /* Constants.swift in Sources */,
 				1215490B1EC90C1300836312 /* RegistroContract.swift in Sources */,
@@ -763,6 +832,8 @@
 				1215490D1EC90C6D00836312 /* RegistroInteractor.swift in Sources */,
 				124EE3561EC8FB0500290D01 /* RegistroViewController.swift in Sources */,
 				331185DE1E946C8600624CC6 /* ProfileApiDataManager.swift in Sources */,
+				12B21AC21ECC8ED3009774A1 /* HomeViewController.swift in Sources */,
+				12B21ACA1ECC9193009774A1 /* HomeContract.swift in Sources */,
 				33973E9A1DD5175C0044DBDF /* RoundedTextField.swift in Sources */,
 				3328AE5F1DF9DB1D0067C544 /* NibLoadableView.swift in Sources */,
 				33EFA40A1E0C544C009B2703 /* PlainButtonCell.swift in Sources */,
@@ -772,6 +843,7 @@
 				124EE35D1EC8FCC200290D01 /* RegistroRouter.swift in Sources */,
 				3322885D1DD26AAF001042CE /* UIFont+Utils.swift in Sources */,
 				332F1C871DD33A790080B38D /* AppDelegate.swift in Sources */,
+				12B21AC81ECC913A009774A1 /* HomeInteractor.swift in Sources */,
 				3323C49A1DFB1E8700C134BC /* UIAlertController.swift in Sources */,
 				33BE59981E36CD07000661F6 /* ResponseErrors.swift in Sources */,
 				33BE59961E36CCB4000661F6 /* UserProfile.swift in Sources */,
