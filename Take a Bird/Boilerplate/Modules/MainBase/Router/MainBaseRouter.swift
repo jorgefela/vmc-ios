@@ -31,6 +31,7 @@ class MainBaseRouter {
         presenter.router = router
         presenter.interactor = interactor
         
+        
         router.view = viewController
         
         interactor.output = presenter
@@ -44,26 +45,23 @@ extension MainBaseRouter: MainBaseWireframe {
     // TODO: Implement wireframe methods
     
     func presentRegister() {
-        
-       /* let window :UIWindow = UIApplication.shared.keyWindow!
-        print("estoyy")
-       
-        
-        let rootRouter = RootRouter()
-        rootRouter.presentRegisterScreen(inWindow: window)
- */
-        
-        /*let targetStoryboard = UIStoryboard(name: RegistroViewController.storyboardName, bundle: nil)
-        
-        let targetViewController: RegistroViewController = targetStoryboard.instantiateViewController(withIdentifier: RegistroViewController.storyboardName) as! RegistroViewController
+        /*
+         let window :UIWindow = UIApplication.shared.keyWindow!
+         let rootRouter = RootRouter()
+         rootRouter.presentRegisterScreen(inWindow: window)
+         */
+        let window = UIApplication.shared.windows[0] as UIWindow
         let mainBaseViewController = RegistroRouter.setupModule()
- */
-        //print(mainBaseViewController)
-        //presentView(mainBaseViewController)
-        //presentViewController(mainBaseViewController, animated: false, completion: nil)
-        //self.showViewController(mainBaseViewController, sender: self)
-        //let registerModuleViewController = RegisterUserRouter.setupModule()
-        //viewController?.navigationController?.pushViewController(registerModuleViewController, animated: true)
+        
+        UIView.transition(
+            from: window.rootViewController!.view,
+            to: mainBaseViewController.view,
+            duration: 0.65,
+            options:  .transitionFlipFromTop,
+            completion: {
+                finished in window.rootViewController = mainBaseViewController
+        })
+        
     }
     
  
